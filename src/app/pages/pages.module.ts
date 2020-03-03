@@ -1,24 +1,30 @@
 import { NgModule } from '@angular/core';
-import { NbMenuModule } from '@nebular/theme';
+import {NbCardModule, NbMenuModule} from '@nebular/theme';
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
-import { DashboardModule } from './dashboard/dashboard.module';
-import { ECommerceModule } from './e-commerce/e-commerce.module';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
+import { BerandaComponent } from './beranda/beranda.component';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
+import {DetailBerandaComponent} from './detail-beranda/detail-beranda.component';
 
 @NgModule({
   imports: [
     PagesRoutingModule,
     ThemeModule,
     NbMenuModule,
-    DashboardModule,
-    ECommerceModule,
     MiscellaneousModule,
+    Ng2SmartTableModule,
+    NbCardModule,
   ],
   declarations: [
     PagesComponent,
+    BerandaComponent,
+    DetailBerandaComponent,
+  ],
+  entryComponents: [
+    DetailBerandaComponent,
   ],
 })
 export class PagesModule {
