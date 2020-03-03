@@ -16,8 +16,4 @@ export class DetailBerandaComponent implements ViewCell, OnInit {
   ngOnInit() {
     this.renderValue = this.value.toString();
   }
-
-  clicked(name) {
-    // console.log(name);
-  }
 }

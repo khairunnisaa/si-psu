@@ -39,7 +39,6 @@ export class BerandaComponent implements OnInit {
   };
 
   source: LocalDataSource = new LocalDataSource();
-  cell: '';
 
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
