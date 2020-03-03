@@ -26,8 +26,7 @@ export class BerandaComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          return `<a title="See Detail Product "href="Your api key or something/${row.namaSeksi}">
-          <i class="ion-edit"></i></a>`;
+          return `${row.namaSeksi}`;
       },
         renderComponent: DetailBerandaComponent,
       },

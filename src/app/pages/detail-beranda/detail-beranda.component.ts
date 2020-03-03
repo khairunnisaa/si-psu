@@ -18,6 +18,6 @@ export class DetailBerandaComponent implements ViewCell, OnInit {
   }
 
   clicked(name) {
-    console.log(name);
+    // console.log(name);
   }
 }
