@@ -6,8 +6,10 @@ import { PagesComponent } from './pages.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BerandaComponent } from './beranda/beranda.component';
-import {Ng2SmartTableModule} from 'ng2-smart-table';
-import {DetailBerandaComponent} from './detail-beranda/detail-beranda.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { DetailBerandaComponent } from './detail-beranda/detail-beranda.component';
+import { HomeComponent } from './home/home.component';
+import { KegiatanFiskComponent } from './kegiatan-fisik/kegiatan-fisik.component';
 
 @NgModule({
   imports: [
@@ -22,6 +24,8 @@ import {DetailBerandaComponent} from './detail-beranda/detail-beranda.component'
     PagesComponent,
     BerandaComponent,
     DetailBerandaComponent,
+    HomeComponent,
+    KegiatanFiskComponent,
   ],
   entryComponents: [
     DetailBerandaComponent,
