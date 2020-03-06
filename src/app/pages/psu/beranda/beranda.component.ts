@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
+import {Location} from '../../maps/search-map/entity/Location';
 
 @Component({
   selector: 'ngx-beranda',
@@ -38,6 +39,11 @@ export class BerandaComponent implements OnInit {
 
   source: LocalDataSource = new LocalDataSource();
 
+  searchedLocation: Location = new Location();
+
+  updateLocation(event: Location) {
+    this.searchedLocation = new Location(event.latitude, event.longitude);
+  }
   constructor() {
   }
 }
