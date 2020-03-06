@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
-import {SmartTableData} from '../../@core/data/smart-table';
-import {DetailBerandaComponent} from '../detail-beranda/detail-beranda.component';
 
 @Component({
   selector: 'ngx-beranda',
@@ -29,7 +27,6 @@ export class BerandaComponent implements OnInit {
           console.log("row cell == ",row, cell);
           return cell;
       },
-        renderComponent: DetailBerandaComponent,
       },
       jumlahAset: {
         title: 'Jumlah Aset',
@@ -41,8 +38,6 @@ export class BerandaComponent implements OnInit {
 
   source: LocalDataSource = new LocalDataSource();
 
-  constructor(private service: SmartTableData) {
-    const data = this.service.getData();
-    this.source.load(data);
+  constructor() {
   }
 }

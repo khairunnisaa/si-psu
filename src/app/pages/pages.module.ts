@@ -8,7 +8,6 @@ import { MiscellaneousModule } from './miscellaneous/miscellaneous.module';
 import { BerandaComponent } from './beranda/beranda.component';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { DetailBerandaComponent } from './detail-beranda/detail-beranda.component';
-import { HomeComponent } from './home/home.component';
 import { KegiatanFiskComponent } from './kegiatan-fisik/kegiatan-fisik.component';
 
 @NgModule({
@@ -24,7 +23,6 @@ import { KegiatanFiskComponent } from './kegiatan-fisik/kegiatan-fisik.component
     PagesComponent,
     BerandaComponent,
     DetailBerandaComponent,
-    HomeComponent,
     KegiatanFiskComponent,
   ],
   entryComponents: [
