@@ -1,21 +1,36 @@
 import {NgModule} from '@angular/core';
 import {PsuRoutingModule, routedComponents} from './psu-routing.module';
 import {PsuComponent} from './psu.component';
-import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan/psu-kawasan-perumahan.component';
 import { PsuKawasanPermukimanComponent } from './psu-kawasan-permukiman/psu-kawasan-permukiman.component';
-import { PertamananComponent } from './pertamanan/pertamanan.component';
+import {BerandaComponent} from './beranda/beranda.component';
+import {NbCardModule, NbTabsetModule} from '@nebular/theme';
+import { ChartModule } from 'angular2-chartjs';
+import {BerandaPieComponent} from './beranda/beranda-pie.component';
+import { NgxEchartsModule } from 'ngx-echarts';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {AgmCoreModule} from '@agm/core';
+import {MapsModule} from '../maps/maps.module';
+import {Ng2SmartTableModule} from 'ng2-smart-table';
 
 
 @NgModule({
   declarations: [
     ...routedComponents,
     PsuComponent,
-    PsuKawasanPerumahanComponent,
     PsuKawasanPermukimanComponent,
-    PertamananComponent,
+    BerandaComponent,
+    BerandaPieComponent,
   ],
   imports: [
     PsuRoutingModule,
+    NbTabsetModule,
+    NbCardModule,
+    ChartModule,
+    NgxEchartsModule,
+    NgxChartsModule,
+    AgmCoreModule,
+    MapsModule,
+    Ng2SmartTableModule,
   ],
 })
 export class PsuModule {
