@@ -8,7 +8,7 @@ describe('KegiatanFisikPetaPesebaranComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KegiatanFisikPetaPesebaranComponent ]
+      declarations: [ KegiatanFisikPetaPesebaranComponent ],
     })
     .compileComponents();
   }));

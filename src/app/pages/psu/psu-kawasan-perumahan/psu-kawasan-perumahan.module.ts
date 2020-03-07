@@ -3,7 +3,7 @@ import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@ne
 import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 
-import { KelolaDataPerumahan } from './kelola-data-perumahan/kelola-data-perumahan';
+import { KelolaDataPerumahanComponent } from './kelola-data-perumahan/kelola-data-perumahan.component';
 import { PsuKawasanPerumahanRoutingModule, routedComponents } from './psu-kawasan-perumahan-routing.module';
 import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component';
 import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
@@ -12,7 +12,7 @@ import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.co
 @NgModule({
   declarations: [
     ...routedComponents,
-    KelolaDataPerumahan,
+    KelolaDataPerumahanComponent,
     PsuKawasanPerumahanComponent,
     DetailPerumahanComponent,
     ],

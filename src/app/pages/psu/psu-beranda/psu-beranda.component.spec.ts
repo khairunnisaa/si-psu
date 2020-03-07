@@ -8,7 +8,7 @@ describe('PsuBerandaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PsuBerandaComponent ]
+      declarations: [ PsuBerandaComponent ],
     })
     .compileComponents();
   }));

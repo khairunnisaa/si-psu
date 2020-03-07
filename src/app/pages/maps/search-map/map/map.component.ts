@@ -7,9 +7,13 @@ import { Location } from '../entity/Location';
   styleUrls: ['./map.component.scss'],
 })
 export class MapComponent implements OnInit {
-  latitude: number;
-  longitude: number;
+  coordinate: {
+    lng: string;
+    city: string;
+    lat: string }[];
   zoom: number;
+  longitude: number;
+  latitude: number;
 
   @Input()
   public set searchedLocation(searchedLocation: Location) {
@@ -27,5 +31,29 @@ export class MapComponent implements OnInit {
         );
       });
     }
+    // this.latitude = []
+    this.coordinate = [
+      {
+        "city": "Jakarta Pusat",
+        "lat": "-6.1818",
+        "lng": "106.8223",
+      },
+      {
+        "city": "Jakarta Utara",
+        "lat": "-6.121435",
+        "lng": "106.774124",
+      },
+      {
+        "city": "Jakarta Selatan",
+        "lat": "-6.261493",
+        "lng": "106.810600",
+      },
+      {
+        "city": "Jakarta Timur",
+        "lat": " -6.225014",
+        "lng": "106.900447",
+      },
+    ]
+
   }
 }

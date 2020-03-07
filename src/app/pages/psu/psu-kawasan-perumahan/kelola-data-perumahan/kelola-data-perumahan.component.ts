@@ -9,7 +9,7 @@ import {DetailPerumahanComponent} from "../detail-perumahan/detail-perumahan.com
   templateUrl: './kelola-data-perumahan.html',
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
-export class KelolaDataPerumahan {
+export class KelolaDataPerumahanComponent {
   source: LocalDataSource;
   settings = {
     actions: false,
@@ -39,7 +39,7 @@ export class KelolaDataPerumahan {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log("row rumah == ",row, cell);
+          console.log("row rumah == ", row, cell);
           return cell;
         },
         renderComponent: DetailPerumahanComponent,

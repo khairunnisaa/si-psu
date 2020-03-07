@@ -8,7 +8,7 @@ describe('KelolaDataPermukimanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KelolaDataPermukimanComponent ]
+      declarations: [ KelolaDataPermukimanComponent ],
     })
     .compileComponents();
   }));
