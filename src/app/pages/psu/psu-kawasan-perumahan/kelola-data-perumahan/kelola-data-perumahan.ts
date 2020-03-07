@@ -32,11 +32,8 @@ export class KelolaDataPerumahan {
       },
       nama_perumahan: {
         title: 'Nama Perumahan',
-        type: 'custom',
+        type: 'string',
         filter: false,
-        valuePrepareFunction: (cell, row) => {
-          return `${row.nama_perumahan}`;
-        },
       },
       nama_pengembang: {
         title: 'Nama Pengembang',
