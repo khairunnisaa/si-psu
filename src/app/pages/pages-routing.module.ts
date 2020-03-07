@@ -27,24 +27,19 @@ const routes: Routes = [{
       .then(m => m.PsuModule),
     },
     {
-      path : 'test',
-      loadChildren: () => import('./test/test.module')
-      .then(m => m.TestModule),
+      path : 'psu-kawasan-perumahan',
+      loadChildren: () => import('./psu/psu-kawasan-perumahan/psu-kawasan-perumahan.module')
+      .then(m => m.PsuKawasanPerumahanModule),
     },
     {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
+      path: 'psu-kawasan-permukiman',
+      loadChildren: () => import('./psu/psu-kawasan-permukiman/psu-kawasan-permukiman.module')
+        .then(m => m.PsuKawasanPermukimanModule),
     },
     {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
-    },
-    {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
+      path: 'psu-pertamanan',
+      loadChildren: () => import('./psu/psu-pertamanan/psu-pertamanan.module')
+        .then(m => m.PsuPertamananModule),
     },
     {
       path: 'modal-overlays',

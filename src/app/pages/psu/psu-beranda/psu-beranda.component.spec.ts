@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PetaSebaranComponent } from './peta-sebaran.component';
+import { PsuBerandaComponent } from './psu-beranda.component';
 
-describe('PetaSebaranComponent', () => {
-  let component: PetaSebaranComponent;
-  let fixture: ComponentFixture<PetaSebaranComponent>;
+describe('PsuBerandaComponent', () => {
+  let component: PsuBerandaComponent;
+  let fixture: ComponentFixture<PsuBerandaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetaSebaranComponent ]
+      declarations: [ PsuBerandaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PetaSebaranComponent);
+    fixture = TestBed.createComponent(PsuBerandaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

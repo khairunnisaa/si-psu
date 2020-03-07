@@ -1,17 +1,28 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PetaSebaranPerumahanComponent } from './peta-sebaran-perumahan/peta-sebaran-perumahan.component';
-import { EntryDataPerumahanComponent } from './entry-data-perumahan/entry-data-perumahan.component';
-import { StatusPerumahanComponent } from './status-perumahan/status-perumahan.component';
-import { KondisiPerumahanComponent } from './kondisi-perumahan/kondisi-perumahan.component';
-import { KoordinatPerumahanComponent } from './koordinat-perumahan/koordinat-perumahan.component';
-import { IpCameraPerumahanComponent } from './ip-camera-perumahan/ip-camera-perumahan.component';
-import { KertanganPerumahanComponent } from './kertangan-perumahan/kertangan-perumahan.component';
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+
+import { KelolaDataPerumahan } from './kelola-data-perumahan/kelola-data-perumahan';
+import { PsuKawasanPerumahanRoutingModule, routedComponents } from './psu-kawasan-perumahan-routing.module';
+import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component';
+import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
+
 
 @NgModule({
-  declarations: [PetaSebaranPerumahanComponent, EntryDataPerumahanComponent, StatusPerumahanComponent, KondisiPerumahanComponent, KoordinatPerumahanComponent, IpCameraPerumahanComponent, KertanganPerumahanComponent],
+  declarations: [
+    ...routedComponents,
+    KelolaDataPerumahan,
+    PsuKawasanPerumahanComponent,
+    DetailPerumahanComponent,
+    ],
   imports: [
-    CommonModule
-  ]
+    PsuKawasanPerumahanRoutingModule,
+    NbCardModule,
+    NbIconModule,
+    NbInputModule,
+    NbTreeGridModule,
+    Ng2SmartTableModule,
+  ],
 })
 export class PsuKawasanPerumahanModule { }

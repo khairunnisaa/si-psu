@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'ngx-psu-kawasan-permukiman',
-  templateUrl: './psu-kawasan-permukiman.component.html',
-  styleUrls: ['./psu-kawasan-permukiman.component.scss']
+  template: `
+    <router-outlet></router-outlet>
+  `,
 })
-export class PsuKawasanPermukimanComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class PsuKawasanPermukimanComponent { }

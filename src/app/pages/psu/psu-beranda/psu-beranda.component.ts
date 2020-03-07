@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-peta-sebaran',
-  templateUrl: './peta-sebaran.component.html',
-  styleUrls: ['./peta-sebaran.component.scss'],
+  selector: 'ngx-psu-beranda',
+  templateUrl: './psu-beranda.component.html',
+  styleUrls: ['./psu-beranda.component.scss'],
 })
-export class PetaSebaranComponent implements OnInit {
+export class PsuBerandaComponent implements OnInit {
 
   constructor() { }
 
