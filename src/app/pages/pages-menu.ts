@@ -2,12 +2,6 @@ import { NbMenuItem } from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
-    title: 'Home',
-    icon: 'home-outline',
-    link: '/pages/home',
-    home: true,
-  },
-  {
     title: 'Beranda',
     icon: 'home-outline',
     link: '/pages/beranda',
@@ -23,7 +17,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     icon: 'layout-outline',
     children: [
       {
-        title: 'Beranda',
+        title: 'Rekapitulasi',
         link: '/pages/psu/beranda',
       },
       {
