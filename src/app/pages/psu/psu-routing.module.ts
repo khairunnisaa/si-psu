@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PsuComponent } from './psu.component';
+import {BerandaComponent} from './beranda/beranda.component';
 import { PsuBerandaComponent } from './psu-beranda/psu-beranda.component';
 
 const routes: Routes = [{
@@ -9,22 +10,14 @@ const routes: Routes = [{
   component: PsuComponent,
   children: [
     {
-      path: 'psu-beranda',
-      component: PsuBerandaComponent,
+      path: 'beranda',
+      component: BerandaComponent,
     },
-    // INGAT KALAU PUNYA ANAK SUB MENU TIDAK USAH DIBUAT ROUTING
-    // {
-    //   path: 'psu-pertamanan',
-    //   component: PsuPertamananComponent,
-    // },
-    // {
-    //   path: 'psu-kawasan-permukiman',
-    //   component: PsuKawasanPermukimanComponent,
-    // },
-    // {
-    //   path: 'psu-kawasan-perumahan',
-    //   component: PsuKawasanPerumahanComponent,
-    // },
+    {
+      path : 'psu-kawasan-permukiman',
+      loadChildren: () => import('./psu-kawasan-permukiman/psu-kawasan-permukiman.module')
+      .then(m => m.PsuKawasanPermukimanModule),
+    },
   ],
 }];
 

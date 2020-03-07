@@ -4,18 +4,12 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import {BerandaComponent} from './beranda/beranda.component';
-import {HomeComponent} from './home/home.component';
 
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
-    {
-      path : 'home',
-      component: HomeComponent,
-
-    },
     {
       path : 'beranda',
       component: BerandaComponent,
@@ -78,7 +72,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'beranda',
       pathMatch: 'full',
     },
     {

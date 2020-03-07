@@ -24,7 +24,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Beranda',
-        link: '/pages/psu/psu-beranda',
+        link: '/pages/psu/beranda',
       },
       {
         title: 'PSU Kawasan Perumahan',
