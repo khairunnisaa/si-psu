@@ -8,7 +8,7 @@ describe('PsuKawasanPermukimanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PsuKawasanPermukimanComponent ]
+      declarations: [ PsuKawasanPermukimanComponent ],
     })
     .compileComponents();
   }));
