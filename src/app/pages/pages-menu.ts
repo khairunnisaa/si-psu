@@ -4,16 +4,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Beranda',
     icon: 'home-outline',
-    link: '/pages/beranda',
-    home: true,
+    link: '/pages/iot-dashboard',
   },
   {
     title: 'Menu Admin',
     group: true,
   },
   {
-    title: 'PSU',
-    icon: 'layout-outline',
+    title: 'UI Features',
+    icon: 'keypad-outline',
+    link: '/pages/ui-features',
     children: [
       {
         title: 'Beranda',
