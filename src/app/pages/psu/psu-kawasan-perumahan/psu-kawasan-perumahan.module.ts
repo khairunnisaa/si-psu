@@ -24,5 +24,8 @@ import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.co
     NbTreeGridModule,
     Ng2SmartTableModule,
   ],
+  entryComponents: [
+    DetailPerumahanComponent,
+  ],
 })
 export class PsuKawasanPerumahanModule { }

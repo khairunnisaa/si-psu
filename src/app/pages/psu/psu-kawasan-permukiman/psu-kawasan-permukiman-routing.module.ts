@@ -24,6 +24,5 @@ const routes: Routes = [{
 export class PsuKawasanPermukimanRoutingModule { }
 
 export const routedComponents = [
-  PsuKawasanPermukimanComponent,
   KelolaDataPermukimanComponent,
 ];
