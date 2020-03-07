@@ -26,7 +26,8 @@ export class BerandaComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          return `${row.namaSeksi}`;
+          console.log("row cell == ",row, cell);
+          return cell;
       },
         renderComponent: DetailBerandaComponent,
       },

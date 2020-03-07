@@ -5,6 +5,7 @@ import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import {BerandaComponent} from './beranda/beranda.component';
 
+
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -15,19 +16,24 @@ const routes: Routes = [{
 
     },
     {
-      path: 'layout',
-      loadChildren: () => import('./layout/layout.module')
-        .then(m => m.LayoutModule),
+      path : 'psu',
+      loadChildren: () => import('./psu/psu.module')
+      .then(m => m.PsuModule),
     },
     {
-      path: 'forms',
-      loadChildren: () => import('./forms/forms.module')
-        .then(m => m.FormsModule),
+      path : 'psu-kawasan-perumahan',
+      loadChildren: () => import('./psu/psu-kawasan-perumahan/psu-kawasan-perumahan.module')
+      .then(m => m.PsuKawasanPerumahanModule),
     },
     {
-      path: 'ui-features',
-      loadChildren: () => import('./ui-features/ui-features.module')
-        .then(m => m.UiFeaturesModule),
+      path: 'psu-kawasan-permukiman',
+      loadChildren: () => import('./psu/psu-kawasan-permukiman/psu-kawasan-permukiman.module')
+        .then(m => m.PsuKawasanPermukimanModule),
+    },
+    {
+      path: 'psu-pertamanan',
+      loadChildren: () => import('./psu/psu-pertamanan/psu-pertamanan.module')
+        .then(m => m.PsuPertamananModule),
     },
     {
       path: 'modal-overlays',
@@ -66,7 +72,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'beranda',
       pathMatch: 'full',
     },
     {

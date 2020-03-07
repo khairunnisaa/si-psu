@@ -1,0 +1,88 @@
+import { Component } from '@angular/core';
+import { LocalDataSource } from 'ng2-smart-table';
+import { TableDataPerumahan } from '../../../../@core/data/perumahan';
+
+@Component({
+  selector: 'ngx-entry-data-perumahan',
+  templateUrl: './kelola-data-perumahan.html',
+  styleUrls: ['./kelola-data-perumahan.component.scss'],
+})
+export class KelolaDataPerumahan {
+  settings = {
+    actions: false,
+    add: {
+      addButtonContent: '<i class="nb-plus"></i>',
+      createButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+    },
+    edit: {
+      editButtonContent: '<i class="nb-edit"></i>',
+      saveButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+    },
+    delete: {
+      deleteButtonContent: '<i class="nb-trash"></i>',
+      confirmDelete: true,
+    },
+    columns: {
+      id: {
+        title: 'No.',
+        type: 'number',
+        filter: false,
+      },
+      nama_perumahan: {
+        title: 'Nama Perumahan',
+        type: 'custom',
+        filter: false,
+        valuePrepareFunction: (cell, row) => {
+          return `${row.nama_perumahan}`;
+        },
+      },
+      nama_pengembang: {
+        title: 'Nama Pengembang',
+        type: 'string',
+        filter: false,
+      },
+      luas_perumahan: {
+        title: 'Luas Perumahan',
+        type: 'string',
+        filter: false,
+      },
+      kecamatan: {
+        title: 'Kecamatan',
+        type: 'string',
+        filter: false,
+      },
+      kelurahan: {
+        title: 'Kelurahan / Desa',
+        type: 'string',
+        filter: false,
+      },
+      RT: {
+        title: 'RT',
+        type: 'string',
+        filter: false,
+      },
+      RW: {
+        title: 'RT',
+        type: 'string',
+        filter: false,
+      },
+    },
+  };
+
+  source: LocalDataSource = new LocalDataSource();
+
+  constructor(private service: TableDataPerumahan) {
+    const data = this.service.getData();
+    this.source.load(data);
+  }
+
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
+}
