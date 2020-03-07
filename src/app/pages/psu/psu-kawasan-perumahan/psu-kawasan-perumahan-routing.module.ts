@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component';
-import { KelolaDataPerumahan } from './kelola-data-perumahan/kelola-data-perumahan';
+import { KelolaDataPerumahanComponent } from './kelola-data-perumahan/kelola-data-perumahan.component';
 
 const routes: Routes = [{
   path: '',
@@ -9,7 +9,7 @@ const routes: Routes = [{
   children: [
     {
       path: 'kelola-data-perumahan',
-      component: KelolaDataPerumahan,
+      component: KelolaDataPerumahanComponent,
     },
   ],
 }];
@@ -24,5 +24,5 @@ export class PsuKawasanPerumahanRoutingModule { }
 
 export const routedComponents = [
   PsuKawasanPerumahanComponent,
-  KelolaDataPerumahan,
+  KelolaDataPerumahanComponent,
 ];

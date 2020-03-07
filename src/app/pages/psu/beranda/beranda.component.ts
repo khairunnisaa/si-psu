@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Location} from '../../maps/search-map/entity/Location';
+import {SmartTableData} from "../../../@core/data/smart-table";
+import {DetailBerandaComponent} from "../../detail-beranda/detail-beranda.component";
 
 @Component({
   selector: 'ngx-beranda',
@@ -8,7 +10,7 @@ import {Location} from '../../maps/search-map/entity/Location';
   styleUrls: ['./beranda.component.scss'],
 })
 export class BerandaComponent implements OnInit {
-
+  source: LocalDataSource;
   ngOnInit() {
   }
   settings = {
@@ -24,11 +26,11 @@ export class BerandaComponent implements OnInit {
         title: 'Nama Seksi ',
         type: 'custom',
         filter: false,
-        valuePrepareFunction: (cell,  row) => {
+        valuePrepareFunction: (cell, row) => {
           console.log("row cell == ", row, cell);
           return cell;
       },
-
+        renderComponent: DetailBerandaComponent,
       },
       jumlahAset: {
         title: 'Jumlah Aset',
@@ -37,14 +39,13 @@ export class BerandaComponent implements OnInit {
       },
     },
   };
-
-  source: LocalDataSource = new LocalDataSource();
-
   searchedLocation: Location = new Location();
-
   updateLocation(event: Location) {
     this.searchedLocation = new Location(event.latitude, event.longitude);
   }
-  constructor() {
+  constructor(private service: SmartTableData) {
+    const data = this.service.getData();
+    this.source = new LocalDataSource(data);
+    console.log("datasourcee", this.source);
   }
 }
