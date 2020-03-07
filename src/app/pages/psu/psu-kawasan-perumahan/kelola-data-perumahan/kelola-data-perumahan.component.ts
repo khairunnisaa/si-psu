@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
+import {Local} from "protractor/built/driverProviders";
+import {DetailPerumahanComponent} from "../detail-perumahan/detail-perumahan.component";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -8,6 +10,7 @@ import { TableDataPerumahan } from '../../../../@core/data/perumahan';
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
 export class KelolaDataPerumahanComponent {
+  source: LocalDataSource;
   settings = {
     actions: false,
     add: {
@@ -39,6 +42,7 @@ export class KelolaDataPerumahanComponent {
           console.log("row rumah == ", row, cell);
           return cell;
         },
+        renderComponent: DetailPerumahanComponent,
       },
       nama_pengembang: {
         title: 'Nama Pengembang',
@@ -73,11 +77,9 @@ export class KelolaDataPerumahanComponent {
     },
   };
 
-  source: LocalDataSource = new LocalDataSource();
-
   constructor(private service: TableDataPerumahan) {
     const data = this.service.getData();
-    this.source.load(data);
+    this.source = new LocalDataSource(data);
   }
 
   onDeleteConfirm(event): void {

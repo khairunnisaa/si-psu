@@ -23,7 +23,7 @@ export class DetailBerandaComponent implements ViewCell, OnInit {
     console.log('rowData === ', this.rowData);
     switch (this.rowData.no) {
       case 1:
-        this.url = '../../pages/beranda';
+        this.url = '/pages/psu-kawasan-perumahan/kelola-data-perumahan';
         break;
       case 2:
         this.url = 'Monday';
