@@ -24,10 +24,11 @@ export class BerandaComponent implements OnInit {
         title: 'Nama Seksi ',
         type: 'custom',
         filter: false,
-        valuePrepareFunction: (cell, row) => {
-          console.log("row cell == ",row, cell);
+        valuePrepareFunction: (cell,  row) => {
+          console.log("row cell == ", row, cell);
           return cell;
       },
+
       },
       jumlahAset: {
         title: 'Jumlah Aset',

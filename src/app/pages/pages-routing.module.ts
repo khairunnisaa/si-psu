@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
-import {BerandaComponent} from './beranda/beranda.component';
+import { BerandaComponent} from './beranda/beranda.component';
 
 
 const routes: Routes = [{
@@ -13,7 +13,6 @@ const routes: Routes = [{
     {
       path : 'beranda',
       component: BerandaComponent,
-
     },
     {
       path : 'psu',

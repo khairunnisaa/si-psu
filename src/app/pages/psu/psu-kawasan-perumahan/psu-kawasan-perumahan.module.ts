@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
-import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { Ng2SmartTableModule} from 'ng2-smart-table';
 
 
 import { KelolaDataPerumahan } from './kelola-data-perumahan/kelola-data-perumahan';
@@ -23,6 +23,9 @@ import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.co
     NbInputModule,
     NbTreeGridModule,
     Ng2SmartTableModule,
+  ],
+  entryComponents: [
+    DetailPerumahanComponent,
   ],
 })
 export class PsuKawasanPerumahanModule { }

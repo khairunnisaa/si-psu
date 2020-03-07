@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
+import { Ng2SmartTableModule} from 'ng2-smart-table';
+
+
 import { KelolaDataPertamananComponent } from './kelola-data-pertamanan/kelola-data-pertamanan.component';
 import { PsuPertamananRoutingModule, routedComponents} from './psu-pertamanan-routing.module';
 import { PsuPertamananComponent } from './psu-pertamanan.component';
+import { DetailPertamananComponent } from './detail-pertamanan/detail-pertamanan.component';
 
 @NgModule({
   declarations: [
     ...routedComponents,
     KelolaDataPertamananComponent,
     PsuPertamananComponent,
+    DetailPertamananComponent,
   ],
   imports: [
-    CommonModule,
+    NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
+    Ng2SmartTableModule,
     PsuPertamananRoutingModule,
+  ],
+  entryComponents: [
+    DetailPertamananComponent,
   ],
 })
 export class PsuPertamananModule { }

@@ -52,8 +52,15 @@ import { StatsProgressBarService } from './mock/stats-progress-bar.service';
 import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
+
 import { PerumahanService} from './mock/perumahan.service';
-import {TableDataPerumahan} from './data/perumahan';
+import { TableDataPerumahan} from './data/perumahan';
+
+import { PermukimanService } from './mock/permukiman.service';
+import { TableDataPermukiman } from './data/permukiman';
+
+import { PertamananService } from './mock/pertamanan.service';
+import { TableDataPertamanan } from './data/pertamanan';
 
 const socialLinks = [
   {
@@ -94,6 +101,8 @@ const DATA_SERVICES = [
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
   { provide: TableDataPerumahan, useClass: PerumahanService },
+  { provide: TableDataPermukiman, useClass: PermukimanService },
+  { provide: TableDataPertamanan, useClass: PertamananService},
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {

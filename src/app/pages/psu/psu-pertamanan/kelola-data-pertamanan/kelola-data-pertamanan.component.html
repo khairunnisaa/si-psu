@@ -1,3 +1,10 @@
-<p>
-  kelola-data-pertamanan works!
-</p>
+<nb-card>
+  <nb-card-header>
+    Tabel PSU Kawasan Pertamanan
+  </nb-card-header>
+
+  <nb-card-body>
+    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    </ng2-smart-table>
+  </nb-card-body>
+</nb-card>

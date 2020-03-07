@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PsuPertamananComponent } from './psu-pertamanan.component';
+import { DetailPertamananComponent } from './detail-pertamanan.component';
 
-describe('PertamananComponent', () => {
-  let component: PsuPertamananComponent;
-  let fixture: ComponentFixture<PsuPertamananComponent>;
+describe('DetailPertamananComponent', () => {
+  let component: DetailPertamananComponent;
+  let fixture: ComponentFixture<DetailPertamananComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PsuPertamananComponent ]
+      declarations: [ DetailPertamananComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PsuPertamananComponent);
+    fixture = TestBed.createComponent(DetailPertamananComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
