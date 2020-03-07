@@ -23,7 +23,7 @@ import {MapComponent} from "./search-map/map/map.component";
   ],
   exports: [
     SearchComponent,
-    MapComponent
+    MapComponent,
   ],
   declarations: [
     ...routedComponents,

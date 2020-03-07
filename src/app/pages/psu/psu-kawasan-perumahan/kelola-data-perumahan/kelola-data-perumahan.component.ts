@@ -7,7 +7,7 @@ import { TableDataPerumahan } from '../../../../@core/data/perumahan';
   templateUrl: './kelola-data-perumahan.html',
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
-export class KelolaDataPerumahan {
+export class KelolaDataPerumahanComponent {
   settings = {
     actions: false,
     add: {
@@ -36,7 +36,7 @@ export class KelolaDataPerumahan {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log("row rumah == ",row, cell);
+          console.log("row rumah == ", row, cell);
           return cell;
         },
       },

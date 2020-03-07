@@ -8,7 +8,7 @@ describe('PertamananComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PsuPertamananComponent ]
+      declarations: [ PsuPertamananComponent ],
     })
     .compileComponents();
   }));
