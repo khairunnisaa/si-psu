@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component';
 import { KelolaDataPerumahanComponent } from './kelola-data-perumahan/kelola-data-perumahan.component';
+import {DetailPerumahanComponent} from "./detail-perumahan/detail-perumahan.component";
 
 const routes: Routes = [{
   path: '',
@@ -10,6 +11,10 @@ const routes: Routes = [{
     {
       path: 'kelola-data-perumahan',
       component: KelolaDataPerumahanComponent,
+    },
+    {
+      path: 'detail-data-perumahan',
+      component: DetailPerumahanComponent,
     },
   ],
 }];
@@ -25,4 +30,5 @@ export class PsuKawasanPerumahanRoutingModule { }
 export const routedComponents = [
   PsuKawasanPerumahanComponent,
   KelolaDataPerumahanComponent,
+  DetailPerumahanComponent,
 ];

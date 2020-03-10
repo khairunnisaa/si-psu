@@ -44,6 +44,7 @@ import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-p
   ],
   entryComponents: [
     DetailPerumahanComponent,
+    InputDataPerumahanComponent,
   ],
 })
 export class PsuKawasanPerumahanModule { }
