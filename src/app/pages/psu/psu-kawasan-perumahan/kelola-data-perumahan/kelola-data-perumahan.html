@@ -2,9 +2,62 @@
   <nb-card-header>
     Tabel PSU Kawasan Perumahan
   </nb-card-header>
-
   <nb-card-body>
+    <form class="form-inline">
+      <nb-select-label>Pilih Filter</nb-select-label>
+      <nb-select placeholder="Kecamatan" class="select-kecamatan">
+        <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
+        <nb-option value="Caringin">Caringin</nb-option>
+        <nb-option value="Cariu">Cariu</nb-option>
+        <nb-option value="Ciampea">Ciampea</nb-option>
+        <nb-option value="Ciawi">Ciawi</nb-option>
+        <nb-option value="Ciampea">Ciampea</nb-option>
+        <nb-option value="Cibinong">Cibinong</nb-option>
+      </nb-select>
+      <nb-select placeholder="Kelurahan" class="select-kelurahan">
+        <nb-option value="Babakan">Babakan</nb-option>
+        <nb-option value="MadangBojong">MadangBojong</nb-option>
+        <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
+        <nb-option value="Cipambuan">Cipambuan</nb-option>
+        <nb-option value="Citaringgul">Citaringgul</nb-option>
+        <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
+        <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
+      </nb-select>
+      <nb-select placeholder="Tahun" class="select-tahun">
+        <nb-option value="2010">2010</nb-option>
+        <nb-option value="2011">2011</nb-option>
+        <nb-option value="2012">2012</nb-option>
+        <nb-option value="2013">2013</nb-option>
+        <nb-option value="2014">2014</nb-option>
+        <nb-option value="2015">2015</nb-option>
+        <nb-option value="2016">2016</nb-option>
+        <nb-option value="2017">2017</nb-option>
+        <nb-option value="2018">2018</nb-option>
+        <nb-option value="2019">2019</nb-option>
+        <nb-option value="2020">2020</nb-option>
+      </nb-select>
+      <button type="submit" nbButton status="primary" class="btn-tambah" >
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</button>
+      <button type="submit" nbButton status="danger" class="btn-hapus">
+        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>Hapus</button>
+    </form>
+
+
+    <hr>
+    <strong><label>File Import File Excel</label><br></strong>
+    <div class="custom-file">
+      <label class="custom-file-label" >Pilih Nama File</label>
+      <input type="file" class="custom-file-input" id="validatedCustomFile">
+      <button type="submit" nbButton status="primary">
+        <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>Import
+      </button>
+    </div>
+    <hr>
+
+
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
+
+
   </nb-card-body>
 </nb-card>

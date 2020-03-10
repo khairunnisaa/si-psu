@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-import { TableDataPerumahan } from '../../../../@core/data/perumahan';
-import { DetailPerumahanComponent} from '../detail-perumahan/detail-perumahan.component';
 
+import { TableDataPerumahan } from '../../../../@core/data/perumahan';
+import { DetailPerumahanComponent } from '../detail-perumahan/detail-perumahan.component';
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -76,8 +76,7 @@ export class KelolaDataPerumahanComponent {
       },
     },
   };
-
-  constructor(private service: TableDataPerumahan) {
+  constructor(private service: TableDataPerumahan,) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
   }
@@ -89,4 +88,5 @@ export class KelolaDataPerumahanComponent {
       event.confirm.reject();
     }
   }
+
 }

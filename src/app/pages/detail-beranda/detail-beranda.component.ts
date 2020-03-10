@@ -26,10 +26,10 @@ export class DetailBerandaComponent implements ViewCell, OnInit {
         this.url = '/pages/psu-kawasan-perumahan/kelola-data-perumahan';
         break;
       case 2:
-        this.url = 'Monday';
+        this.url = '/pages/psu-kawasan-permukiman/kelola-data-permukiman';
         break;
       case 3:
-        this.url = 'Tuesday';
+        this.url = '/pages/psu-pertamanan/kelola-data-pertamanan';
         break;
     }
   }
