@@ -20,7 +20,13 @@
 
 .custom-file {
   width: 20em;
-  padding: 10px;
+}
+
+.btn-import {
+ margin: 10px;
+}
+.label-import {
+  margin-right: 10px;
 }
 @include nb-install-component() {
   nb-card {

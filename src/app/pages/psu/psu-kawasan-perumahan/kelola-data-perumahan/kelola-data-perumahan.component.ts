@@ -4,6 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
 import { DetailPerumahanComponent } from '../detail-perumahan/detail-perumahan.component';
 import {InputDataPerumahanComponent} from "../input-data-perumahan/input-data-perumahan.component";
+import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link-perumahan.component";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -43,7 +44,7 @@ export class KelolaDataPerumahanComponent {
           console.log("row rumah == ", row, cell);
           return cell;
         },
-        renderComponent: InputDataPerumahanComponent,
+        renderComponent: RouterLinkPerumahanComponent,
       },
       nama_pengembang: {
         title: 'Nama Pengembang',

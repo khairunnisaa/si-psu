@@ -1,1 +1,137 @@
-<a routerLink="{{url}}"><span (click)="onClick()">{{ renderValue }}</span></a>
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Using the Grid</nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Nama Perumahan</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Perumahan" name="namaPerumahan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Nama Pengembang</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Pengembangl"
+                     name="namaPengembang">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Luas Perumahan</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth  placeholder="Luas Perumahan" name="luasPerumahan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Foto Perumahan</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="Foto Perumahan">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputEmail1" class="label col-sm-3 col-form-label">Lokasi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kecamatan" class="select-kecamatan">
+                <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
+                <nb-option value="Caringin">Caringin</nb-option>
+                <nb-option value="Cariu">Cariu</nb-option>
+                <nb-option value="Ciampea">Ciampea</nb-option>
+                <nb-option value="Ciawi">Ciawi</nb-option>
+                <nb-option value="Ciampea">Ciampea</nb-option>
+                <nb-option value="Cibinong">Cibinong</nb-option>
+              </nb-select>&nbsp;&nbsp;
+              <nb-select placeholder="Kelurahan" class="select-kelurahan">
+                <nb-option value="Babakan">Babakan</nb-option>
+                <nb-option value="MadangBojong">MadangBojong</nb-option>
+                <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
+                <nb-option value="Cipambuan">Cipambuan</nb-option>
+                <nb-option value="Citaringgul">Citaringgul</nb-option>
+                <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
+                <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
+              </nb-select>&nbsp;&nbsp;
+              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw">
+              &nbsp;&nbsp;
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label">Status</label>
+            <div class="col-sm-9">
+             <strong><label class="label col-sm-3 col-form-label">Sudah Serah Terima</label></strong>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal Serah
+              Terima</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima
+            </label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH
+            </label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth placeholder="Password">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">Sarana Yang
+              Bisa Ditambah</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword2" class="label col-sm-3 col-form-label">Password</label>
+            <div class="col-sm-9">
+              <input type="password" nbInput fullWidth id="inputPassword2" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-sm-3 label">Radios</label>
+            <div class="col-sm-9">
+              <nb-radio-group>
+                <nb-radio>Option 1</nb-radio>
+                <nb-radio>Option 2</nb-radio>
+                <nb-radio disabled>Disabled Option</nb-radio>
+              </nb-radio-group>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" nbButton status="primary">Sign in</button>
+            </div>
+          </div>
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
