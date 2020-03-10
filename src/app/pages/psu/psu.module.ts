@@ -7,7 +7,6 @@ import { Ng2SmartTableModule} from 'ng2-smart-table';
 import { ChartModule } from 'angular2-chartjs';
 import { NbCardModule, NbTabsetModule} from '@nebular/theme';
 
-
 import { PsuRoutingModule, routedComponents} from './psu-routing.module';
 import { PsuComponent} from './psu.component';
 import { BerandaComponent} from './beranda/beranda.component';
