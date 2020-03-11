@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
+import {NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbTreeGridModule} from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import {
   NbActionsModule,
@@ -18,6 +18,7 @@ import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component'
 import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
 import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-perumahan.component';
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
+import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-lin
     DetailPerumahanComponent,
     InputDataPerumahanComponent,
     RouterLinkPerumahanComponent,
+    ShowcaseDialogComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -43,10 +45,12 @@ import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-lin
     NbRadioModule,
     NbSelectModule,
     NbUserModule,
+    NbDialogModule.forChild(),
   ],
   entryComponents: [
     DetailPerumahanComponent,
     RouterLinkPerumahanComponent,
+    ShowcaseDialogComponent,
   ],
 })
 export class PsuKawasanPerumahanModule { }
