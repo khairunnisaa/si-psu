@@ -22,7 +22,7 @@ export class RouterLinkPerumahanComponent implements OnInit {
   }
 
   onClick() {
-    // console.log('rowData input === ', this.rowData);
+    console.log('rowData input === ', this.rowData);
     // switch (this.rowData.id) {
     //   case 1:
     //     this.url = '../../../pages/psu-kawasan-perumahan/detail-data-perumahan';
@@ -36,7 +36,7 @@ export class RouterLinkPerumahanComponent implements OnInit {
     // }
     this.dialogService.open(ShowcaseDialogComponent, {
       context: {
-        title: 'This is a title passed to the dialog component',
+        title: this.renderValue,
       },
     });
   }
