@@ -16,21 +16,6 @@ export class DetailPerumahanComponent implements OnInit, ViewCell {
   }
 
   ngOnInit() {
-    this.renderValue = this.value.toString();
-  }
 
-  onClick() {
-    console.log('rowData === ', this.rowData);
-    switch (this.rowData.no) {
-      case 1:
-        this.url = '../../pages/beranda';
-        break;
-      case 2:
-        this.url = 'Monday';
-        break;
-      case 3:
-        this.url = 'Tuesday';
-        break;
-    }
   }
 }

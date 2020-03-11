@@ -36,26 +36,36 @@
         <nb-option value="2019">2019</nb-option>
         <nb-option value="2020">2020</nb-option>
       </nb-select>
-      <button type="submit" nbButton status="primary" class="btn-tambah" >
-        <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</button>
-      <button type="submit" nbButton status="danger" class="btn-hapus">
-        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>Hapus</button>
+      <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
+         status="primary" nbButton size="small">
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</a>
+
+      <button type="submit" nbButton status="danger" nbButton size="small" class="btn-hapus">
+        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
+        Hapus
+      </button>
     </form>
 
 
     <hr>
-    <strong><label>File Import File Excel</label><br></strong>
-    <div class="custom-file">
-      <label class="custom-file-label" >Pilih Nama File</label>
-      <input type="file" class="custom-file-input" id="validatedCustomFile">
-      <button type="submit" nbButton status="primary">
-        <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>Import
+
+    <div>
+      <form class="form-inline">
+      <strong><label class="label-import">File Import File Excel</label></strong>
+      <div class="custom-file">
+        <label class="custom-file-label">Pilih Nama File</label>
+        <input type="file" class="custom-file-input" id="validatedCustomFile">
+      </div>
+      <button type="submit" nbButton status="primary" class="btn-import" nbButton size="small">
+        <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
+        Import
       </button>
+      </form>
     </div>
-    <hr>
 
 
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    <ng2-smart-table [settings]="settings" [source]="source"
+                     (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
 
 
