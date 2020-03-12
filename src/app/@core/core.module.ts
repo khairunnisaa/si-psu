@@ -61,6 +61,10 @@ import { TableDataPermukiman } from './data/permukiman';
 
 import { PertamananService } from './mock/pertamanan.service';
 import { TableDataPertamanan } from './data/pertamanan';
+import {TableDataKecamatan} from "./data/kecamatan";
+import {KecamatanService} from "./mock/kecamatan.service";
+import {TableDataKelurahan} from "./data/kelurahan";
+import {KelurahanService} from "./mock/kelurahan.service";
 
 const socialLinks = [
   {
@@ -102,7 +106,9 @@ const DATA_SERVICES = [
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
   { provide: TableDataPerumahan, useClass: PerumahanService },
   { provide: TableDataPermukiman, useClass: PermukimanService },
-  { provide: TableDataPertamanan, useClass: PertamananService},
+  { provide: TableDataPertamanan, useClass: PertamananService },
+  { provide: TableDataKecamatan, useClass: KecamatanService },
+  { provide: TableDataKelurahan, useClass: KelurahanService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {

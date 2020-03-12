@@ -1,0 +1,35 @@
+@import '../../../../@theme/styles/themes';
+
+.form-inline {
+  margin: 0 5px 5px 0;
+}
+.select-kecamatan {
+  width: 10em;
+  margin-left: 10px;
+}
+.select-kelurahan {
+  width: 15em;
+}
+.select-status {
+  width: 10em;
+  margin-right:4em;
+}
+.btn-hapus {
+  margin-left: 15px;
+}
+
+.custom-file {
+  width: 20em;
+}
+
+.btn-import {
+  margin: 10px;
+}
+.label-import {
+  margin-right: 10px;
+}
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}

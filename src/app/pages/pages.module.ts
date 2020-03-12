@@ -27,6 +27,7 @@ import { KegiatanFiskComponent } from './kegiatan-fisik/kegiatan-fisik.component
   ],
   entryComponents: [
     DetailBerandaComponent,
+
   ],
 })
 export class PagesModule {

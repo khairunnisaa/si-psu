@@ -3,6 +3,7 @@ import {LocalDataSource} from 'ng2-smart-table';
 
 import {DetailPertamananComponent} from '../detail-pertamanan/detail-pertamanan.component';
 import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
+import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 
 @Component({
   selector: 'ngx-kelola-data-pertamanan',
@@ -11,6 +12,7 @@ import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
 })
 export class KelolaDataPertamananComponent {
   source: LocalDataSource;
+  years: any[];
   settings = {
     actions: false,
     add: {
@@ -75,10 +77,17 @@ export class KelolaDataPertamananComponent {
       },
     },
   };
+  kecamatan: string[];
+  constructor(private service: TableDataPertamanan,
+              private getKecamatanService: TableDataKecamatan) {
 
-  constructor(private service: TableDataPertamanan) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
+    this.kecamatan = this.getKecamatanService.getData();
+    this.years = [];
+    for (let i = 0; i <= 10; ++i) {
+      this.years.push(2010 + i);
+    }
   }
 
   onDeleteConfirm(event): void {

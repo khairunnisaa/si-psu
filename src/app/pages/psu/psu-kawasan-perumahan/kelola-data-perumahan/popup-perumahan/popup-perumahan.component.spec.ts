@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InputDataPerumahanComponent } from './input-data-perumahan.component';
+import { PopupPerumahanComponent } from './popup-perumahan.component';
 
-describe('InputDataPerumahanComponent', () => {
-  let component: InputDataPerumahanComponent;
-  let fixture: ComponentFixture<InputDataPerumahanComponent>;
+describe('PopupPerumahanComponent', () => {
+  let component: PopupPerumahanComponent;
+  let fixture: ComponentFixture<PopupPerumahanComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputDataPerumahanComponent ],
+      declarations: [ PopupPerumahanComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InputDataPerumahanComponent);
+    fixture = TestBed.createComponent(PopupPerumahanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

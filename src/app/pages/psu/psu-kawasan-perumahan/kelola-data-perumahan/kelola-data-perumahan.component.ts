@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
-import { DetailPerumahanComponent } from '../detail-perumahan/detail-perumahan.component';
-import {InputDataPerumahanComponent} from "../input-data-perumahan/input-data-perumahan.component";
-import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link-perumahan.component";
+import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
+import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -12,6 +11,7 @@ import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
 export class KelolaDataPerumahanComponent {
+  years: any[];
   source: LocalDataSource;
   settings = {
     actions: false,
@@ -19,15 +19,6 @@ export class KelolaDataPerumahanComponent {
       addButtonContent: '<i class="nb-plus"></i>',
       createButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
     },
     columns: {
       id: {
@@ -41,7 +32,7 @@ export class KelolaDataPerumahanComponent {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log("row rumah == ", row, cell);
+          // console.log("row rumah == ", row, cell);
           return cell;
         },
         renderComponent: RouterLinkPerumahanComponent,
@@ -78,9 +69,17 @@ export class KelolaDataPerumahanComponent {
       },
     },
   };
-  constructor(private service: TableDataPerumahan) {
+  kecamatan: string[];
+  constructor(private service: TableDataPerumahan,
+              private getKecamatanService: TableDataKecamatan) {
+
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
+    this.kecamatan = this.getKecamatanService.getData();
+    this.years = [];
+    for (let i = 0; i <= 10; ++i) {
+    this.years.push(2010 + i);
+}
   }
 
   onDeleteConfirm(event): void {
