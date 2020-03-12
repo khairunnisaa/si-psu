@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import {
   NbActionsModule, NbButtonModule,
   NbCardModule, NbCheckboxModule, NbDatepickerModule,
-  NbIconModule,
+  NbIconModule, NbDialogModule,
   NbInputModule, NbRadioModule, NbSelectModule,
-  NbTreeGridModule, NbUserModule,
+  NbTreeGridModule, NbUserModule, NbWindowModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 
@@ -16,6 +16,7 @@ import { DetailPertamananComponent } from './detail-pertamanan/detail-pertamanan
 import { InputDataPertamananComponent } from './input-data-pertamanan/input-data-pertamanan.component';
 import { RouterlinkDataPertamananComponent } from './routerlink-data-pertamanan/routerlink-data-pertamanan.component';
 import {CommonModule} from "@angular/common";
+import { PopupPertamananComponent } from './routerlink-data-pertamanan/popup-pertamanan.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import {CommonModule} from "@angular/common";
     DetailPertamananComponent,
     InputDataPertamananComponent,
     RouterlinkDataPertamananComponent,
+    PopupPertamananComponent,
   ],
   imports: [
     NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
@@ -43,9 +45,12 @@ import {CommonModule} from "@angular/common";
     NbSelectModule,
     NbUserModule,
     CommonModule,
+    NbDialogModule.forChild(),
+    NbWindowModule.forChild(),
   ],
   entryComponents: [
-    DetailPertamananComponent,
+    RouterlinkDataPertamananComponent,
+    PopupPertamananComponent,
   ],
 })
 export class PsuPertamananModule { }

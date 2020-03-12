@@ -8,7 +8,7 @@ describe('RouterlinkDataPertamananComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ RouterlinkDataPertamananComponent ]
+      declarations: [ RouterlinkDataPertamananComponent ],
     })
     .compileComponents();
   }));
