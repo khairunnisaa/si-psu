@@ -1,1 +1,2 @@
-<a routerLink="{{url}}"><span (click)="onClick()">{{ renderValue }}</span></a>
+<a [routerLink]=""
+queryParamsHandling="preserve" (click)="onClick()"><span>{{ renderValue }}</span></a>
