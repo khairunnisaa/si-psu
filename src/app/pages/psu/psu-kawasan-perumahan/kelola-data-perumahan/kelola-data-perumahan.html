@@ -22,10 +22,16 @@
         <nb-option *ngFor="let year of years">{{year}}</nb-option>
       </nb-select>
       <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
-         status="primary" nbButton size="small">
+         status="primary" nbButton size="tiny">
         <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</a>
 
-      <button type="submit" nbButton status="danger" nbButton size="small" class="btn-hapus">
+      <button nbButton status="success" nbButton size="tiny" class="btn-hapus"
+              (click)="exportAsXLSX()">
+        <nb-icon icon="arrowhead-down-outline" pack="eva"></nb-icon>
+        Export
+      </button>
+
+      <button type="submit" nbButton status="danger" nbButton size="tiny" class="btn-hapus">
         <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
         Hapus
       </button>
@@ -38,9 +44,12 @@
       <form class="form-inline">
       <strong><label class="label-import">File Import File Excel</label></strong>
       <div class="custom-file">
-        <label class="custom-file-label">Pilih Nama File</label>
-        <input type="file" class="custom-file-input" id="validatedCustomFile">
+        <label class="custom-file-label" >Pilih Nama File</label>
+        <input type="file" class="custom-file-input" id="validatedCustomFile"
+               (change)="onFileChange($event)">
+        <label class="custom-file-label" id="output"></label>
       </div>
+
       <button type="submit" nbButton status="primary" class="btn-import" nbButton size="small">
         <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
         Import

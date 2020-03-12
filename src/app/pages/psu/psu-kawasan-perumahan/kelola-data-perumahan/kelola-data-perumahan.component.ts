@@ -11,6 +11,7 @@ import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
 export class KelolaDataPerumahanComponent {
+  data_rumah_json = '';
   years: any[];
   source: LocalDataSource;
   settings = {
@@ -81,13 +82,14 @@ export class KelolaDataPerumahanComponent {
     this.years.push(2010 + i);
 }
   }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  exportAsXLSX() {
+    this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
+  }
+  onFileChange(event) {
+    this.data_rumah_json = this.service.importFileExcel(event);
   }
 
+  onFileName(event) {
+    document.getElementById('output').innerHTML = this.data_rumah_json;
+  }
 }

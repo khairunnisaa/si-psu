@@ -19,6 +19,7 @@ import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.co
 import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-perumahan.component';
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
 import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {NewsService} from '../../layout/news.service';
 
 
 
