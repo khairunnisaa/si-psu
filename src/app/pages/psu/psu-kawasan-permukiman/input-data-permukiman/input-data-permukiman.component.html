@@ -22,13 +22,9 @@
           </div>
 
           <div class="form-group row">
-            <label for="dayaTampungTPU" class="label col-sm-3 col-form-label">Daya Tampung
-              TPU</label>
+            <label for="dayaTampungTPU" class="label col-sm-3 col-form-label">Daya Tampung TPU</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth
-                     placeholder="Daya Tampung TPU"
-                     id="dayaTampungTPU"
-                     name="dayaTampungTPU">
+              <input type="text" nbInput fullWidth placeholder="Daya Tampung TPU" id="dayaTampungTPU" name="dayaTampungTPU">
             </div>
           </div>
 
@@ -53,8 +49,7 @@
                 <nb-option value="Ciampea">Ciampea</nb-option>
                 <nb-option value="Cibinong">Cibinong</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"
-                         id="lokasi">
+              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan" id="lokasi">
                 <nb-option value="Babakan">Babakan</nb-option>
                 <nb-option value="MadangBojong">MadangBojong</nb-option>
                 <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
@@ -63,221 +58,103 @@
                 <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
                 <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt"
-                     id="lokasi">
+              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt" id="lokasi">
               &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
-                     id="lokasi">
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw" id="lokasi">
             </div>
           </div>
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Status : Sudah Serah
-              Terima</label>
-          </div>
-
-
-          <div class="form-group row">
-            <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal Serah
-              Terima</label>
-            <div class="col-sm-9">
-              <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                     name="tanggalSerahTerima" id="tanggalSerahTerima">
-              <nb-datepicker #formpicker></nb-datepicker>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="noBeritaAcaraSerahTerima"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
-                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="sph" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Surat Pengakuan Hak)
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph" name="sph">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border" >PSU Yang Diserahkan</label>
+            <label class="label col-sm-12 col-form-label label-border">Pengelolah / Penjaga TPU</label>
           </div>
 
           <div class="form-group row">
-            <label for="namaSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Sarana</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="namaSaranaPSU" placeholder="Nama Sarana"
-                     name="namaSaranaPSU">
-            </div>
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
           </div>
 
           <div class="form-group row">
-            <label for="luasSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Sarana</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth  placeholder="Luas Sarana" id="luasSaranaPSU"
-                     nama="namaSaranaPSU">
-            </div>
+            <label class="label col-sm-12 col-form-label label-border">Foto TPU</label>
           </div>
 
           <div class="form-group row">
-            <label for="fotoSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Sarana</label>
-            <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Sarana" name="fotoSaranaPSU"
-                     id="fotoSaranaPSU">
-            </div>
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
           </div>
+
           <div class="form-group row">
-            <label for="kondisiSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Konsidi
-              Sarana</label>
+            <label class="label col-sm-12 col-form-label label-border">Inventaris Alat</label>
+          </div>
+
+          <div class="form-group row">
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+          </div>
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Status</label>
+          </div>
+
+          <div class="form-group row">
+          <label for="kondisiStatus" class="label col-sm-3 col-form-label">
+            Sudah Operasional</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiStatus1"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;
+              Kondisi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         name="kondisiSaranaPSU" id="kondisiSaranaPSU">
+              <nb-select placeholder="Kondisi..." class="select-status"
+                         name="statusSudahOperasional"
+                         id="kondisiStatus1">
                 <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                 <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="koordinatPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-            <div class="col-sm-9">
-              <input type="password" nbInput fullWidth placeholder="KoordinatPSU" id="koordinatPSU">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran</label>
-          </div>
-          <div class="form-group row">
-            <label for="namaJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Jalan dan
-              Saluran</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="namaJalanSaluran"
-                     placeholder="Nama Jalan dan Saluran" name="namajalanSaluran">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="luasJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Jalan dan
-              Saluran</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="luasJalanSaluran"
-                     placeholder="Luas Jalan dan Saluran">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="fotoJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Jalan dan
-              Saluran</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="fotoJalanSaluran"
-                     placeholder="Password" name="fotoJalanSaluran">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="kondisiJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi Jalan dan Saluran</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         name="kondisiJalanSaluran" id="kondisiJalanSaluran">
-                <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
-                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="koordinatJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-            <div class="col-sm-9">
-              <input type="password" nbInput fullWidth
-                     placeholder="Koordinat (Poin Polygon Polyline)" id="koordinatJalanSaluran">
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Taman</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Taman</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
-                     id="namaTaman">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Taman</label>
-            <div class="col-sm-9">
-              <input type="password" nbInput fullWidth placeholder="Luas Taman" name="luasTaman"
-                     id="luasTaman">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Taman</label>
-            <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman" name="fotoTaman">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="kondisiTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi Taman</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         id="kondisiTaman" name="kondisiTaman">
-                <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
-                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="koordinatTaman"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat
-              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Belum Serah Terima</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            <label for="keteranganStatus"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
             </label>
             <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Belum Serah Terima"
-                        name="keteranganBelumSerahTerima" id="keteranganBelumSerahTerima"></textarea>
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganStatus" name="keteranganStatusSudahOperasional"></textarea>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Terlantar</label>
+            <label class="label col-sm-3 col-form-label">Belum Operasional</label>
           </div>
 
           <div class="form-group row">
-            <label for="keteranganTerlantar" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            <label for="kondisiStatus2"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi..." class="select-status" name="statusBelumOperasional" id="kondisiStatus2">
+                <nb-option value="tertata">Tertata</nb-option>
+                <nb-option value="Belum Tertata">Belum Tertata</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganStatusBelumOperasional"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
             </label>
             <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Terlantar"
-                        id="keteranganTerlantar" name="keteranganTerlantar"></textarea>
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganStatusBelumOperasional"
+                        name="keteranganStatusBelumOperasional"></textarea>
             </div>
           </div>
 
+
+
           <div class="form-group row">
-            <label for="koordinatPerumahan"
-                   class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
+            <label for="koordinatTPU"
+                   class="label col-sm-3 col-form-label">Koordinat TPU</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat Perumahan"
-                     id="koordinatPerumahan" name="koordinatPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Koordinat TPU"
+                     id="koordinatTPU" name="koordinatTPU">
             </div>
           </div>
 
@@ -286,21 +163,7 @@
           </div>
 
           <div class="form-group row">
-            <label for="namaCCTVPerumahan"
-                   class="label col-sm-3 col-form-label"> &nbsp;&nbsp;&nbsp;&nbsp;Nama CCTV Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                     id="namaCCTVPerumahan" name="namaCCTVPerumahan">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="ipCameraPerumahan"
-                   class="label col-sm-3 col-form-label"> &nbsp;&nbsp;&nbsp;&nbsp;IP Camera</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="IP Camera"
-                     id="ipCameraPerumahan" name="ipCameraPerumahan">
-            </div>
+            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
           </div>
 
           <div class="form-group row">
