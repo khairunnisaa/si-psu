@@ -1,3 +1,51 @@
-<p>
-  routerlink-data-pertamanan works!
-</p>
+<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan"><span
+  (click)="openWindow(contentTemplate)">{{ renderValue }}</span></a>
+
+<ng-template #contentTemplate let-data>
+  <table>
+    <tr>
+      <td>ID</td>
+      <td>:</td>
+      <td>{{ data.id }}</td>
+    </tr>
+    <tr>
+      <td>Nama Taman</td>
+      <td>:</td>
+      <td>{{ data.nama_taman }}</td>
+    </tr>
+    <tr>
+      <td>Nama Pelasana</td>
+      <td>:</td>
+      <td>{{ data.nama_pelaksana }}</td>
+    </tr>
+    <tr>
+      <td>Luas Taman</td>
+      <td>:</td>
+      <td>{{ data.luas_taman }}</td>
+    </tr>
+    <tr>
+      <td>Kecamatan</td>
+      <td>:</td>
+      <td>{{ data.kecamatan }}</td>
+    </tr>
+    <tr>
+      <td>RT</td>
+      <td>:</td>
+      <td>{{ data.RT }}</td>
+    </tr>
+    <tr>
+      <td>RW</td>
+      <td>:</td>
+      <td>{{ data.RW }}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td></td>
+      <td><a routerLink="../../../pages/psu-pertamanan/detail-pertamanan"
+             (click)="close()">Selengkapnya..
+        .</a></td>
+    </tr>
+  </table>
+</ng-template>
+
+

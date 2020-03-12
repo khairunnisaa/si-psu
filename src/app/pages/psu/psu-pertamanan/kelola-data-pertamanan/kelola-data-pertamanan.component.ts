@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
-import {DetailPertamananComponent} from '../detail-pertamanan/detail-pertamanan.component';
 import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {RouterlinkDataPertamananComponent} from "../routerlink-data-pertamanan/routerlink-data-pertamanan.component";
 
 @Component({
   selector: 'ngx-kelola-data-pertamanan',
@@ -43,7 +43,7 @@ export class KelolaDataPertamananComponent {
           console.log('row cell === ', row, cell);
           return cell;
         },
-        renderComponent: DetailPertamananComponent,
+        renderComponent: RouterlinkDataPertamananComponent,
       },
       nama_pelaksana: {
         title: 'Nama Pelaksana',
