@@ -10,7 +10,7 @@ import {
   NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
-
+import {CommonModule} from "@angular/common";
 
 import { KelolaDataPerumahanComponent } from './kelola-data-perumahan/kelola-data-perumahan.component';
 import { PsuKawasanPerumahanRoutingModule, routedComponents } from './psu-kawasan-perumahan-routing.module';
@@ -18,6 +18,7 @@ import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component'
 import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
 import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-perumahan.component';
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
+
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-lin
     NbRadioModule,
     NbSelectModule,
     NbUserModule,
+    CommonModule,
   ],
   entryComponents: [
     DetailPerumahanComponent,

@@ -18,9 +18,7 @@
       <nb-card-header>Default Buttons</nb-card-header>
       <nb-card-body>
         <div class="buttons-row">
-          <button *ngFor="let status of statuses" nbButton [status]="status">
-            {{ status }}
-          </button>
+          <button *ngFor="let status of statuses" nbButton [status]="status">{{ status }}</button>
           <button disabled nbButton>
             disabled
           </button>

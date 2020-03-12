@@ -1,37 +1,42 @@
 <div class="row">
   <div class="col-md-12">
     <nb-card>
-      <nb-card-header>Input Data Kawasan Perumahan </nb-card-header>
+      <nb-card-header>Input Data Kawasan Permukiman </nb-card-header>
       <nb-card-body>
         <form>
           <div class="form-group row">
-            <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama Perumahan</label>
+            <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Tempat Pemakaman Umum
+              (TPU)</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                     id="namaPerumahan" name="namaPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Nama Tempat Pemakaman Umum (TPU)"
+                     id="namaTPU" name="namaTPU">
             </div>
 
           </div>
           <div class="form-group row">
-            <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama Pengembang</label>
+            <label for="luasTPU" class="label col-sm-3 col-form-label">Luas TPU</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
-                     name="namaPengembang">
-            </div>
-
-          </div>
-          <div class="form-group row">
-            <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth  placeholder="Luas Perumahan" id="luasPerumahan"
-                     name="luasPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Luas TPU" id="luasTPU"
+                     name="luasTPU">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="fotoPerumahan" class="label col-sm-3 col-form-label">Foto Perumahan</label>
+            <label for="dayaTampungTPU" class="label col-sm-3 col-form-label">Daya Tampung
+              TPU</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Perumahan" id="fotoPerumahan">
+              <input type="text" nbInput fullWidth
+                     placeholder="Daya Tampung TPU"
+                     id="dayaTampungTPU"
+                     name="dayaTampungTPU">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDigunakan" class="label col-sm-3 col-form-label">Tahun
+              Digunakan</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="Tahun Digunakan" id="tahunDigunakan">
             </div>
           </div>
 
@@ -148,7 +153,7 @@
           </div>
           <div class="form-group row">
             <label for="namaJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Jalan dan
-            Saluran</label>
+              Saluran</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="namaJalanSaluran"
                      placeholder="Nama Jalan dan Saluran" name="namajalanSaluran">
@@ -156,7 +161,7 @@
           </div>
           <div class="form-group row">
             <label for="luasJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Jalan dan
-            Saluran</label>
+              Saluran</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="luasJalanSaluran"
                      placeholder="Luas Jalan dan Saluran">
@@ -164,7 +169,7 @@
           </div>
           <div class="form-group row">
             <label for="fotoJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Jalan dan
-            Saluran</label>
+              Saluran</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth id="fotoJalanSaluran"
                      placeholder="Password" name="fotoJalanSaluran">
@@ -315,7 +320,6 @@
               <button type="submit" nbButton status="danger">Batal</button>
             </div>
           </div>
-
 
         </form>
       </nb-card-body>

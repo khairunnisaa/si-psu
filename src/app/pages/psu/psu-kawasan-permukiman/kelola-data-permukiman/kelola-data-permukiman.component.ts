@@ -2,6 +2,8 @@ import { Component} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DetailPermukimanComponent } from '../detail-permukiman/detail-permukiman.component';
 import { TableDataPermukiman } from '../../../../@core/data/permukiman';
+import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
+import {NbComponentStatus} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-kelola-data-permukiman',
@@ -75,10 +77,15 @@ export class KelolaDataPermukimanComponent {
       },
     },
   };
-
-  constructor(private service: TableDataPermukiman) {
+  kecamatan: string[];
+  status = [ 'Baik', 'Rusak Ringan', 'Rusak Berat'];
+  constructor(
+    private service: TableDataPermukiman,
+    private getKecamatanService: TableDataKecamatan,
+  ) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
+    this.kecamatan = this.getKecamatanService.getData();
   }
 
   onDeleteConfirm(event): void {
