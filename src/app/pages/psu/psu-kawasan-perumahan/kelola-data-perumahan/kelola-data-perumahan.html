@@ -44,20 +44,19 @@
       <form class="form-inline">
       <strong><label class="label-import">File Import File Excel</label></strong>
       <div class="custom-file">
-        <label class="custom-file-label" >Pilih Nama File</label>
+        <label class="custom-file-label" >Pilih Nama File </label>
         <input type="file" class="custom-file-input" id="validatedCustomFile"
                (change)="onFileChange($event)">
-        <label class="custom-file-label" id="output"></label>
       </div>
-
-      <button type="submit" nbButton status="primary" class="btn-import" nbButton size="small">
+        <label>{{data_rumah_json}}</label>
+      <button nbButton status="primary" class="btn-import" nbButton size="small">
         <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
         Import
       </button>
       </form>
     </div>
 
-    <ng2-smart-table [settings]="settings" [source]="source" (custom)="open()">
+    <ng2-smart-table [settings]="settings" [source]="source" (custom)="open()" >
     </ng2-smart-table>
 
 

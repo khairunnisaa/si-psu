@@ -11,7 +11,7 @@ import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
 export class KelolaDataPerumahanComponent {
-  data_rumah_json = '';
+  data_rumah_json = 'Pilih Nama File';
   years: any[];
   source: LocalDataSource;
   settings = {
@@ -86,7 +86,9 @@ export class KelolaDataPerumahanComponent {
     this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
   }
   onFileChange(event) {
-    this.data_rumah_json = this.service.importFileExcel(event);
+    console.log('event file', event.target.files[0].name);
+    this.service.importFileExcel(event);
+    this.data_rumah_json = event.target.files[0].name;
   }
 
   onFileName(event) {
