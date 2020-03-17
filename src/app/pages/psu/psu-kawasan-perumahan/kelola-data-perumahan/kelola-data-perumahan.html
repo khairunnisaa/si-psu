@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header>
-    Tabel PSU Kawasan Perumahan
+    Tabel PSU Perumahan
   </nb-card-header>
   <nb-card-body>
     <form class="form-inline">
@@ -22,16 +22,16 @@
         <nb-option *ngFor="let year of years">{{year}}</nb-option>
       </nb-select>
       <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
-         status="primary" nbButton size="tiny">
+         status="primary" nbButton size="small">
         <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</a>
 
-      <button nbButton status="success" nbButton size="tiny" class="btn-hapus"
+      <button nbButton status="success" nbButton size="small" class="btn-hapus"
               (click)="exportAsXLSX()">
         <nb-icon icon="arrowhead-down-outline" pack="eva"></nb-icon>
         Export
       </button>
 
-      <button type="submit" nbButton status="danger" nbButton size="tiny" class="btn-hapus">
+      <button type="submit" nbButton status="danger" nbButton size="small" class="btn-hapus">
         <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
         Hapus
       </button>

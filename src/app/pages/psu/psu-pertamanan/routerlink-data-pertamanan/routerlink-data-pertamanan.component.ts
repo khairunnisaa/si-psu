@@ -49,7 +49,7 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
   }
 
   close() {
-    this.windowService.close();
+    this.close();
   }
 
   openWindowForm() {

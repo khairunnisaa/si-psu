@@ -9,7 +9,9 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
+  NbTooltipModule,
 } from '@nebular/theme';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from "@angular/common";
 
 import { KelolaDataPermukimanComponent } from './kelola-data-permukiman/kelola-data-permukiman.component';
@@ -45,9 +47,12 @@ import { RouterlinkKawasanPermukimanComponent } from './routerlink-kawasan-permu
     NbSelectModule,
     NbUserModule,
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NbTooltipModule,
+
   ],
   entryComponents: [
-    DetailPermukimanComponent,
     RouterlinkKawasanPermukimanComponent,
   ],
 })

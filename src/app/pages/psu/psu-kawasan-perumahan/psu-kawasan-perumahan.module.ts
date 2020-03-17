@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbTreeGridModule} from '@nebular/theme';
+import { NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbTreeGridModule} from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import {
   NbActionsModule,
@@ -10,6 +10,7 @@ import {
   NbSelectModule,
   NbUserModule,
 } from '@nebular/theme';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from "@angular/common";
 
 import { KelolaDataPerumahanComponent } from './kelola-data-perumahan/kelola-data-perumahan.component';
@@ -18,8 +19,8 @@ import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component'
 import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
 import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-perumahan.component';
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
-import {ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
-import {NewsService} from '../../layout/news.service';
+import { ShowcaseDialogComponent} from '../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {PopUpDataPerumahanComponent} from "./pop-up-data-perumahan/pop-up-data-perumahan.component";
 
 
 
@@ -32,6 +33,7 @@ import {NewsService} from '../../layout/news.service';
     InputDataPerumahanComponent,
     RouterLinkPerumahanComponent,
     ShowcaseDialogComponent,
+    PopUpDataPerumahanComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -49,6 +51,8 @@ import {NewsService} from '../../layout/news.service';
     NbUserModule,
     CommonModule,
     NbDialogModule.forChild(),
+    FormsModule,
+    ReactiveFormsModule,
   ],
   entryComponents: [
     DetailPerumahanComponent,

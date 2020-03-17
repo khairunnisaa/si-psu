@@ -44,7 +44,7 @@ export class KelolaDataPerumahanComponent {
         filter: false,
       },
       luas_perumahan: {
-        title: 'Luas Perumahan',
+        title: 'Luas Perumahan (m2)',
         type: 'string',
         filter: false,
       },

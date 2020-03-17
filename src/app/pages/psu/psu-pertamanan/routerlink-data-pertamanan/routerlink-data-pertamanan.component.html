@@ -1,5 +1,10 @@
-<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan"><span
-  (click)="openWindow(contentTemplate)">{{ renderValue }}</span></a>
+<!--<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan"><span-->
+<!--  (click)="openWindow(contentTemplate)">{{ renderValue }}</span></a>-->
+
+<span><b>{{ renderValue }}</b></span>
+<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan" (click)="openWindow(contentTemplate)">
+  <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon>
+</a>
 
 <ng-template #contentTemplate let-data>
   <table>

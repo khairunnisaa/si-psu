@@ -1,9 +1,9 @@
 import { Component} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
-import { DetailPermukimanComponent } from '../detail-permukiman/detail-permukiman.component';
 import { TableDataPermukiman } from '../../../../@core/data/permukiman';
 import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
-import {NbComponentStatus} from "@nebular/theme";
+
+import {RouterlinkKawasanPermukimanComponent} from "../routerlink-kawasan-permukiman/routerlink-kawasan-permukiman.component";
 
 @Component({
   selector: 'ngx-kelola-data-permukiman',
@@ -43,7 +43,7 @@ export class KelolaDataPermukimanComponent {
           console.log('row cell === ', row, cell);
           return cell;
         },
-        renderComponent: DetailPermukimanComponent,
+        renderComponent: RouterlinkKawasanPermukimanComponent,
       },
       luas_tpu: {
         title: 'Luas TPU',
