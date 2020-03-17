@@ -31,16 +31,19 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
     this.windowService.open(
       contentTemplate,
       {
-        title: 'Data Pertamanan',
+        title: 'Pemda Park',
         context: {
           id: 1,
           nama_taman: 'Pemda Park',
           nama_pelaksana: 'Adhi Karya',
           luas_taman: '1000 m2',
+          foto: '9',
           kecamatan: 'Cibinong',
           kelurahan: 'Tegar Beriman',
           RT: 13,
           RW: 4,
+          jumlah_petugas:5,
+          keterangan:'Taman yang bagus',
           hasBackdrop: false,
           closeOnEsc: false,
         },
@@ -68,18 +71,18 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
   }
 
 
-  onClick() {
-    console.log('rowData === ', this.rowData);
-    switch (this.rowData.no) {
-      case 1:
-        this.url = '../../pages/beranda';
-        break;
-      case 2:
-        this.url = 'Monday';
-        break;
-      case 3:
-        this.url = 'Tuesday';
-        break;
-    }
-  }
+  // onClick() {
+  //   console.log('rowData === ', this.rowData);
+  //   switch (this.rowData.no) {
+  //     case 1:
+  //       this.url = '../../pages/beranda';
+  //       break;
+  //     case 2:
+  //       this.url = 'Monday';
+  //       break;
+  //     case 3:
+  //       this.url = 'Tuesday';
+  //       break;
+  //   }
+  // }
 }

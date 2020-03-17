@@ -2,55 +2,127 @@
 <!--  (click)="openWindow(contentTemplate)">{{ renderValue }}</span></a>-->
 
 <span><b>{{ renderValue }}</b></span>
-<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan" (click)="openWindow(contentTemplate)">
+<a routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan"
+   (click)="openWindow(contentTemplate)">
   <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon>
 </a>
 
-<ng-template #contentTemplate let-data>
-  <table>
-    <tr>
-      <td>ID</td>
-      <td>:</td>
-      <td>{{ data.id }}</td>
-    </tr>
-    <tr>
-      <td>Nama Taman</td>
-      <td>:</td>
-      <td>{{ data.nama_taman }}</td>
-    </tr>
-    <tr>
-      <td>Nama Pelasana</td>
-      <td>:</td>
-      <td>{{ data.nama_pelaksana }}</td>
-    </tr>
-    <tr>
-      <td>Luas Taman</td>
-      <td>:</td>
-      <td>{{ data.luas_taman }}</td>
-    </tr>
-    <tr>
-      <td>Kecamatan</td>
-      <td>:</td>
-      <td>{{ data.kecamatan }}</td>
-    </tr>
-    <tr>
-      <td>RT</td>
-      <td>:</td>
-      <td>{{ data.RT }}</td>
-    </tr>
-    <tr>
-      <td>RW</td>
-      <td>:</td>
-      <td>{{ data.RW }}</td>
-    </tr>
-    <tr>
-      <td></td>
-      <td></td>
-      <td><a routerLink="../../../pages/psu-pertamanan/detail-pertamanan"
-             (click)="close()">Selengkapnya..
-        .</a></td>
-    </tr>
-  </table>
+<ng-template #contentTemplate let-data class="large-Modal">
+  <div class="row">
+    <div class="col-6">
+      <form>
+        <div class="form-group row">
+          <label class="col-sm-5">Nama Pelaksana</label>
+          <div class="col-5">
+            : {{ data.nama_pelaksana }}
+          </div>
+          <label class=" col-sm-5">Luas Taman (m2)</label>
+          <div class="col-5">
+            : {{ data.luas_taman }}
+          </div>
+          <label class="col-sm-5">Foto</label>
+          <div class="col-5">
+            : {{ data.foto }}
+          </div>
+          <label class="col-sm-5">Lokasi</label>
+          <div class="col-5">
+          </div>
+
+          <label class="col-sm-5">Kecamatan</label>
+          <div class="col-5">
+            : {{ data.kecamatan }}
+          </div>
+          <label class=" col-sm-5">Kelurahan / Desa</label>
+          <div class="col-5">
+            : {{ data.kelurahan }}
+          </div>
+          <label class=" col-sm-5">RT</label>
+          <div class="col-5">
+            : {{ data.RT }}
+          </div>
+          <label class="col-sm-5">RW</label>
+          <div class="col-5">
+            : {{ data.RW }}
+          </div>
+          <label class="col-sm-5">Jumlah Petugas</label>
+          <div class="col-5">
+            : {{ data.jumlah_petugas }}
+          </div>
+          <label class="col-sm-5">Keterangan</label>
+          <div class="col-5">
+            : {{ data.keterangan }}
+          </div>
+        </div>
+        <label class="col-sm-5">
+          <a routerLink="../../../pages/psu-pertamanan/detail-pertamanan" (click)="close()">Selengkapnya...</a></label>
+        <div class="col-5">
+        </div>
+      </form>
+    </div>
+
+    <div class="col-6">
+      <h6>CCTV</h6>
+      <form>
+        <img src="../../../../../assets/images/ICON/cctv.png" class="rounded">
+      </form>
+    </div>
+  </div>
+  <!--  <div class="row">-->
+  <!--    <div class="col-md-6">-->
+  <!--      <form>-->
+  <!--        <div class="form-group row">-->
+  <!--          <label class="col-sm-3 ">Nama Pelaksana</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.nama_pelaksana }}-->
+  <!--          </div>-->
+  <!--          <label class=" col-sm-3">Luas Taman (m2)</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.luas_taman }}-->
+  <!--          </div>-->
+  <!--          <label class="col-sm-3">Foto</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.foto }}-->
+  <!--          </div>-->
+  <!--          <label class="col-sm-3">Lokasi</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--          </div>-->
+
+  <!--          <label class="col-sm-3">Kecamatan</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.kecamatan }}-->
+  <!--          </div>-->
+  <!--          <label class=" col-sm-3">Kelurahan / Desa</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.kelurahan }}-->
+  <!--          </div>-->
+  <!--          <label class=" col-sm-3">RT</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.RT }}-->
+  <!--          </div>-->
+  <!--          <label class="col-sm-3">RW</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.RW }}-->
+  <!--          </div>-->
+  <!--          <label class="col-sm-3">Jumlah Petugas</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.jumlah_petugas }}-->
+  <!--          </div>-->
+  <!--          <label class="col-sm-3">Keterangan</label>-->
+  <!--          <div class="col-sm-9">-->
+  <!--            : {{ data.keterangan }}-->
+  <!--          </div>-->
+  <!--        </div>-->
+  <!--        <label class="label col-sm-3 col-form-label">-->
+  <!--          <a routerLink="../../../pages/psu-pertamanan/detail-pertamanan" (click)="close()">Selengkapnya...</a></label>-->
+  <!--        <div class="col-sm-9">-->
+  <!--        </div>-->
+  <!--      </form>-->
+  <!--    </div>-->
+
+  <!--    <div class="col-md-6">-->
+  <!--      <img src="../../../../../assets/images/TAMAN/taman%202.jpg" class="rounded">-->
+  <!--    </div>-->
+  <!--  </div>-->
 </ng-template>
 
 

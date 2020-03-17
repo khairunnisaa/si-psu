@@ -47,7 +47,11 @@
         </button>
       </form>
     </div>
+    <div class="col-md-12" style="overflow-x: scroll;">
+      <div class="smart-table-container" style="width: 1500px;">
     <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
     </ng2-smart-table>
+      </div>
+    </div>
   </nb-card-body>
 </nb-card>

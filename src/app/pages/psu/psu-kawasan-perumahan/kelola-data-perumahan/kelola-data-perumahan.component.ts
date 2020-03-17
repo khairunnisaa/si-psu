@@ -16,11 +16,10 @@ export class KelolaDataPerumahanComponent {
   source: LocalDataSource;
   settings = {
     actions: false,
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
+    add: false,
+    edit: false,
+    delete: false,
+
     columns: {
       id: {
         title: 'No.',
