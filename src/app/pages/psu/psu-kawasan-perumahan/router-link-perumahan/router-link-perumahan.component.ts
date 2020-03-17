@@ -23,22 +23,22 @@ export class RouterLinkPerumahanComponent implements OnInit {
 
   onClick() {
     console.log('rowData input === ', this.rowData);
-    // switch (this.rowData.id) {
-    //   case 1:
-    //     this.url = '../../../pages/psu-kawasan-perumahan/detail-data-perumahan';
-    //     break;
-    //   case 2:
-    //     this.url = '../../pages/psu/input-data-perumahan';
-    //     break;
-    //   case 3:
-    //     this.url = '../../pages/psu/input-data-perumahan';
-    //     break;
-    // }
-    this.dialogService.open(ShowcaseDialogComponent, {
-      context: {
-        title: this.renderValue,
-      },
-    });
+    switch (this.rowData.id) {
+      case 1:
+        this.url = '../../../pages/psu-kawasan-perumahan/detail-data-perumahan';
+        break;
+      case 2:
+        this.url = '../../pages/psu/input-data-perumahan';
+        break;
+      case 3:
+        this.url = '../../pages/psu/input-data-perumahan';
+        break;
+    }
+    // this.dialogService.open(ShowcaseDialogComponent, {
+    //   context: {
+    //     title: this.renderValue,
+    //   },
+    // });
   }
 
 }

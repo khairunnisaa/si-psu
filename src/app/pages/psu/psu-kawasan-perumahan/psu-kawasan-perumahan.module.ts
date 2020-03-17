@@ -31,7 +31,6 @@ import {NewsService} from '../../layout/news.service';
     DetailPerumahanComponent,
     InputDataPerumahanComponent,
     RouterLinkPerumahanComponent,
-    ShowcaseDialogComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -48,12 +47,10 @@ import {NewsService} from '../../layout/news.service';
     NbSelectModule,
     NbUserModule,
     CommonModule,
-    NbDialogModule.forChild(),
   ],
   entryComponents: [
     DetailPerumahanComponent,
     RouterLinkPerumahanComponent,
-    ShowcaseDialogComponent,
   ],
 })
 export class PsuKawasanPerumahanModule { }
