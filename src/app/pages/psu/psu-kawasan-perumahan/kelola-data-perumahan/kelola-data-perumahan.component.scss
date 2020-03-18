@@ -19,16 +19,18 @@
   width: 5em;
   margin-right: 2em;
 }
-.btn-hapus {
-  margin-left: 15px;
-}
+
 
 .custom-file {
   width: 20em;
 }
 
+.btn-tambah {
+  margin-left: 10px;
+}
+
 .btn-import {
- margin: 10px;
+  margin-left: 10px;
 }
 .label-import {
   margin-right: 10px;
@@ -37,5 +39,8 @@
   nb-card {
     transform: translate3d(0, 0, 0);
   }
+}
+.select-status {
+  width: 10rem;
 }
 

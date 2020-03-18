@@ -29,18 +29,24 @@
           </div>
 
           <div class="form-group row">
-            <label for="tahunDibangun" class="label col-sm-3 col-form-label">Tahun
-              Dibangun</label>
+            <label for="tahunDibangun" class="label col-sm-3 col-form-label">Tahun Dibangun</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Tahun Dibangun" id="tahunDibangun">
+              <nb-select placeholder="Tahun Dibangun" class="select-kelurahan" name="tahun"
+                         id="tahunDibangun">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="lokasi" class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         id="lokasi">
+              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan" id="lokasi">
                 <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
                 <nb-option value="Caringin">Caringin</nb-option>
                 <nb-option value="Cariu">Cariu</nb-option>
@@ -68,7 +74,54 @@
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaPemelihara" class="label col-sm-3 col-form-label">Nama</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama"
+                     id="namaPemelihara" name="luasTaman">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth placeholder="Umur"
+                     id="umur" name="umur">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+              Terakhir</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan" name="pendidikan" id="pendidikan">
+                <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
+                <nb-option value="SD">SD</nb-option>
+                <nb-option value="SMP">SMP</nb-option>
+                <nb-option value="SMA">SMA</nb-option>
+                <nb-option value="SMK">SMK</nb-option>
+                <nb-option value="S1">S1</nb-option>
+                <nb-option value="S2">S2</nb-option>
+                <nb-option value="S3">S3</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tugasPemelihara" class="label col-sm-3 col-form-label">Tugas</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Tugas"
+                     id="tugasPemelihara" name="tugas">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganTugas" class="label col-sm-3 col-form-label">Keterangan</label>
+            <div class="col-sm-9">
+               <textarea rows="5" nbInput fullWidth shape="round"
+                         placeholder="Keterangan"
+                         id="keteranganTugas" name="keteranganTugas">
+               </textarea>
+            </div>
           </div>
 
           <div class="form-group row">
@@ -76,7 +129,19 @@
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaFoto" name="namaFoto">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="fotoTaman" class="label col-sm-3 col-form-label">File Foto Taman</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTaman"
+                     name="fotoTaman">
+            </div>
           </div>
 
           <div class="form-group row">
@@ -84,42 +149,49 @@
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Softscape</label>
-          </div>
-
-          <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Hardscpae</label>
-          </div>
-
-          <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Status</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="kondisiStatus" class="label col-sm-3 col-form-label">
-              Sudah Operasional</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="kondisiStatus1"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;
-              Kondisi</label>
+            <label for="namaJenis" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi..." class="select-status"
-                         name="statusSudahOperasional"
-                         id="kondisiStatus1">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaJenis" name="namaJenis">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlah" name="jumlah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="merk" class="label col-sm-3 col-form-label">Merk / Tipe</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merk" name="merk">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                         id="tahunDiperoleh">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiAlat" class="label col-sm-3 col-form-label">Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiAlat"
+                         id="kondisiAlat">
                 <nb-option value="Baik">Baik</nb-option>
                 <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                 <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -128,67 +200,170 @@
           </div>
 
           <div class="form-group row">
-            <label for="keteranganStatus"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
-            </label>
+            <label for="keteranganAlat" class="label col-sm-3 col-form-label">Keterangan</label>
             <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
-                        id="keteranganStatus" name="keteranganStatusSudahOperasional"></textarea>
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Alat"
+                        id="keteranganAlat" name="keteranganAlat">
+               </textarea>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">Belum Operasional</label>
+            <label class="label col-sm-12 col-form-label label-border">Softscape</label>
           </div>
 
           <div class="form-group row">
-            <label for="kondisiStatus2"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi</label>
+            <label for="namaSoftscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi..." class="select-status" name="statusBelumOperasional" id="kondisiStatus2">
-                <nb-option value="tertata">Tertata</nb-option>
-                <nb-option value="Belum Tertata">Belum Tertata</nb-option>
+              <input type="text" nbInput fullWidth placeholder="Jenis / Nama Alat"
+                     id="namaSoftscape" name="namaSoftscape">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="jumlahSoftscape" class="label col-sm-3 col-form-label">Jumlah</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlahSoftscape" name="jumlahSoftscape">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="merkSoftscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merkSoftscape" name="merkSoftscape">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                         id="tahunDiperoleh">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
               </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="keteranganStatusBelumOperasional"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
-            </label>
+            <label for="kondisiSoftscape" class="label col-sm-3 col-form-label">Kondisi</label>
             <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
-                        id="keteranganStatusBelumOperasional"
-                        name="keteranganStatusBelumOperasional"></textarea>
-            </div>
-          </div>
-
-
-
-          <div class="form-group row">
-            <label for="koordinatTPU"
-                   class="label col-sm-3 col-form-label">Koordinat TPU</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat TPU"
-                     id="koordinatTPU" name="koordinatTPU">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiSoftcape"
+                         id="kondisiSoftscape">
+                <nb-option value="Baik">Baik</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">CCTV</label>
+            <label for="keteranganSofscape" class="label col-sm-3 col-form-label">Keterangan</label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Alat"
+                        id="keteranganSofscape" name="keteranganSofscape">
+               </textarea>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Hardscape</label>
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaHardscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaHardscape" name="namaJenis">
+            </div>
           </div>
 
           <div class="form-group row">
-            <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
+            <label for="jumlahHardscape" class="label col-sm-3 col-form-label">Jumlah</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlahHardscape" name="jumlah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="merkHardscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merkHardscape" name="merkHardscape">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDiperolehHardscape" class="label col-sm-3 col-form-label">Tahun
+              Diperoleh</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahunHardscape" id="tahunDiperolehhardscape">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiHardscape" class="label col-sm-3 col-form-label">Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiHardscape"
+                         id="kondisiHardscape">
+                <nb-option value="Baik">Baik</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganHardscape" class="label col-sm-3 col-form-label">Keterangan
             </label>
             <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Perumahan"
-                        id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
+                        placeholder="Keterangan Alat"
+                        id="keteranganHardscape" name="keteranganhardscape">
+               </textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                     id="namaCCTV" name="namaCCTV">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="ipCCTV" class="label col-sm-3 col-form-label">IP CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="IP CCTV"
+                     id="ipCCTV" name="ipCCTV">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganTaman" class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan"
+                        id="keteranganTaman" name="keteranganTaman"></textarea>
             </div>
           </div>
 
@@ -199,7 +374,6 @@
               <button type="submit" nbButton status="danger">Batal</button>
             </div>
           </div>
-
         </form>
       </nb-card-body>
     </nb-card>

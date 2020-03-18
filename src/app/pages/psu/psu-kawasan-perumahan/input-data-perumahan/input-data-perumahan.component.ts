@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {LocalDataSource} from "ng2-smart-table";
 
 @Component({
   selector: 'ngx-input-data-perumahan',
@@ -8,15 +10,22 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angul
 })
 export class InputDataPerumahanComponent implements OnInit {
 
+  statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
+  kecamatan: string[];
+  source: LocalDataSource;
   statusSerahTerima: boolean;
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
   public emailForm: FormGroup;
   public jalanDanSaluranForm: FormGroup;
   constructor(
+    private getKecamatanService: TableDataKecamatan,
     private formBuilder: FormBuilder,
     private jalanDanSaluranformBuilder: FormBuilder,
-  ) {
+             ) {
+    const data = this.getKecamatanService.getData();
+    this.source = new LocalDataSource(data);
+    this.kecamatan = this.getKecamatanService.getData();
   }
 
   ngOnInit() {
@@ -75,15 +84,15 @@ export class InputDataPerumahanComponent implements OnInit {
 
   onSelectOption(status) {
     console.log("onselect", status);
-    if (status === "1") {
+    if (status === "Sudah Serah Terima") {
       this.statusSerahTerima = true;
       this.statusBelumSerahTerima = false;
       this.statusTerlantar = false;
-    } else if (status === "2") {
+    } else if (status === "Belum Serah Terima") {
       this.statusBelumSerahTerima = true;
       this.statusTerlantar = false;
       this.statusSerahTerima = false;
-    } else if (status === "3") {
+    } else if (status === "Terlantar") {
       this.statusSerahTerima =  false;
       this.statusBelumSerahTerima = false;
       this.statusTerlantar = true;

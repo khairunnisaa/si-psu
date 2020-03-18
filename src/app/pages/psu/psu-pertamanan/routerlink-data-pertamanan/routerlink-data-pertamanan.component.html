@@ -7,7 +7,7 @@
   <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon>
 </a>
 
-<ng-template #contentTemplate let-data class="large-Modal">
+<ng-template #contentTemplate let-data>
   <div class="row">
     <div class="col-6">
       <form>
@@ -53,10 +53,9 @@
             : {{ data.keterangan }}
           </div>
         </div>
-        <label class="col-sm-5">
-          <a routerLink="../../../pages/psu-pertamanan/detail-pertamanan" (click)="close()">Selengkapnya...</a></label>
-        <div class="col-5">
-        </div>
+        <label class="col-9">
+          <a routerLink="../../../pages/psu-pertamanan/detail-pertamanan"
+             (click)="close()"><b>Info Selengkapnya Disini...</b></a></label>
       </form>
     </div>
 

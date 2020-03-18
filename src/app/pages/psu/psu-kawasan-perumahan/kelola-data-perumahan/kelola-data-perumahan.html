@@ -18,23 +18,18 @@
         <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
         <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
       </nb-select>
-      <nb-select placeholder="Tahun" class="select-tahun">
-        <nb-option *ngFor="let year of years">{{year}}</nb-option>
+      <nb-select placeholder="Status" class="select-status">
+        <nb-option *ngFor="let pilih_status of status" value="{{pilih_status}}">{{pilih_status}}</nb-option>
       </nb-select>
       <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
-         status="primary" nbButton size="small">
+         status="primary" nbButton size="small" class="btn-tambah">
         <nb-icon icon="plus-outline" pack="eva"></nb-icon>
         Tambah</a>
 
-      <button nbButton status="success" nbButton size="small" class="btn-hapus"
+      <button nbButton status="success" nbButton size="small" class="btn-import"
               (click)="exportAsXLSX()">
         <nb-icon icon="arrowhead-down-outline" pack="eva"></nb-icon>
         Export
-      </button>
-
-      <button type="submit" nbButton status="danger" nbButton size="small" class="btn-hapus">
-        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
-        Hapus
       </button>
     </form>
 

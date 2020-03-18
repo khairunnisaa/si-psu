@@ -4,6 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
 import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
 import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {NbComponentStatus} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -70,6 +71,8 @@ export class KelolaDataPerumahanComponent {
     },
   };
   kecamatan: string[];
+
+  status = [ 'Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan) {
 
