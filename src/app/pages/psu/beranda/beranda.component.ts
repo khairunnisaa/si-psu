@@ -10,8 +10,41 @@ import {DetailBerandaComponent} from "../../detail-beranda/detail-beranda.compon
   styleUrls: ['./beranda.component.scss'],
 })
 export class BerandaComponent implements OnInit {
+  single: any[];
+  multi: any[];
+
+  view: any[] = [400, 400];
+
+  // options
+  showXAxis = true;
+  showYAxis = true;
+  gradient = false;
+  showLegend = false;
+  showXAxisLabel = true;
+  xAxisLabel = 'Status';
+  showYAxisLabel = true;
+  yAxisLabel = 'Jumlah';
+  barPadding = 30;
+
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
+  };
   source: LocalDataSource;
   ngOnInit() {
+    this.single = [
+      {
+        "name": "Sudah Serah Terima",
+        "value": 894,
+      },
+      {
+        "name": "Belum Serah Terima",
+        "value": 500,
+      },
+      {
+        "name": "Terlantar",
+        "value": 720,
+      },
+    ]
   }
   settings = {
     actions: false,
@@ -46,6 +79,11 @@ export class BerandaComponent implements OnInit {
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
+    Object.assign(this, this.single)
     console.log("datasourcee", this.source);
+  }
+
+  onSelect(event) {
+    console.log(event);
   }
 }

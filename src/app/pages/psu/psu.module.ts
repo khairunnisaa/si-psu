@@ -10,7 +10,9 @@ import { NbCardModule, NbTabsetModule} from '@nebular/theme';
 import { PsuRoutingModule, routedComponents} from './psu-routing.module';
 import { PsuComponent} from './psu.component';
 import { BerandaComponent} from './beranda/beranda.component';
-import { BerandaPieComponent} from './beranda/beranda-pie.component';
+import { RekapitulasiBarComponent} from './beranda/rekapitulasi-bar.component';
+import {ChartsModule} from '../charts/charts.module';
+import {RekapitulasiBarPermukimanComponent} from './beranda/rekapitulasi-bar-permukiman.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { BerandaPieComponent} from './beranda/beranda-pie.component';
     ...routedComponents,
     PsuComponent,
     BerandaComponent,
-    BerandaPieComponent,
+    RekapitulasiBarComponent,
+    RekapitulasiBarPermukimanComponent,
     /*
         yang modul hanya punya submenu tidak usah dideklarasikan
      */
@@ -33,6 +36,7 @@ import { BerandaPieComponent} from './beranda/beranda-pie.component';
     AgmCoreModule,
     MapsModule,
     Ng2SmartTableModule,
+    ChartsModule,
   ],
 })
 export class PsuModule {
