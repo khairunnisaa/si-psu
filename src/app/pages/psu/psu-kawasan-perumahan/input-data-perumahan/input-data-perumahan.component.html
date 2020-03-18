@@ -39,11 +39,14 @@
           <div class="form-group row">
             <label for="lokasi" class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan" id="lokasi">
-                <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.id}}">{{dataKecamatan.namaKecamatan}}</nb-option>
+              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
+                         id="kecamatan" (selectedChange)="changeKecamatan($event)">
+                <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan" id="lokasi">
-
+              <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
+                         id="lokasi" (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+                <nb-option *ngFor="let dataKelurahan of kelurahan"
+                           value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
               <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt"
                      id="lokasi">
@@ -91,10 +94,13 @@
           </div>
 
 <!--          PSU YANG DISERAHKAN ..........................-->
-          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
+          <form class="basic-container"
+                [formGroup]="dataSaranaForm" *ngFor="let dataSarana of
+                dataSaranaForm.get('dataSarana').controls;
+                let j = index" [formGroupName]="j">
           <div class="form-group row" *ngIf="statusSerahTerima">
-            <label class="label col-sm-12 col-form-label label-border" >PSU Yang Diserahkan Data Ke-
-              {{i+1}}</label>
+            <label class="label col-sm-12 col-form-label label-border" >Data Sarana Ke-
+              {{j+1}}</label>
           </div>
 
           <div class="form-group row" *ngIf="statusSerahTerima">
@@ -145,11 +151,11 @@
               <label for="" class="label col-sm-3 col-form-label"></label>
               <div class="col-sm-9">
                 <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                        (click)="addEmailFormGroup()">
+                        (click)="addDataSarana()">
                   <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
                 </button>&nbsp;&nbsp;&nbsp;&nbsp;
                 <button type="submit" nbButton status="danger" nbButton size="tiny"
-                        class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                        class="btn-hapus"  (click)="removeDataSarana(j)">
                   <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
                 </button>
               </div>
@@ -157,11 +163,13 @@
           <!--          PSU YANG DISERAHKAN ..........................-->
 
 <!--Jalan dan Saluran ---------------- Jalan dan Saluran --------------------------->
-          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
-
+          <form class="basic-container" [formGroup]="dataJalanSaluranForm"
+                *ngFor="let dataJalanSaluran of
+                dataJalanSaluranForm.get('dataJalanSaluran').controls;
+                let k = index" [formGroupName]="k">
           <div class="form-group row" *ngIf="statusSerahTerima">
             <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran
-             Data Ke-{{i+1}}</label>
+             Data Ke-{{k+1}}</label>
           </div>
           <div class="form-group row" *ngIf="statusSerahTerima">
             <label for="namaJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Jalan dan
@@ -212,11 +220,11 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addEmailFormGroup()">
+                      (click)="addDataJalanSaluran()">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                      class="btn-hapus"  (click)="removeDataJalanSaluran(k)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
@@ -224,9 +232,10 @@
 <!--Jalan dan Saluran ----------------------Jalan dan Saluran ---------------------->
 
 <!--Taman ---------------------- Taman ----------------- Taman ----------------------------->
-          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
+          <form class="basic-container" [formGroup]="dataTamanForm" *ngFor="let dataTaman of
+          dataTamanForm.get('dataTaman').controls; let n = index" [formGroupName]="n">
           <div class="form-group row" *ngIf="statusSerahTerima">
-            <label class="label col-sm-12 col-form-label label-border">Data Taman Ke-{{i+1}}</label>
+            <label class="label col-sm-12 col-form-label label-border">Data Taman Ke-{{n+1}}</label>
           </div>
 
           <div class="form-group row" *ngIf="statusSerahTerima">
@@ -279,11 +288,11 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addEmailFormGroup()">
+                      (click)="addDataTaman()">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                      class="btn-hapus"  (click)="removeDataTaman(n)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
@@ -323,7 +332,9 @@
             <label class="label col-sm-3 col-form-label">CCTV</label>
           </div>
 
-          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
+          <form class="basic-container" [formGroup]="dataCCTVForm"
+                *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+                let m = index" [formGroupName]="m">
           <div class="form-group row">
             <label for="namaCCTVPerumahan"
                    class="label col-sm-3 col-form-label"> &nbsp;&nbsp;&nbsp;&nbsp;Nama CCTV Perumahan</label>
@@ -347,11 +358,11 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addEmailFormGroup()">
+                      (click)="addDataCCTV()">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                      class="btn-hapus"  (click)="removeDataCCTV(m)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>

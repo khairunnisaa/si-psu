@@ -12,73 +12,152 @@ export class InputDataPerumahanComponent implements OnInit {
 
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];
+  kelurahan: string[];
+
+  disableKelurahan: boolean;
   source: LocalDataSource;
   statusSerahTerima: boolean;
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
-  public emailForm: FormGroup;
-  public jalanDanSaluranForm: FormGroup;
+
+  public dataSaranaForm: FormGroup;
+  public dataJalanSaluranForm: FormGroup;
+  public dataTamanForm: FormGroup;
+  public dataCCTVForm: FormGroup;
+
   constructor(
     private getKecamatanService: TableDataKecamatan,
-    private formBuilder: FormBuilder,
-    private jalanDanSaluranformBuilder: FormBuilder,
-             ) {
+    private formBuilderDataSarana: FormBuilder,
+    private formBuilderDataJalanSaluran: FormBuilder,
+    private formBuilderDataTaman: FormBuilder,
+    private formBuilderDataCCTV: FormBuilder,
+    ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
+    this.disableKelurahan = true;
+  }
+
+  changeKecamatan(kecamatan) {
+    console.log("kecamatan --", kecamatan);
+    this.disableKelurahan = false;
+    this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
+    console.log("kelurahan", this.kelurahan);
+  }
+
+  changeKelurahan(kelurahan) {
+    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
+    // this.selectedData).states.find(state => state.name === state).cities;
+    console.log("kelurahan ini", kelurahan)
   }
 
   ngOnInit() {
     this.statusSerahTerima = false;
     this.statusBelumSerahTerima = false;
     this.statusTerlantar = false;
-    this.emailForm = this.formBuilder.group({
-      emails: this.formBuilder.array([this.createEmailFormGroup()]),
+    this.disableKelurahan = true;
+    this.dataSaranaForm = this.formBuilderDataSarana.group({
+      dataSarana: this.formBuilderDataSarana.array([this.createDataSaranaFormGroup()]),
     });
-    this.jalanDanSaluranForm = this.jalanDanSaluranformBuilder.group({
-      jalanDanSaluran: this.jalanDanSaluranformBuilder.array([this.createjalanDanSaluranGroup()]),
+    this.dataJalanSaluranForm = this.formBuilderDataJalanSaluran.group({
+      dataJalanSaluran: this.formBuilderDataJalanSaluran.array([this.createDataJalanSaluranFormGroup()]),
+    });
+    this.dataTamanForm = this.formBuilderDataTaman.group({
+      dataTaman: this.formBuilderDataTaman.array([this.createDataTamanFormGroup()]),
+    });
+    this.dataCCTVForm = this.formBuilderDataCCTV.group({
+      dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
     });
   }
-
-  public addEmailFormGroup() {
-    const emails = this.emailForm.get('emails') as FormArray;
-    emails.push(this.createEmailFormGroup())
+  /**
+   * Add Data......................................
+   * */
+  public addDataSarana() {
+    const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
+    dataSarana.push(this.createDataSaranaFormGroup())
   }
 
-  public addjalanDanSaluranGroup() {
-    const jalanDanSaluran = this.jalanDanSaluranForm.get('jalan') as FormArray;
-    jalanDanSaluran.push(this.createjalanDanSaluranGroup())
+  public addDataJalanSaluran() {
+    const dataJalanSaluran = this.dataJalanSaluranForm.get('dataJalanSaluran') as FormArray;
+    dataJalanSaluran.push(this.createDataJalanSaluranFormGroup())
   }
 
-  public removeOrClearEmail(i: number) {
-    const emails = this.emailForm.get('emails') as FormArray;
-    if (emails.length > 1) {
-      emails.removeAt(i)
+  public addDataTaman() {
+    const dataTaman = this.dataTamanForm.get('dataTaman') as FormArray;
+    dataTaman.push(this.createDataTamanFormGroup())
+  }
+
+  public addDataCCTV() {
+    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    dataCCTV.push(this.createDataCCTVFormGroup())
+  }
+  /**
+   * Remove Data......................................
+   * */
+  public removeDataSarana(j: number) {
+    const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
+    if (dataSarana.length > 1) {
+      dataSarana.removeAt(j)
     } else {
-      emails.reset()
+      dataSarana.reset()
     }
   }
 
-  public removejalanDanSaluran(i: number) {
-    const jalanDanSaluran = this.jalanDanSaluranForm.get('jalan') as FormArray;
-    if (jalanDanSaluran.length > 1) {
-      jalanDanSaluran.removeAt(i)
+  public removeDataJalanSaluran(k: number) {
+    const dataJalanSaluran = this.dataJalanSaluranForm.get('dataJalanSaluran') as FormArray;
+    if (dataJalanSaluran.length > 1) {
+      dataJalanSaluran.removeAt(k)
     } else {
-      jalanDanSaluran.reset()
+      dataJalanSaluran.reset()
     }
   }
 
-  private createEmailFormGroup(): FormGroup {
+  public removeDataTaman(n: number) {
+    const dataTaman = this.dataTamanForm.get('dataTaman') as FormArray;
+    if (dataTaman.length > 1) {
+      dataTaman.removeAt(n)
+    } else {
+      dataTaman.reset()
+    }
+  }
+
+  public removeDataCCTV(m: number) {
+    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    if (dataCCTV.length > 1) {
+      dataCCTV.removeAt(m)
+    } else {
+      dataCCTV.reset()
+    }
+  }
+  /**
+   * Create Data......................................
+   * */
+
+  private createDataSaranaFormGroup(): FormGroup {
     return new FormGroup({
       'emailAddress': new FormControl(''),
       'emailLabel': new FormControl(''),
     })
   }
 
-  private createjalanDanSaluranGroup(): FormGroup {
+  private createDataJalanSaluranFormGroup(): FormGroup {
     return new FormGroup({
-      'jalan': new FormControl(''),
-      'jalans': new FormControl(''),
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
+  private createDataTamanFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
+  private createDataCCTVFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
     })
   }
 
