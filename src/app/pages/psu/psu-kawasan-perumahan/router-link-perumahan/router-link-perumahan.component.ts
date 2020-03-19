@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import {ShowcaseDialogComponent} from '../../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import { PopUpDataPerumahanComponent} from "../pop-up-data-perumahan/pop-up-data-perumahan.component";
 
 @Component({
   selector: 'ngx-router-link-perumahan',
@@ -34,11 +35,10 @@ export class RouterLinkPerumahanComponent implements OnInit {
         this.url = '../../pages/psu/input-data-perumahan';
         break;
     }
-    // this.dialogService.open(ShowcaseDialogComponent, {
-    //   context: {
-    //     title: this.renderValue,
-    //   },
-    // });
+    //   this.dialogService.open(PopUpDataPerumahanComponent, {
+    //     context: {
+    //       title: this.renderValue,
+    //     },
+    //   });
   }
-
 }

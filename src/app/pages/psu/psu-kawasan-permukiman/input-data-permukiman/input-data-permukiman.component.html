@@ -63,37 +63,164 @@
               <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw" id="lokasi">
             </div>
           </div>
+
+
+
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Pengelolah / Penjaga TPU</label>
           </div>
 
+          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaPengelolah" class="label col-sm-3 col-form-label">Nama</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama" id="namaPengelolah" name="namaPengelolah">
+            </div>
           </div>
+
+          <div class="form-group row">
+            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Umur" id="umur"
+                     name="umur">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+              Terakhir</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Pendidikan" id="pendidikan"
+                     name="pendidikan">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tugas" class="label col-sm-3 col-form-label">Tugas</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Tugas" id="tugas"
+                     name="tugas">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah"
+                   class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganPengelolah"
+                        name="keteranganPengelolah"></textarea>
+            </div>
+          </div>
+          </form>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+
+
+
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Foto TPU</label>
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto" id="namaFoto"
+                     name="namaFoto">
+            </div>
           </div>
+
+          <div class="form-group row">
+            <label for="fileGambar" class="label col-sm-3 col-form-label">Masukan Gambar</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="File Gambar" id="fileGambar"
+                     name="fileGambar">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Inventaris Alat</label>
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaAlat" class="label col-sm-3 col-form-label">Nama Alat</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Jenis Alat" id="namaAlat"
+                     name="namaAlat">
+            </div>
           </div>
+
+          <div class="form-group row">
+            <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah Alat</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput placeholder="Jumlah" id="jumlah"
+                     name="jumlah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganAlat"
+                   class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganAlat"
+                        name="keteranganAlat"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Status</label>
           </div>
 
           <div class="form-group row">
-          <label for="kondisiStatus" class="label col-sm-3 col-form-label">
-            Sudah Operasional</label>
+          <label class="label col-sm-3 col-form-label">Sudah Operasional</label>
           </div>
 
           <div class="form-group row">
@@ -147,8 +274,6 @@
             </div>
           </div>
 
-
-
           <div class="form-group row">
             <label for="koordinatTPU"
                    class="label col-sm-3 col-form-label">Koordinat TPU</label>
@@ -159,12 +284,27 @@
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">CCTV</label>
+            <label class="label col-sm-12 col-form-label label-border">CCTV</label>
           </div>
 
           <div class="form-group row">
-            <ng2-smart-table [settings]="settings" (deleteConfirm)="onDeleteConfirm($event)"></ng2-smart-table>
+            <label for="namaCCTV"
+                   class="label col-sm-3 col-form-label">Nama CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                     id="namaCCTV" name="koordinatTPU">
+            </div>
           </div>
+
+          <div class="form-group row">
+            <label for="ipCamera"
+                   class="label col-sm-3 col-form-label">IP Camera</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="IP Camera"
+                     id="ipCamera" name="ipCamera">
+            </div>
+          </div>
+
 
           <div class="form-group row">
             <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
@@ -173,6 +313,20 @@
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Perumahan"
                         id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
             </div>
           </div>
 

@@ -5,41 +5,48 @@
       <nb-card-body>
         <form>
           <div class="form-group row">
-            <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama Perumahan</label>
+            <label for="namaTaman" class="label col-sm-3 col-form-label">Nama Taman</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                     id="namaPerumahan" name="namaPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Nama Taman"
+                     id="namaTaman" name="namaTaman">
             </div>
 
           </div>
           <div class="form-group row">
-            <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama Pengembang</label>
+            <label for="namaPelaksana" class="label col-sm-3 col-form-label">Nama Pelaksana</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
-                     name="namaPengembang">
-            </div>
-
-          </div>
-          <div class="form-group row">
-            <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth  placeholder="Luas Perumahan" id="luasPerumahan"
-                     name="luasPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Nama Pelaksana" id="namaPelaksana"
+                     name="namaPelaksana">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="fotoPerumahan" class="label col-sm-3 col-form-label">Foto Perumahan</label>
+            <label for="luasTaman" class="label col-sm-3 col-form-label">Luas Taman (m2)</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Perumahan" id="fotoPerumahan">
+              <input type="text" nbInput fullWidth placeholder="Luas Taman (m2)"
+                     id="LuasTaman" name="luasTaman">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDibangun" class="label col-sm-3 col-form-label">Tahun Dibangun</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Tahun Dibangun" class="select-kelurahan" name="tahun"
+                         id="tahunDibangun">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
             <label for="lokasi" class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         id="lokasi">
+              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan" id="lokasi">
                 <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
                 <nb-option value="Caringin">Caringin</nb-option>
                 <nb-option value="Cariu">Cariu</nb-option>
@@ -48,8 +55,7 @@
                 <nb-option value="Ciampea">Ciampea</nb-option>
                 <nb-option value="Cibinong">Cibinong</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"
-                         id="lokasi">
+              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan" id="lokasi">
                 <nb-option value="Babakan">Babakan</nb-option>
                 <nb-option value="MadangBojong">MadangBojong</nb-option>
                 <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
@@ -58,253 +64,306 @@
                 <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
                 <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt"
-                     id="lokasi">
+              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt" id="lokasi">
               &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
-                     id="lokasi">
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw" id="lokasi">
             </div>
           </div>
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Status : Sudah Serah
-              Terima</label>
-          </div>
-
-
-          <div class="form-group row">
-            <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal Serah
-              Terima</label>
-            <div class="col-sm-9">
-              <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                     name="tanggalSerahTerima" id="tanggalSerahTerima">
-              <nb-datepicker #formpicker></nb-datepicker>
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="noBeritaAcaraSerahTerima"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
-                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="sph" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Surat Pengakuan Hak)
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph" name="sph">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border" >PSU Yang Diserahkan</label>
+            <label class="label col-sm-12 col-form-label label-border">Petugas Pemelihara</label>
           </div>
 
           <div class="form-group row">
-            <label for="namaSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Sarana</label>
+            <label for="namaPemelihara" class="label col-sm-3 col-form-label">Nama</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="namaSaranaPSU" placeholder="Nama Sarana"
-                     name="namaSaranaPSU">
+              <input type="text" nbInput fullWidth placeholder="Nama"
+                     id="namaPemelihara" name="luasTaman">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="luasSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Sarana</label>
+            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth  placeholder="Luas Sarana" id="luasSaranaPSU"
-                     nama="namaSaranaPSU">
+              <input type="number" nbInput fullWidth placeholder="Umur"
+                     id="umur" name="umur">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="fotoSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Sarana</label>
+            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+              Terakhir</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Sarana" name="fotoSaranaPSU"
-                     id="fotoSaranaPSU">
+              <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan" name="pendidikan" id="pendidikan">
+                <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
+                <nb-option value="SD">SD</nb-option>
+                <nb-option value="SMP">SMP</nb-option>
+                <nb-option value="SMA">SMA</nb-option>
+                <nb-option value="SMK">SMK</nb-option>
+                <nb-option value="S1">S1</nb-option>
+                <nb-option value="S2">S2</nb-option>
+                <nb-option value="S3">S3</nb-option>
+              </nb-select>
             </div>
           </div>
+
           <div class="form-group row">
-            <label for="kondisiSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Konsidi
-              Sarana</label>
+            <label for="tugasPemelihara" class="label col-sm-3 col-form-label">Tugas</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         name="kondisiSaranaPSU" id="kondisiSaranaPSU">
+              <input type="text" nbInput fullWidth placeholder="Tugas"
+                     id="tugasPemelihara" name="tugas">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganTugas" class="label col-sm-3 col-form-label">Keterangan</label>
+            <div class="col-sm-9">
+               <textarea rows="5" nbInput fullWidth shape="round"
+                         placeholder="Keterangan"
+                         id="keteranganTugas" name="keteranganTugas">
+               </textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Foto Taman</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaFoto" name="namaFoto">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="fotoTaman" class="label col-sm-3 col-form-label">File Foto Taman</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTaman"
+                     name="fotoTaman">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Peralatan Pemelihara</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaJenis" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaJenis" name="namaJenis">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlah" name="jumlah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="merk" class="label col-sm-3 col-form-label">Merk / Tipe</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merk" name="merk">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                         id="tahunDiperoleh">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiAlat" class="label col-sm-3 col-form-label">Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiAlat"
+                         id="kondisiAlat">
                 <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                 <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
+              </nb-select>
             </div>
           </div>
+
           <div class="form-group row">
-            <label for="koordinatPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
+            <label for="keteranganAlat" class="label col-sm-3 col-form-label">Keterangan</label>
             <div class="col-sm-9">
-              <input type="password" nbInput fullWidth placeholder="KoordinatPSU" id="koordinatPSU">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Alat"
+                        id="keteranganAlat" name="keteranganAlat">
+               </textarea>
             </div>
           </div>
+
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran</label>
+            <label class="label col-sm-12 col-form-label label-border">Softscape</label>
           </div>
+
           <div class="form-group row">
-            <label for="namaJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Jalan dan
-              Saluran</label>
+            <label for="namaSoftscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="namaJalanSaluran"
-                     placeholder="Nama Jalan dan Saluran" name="namajalanSaluran">
+              <input type="text" nbInput fullWidth placeholder="Jenis / Nama Alat"
+                     id="namaSoftscape" name="namaSoftscape">
             </div>
           </div>
+
           <div class="form-group row">
-            <label for="luasJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Jalan dan
-              Saluran</label>
+            <label for="jumlahSoftscape" class="label col-sm-3 col-form-label">Jumlah</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="luasJalanSaluran"
-                     placeholder="Luas Jalan dan Saluran">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlahSoftscape" name="jumlahSoftscape">
             </div>
           </div>
+
           <div class="form-group row">
-            <label for="fotoJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Jalan dan
-              Saluran</label>
+            <label for="merkSoftscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth id="fotoJalanSaluran"
-                     placeholder="Password" name="fotoJalanSaluran">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merkSoftscape" name="merkSoftscape">
             </div>
           </div>
+
           <div class="form-group row">
-            <label for="kondisiJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi Jalan dan Saluran</label>
+            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         name="kondisiJalanSaluran" id="kondisiJalanSaluran">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                         id="tahunDiperoleh">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiSoftscape" class="label col-sm-3 col-form-label">Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiSoftcape"
+                         id="kondisiSoftscape">
                 <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                 <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="koordinatJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-            <div class="col-sm-9">
-              <input type="password" nbInput fullWidth
-                     placeholder="Koordinat (Poin Polygon Polyline)" id="koordinatJalanSaluran">
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Taman</label>
+            <label for="keteranganSofscape" class="label col-sm-3 col-form-label">Keterangan</label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Alat"
+                        id="keteranganSofscape" name="keteranganSofscape">
+               </textarea>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Hardscape</label>
           </div>
 
           <div class="form-group row">
-            <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Taman</label>
+            <label for="namaHardscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
             <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
-                     id="namaTaman">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                     id="namaHardscape" name="namaJenis">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Taman</label>
+            <label for="jumlahHardscape" class="label col-sm-3 col-form-label">Jumlah</label>
             <div class="col-sm-9">
-              <input type="password" nbInput fullWidth placeholder="Luas Taman" name="luasTaman"
-                     id="luasTaman">
+              <input type="number" nbInput fullWidth placeholder="Jumlah"
+                     id="jumlahHardscape" name="jumlah">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Taman</label>
+            <label for="merkHardscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman" name="fotoTaman">
+              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                     id="merkHardscape" name="merkHardscape">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="kondisiTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi Taman</label>
+            <label for="tahunDiperolehHardscape" class="label col-sm-3 col-form-label">Tahun
+              Diperoleh</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                         id="kondisiTaman" name="kondisiTaman">
+              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahunHardscape" id="tahunDiperolehhardscape">
+                <nb-option value="2015">2015</nb-option>
+                <nb-option value="2016">2016</nb-option>
+                <nb-option value="2017">2017</nb-option>
+                <nb-option value="2018">2018</nb-option>
+                <nb-option value="2019">2019</nb-option>
+                <nb-option value="2020">2020</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiHardscape" class="label col-sm-3 col-form-label">Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiHardscape"
+                         id="kondisiHardscape">
                 <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Ringan">Ringan</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                 <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>&nbsp;&nbsp;
+              </nb-select>
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="koordinatTaman"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat
-              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Belum Serah Terima</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            <label for="keteranganHardscape" class="label col-sm-3 col-form-label">Keterangan
             </label>
             <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Belum Serah Terima"
-                        name="keteranganBelumSerahTerima" id="keteranganBelumSerahTerima"></textarea>
+                        placeholder="Keterangan Alat"
+                        id="keteranganHardscape" name="keteranganhardscape">
+               </textarea>
             </div>
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Terlantar</label>
+            <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                     id="namaCCTV" name="namaCCTV">
+            </div>
           </div>
 
           <div class="form-group row">
-            <label for="keteranganTerlantar" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            <label for="ipCCTV" class="label col-sm-3 col-form-label">IP CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="IP CCTV"
+                     id="ipCCTV" name="ipCCTV">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganTaman" class="label col-sm-3 col-form-label">Keterangan
             </label>
             <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Terlantar"
-                        id="keteranganTerlantar" name="keteranganTerlantar"></textarea>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="koordinatPerumahan"
-                   class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat Perumahan"
-                     id="koordinatPerumahan" name="koordinatPerumahan">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">CCTV</label>
-          </div>
-
-          <div class="form-group row">
-            <label for="namaCCTVPerumahan"
-                   class="label col-sm-3 col-form-label"> &nbsp;&nbsp;&nbsp;&nbsp;Nama CCTV Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                     id="namaCCTVPerumahan" name="namaCCTVPerumahan">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="ipCameraPerumahan"
-                   class="label col-sm-3 col-form-label"> &nbsp;&nbsp;&nbsp;&nbsp;IP Camera</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="IP Camera"
-                     id="ipCameraPerumahan" name="ipCameraPerumahan">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
-            </label>
-            <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Perumahan"
-                        id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
+                        placeholder="Keterangan"
+                        id="keteranganTaman" name="keteranganTaman"></textarea>
             </div>
           </div>
 
@@ -315,8 +374,6 @@
               <button type="submit" nbButton status="danger">Batal</button>
             </div>
           </div>
-
-
         </form>
       </nb-card-body>
     </nb-card>
