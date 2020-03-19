@@ -5,26 +5,23 @@
   <nb-card-body>
     <form class="form-inline">
       <nb-select-label>Pilih Filter</nb-select-label>
-      <nb-select placeholder="Kecamatan" class="select-kecamatan">
-        <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.id}}">
-          {{dataKecamatan.namaKecamatan}}</nb-option>
-      </nb-select>
-      <nb-select placeholder="Kelurahan" class="select-kelurahan">
-        <nb-option value="Babakan">Babakan</nb-option>
-        <nb-option value="MadangBojong">MadangBojong</nb-option>
-        <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
-        <nb-option value="Cipambuan">Cipambuan</nb-option>
-        <nb-option value="Citaringgul">Citaringgul</nb-option>
-        <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
-        <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
-      </nb-select>
-      <nb-select placeholder="Status" class="select-status">
-        <nb-option *ngFor="let pilih_status of status" value="{{pilih_status}}">{{pilih_status}}</nb-option>
-      </nb-select>
+      <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
+                 id="kecamatan" (selectedChange)="changeKecamatan($event)">
+        <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+      </nb-select>&nbsp;&nbsp;
+      <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
+                 (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+        <nb-option *ngFor="let dataKelurahan of kelurahan"
+                   value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
+      </nb-select>&nbsp;&nbsp;
+
+      <nb-select placeholder="Status" class="select-status" name="status" id="status">
+        <nb-option *ngFor="let pilih_status of statusSelect" value="{{pilih_status}}">{{pilih_status}}</nb-option>
+      </nb-select>&nbsp;&nbsp;
+
       <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
          status="primary" nbButton size="small" class="btn-tambah">
-        <nb-icon icon="plus-outline" pack="eva"></nb-icon>
-        Tambah</a>
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</a>
 
       <button nbButton status="success" nbButton size="small" class="btn-import"
               (click)="exportAsXLSX()">
@@ -32,8 +29,6 @@
         Export
       </button>
     </form>
-
-
     <hr>
 
     <div>

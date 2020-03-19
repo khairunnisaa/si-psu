@@ -8,7 +8,7 @@ describe('InputDataPermukimanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputDataPermukimanComponent ]
+      declarations: [ InputDataPermukimanComponent ],
     })
     .compileComponents();
   }));

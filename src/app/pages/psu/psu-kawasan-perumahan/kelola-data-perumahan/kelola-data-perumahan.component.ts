@@ -1,17 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
 import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
 import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
-import {NbComponentStatus} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
   templateUrl: './kelola-data-perumahan.html',
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
-export class KelolaDataPerumahanComponent {
+export class KelolaDataPerumahanComponent implements OnInit {
   data_rumah_json = '';
   years: any[];
   source: LocalDataSource;
@@ -70,7 +69,10 @@ export class KelolaDataPerumahanComponent {
       },
     },
   };
-  kecamatan: string[];
+  statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
+  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
 
   status = [ 'Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   constructor(private service: TableDataPerumahan,
@@ -79,10 +81,24 @@ export class KelolaDataPerumahanComponent {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
+    this.disableKelurahan = true;
     this.years = [];
     for (let i = 0; i <= 10; ++i) {
     this.years.push(2010 + i);
 }
+  }
+
+  changeKecamatan(kecamatan) {
+    console.log("kecamatan --", kecamatan);
+    this.disableKelurahan = false;
+    this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
+    console.log("kelurahan", this.kelurahan);
+  }
+
+  changeKelurahan(kelurahan) {
+    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
+    // this.selectedData).states.find(state => state.name === state).cities;
+    console.log("kelurahan ini", kelurahan)
   }
   exportAsXLSX() {
     this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
@@ -93,5 +109,8 @@ export class KelolaDataPerumahanComponent {
 
   onFileName(event) {
     document.getElementById('output').innerHTML = this.data_rumah_json;
+  }
+  ngOnInit() {
+    this.disableKelurahan = true;
   }
 }

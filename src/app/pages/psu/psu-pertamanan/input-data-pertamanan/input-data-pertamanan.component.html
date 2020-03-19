@@ -44,29 +44,23 @@
           </div>
 
           <div class="form-group row">
-            <label for="lokasi" class="label col-sm-3 col-form-label">Lokasi</label>
+            <label class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan" id="lokasi">
-                <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
-                <nb-option value="Caringin">Caringin</nb-option>
-                <nb-option value="Cariu">Cariu</nb-option>
-                <nb-option value="Ciampea">Ciampea</nb-option>
-                <nb-option value="Ciawi">Ciawi</nb-option>
-                <nb-option value="Ciampea">Ciampea</nb-option>
-                <nb-option value="Cibinong">Cibinong</nb-option>
+              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
+                         (selectedChange)="changeKecamatan($event)">
+                <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">
+                  {{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan" id="lokasi">
-                <nb-option value="Babakan">Babakan</nb-option>
-                <nb-option value="MadangBojong">MadangBojong</nb-option>
-                <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
-                <nb-option value="Cipambuan">Cipambuan</nb-option>
-                <nb-option value="Citaringgul">Citaringgul</nb-option>
-                <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
-                <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
+
+              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"(change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+                <nb-option *ngFor="let dataKelurahan of kelurahan"
+                           value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}
+                </nb-option>
               </nb-select>&nbsp;&nbsp;
-              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt" id="lokasi">
+
+              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt">
               &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw" id="lokasi">
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw">
             </div>
           </div>
           <div class="form-group row">

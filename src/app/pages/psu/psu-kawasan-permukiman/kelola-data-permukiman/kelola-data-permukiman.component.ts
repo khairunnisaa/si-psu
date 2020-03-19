@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
 import { TableDataPermukiman } from '../../../../@core/data/permukiman';
 import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
@@ -10,7 +10,7 @@ import {RouterlinkKawasanPermukimanComponent} from "../routerlink-kawasan-permuk
   templateUrl: './kelola-data-permukiman.component.html',
   styleUrls: ['./kelola-data-permukiman.component.scss'],
 })
-export class KelolaDataPermukimanComponent {
+export class KelolaDataPermukimanComponent implements OnInit {
 
   source: LocalDataSource;
   settings = {
@@ -77,8 +77,10 @@ export class KelolaDataPermukimanComponent {
       },
     },
   };
-  kecamatan: string[];
-  status = [ 'Baik', 'Rusak Ringan', 'Rusak Berat'];
+  statusSelect = ['Sudah Operasional', 'Belum Operasional'];
+  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
   constructor(
     private service: TableDataPermukiman,
     private getKecamatanService: TableDataKecamatan,
@@ -86,6 +88,7 @@ export class KelolaDataPermukimanComponent {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
+    this.disableKelurahan = true;
   }
 
   onDeleteConfirm(event): void {
@@ -94,5 +97,22 @@ export class KelolaDataPermukimanComponent {
     } else {
       event.confirm.reject();
     }
+  }
+
+  changeKecamatan(kecamatan) {
+    console.log("kecamatan --", kecamatan);
+    this.disableKelurahan = false;
+    this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
+    console.log("kelurahan", this.kelurahan);
+  }
+
+  changeKelurahan(kelurahan) {
+    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
+    // this.selectedData).states.find(state => state.name === state).cities;
+    console.log("kelurahan ini", kelurahan)
+  }
+
+  ngOnInit() {
+    this.disableKelurahan = true;
   }
 }

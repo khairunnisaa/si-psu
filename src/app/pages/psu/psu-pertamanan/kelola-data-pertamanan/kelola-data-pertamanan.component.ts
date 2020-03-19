@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
 import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
@@ -10,7 +10,7 @@ import {RouterlinkDataPertamananComponent} from "../routerlink-data-pertamanan/r
   templateUrl: './kelola-data-pertamanan.component.html',
   styleUrls: ['./kelola-data-pertamanan.component.scss'],
 })
-export class KelolaDataPertamananComponent {
+export class KelolaDataPertamananComponent implements OnInit {
   source: LocalDataSource;
   years: any[];
   settings = {
@@ -77,17 +77,34 @@ export class KelolaDataPertamananComponent {
       },
     },
   };
-  kecamatan: string[];
+  statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
+  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
+
   constructor(private service: TableDataPertamanan,
               private getKecamatanService: TableDataKecamatan) {
 
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
+    this.disableKelurahan = true;
     this.years = [];
     for (let i = 0; i <= 10; ++i) {
       this.years.push(2010 + i);
     }
+  }
+  changeKecamatan(kecamatan) {
+    console.log("kecamatan --", kecamatan);
+    this.disableKelurahan = false;
+    this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
+    console.log("kelurahan", this.kelurahan);
+  }
+
+  changeKelurahan(kelurahan) {
+    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
+    // this.selectedData).states.find(state => state.name === state).cities;
+    console.log("kelurahan ini", kelurahan)
   }
 
   onDeleteConfirm(event): void {
@@ -96,5 +113,8 @@ export class KelolaDataPertamananComponent {
     } else {
       event.confirm.reject();
     }
+  }
+  ngOnInit() {
+    this.disableKelurahan = true;
   }
 }
