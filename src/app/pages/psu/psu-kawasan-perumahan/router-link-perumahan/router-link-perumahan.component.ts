@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { NbDialogService } from '@nebular/theme';
 import {ShowcaseDialogComponent} from '../../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
-import { PopUpDataPerumahanComponent} from "../pop-up-data-perumahan/pop-up-data-perumahan.component";
 
 @Component({
   selector: 'ngx-router-link-perumahan',
