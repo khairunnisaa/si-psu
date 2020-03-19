@@ -21,11 +21,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/pages/psu/beranda',
       },
       {
-        title: 'PSU Kawasan Perumahan',
+        title: 'PSU Perumahan',
         link: '/',
         children: [
           {
-            title: 'Kelola Data Perumahan',
+            title: 'Kelola Data',
+            link: '/pages/psu-kawasan-perumahan/kelola-data-perumahan',
+          },
+          {
+            title: 'Rekapitulasi',
             link: '/pages/psu-kawasan-perumahan/kelola-data-perumahan',
           },
         ],
@@ -35,7 +39,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/',
         children: [
           {
-            title: 'Kelola Data Permukiman',
+            title: 'Kelola Data',
+            link: '/pages/psu-kawasan-permukiman/kelola-data-permukiman',
+          },
+          {
+            title: 'Rekapitulasi',
             link: '/pages/psu-kawasan-permukiman/kelola-data-permukiman',
           },
         ],
@@ -45,7 +53,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: '/',
         children: [
           {
-            title: 'Kelola Data Pertaman',
+            title: 'Kelola Data',
+            link: '/pages/psu-pertamanan/kelola-data-pertamanan',
+          },
+          {
+            title: 'Rekapitulasi',
             link: '/pages/psu-pertamanan/kelola-data-pertamanan',
           },
         ],

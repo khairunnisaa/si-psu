@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {PsuKawasanPermukimanComponent} from './psu-kawasan-permukiman.component';
 import {KelolaDataPermukimanComponent} from './kelola-data-permukiman/kelola-data-permukiman.component';
 import {InputDataPermukimanComponent} from "./input-data-permukiman/input-data-permukiman.component";
+import {DetailPermukimanComponent} from "./detail-permukiman/detail-permukiman.component";
 
 const routes: Routes = [{
   path: '',
@@ -15,6 +16,10 @@ const routes: Routes = [{
     {
       path: 'input-data-permukiman',
       component: InputDataPermukimanComponent,
+    },
+    {
+      path: 'detail-data-permukiman',
+      component: DetailPermukimanComponent,
     },
   ],
 }];
@@ -31,4 +36,5 @@ export class PsuKawasanPermukimanRoutingModule { }
 export const routedComponents = [
   KelolaDataPermukimanComponent,
   InputDataPermukimanComponent,
+  DetailPermukimanComponent,
 ];

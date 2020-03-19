@@ -4,6 +4,7 @@ import { LocalDataSource } from 'ng2-smart-table';
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
 import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
 import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {NbComponentStatus} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -11,11 +12,15 @@ import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
 export class KelolaDataPerumahanComponent {
-  data_rumah_json = 'Pilih Nama File';
+  data_rumah_json = '';
   years: any[];
   source: LocalDataSource;
   settings = {
     actions: false,
+    add: false,
+    edit: false,
+    delete: false,
+
     columns: {
       id: {
         title: 'No.',
@@ -39,7 +44,7 @@ export class KelolaDataPerumahanComponent {
         filter: false,
       },
       luas_perumahan: {
-        title: 'Luas Perumahan',
+        title: 'Luas Perumahan (m2)',
         type: 'string',
         filter: false,
       },
@@ -66,6 +71,8 @@ export class KelolaDataPerumahanComponent {
     },
   };
   kecamatan: string[];
+
+  status = [ 'Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan) {
 
@@ -81,9 +88,7 @@ export class KelolaDataPerumahanComponent {
     this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
   }
   onFileChange(event) {
-    console.log('event file', event.target.files[0].name);
-    this.service.importFileExcel(event);
-    this.data_rumah_json = event.target.files[0].name;
+    this.data_rumah_json = this.service.importFileExcel(event);
   }
 
   onFileName(event) {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'ngx-input-data-permukiman',
@@ -7,28 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputDataPermukimanComponent implements OnInit {
 
+  public emailForm: FormGroup;
   settings = {
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
-      saveButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
-    delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
-      confirmDelete: true,
-    },
     columns: {
       id: {
         title: 'ID KTP',
         type: 'number',
       },
       namaPengelolah: {
-        title: 'Nama Pengelolah',
+        title: 'Nama Pengelola',
         type: 'string',
       },
       umurPengelolah: {
@@ -51,10 +39,36 @@ export class InputDataPermukimanComponent implements OnInit {
   };
 
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) {
+  }
 
   ngOnInit() {
+    this.emailForm = this.formBuilder.group({
+      emails: this.formBuilder.array([this.createEmailFormGroup()]),
+    });
   }
+
+  public addEmailFormGroup() {
+    const emails = this.emailForm.get('emails') as FormArray
+    emails.push(this.createEmailFormGroup())
+  }
+
+  public removeOrClearEmail(i: number) {
+    const emails = this.emailForm.get('emails') as FormArray
+    if (emails.length > 1) {
+      emails.removeAt(i)
+    } else {
+      emails.reset()
+    }
+  }
+
+  private createEmailFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl('', Validators.email),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
 
   onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {

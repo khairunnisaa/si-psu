@@ -1,11 +1,11 @@
 <nb-card>
   <nb-card-header>
-    Tabel PSU Kawasan Perumahan
+    Tabel PSU Perumahan
   </nb-card-header>
   <nb-card-body>
     <form class="form-inline">
       <nb-select-label>Pilih Filter</nb-select-label>
-      <nb-select placeholder="Kecamatan" class="select-kecamatan" >
+      <nb-select placeholder="Kecamatan" class="select-kecamatan">
         <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.id}}">
           {{dataKecamatan.namaKecamatan}}</nb-option>
       </nb-select>
@@ -18,22 +18,18 @@
         <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
         <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
       </nb-select>
-      <nb-select placeholder="Tahun" class="select-tahun">
-        <nb-option *ngFor="let year of years">{{year}}</nb-option>
+      <nb-select placeholder="Status" class="select-status">
+        <nb-option *ngFor="let pilih_status of status" value="{{pilih_status}}">{{pilih_status}}</nb-option>
       </nb-select>
       <a routerLink="../../../pages/psu-kawasan-perumahan/input-data-perumahan" nbButton
-         status="primary" nbButton size="tiny">
-        <nb-icon icon="plus-outline" pack="eva"></nb-icon>Tambah</a>
+         status="primary" nbButton size="small" class="btn-tambah">
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon>
+        Tambah</a>
 
-      <button nbButton status="success" nbButton size="tiny" class="btn-hapus"
+      <button nbButton status="success" nbButton size="small" class="btn-import"
               (click)="exportAsXLSX()">
         <nb-icon icon="arrowhead-down-outline" pack="eva"></nb-icon>
         Export
-      </button>
-
-      <button type="submit" nbButton status="danger" nbButton size="tiny" class="btn-hapus">
-        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
-        Hapus
       </button>
     </form>
 
@@ -42,23 +38,27 @@
 
     <div>
       <form class="form-inline">
-      <strong><label class="label-import">File Import File Excel</label></strong>
-      <div class="custom-file">
-        <label class="custom-file-label" >Pilih Nama File </label>
-        <input type="file" class="custom-file-input" id="validatedCustomFile"
-               (change)="onFileChange($event)">
-      </div>
-        <label>{{data_rumah_json}}</label>
-      <button nbButton status="primary" class="btn-import" nbButton size="small">
-        <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
-        Import
-      </button>
+        <strong><label class="label-import">File Import File Excel</label></strong>
+        <div class="custom-file">
+          <label class="custom-file-label">Pilih Nama File</label>
+          <input type="file" class="custom-file-input" id="validatedCustomFile"
+                 (change)="onFileChange($event)">
+          <label class="custom-file-label" id="output"></label>
+        </div>
+
+        <button type="submit" nbButton status="primary" class="btn-import" nbButton size="small">
+          <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
+          Import
+        </button>
       </form>
     </div>
 
-    <ng2-smart-table [settings]="settings" [source]="source" >
-    </ng2-smart-table>
-
+    <div class="col-md-12" style="overflow-x: scroll;">
+      <div class="smart-table-container" style="width: 1500px;">
+        <ng2-smart-table [settings]="settings" [source]="source" (custom)="open()">
+        </ng2-smart-table>
+      </div>
+    </div>
 
 
   </nb-card-body>
