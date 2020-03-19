@@ -53,6 +53,19 @@ import { VisitorsAnalyticsService } from './mock/visitors-analytics.service';
 import { SecurityCamerasService } from './mock/security-cameras.service';
 import { MockDataModule } from './mock/mock-data.module';
 
+import { PerumahanService} from './mock/perumahan.service';
+import { TableDataPerumahan} from './data/perumahan';
+
+import { PermukimanService } from './mock/permukiman.service';
+import { TableDataPermukiman } from './data/permukiman';
+
+import { PertamananService } from './mock/pertamanan.service';
+import { TableDataPertamanan } from './data/pertamanan';
+import {TableDataKecamatan} from "./data/kecamatan";
+import {KecamatanService} from "./mock/kecamatan.service";
+import {TableDataKelurahan} from "./data/kelurahan";
+import {KelurahanService} from "./mock/kelurahan.service";
+
 const socialLinks = [
   {
     url: 'https://github.com/akveo/nebular',
@@ -91,6 +104,11 @@ const DATA_SERVICES = [
   { provide: StatsProgressBarData, useClass: StatsProgressBarService },
   { provide: VisitorsAnalyticsData, useClass: VisitorsAnalyticsService },
   { provide: SecurityCamerasData, useClass: SecurityCamerasService },
+  { provide: TableDataPerumahan, useClass: PerumahanService },
+  { provide: TableDataPermukiman, useClass: PermukimanService },
+  { provide: TableDataPertamanan, useClass: PertamananService },
+  { provide: TableDataKecamatan, useClass: KecamatanService },
+  { provide: TableDataKelurahan, useClass: KelurahanService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {

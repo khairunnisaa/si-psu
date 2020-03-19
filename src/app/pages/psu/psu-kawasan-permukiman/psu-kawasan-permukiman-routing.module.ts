@@ -1,33 +1,40 @@
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {PsuComponent} from "../psu.component";
-import {BerandaComponent} from "../beranda/beranda.component";
-import {PsuKawasanPermukimanComponent} from "./psu-kawasan-permukiman.component";
-
+import {PsuKawasanPermukimanComponent} from './psu-kawasan-permukiman.component';
+import {KelolaDataPermukimanComponent} from './kelola-data-permukiman/kelola-data-permukiman.component';
+import {InputDataPermukimanComponent} from "./input-data-permukiman/input-data-permukiman.component";
+import {DetailPermukimanComponent} from "./detail-permukiman/detail-permukiman.component";
 
 const routes: Routes = [{
   path: '',
   component: PsuKawasanPermukimanComponent,
   children: [
     {
-      path: 'kelola-data',
-      component: BerandaComponent,
+      path: 'kelola-data-permukiman',
+      component: KelolaDataPermukimanComponent,
     },
-    // {
-    //   path : 'psu-kawasan-permukiman',
-    //   loadChildren: () => import('./psu-kawasan-permukiman/psu-kawasan-permukiman.module')
-    //   .then(m => m.PsuKawasanPermukimanModule),
-    // },
+    {
+      path: 'input-data-permukiman',
+      component: InputDataPermukimanComponent,
+    },
+    {
+      path: 'detail-data-permukiman',
+      component: DetailPermukimanComponent,
+    },
   ],
 }];
+
 @NgModule({
-  declarations: [],
   imports: [
     RouterModule.forChild(routes),
   ],
   exports: [RouterModule],
 })
+
 export class PsuKawasanPermukimanRoutingModule { }
 
 export const routedComponents = [
+  KelolaDataPermukimanComponent,
+  InputDataPermukimanComponent,
+  DetailPermukimanComponent,
 ];

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PetaSebaranComponent } from './peta-sebaran.component';
+import { InputDataPerumahanComponent } from './input-data-perumahan.component';
 
-describe('PetaSebaranComponent', () => {
-  let component: PetaSebaranComponent;
-  let fixture: ComponentFixture<PetaSebaranComponent>;
+describe('InputDataPerumahanComponent', () => {
+  let component: InputDataPerumahanComponent;
+  let fixture: ComponentFixture<InputDataPerumahanComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PetaSebaranComponent ]
+      declarations: [ InputDataPerumahanComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PetaSebaranComponent);
+    fixture = TestBed.createComponent(InputDataPerumahanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

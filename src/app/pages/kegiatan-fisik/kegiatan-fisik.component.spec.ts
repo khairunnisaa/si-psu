@@ -8,7 +8,7 @@ describe('KegiatanFiskComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KegiatanFiskComponent ]
+      declarations: [ KegiatanFiskComponent ],
     })
     .compileComponents();
   }));

@@ -1,10 +1,40 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {RouterModule, Routes} from '@angular/router';
+import {PsuPertamananComponent} from './psu-pertamanan.component';
+import {KelolaDataPertamananComponent} from './kelola-data-pertamanan/kelola-data-pertamanan.component';
+import {InputDataPertamananComponent} from "./input-data-pertamanan/input-data-pertamanan.component";
+import {DetailPertamananComponent} from "./detail-pertamanan/detail-pertamanan.component";
 
+const routes: Routes = [{
+  path: '',
+  component: PsuPertamananComponent,
+  children: [
+    {
+      path: 'kelola-data-pertamanan',
+      component: KelolaDataPertamananComponent,
+    },
+    {
+      path: 'input-data-pertamanan',
+      component: InputDataPertamananComponent,
+    },
+    {
+      path: 'detail-pertamanan',
+      component: DetailPertamananComponent,
+    },
+  ],
+}];
 @NgModule({
-  declarations: [],
   imports: [
-    CommonModule
-  ]
+    RouterModule.forChild(routes),
+  ],
+  exports: [RouterModule],
 })
+
 export class PsuPertamananRoutingModule { }
+
+export const routedComponents = [
+  PsuPertamananComponent,
+  KelolaDataPertamananComponent,
+  InputDataPertamananComponent,
+  DetailPertamananComponent,
+];

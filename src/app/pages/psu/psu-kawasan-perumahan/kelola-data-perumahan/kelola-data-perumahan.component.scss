@@ -1,0 +1,46 @@
+@import '../../../../@theme/styles/themes';
+
+.form-inline {
+  margin: 0 5px 5px 0;
+}
+.select-kecamatan {
+  width: 10em;
+  margin-left: 10px;
+}
+.select-kelurahan {
+  width: 12em;
+}
+
+.select-status {
+  width: 19em;
+}
+
+.select-tahun {
+  width: 5em;
+  margin-right: 2em;
+}
+
+
+.custom-file {
+  width: 20em;
+}
+
+.btn-tambah {
+  margin-left: 10px;
+}
+
+.btn-import {
+  margin-left: 10px;
+}
+.label-import {
+  margin-right: 10px;
+}
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
+.select-status {
+  width: 10rem;
+}
+

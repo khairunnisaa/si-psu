@@ -1,0 +1,345 @@
+<div class="row">
+  <div class="col-md-12">
+    <nb-card>
+      <nb-card-header>Input Data Kawasan Permukiman </nb-card-header>
+      <nb-card-body>
+        <form>
+          <div class="form-group row">
+            <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Tempat Pemakaman Umum
+              (TPU)</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Tempat Pemakaman Umum (TPU)"
+                     id="namaTPU" name="namaTPU">
+            </div>
+
+          </div>
+          <div class="form-group row">
+            <label for="luasTPU" class="label col-sm-3 col-form-label">Luas TPU</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Luas TPU" id="luasTPU"
+                     name="luasTPU">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="dayaTampungTPU" class="label col-sm-3 col-form-label">Daya Tampung TPU</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Daya Tampung TPU" id="dayaTampungTPU" name="dayaTampungTPU">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tahunDigunakan" class="label col-sm-3 col-form-label">Tahun
+              Digunakan</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="Tahun Digunakan" id="tahunDigunakan">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="lokasi" class="label col-sm-3 col-form-label">Lokasi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
+                         id="lokasi">
+                <nb-option value="Bojong  Gede">Bojong Gede</nb-option>
+                <nb-option value="Caringin">Caringin</nb-option>
+                <nb-option value="Cariu">Cariu</nb-option>
+                <nb-option value="Ciampea">Ciampea</nb-option>
+                <nb-option value="Ciawi">Ciawi</nb-option>
+                <nb-option value="Ciampea">Ciampea</nb-option>
+                <nb-option value="Cibinong">Cibinong</nb-option>
+              </nb-select>&nbsp;&nbsp;
+              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan" id="lokasi">
+                <nb-option value="Babakan">Babakan</nb-option>
+                <nb-option value="MadangBojong">MadangBojong</nb-option>
+                <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
+                <nb-option value="Cipambuan">Cipambuan</nb-option>
+                <nb-option value="Citaringgul">Citaringgul</nb-option>
+                <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
+                <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
+              </nb-select>&nbsp;&nbsp;
+              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt" id="lokasi">
+              &nbsp;&nbsp;
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw" id="lokasi">
+            </div>
+          </div>
+
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Pengelolah / Penjaga TPU</label>
+          </div>
+
+          <form class="basic-container" [formGroup]="emailForm" *ngFor="let email of emailForm.get('emails').controls; let i = index" [formGroupName]="i">
+          <div class="form-group row">
+            <label for="namaPengelolah" class="label col-sm-3 col-form-label">Nama</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama" id="namaPengelolah" name="namaPengelolah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Umur" id="umur"
+                     name="umur">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+              Terakhir</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Pendidikan" id="pendidikan"
+                     name="pendidikan">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="tugas" class="label col-sm-3 col-form-label">Tugas</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Tugas" id="tugas"
+                     name="tugas">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah"
+                   class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganPengelolah"
+                        name="keteranganPengelolah"></textarea>
+            </div>
+          </div>
+          </form>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+
+
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Foto TPU</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Foto" id="namaFoto"
+                     name="namaFoto">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="fileGambar" class="label col-sm-3 col-form-label">Masukan Gambar</label>
+            <div class="col-sm-9">
+              <input type="file" nbInput placeholder="File Gambar" id="fileGambar"
+                     name="fileGambar">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Inventaris Alat</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaAlat" class="label col-sm-3 col-form-label">Nama Alat</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama Jenis Alat" id="namaAlat"
+                     name="namaAlat">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah Alat</label>
+            <div class="col-sm-9">
+              <input type="number" nbInput placeholder="Jumlah" id="jumlah"
+                     name="jumlah">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganAlat"
+                   class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganAlat"
+                        name="keteranganAlat"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">Status</label>
+          </div>
+
+          <div class="form-group row">
+          <label class="label col-sm-3 col-form-label">Sudah Operasional</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiStatus1"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;
+              Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi..." class="select-status"
+                         name="statusSudahOperasional"
+                         id="kondisiStatus1">
+                <nb-option value="Baik">Baik</nb-option>
+                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganStatus"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganStatus" name="keteranganStatusSudahOperasional"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="label col-sm-3 col-form-label">Belum Operasional</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="kondisiStatus2"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi</label>
+            <div class="col-sm-9">
+              <nb-select placeholder="Kondisi..." class="select-status" name="statusBelumOperasional" id="kondisiStatus2">
+                <nb-option value="tertata">Tertata</nb-option>
+                <nb-option value="Belum Tertata">Belum Tertata</nb-option>
+              </nb-select>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganStatusBelumOperasional"
+                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round" placeholder="Keterangan"
+                        id="keteranganStatusBelumOperasional"
+                        name="keteranganStatusBelumOperasional"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="koordinatTPU"
+                   class="label col-sm-3 col-form-label">Koordinat TPU</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Koordinat TPU"
+                     id="koordinatTPU" name="koordinatTPU">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="label col-sm-12 col-form-label label-border">CCTV</label>
+          </div>
+
+          <div class="form-group row">
+            <label for="namaCCTV"
+                   class="label col-sm-3 col-form-label">Nama CCTV</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                     id="namaCCTV" name="koordinatTPU">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="ipCamera"
+                   class="label col-sm-3 col-form-label">IP Camera</label>
+            <div class="col-sm-9">
+              <input type="text" nbInput fullWidth placeholder="IP Camera"
+                     id="ipCamera" name="ipCamera">
+            </div>
+          </div>
+
+
+          <div class="form-group row">
+            <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
+            </label>
+            <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Perumahan"
+                        id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="keteranganPengelolah" class="label col-sm-3 col-form-label"></label>
+            <div class="col-sm-9">
+              <button type="submit" nbButton status="success" nbButton size="small" class="btn-hapus"
+                      (click)="addEmailFormGroup()">
+                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
+              </button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger" nbButton size="small"
+                      class="btn-hapus"  (click)="removeOrClearEmail(i)">
+                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="offset-sm-3 col-sm-9">
+              <button type="submit" nbButton status="success">Input</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="submit" nbButton status="danger">Batal</button>
+            </div>
+          </div>
+
+        </form>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

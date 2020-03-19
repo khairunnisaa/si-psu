@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntryDataPerumahanComponent } from './entry-data-perumahan.component';
+import { KelolaDataPerumahanComponent } from './kelola-data-perumahan.component';
 
 describe('EntryDataPerumahanComponent', () => {
-  let component: EntryDataPerumahanComponent;
-  let fixture: ComponentFixture<EntryDataPerumahanComponent>;
+  let component: KelolaDataPerumahanComponent;
+  let fixture: ComponentFixture<KelolaDataPerumahanComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EntryDataPerumahanComponent ]
+      declarations: [ KelolaDataPerumahanComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntryDataPerumahanComponent);
+    fixture = TestBed.createComponent(KelolaDataPerumahanComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

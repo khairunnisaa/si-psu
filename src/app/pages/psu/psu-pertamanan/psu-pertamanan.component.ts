@@ -1,15 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'ngx-pertamanan',
-  templateUrl: './psu-pertamanan.component.html',
-  styleUrls: ['./psu-pertamanan.component.scss']
+  template: `
+    <router-outlet></router-outlet>
+  `,
 })
-export class PertamananComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class PsuPertamananComponent {}

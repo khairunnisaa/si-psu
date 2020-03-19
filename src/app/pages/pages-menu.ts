@@ -4,30 +4,77 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Beranda',
     icon: 'home-outline',
-    link: '/pages/iot-dashboard',
+    link: '/pages/beranda',
+    home: true,
   },
+
   {
     title: 'Menu Admin',
     group: true,
   },
   {
-    title: 'UI Features',
-    icon: 'keypad-outline',
-    link: '/pages/ui-features',
+    title: 'PSU',
+    icon: 'layout-outline',
     children: [
       {
-        title: 'Beranda',
+        title: 'Rekapitulasi',
         link: '/pages/psu/beranda',
       },
       {
-        title: 'PSU Kawasan Permukiman',
-        link: '/pages/psu/kawasan-pemukiman',
+        title: 'PSU Perumahan',
+        link: '/',
         children: [
           {
             title: 'Kelola Data',
-            link: '/pages/psu/kawasan-pemukiman/kelola-data',
+            link: '/pages/psu-kawasan-perumahan/kelola-data-perumahan',
+          },
+          {
+            title: 'Rekapitulasi',
+            link: '/pages/psu-kawasan-perumahan/kelola-data-perumahan',
           },
         ],
+      },
+      {
+        title: 'PSU Kawasan Permukiman',
+        link: '/',
+        children: [
+          {
+            title: 'Kelola Data',
+            link: '/pages/psu-kawasan-permukiman/kelola-data-permukiman',
+          },
+          {
+            title: 'Rekapitulasi',
+            link: '/pages/psu-kawasan-permukiman/kelola-data-permukiman',
+          },
+        ],
+      },
+      {
+        title: 'PSU Pertamanan',
+        link: '/',
+        children: [
+          {
+            title: 'Kelola Data',
+            link: '/pages/psu-pertamanan/kelola-data-pertamanan',
+          },
+          {
+            title: 'Rekapitulasi',
+            link: '/pages/psu-pertamanan/kelola-data-pertamanan',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    title: 'Kegiatan Fisik',
+    icon: 'edit-2-outline',
+    children: [
+      {
+        title: 'Beranda',
+        link: '/pages/forms/inputs',
+      },
+      {
+        title: 'Peta Sebaran',
+        link: '/pages/forms/layouts',
       },
     ],
   },

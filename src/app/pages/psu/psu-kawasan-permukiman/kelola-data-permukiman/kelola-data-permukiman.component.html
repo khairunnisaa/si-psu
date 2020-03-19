@@ -1,0 +1,55 @@
+<nb-card>
+  <nb-card-header>
+    Tabel PSU Kawasan Permukiman
+  </nb-card-header>
+  <nb-card-body>
+    <form class="form-inline">
+      <nb-select-label>Pilih Filter</nb-select-label>
+      <nb-select placeholder="Kecamatan" class="select-kecamatan">
+        <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.id}}">
+          {{dataKecamatan.namaKecamatan}}</nb-option>
+      </nb-select>
+      <nb-select placeholder="Kelurahan" class="select-kelurahan">
+        <nb-option value="Babakan">Babakan</nb-option>
+        <nb-option value="MadangBojong">MadangBojong</nb-option>
+        <nb-option value="Koneng Cijayanti">Koneng Cijayanti</nb-option>
+        <nb-option value="Cipambuan">Cipambuan</nb-option>
+        <nb-option value="Citaringgul">Citaringgul</nb-option>
+        <nb-option value="Kadumangu Karang">Kadumangu Karang</nb-option>
+        <nb-option value="Tengah Sentul Sumur">Tengah Sentul Sumur</nb-option>
+      </nb-select>
+      <nb-select placeholder="Status" class="select-status">
+        <nb-option *ngFor="let cekStatus of status">{{ cekStatus }}</nb-option>
+      </nb-select>
+      <a routerLink="../../../pages/psu-kawasan-permukiman/input-data-permukiman" nbButton
+         status="primary" nbButton size="small">
+        <nb-icon icon="plus-outline" pack="eva"></nb-icon>
+        Tambah</a>
+
+      <button type="submit" nbButton status="danger" nbButton size="small" class="btn-hapus">
+        <nb-icon icon="trash-2-outline" pack="eva"></nb-icon>
+        Hapus
+      </button>
+    </form>
+    <div>
+      <form class="form-inline">
+        <strong><label class="label-import">File Import File Excel</label></strong>
+        <div class="custom-file">
+          <label class="custom-file-label">Pilih Nama File</label>
+          <input type="file" class="custom-file-input" id="validatedCustomFile">
+        </div>
+        <button type="submit" nbButton status="primary" class="btn-import" nbButton size="small">
+          <nb-icon icon="folder-add-outline" pack="eva"></nb-icon>
+          Import
+        </button>
+      </form>
+    </div>
+    <div class="col-md-12" style="overflow-x: scroll;">
+      <div class="smart-table-container" style="width: 1500px;">
+        <ng2-smart-table [settings]="settings" [source]="source"
+                         (deleteConfirm)="onDeleteConfirm($event)">
+        </ng2-smart-table>
+      </div>
+    </div>
+  </nb-card-body>
+</nb-card>
