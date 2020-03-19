@@ -4,6 +4,8 @@ import {PsuPertamananComponent} from './psu-pertamanan.component';
 import {KelolaDataPertamananComponent} from './kelola-data-pertamanan/kelola-data-pertamanan.component';
 import {InputDataPertamananComponent} from "./input-data-pertamanan/input-data-pertamanan.component";
 import {DetailPertamananComponent} from "./detail-pertamanan/detail-pertamanan.component";
+import {RekapitulasiPertamananComponent} from "./rekapitulasi-pertamanan/rekapitulasi-pertamanan.component";
+import {MonitoringPertamananComponent} from "./monitoring-pertamanan/monitoring-pertamanan.component";
 
 const routes: Routes = [{
   path: '',
@@ -20,6 +22,14 @@ const routes: Routes = [{
     {
       path: 'detail-pertamanan',
       component: DetailPertamananComponent,
+    },
+    {
+      path: 'rekapitulasi-pertamanan',
+      component: RekapitulasiPertamananComponent,
+    },
+    {
+      path: 'monitoring-pertamanan',
+      component: MonitoringPertamananComponent,
     },
   ],
 }];
