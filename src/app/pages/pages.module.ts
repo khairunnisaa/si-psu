@@ -10,6 +10,7 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
 import { DetailBerandaComponent } from './detail-beranda/detail-beranda.component';
 import { KegiatanFiskComponent } from './kegiatan-fisik/kegiatan-fisik.component';
 
+
 @NgModule({
   imports: [
     PagesRoutingModule,

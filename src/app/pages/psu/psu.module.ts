@@ -9,17 +9,18 @@ import { NbCardModule, NbTabsetModule} from '@nebular/theme';
 
 import { PsuRoutingModule, routedComponents} from './psu-routing.module';
 import { PsuComponent} from './psu.component';
-import { BerandaComponent} from './beranda/beranda.component';
-import { RekapitulasiBarComponent} from './beranda/rekapitulasi-bar.component';
-import {ChartsModule} from '../charts/charts.module';
-import {RekapitulasiBarPermukimanComponent} from './beranda/rekapitulasi-bar-permukiman.component';
+
+import { RekapitulasiBarComponent} from './rekapitulasi/rekapitulasi-bar.component';
+import { ChartsModule} from '../charts/charts.module';
+import { RekapitulasiBarPermukimanComponent} from './rekapitulasi/rekapitulasi-bar-permukiman.component';
+import { RekapitulasiComponent } from './rekapitulasi/rekapitulasi.component';
 
 
 @NgModule({
   declarations: [
     ...routedComponents,
     PsuComponent,
-    BerandaComponent,
+    RekapitulasiComponent,
     RekapitulasiBarComponent,
     RekapitulasiBarPermukimanComponent,
     /*

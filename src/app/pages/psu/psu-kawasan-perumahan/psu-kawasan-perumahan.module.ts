@@ -19,6 +19,8 @@ import { PsuKawasanPerumahanComponent } from './psu-kawasan-perumahan.component'
 import { DetailPerumahanComponent } from './detail-perumahan/detail-perumahan.component';
 import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-perumahan.component';
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
+import { RekapitulasiPerumahanComponent } from './rekapitulasi-perumahan/rekapitulasi-perumahan.component';
+import { MonitoringPerumahanComponent } from './monitoring-perumahan/monitoring-perumahan.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-lin
     DetailPerumahanComponent,
     InputDataPerumahanComponent,
     RouterLinkPerumahanComponent,
+    RekapitulasiPerumahanComponent,
+    MonitoringPerumahanComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,

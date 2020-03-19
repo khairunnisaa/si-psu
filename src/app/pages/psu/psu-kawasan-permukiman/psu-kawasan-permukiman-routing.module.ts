@@ -4,6 +4,8 @@ import {PsuKawasanPermukimanComponent} from './psu-kawasan-permukiman.component'
 import {KelolaDataPermukimanComponent} from './kelola-data-permukiman/kelola-data-permukiman.component';
 import {InputDataPermukimanComponent} from "./input-data-permukiman/input-data-permukiman.component";
 import {DetailPermukimanComponent} from "./detail-permukiman/detail-permukiman.component";
+import {MonitoringPermukimanComponent} from "./monitoring-permukiman/monitoring-permukiman.component";
+import {RekapitulasiPermukimanComponent} from "./rekapitulasi-permukiman/rekapitulasi-permukiman.component";
 
 const routes: Routes = [{
   path: '',
@@ -20,6 +22,14 @@ const routes: Routes = [{
     {
       path: 'detail-data-permukiman',
       component: DetailPermukimanComponent,
+    },
+    {
+      path: 'rekapitulasi-permukiman',
+      component: RekapitulasiPermukimanComponent,
+    },
+    {
+      path: 'monitoring-permukiman',
+      component: MonitoringPermukimanComponent,
     },
   ],
 }];
