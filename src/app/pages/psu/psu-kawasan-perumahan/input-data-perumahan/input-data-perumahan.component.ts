@@ -11,11 +11,10 @@ import {LocalDataSource} from "ng2-smart-table";
 export class InputDataPerumahanComponent implements OnInit {
 
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
-  kecamatan: string[];
-  kelurahan: string[];
-
-  disableKelurahan: boolean;
   source: LocalDataSource;
+  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
   statusSerahTerima: boolean;
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
