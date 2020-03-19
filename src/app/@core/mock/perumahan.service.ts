@@ -185,16 +185,23 @@ export class PerumahanService extends TableDataPerumahan {
         initial['data'] = XLSX.utils.sheet_to_json(sheet);
         return initial;
       }, {});
-      this.datasJson = JSON.stringify(jsonData);
-      document.getElementById('output').innerHTML = this.datasJson.slice(0, 300).concat("...");
-      // this.pushdata(this.datasJson);
-    }
+      const data_excel = JSON.parse(JSON.stringify(jsonData));
+      this.pushdata(data_excel);
+    };
     reader.readAsBinaryString(file);
-
-    return this.datasJson ;
+    return file ;
   }
   pushdata(dataString) {
-    const obj = dataString.get('data');
+    const obj = dataString['data'];
+    const objFinalArr = [];
+    let objFinal = {};
     console.log("object", obj);
+    obj.forEach(function(element) {
+      console.log("object tiap", element);
+      objFinal = element;
+      objFinalArr.push(objFinal)
+    });
+    Array.prototype.push.apply(this.data, objFinalArr);
+    console.log("dataku jadi", this.data)
   }
 }
