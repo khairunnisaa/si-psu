@@ -9,14 +9,24 @@ import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
   styleUrls: ['./input-data-permukiman.component.scss'],
 })
 export class InputDataPermukimanComponent implements OnInit {
-
-  public emailForm: FormGroup;
+  public dataPengelolaForm: FormGroup;
+  public dataFotoTPUForm: FormGroup;
+  public dataInventarisForm: FormGroup;
+  public dataCCTVForm: FormGroup;
+  statusSudahOperasional: boolean;
+  statusBelumOperasional: boolean;
 
   source: LocalDataSource;
+  pendidikan = ['Tidak Ada Pendidikan', 'SD', 'SMP', 'SMK', 'SMA', 'Madrasah', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'];
   kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
   kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
   disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
-  constructor(private formBuilder: FormBuilder,
+
+  constructor(
+              private formBuilderDataPengelola: FormBuilder,
+              private formBuilderDataFotoTPU: FormBuilder,
+              private formBuilderDataInventaris: FormBuilder,
+              private formBuilderDataCCTV: FormBuilder,
               private getKecamatanService: TableDataKecamatan,
   ) {
     const data = this.getKecamatanService.getData();
@@ -26,17 +36,24 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.emailForm = this.formBuilder.group({
-      emails: this.formBuilder.array([this.createEmailFormGroup()]),
+    this.dataPengelolaForm = this.formBuilderDataPengelola.group({
+      dataPengelola: this.formBuilderDataPengelola.array([this.createDataPengelolaFormGroup()]),
+    });
+    this.dataFotoTPUForm = this.formBuilderDataFotoTPU.group({
+      dataFotoTPU: this.formBuilderDataFotoTPU.array([this.createDataFotoTPUFormGroup()]),
+    });
+    this.dataInventarisForm = this.formBuilderDataInventaris.group({
+      dataInventaris: this.formBuilderDataInventaris.array([this.createDataInventarisFormGroup()]),
+    });
+    this.dataCCTVForm = this.formBuilderDataCCTV.group({
+      dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
     });
     this.disableKelurahan = true;
   }
 
   changeKecamatan(kecamatan) {
-    console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
-    console.log("kelurahan", this.kelurahan);
   }
 
   changeKelurahan(kelurahan) {
@@ -45,18 +62,93 @@ export class InputDataPermukimanComponent implements OnInit {
     console.log("kelurahan ini", kelurahan)
   }
 
-  public addEmailFormGroup() {
-    const emails = this.emailForm.get('emails') as FormArray
-    emails.push(this.createEmailFormGroup())
+  disableTombolTambah($event: MouseEvent) {
+    ($event.target as HTMLButtonElement).disabled = true;
+    // Do actions.
   }
 
-  public removeOrClearEmail(i: number) {
-    const emails = this.emailForm.get('emails') as FormArray
-    if (emails.length > 1) {
-      emails.removeAt(i)
+  public addDataPengelola() {
+    const dataPengelola = this.dataPengelolaForm.get('dataPengelola') as FormArray;
+    dataPengelola.push(this.createDataPengelolaFormGroup())
+  }
+
+  public addDataFotoTPU() {
+    const dataFotoTPU = this.dataFotoTPUForm.get('dataFotoTPU') as FormArray;
+    dataFotoTPU.push(this.createDataFotoTPUFormGroup())
+  }
+
+  public addDataInventaris() {
+    const dataInventaris = this.dataInventarisForm.get('dataInventaris') as FormArray;
+    dataInventaris.push(this.createDataInventarisFormGroup())
+  }
+
+  public addDataCCTV() {
+    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    dataCCTV.push(this.createDataCCTVFormGroup())
+  }
+
+  public removeDataPengelolah(j: number) {
+    const dataPengelola = this.dataPengelolaForm.get('dataPengelola') as FormArray;
+    if (dataPengelola.length > 1) {
+      dataPengelola.removeAt(j)
     } else {
-      emails.reset()
+      dataPengelola.reset()
     }
+  }
+
+  public removeDataFotoTPU(k: number) {
+    const dataFotoTPU = this.dataFotoTPUForm.get('dataFotoTPU') as FormArray;
+    if (dataFotoTPU.length > 1) {
+      dataFotoTPU.removeAt(k)
+    } else {
+      dataFotoTPU.reset()
+    }
+  }
+
+  public removeDataInventaris(m: number) {
+    const dataInventaris = this.dataInventarisForm.get('dataInventaris') as FormArray;
+    if (dataInventaris.length > 1) {
+      dataInventaris.removeAt(m)
+    } else {
+      dataInventaris.reset()
+    }
+  }
+
+  public removeDataCCTV(p: number) {
+    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    if (dataCCTV.length > 1) {
+      dataCCTV.removeAt(p)
+    } else {
+      dataCCTV.reset()
+    }
+  }
+
+  private createDataPengelolaFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
+  private createDataFotoTPUFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
+  private createDataInventarisFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
+  }
+
+  private createDataCCTVFormGroup(): FormGroup {
+    return new FormGroup({
+      'emailAddress': new FormControl(''),
+      'emailLabel': new FormControl(''),
+    })
   }
 
   private createEmailFormGroup(): FormGroup {
@@ -66,13 +158,22 @@ export class InputDataPermukimanComponent implements OnInit {
     })
   }
 
-
   onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
+    if (window.confirm('Apakah Anda Yakin Ingin Menghapus?')) {
       event.confirm.resolve();
     } else {
       event.confirm.reject();
     }
   }
 
+  onSelectOption(status) {
+    console.log("onselect", status);
+    if (status === "Sudah Operasional") {
+      this.statusSudahOperasional = true;
+      this.statusBelumOperasional = false;
+    } else if (status === "Belum Operasional") {
+      this.statusSudahOperasional = false;
+      this.statusBelumOperasional = true;
+    }
+  }
 }

@@ -59,16 +59,23 @@
           </div>
 
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Pengelolah / Penjaga
-              TPU</label>
-          </div>
 
           <div class="form-group row">
-            <label for="namaPengelolah" class="label col-sm-3 col-form-label">Nama</label>
+            <label class="label col-sm-12 col-form-label label-border">Pengelola / Penjaga TPU</label>
+          </div>
+
+          <form class="basic-container"
+                [formGroup]="dataPengelolaForm" *ngFor="let dataPengelola of
+                dataPengelolaForm.get('dataPengelola').controls;
+                let j = index" [formGroupName]="j">
+            <h3>Data Ke-{{j+1}}</h3>
+            <hr>
+
+          <div class="form-group row">
+            <label for="namaPengelola" class="label col-sm-3 col-form-label">Nama</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Nama"
-                     id="namaPengelolah" name="nama">
+                     id="namaPengelola" name="nama">
             </div>
           </div>
 
@@ -84,16 +91,10 @@
             <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
               Terakhir</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan"
+              <nb-select placeholder="Pendidikan Terakhir" class="select-pendidikan"
                          name="pendidikan" id="pendidikan">
-                <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
-                <nb-option value="SD">SD</nb-option>
-                <nb-option value="SMP">SMP</nb-option>
-                <nb-option value="SMA">SMA</nb-option>
-                <nb-option value="SMK">SMK</nb-option>
-                <nb-option value="S1">S1</nb-option>
-                <nb-option value="S2">S2</nb-option>
-                <nb-option value="S3">S3</nb-option>
+                <nb-option *ngFor="let pilihPendidikan of pendidikan"
+                           value="{{pilihPendidikan}}">{{pilihPendidikan}}</nb-option>
               </nb-select>
             </div>
           </div>
@@ -120,20 +121,28 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()">
+                      (click)="addDataPengelola()" (click)="disableTombolTambah($event)">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataCCTV(m)">
+                      class="btn-hapus"  (click)="removeDataPengelolah(j)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
           </div>
+          </form>
 
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Foto TPU</label>
           </div>
+
+          <form class="basic-container"
+                [formGroup]="dataFotoTPUForm" *ngFor="let dataFotoTPU of
+                dataFotoTPUForm.get('dataFotoTPU').controls;
+                let k = index" [formGroupName]="k">
+            <h3>Data Ke-{{k+1}}</h3>
+            <hr>
 
           <div class="form-group row">
             <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Foto</label>
@@ -155,21 +164,29 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()">
+                      (click)="addDataFotoTPU()" (click)="disableTombolTambah($event)">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataCCTV(m)">
+                      class="btn-hapus" (click)="removeDataFotoTPU(k)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
           </div>
+          </form>
 
 
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Inventaris Alat</label>
           </div>
+
+          <form class="basic-container"
+                [formGroup]="dataInventarisForm" *ngFor="let dataInventaris of
+                dataInventarisForm.get('dataInventaris').controls;
+                let m = index" [formGroupName]="m">
+            <h3>Data Ke-{{m+1}}</h3>
+            <hr>
 
 
           <div class="form-group row">
@@ -204,15 +221,16 @@
             <label for="" class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()">
+                      (click)="addDataInventaris()" (click)="disableTombolTambah($event)">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataCCTV(m)">
+                      class="btn-hapus"  (click)="removeDataInventaris(m)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
           </div>
+          </form>
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Status</label>
@@ -227,14 +245,14 @@
             <label for="status" class="label col-sm-3 col-form-label">Status</label>
             <div class="col-sm-9">
               <nb-select placeholder="Status..." class="select-status" name="status"
-                         id="status">
+                         id="status" (selectedChange)="onSelectOption($event)">
                 <nb-option value="Sudah Operasional">Sudah Operasional</nb-option>
                 <nb-option value="Belum Operasional">Belum Operasional</nb-option>
               </nb-select>
             </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-group row" *ngIf="statusSudahOperasional">
             <label for="kondisi" class="label col-sm-3 col-form-label">Kondisi</label>
             <div class="col-sm-9">
               <nb-select placeholder="Kondisi..." class="select-status" name="kondisi" id="kondisi">
@@ -245,7 +263,7 @@
             </div>
           </div>
 
-          <div class="form-group row">
+          <div class="form-group row" *ngIf="statusBelumOperasional">
             <label for="kondisi2" class="label col-sm-3 col-form-label">Kondisi</label>
             <div class="col-sm-9">
               <nb-select placeholder="Kondisi..." class="select-status" name="kondisi2"
@@ -279,6 +297,13 @@
             <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
           </div>
 
+          <form class="basic-container"
+                [formGroup]="dataCCTVForm" *ngFor="let dataCCTV of
+                dataCCTVForm.get('dataCCTV').controls;
+                let p = index" [formGroupName]="p">
+            <h3>Data Ke-{{p+1}}</h3>
+            <hr>
+
           <div class="form-group row">
             <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
             <div class="col-sm-9">
@@ -296,18 +321,19 @@
           </div>
 
           <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
+            <label class="label col-sm-3 col-form-label"></label>
             <div class="col-sm-9">
               <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()">
+                      (click)="addDataCCTV()"(click)="disableTombolTambah($event)">
                 <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
               </button>&nbsp;&nbsp;&nbsp;&nbsp;
               <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataCCTV(m)">
+                      class="btn-hapus"  (click)="removeDataCCTV(p)">
                 <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
               </button>
             </div>
           </div>
+          </form>
 
 
           <div class="form-group row">
@@ -327,8 +353,8 @@
               <button type="submit" nbButton  size="small" status="danger">Batal</button>
             </div>
           </div>
-
         </form>
+
       </nb-card-body>
     </nb-card>
   </div>

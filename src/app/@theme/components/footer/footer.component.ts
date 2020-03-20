@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <img src="../../../../assets/images/lambang%20kab.bogor.jpg">
     <span class="created-by"><b>
-      <a href="" target="_blank" style="text-align: center">Pemerintah Kabupaten Bogor</a>2020</b></span>
+      <a href="" target="_blank" style="text-align: center">Pemerintah Kabupaten Bogor</a> 2020</b></span>
     <b>{{ time | date: 'hh:mm:ss a' }}</b>
   `,
 })
