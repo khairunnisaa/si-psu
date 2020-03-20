@@ -2,21 +2,17 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PsuComponent } from './psu.component';
-import { BerandaComponent } from './beranda/beranda.component';
+import { RekapitulasiComponent } from "./rekapitulasi/rekapitulasi.component";
+
 
 const routes: Routes = [{
   path: '',
   component: PsuComponent,
   children: [
     {
-      path: 'beranda',
-      component: BerandaComponent,
+      path: 'rekapitulasi',
+      component: RekapitulasiComponent,
     },
-    // {
-    //   path : 'psu-kawasan-permukiman',
-    //   loadChildren: () => import('./psu-kawasan-permukiman/psu-kawasan-permukiman.module')
-    //   .then(m => m.PsuKawasanPermukimanModule),
-    // },
   ],
 }];
 
@@ -33,5 +29,5 @@ export const routedComponents = [
   // PsuPertamananComponent,
   // PsuKawasanPermukimanComponent,
   // PsuKawasanPerumahanComponent,
-  BerandaComponent,
+  RekapitulasiComponent,
   ];

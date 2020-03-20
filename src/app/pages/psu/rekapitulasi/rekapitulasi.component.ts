@@ -5,11 +5,11 @@ import {SmartTableData} from "../../../@core/data/smart-table";
 import {DetailBerandaComponent} from "../../detail-beranda/detail-beranda.component";
 
 @Component({
-  selector: 'ngx-beranda',
-  templateUrl: './beranda.component.html',
-  styleUrls: ['./beranda.component.scss'],
+  selector: 'ngx-rekapitulasi',
+  templateUrl: './rekapitulasi.component.html',
+  styleUrls: ['./rekapitulasi.component.scss'],
 })
-export class BerandaComponent implements OnInit {
+export class RekapitulasiComponent implements OnInit {
   single: any[];
   multi: any[];
 
@@ -30,6 +30,7 @@ export class BerandaComponent implements OnInit {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
   source: LocalDataSource;
+
   ngOnInit() {
     this.single = [
       {
@@ -46,13 +47,14 @@ export class BerandaComponent implements OnInit {
       },
     ]
   }
+
   settings = {
     actions: false,
     columns: {
       no: {
         title: 'No',
         type: 'number',
-        filter : false,
+        filter: false,
       },
       namaSeksi: {
         name: 'namaSeksi',
@@ -62,20 +64,22 @@ export class BerandaComponent implements OnInit {
         valuePrepareFunction: (cell, row) => {
           console.log("row cell == ", row, cell);
           return cell;
-      },
+        },
         renderComponent: DetailBerandaComponent,
       },
       jumlahAset: {
         title: 'Jumlah Aset',
         type: 'string',
-        filter : false,
+        filter: false,
       },
     },
   };
   searchedLocation: Location = new Location();
+
   updateLocation(event: Location) {
     this.searchedLocation = new Location(event.latitude, event.longitude);
   }
+
   constructor(private service: SmartTableData) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);

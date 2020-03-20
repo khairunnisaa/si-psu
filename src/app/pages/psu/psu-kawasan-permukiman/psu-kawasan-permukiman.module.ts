@@ -20,6 +20,8 @@ import { PsuKawasanPermukimanComponent } from './psu-kawasan-permukiman.componen
 import { DetailPermukimanComponent } from './detail-permukiman/detail-permukiman.component';
 import { InputDataPermukimanComponent } from './input-data-permukiman/input-data-permukiman.component';
 import { RouterlinkKawasanPermukimanComponent } from './routerlink-kawasan-permukiman/routerlink-kawasan-permukiman.component';
+import { RekapitulasiPermukimanComponent } from './rekapitulasi-permukiman/rekapitulasi-permukiman.component';
+import { MonitoringPermukimanComponent } from './monitoring-permukiman/monitoring-permukiman.component';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { RouterlinkKawasanPermukimanComponent } from './routerlink-kawasan-permu
     DetailPermukimanComponent,
     InputDataPermukimanComponent,
     RouterlinkKawasanPermukimanComponent,
+    RekapitulasiPermukimanComponent,
+    MonitoringPermukimanComponent,
 
   ],
   imports: [

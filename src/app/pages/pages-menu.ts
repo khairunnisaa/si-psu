@@ -18,7 +18,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Rekapitulasi',
-        link: '/pages/psu/beranda',
+        link: '/pages/psu/rekapitulasi',
       },
       {
         title: 'PSU Perumahan',
@@ -30,7 +30,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
           {
             title: 'Rekapitulasi',
-            link: '/pages/psu-kawasan-perumahan/kelola-data-perumahan',
+            link: '/pages/psu-kawasan-perumahan/rekapitulasi-perumahan',
+          },
+          {
+            title: 'Monitoring',
+            link: '/pages/psu-kawasan-perumahan/monitoring-perumahan',
           },
         ],
       },
@@ -44,7 +48,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
           {
             title: 'Rekapitulasi',
-            link: '/pages/psu-kawasan-permukiman/kelola-data-permukiman',
+            link: '/pages/psu-kawasan-permukiman/rekapitulasi-permukiman',
+          },
+          {
+            title: 'Monitoring',
+            link: '/pages/psu-kawasan-permukiman/monitoring-permukiman',
           },
         ],
       },
@@ -58,7 +66,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
           },
           {
             title: 'Rekapitulasi',
-            link: '/pages/psu-pertamanan/kelola-data-pertamanan',
+            link: '/pages/psu-pertamanan/rekapitulasi-pertamanan',
+          },
+          {
+            title: 'Monitoring',
+            link: '/pages/psu-pertamanan/monitoring-pertamanan',
           },
         ],
       },

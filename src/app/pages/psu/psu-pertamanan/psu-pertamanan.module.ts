@@ -17,6 +17,8 @@ import { InputDataPertamananComponent } from './input-data-pertamanan/input-data
 import { RouterlinkDataPertamananComponent } from './routerlink-data-pertamanan/routerlink-data-pertamanan.component';
 import {CommonModule} from "@angular/common";
 import { PopupPertamananComponent } from './routerlink-data-pertamanan/popup-pertamanan.component';
+import { RekapitulasiPertamananComponent } from './rekapitulasi-pertamanan/rekapitulasi-pertamanan.component';
+import { MonitoringPertamananComponent } from './monitoring-pertamanan/monitoring-pertamanan.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { PopupPertamananComponent } from './routerlink-data-pertamanan/popup-per
     InputDataPertamananComponent,
     RouterlinkDataPertamananComponent,
     PopupPertamananComponent,
+    RekapitulasiPertamananComponent,
+    MonitoringPertamananComponent,
   ],
   imports: [
     NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
