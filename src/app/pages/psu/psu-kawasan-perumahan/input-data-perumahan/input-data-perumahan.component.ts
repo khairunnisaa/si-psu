@@ -93,6 +93,9 @@ export class InputDataPerumahanComponent implements OnInit {
   /**
    * Remove Data......................................
    * */
+  get formData() {
+    return this.dataSaranaForm.get('dataSarana') as FormArray;
+  }
   public removeDataSarana(j: number) {
     const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
     if (dataSarana.length > 1) {

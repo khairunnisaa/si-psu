@@ -9,7 +9,6 @@ import {Router} from '@angular/router';
 })
 export class DetailPertamananComponent implements OnInit {
   public state = '';
-  // @Input()
   constructor(private router: Router) {
   }
 
