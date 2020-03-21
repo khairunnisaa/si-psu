@@ -20,6 +20,7 @@ export class PerumahanService extends TableDataPerumahan {
     kelurahan: 'Tajur Halang',
     RT: 3,
     RW: 4,
+    status : "Sudah Serah Terima",
     },
     {
       id: 2,
@@ -30,6 +31,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
   },
     {
       id: 3,
@@ -40,6 +42,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Kemanggisan Timur',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 4,
@@ -50,6 +53,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'PGRI',
       RT: 7,
       RW: 1,
+      status : "Sudah Serah Terima",
     },
     {
       id: 5,
@@ -60,6 +64,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Kinang Rejo',
       RT: 9,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 6,
@@ -70,6 +75,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 7,
@@ -80,6 +86,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 8,
@@ -90,6 +97,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 9,
@@ -100,6 +108,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 10,
@@ -110,6 +119,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 4,
+      status : "Sudah Serah Terima",
     },
     {
       id: 11,
@@ -120,6 +130,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tajur Halang',
       RT: 3,
       RW: 17,
+      status : "Sudah Serah Terima",
     },
     {
       id: 12,
@@ -130,6 +141,7 @@ export class PerumahanService extends TableDataPerumahan {
       kelurahan: 'Tonjong',
       RT: 10,
       RW: 20,
+      status : "Sudah Serah Terima",
     },
 
 

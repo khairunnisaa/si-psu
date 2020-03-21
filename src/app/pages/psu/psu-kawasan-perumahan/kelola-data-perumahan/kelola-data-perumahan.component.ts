@@ -67,6 +67,25 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
+      status: {
+        title: 'status',
+        type: 'string',
+        filter: false,
+      },
+      // name: {
+      //   title: 'Full Name',
+      //   filter: {
+      //     type: 'list',
+      //     config: {
+      //       selectText: 'Select...',
+      //       list: [
+      //         { value: 'Glenna Reichert', title: 'Glenna Reichert' },
+      //         { value: 'Kurtis Weissnat', title: 'Kurtis Weissnat' },
+      //         { value: 'Chelsey Dietrich', title: 'Chelsey Dietrich' },
+      //       ],
+      //     },
+      //   },
+      // },
     },
   };
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
@@ -81,6 +100,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
+
+
     this.disableKelurahan = true;
     this.years = [];
     for (let i = 0; i <= 10; ++i) {
@@ -89,6 +110,13 @@ export class KelolaDataPerumahanComponent implements OnInit {
   }
 
   changeKecamatan(kecamatan) {
+    this.source.setFilter([
+      // fields we want to include in the search
+      {
+        field: 'kecamatan',
+        search: kecamatan,
+      },
+    ], true);
     console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
@@ -96,6 +124,13 @@ export class KelolaDataPerumahanComponent implements OnInit {
   }
 
   changeKelurahan(kelurahan) {
+    this.source.setFilter([
+      // fields we want to include in the search
+      {
+        field: 'kelurahan',
+        search: kelurahan,
+      },
+    ], true);
     // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
     // this.selectedData).states.find(state => state.name === state).cities;
     console.log("kelurahan ini", kelurahan)
@@ -112,5 +147,18 @@ export class KelolaDataPerumahanComponent implements OnInit {
   }
   ngOnInit() {
     this.disableKelurahan = true;
+  }
+
+  statusChange(status) {
+    this.source.setFilter([
+      // fields we want to include in the search
+      {
+        field: 'status',
+        search: status,
+      },
+    ], false);
+    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
+    // this.selectedData).states.find(state => state.name === state).cities;
+    console.log("kelurahan ini", status)
   }
 }
