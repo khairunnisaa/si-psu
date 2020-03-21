@@ -25,28 +25,25 @@ export class RouterLinkPerumahanComponent implements OnInit {
     this.renderValue = this.value.toString();
   }
 
-  // openWindowForm() {
-  //   console.log("row data perumahan", this.rowData);
-  //   this.windowService.open(PopupDataPerumahanComponent,
-  //     {
-  //       title: this.rowData.nama_perumahan,
-  //       context: {
-  //         nama_pengembang : this.rowData,
-  //         luas_perumahan: this.rowData.nama_pelaksana,
-  //         foto: '9',
-  //         kecamatan: this.rowData.kecamatan,
-  //         kelurahan: this.rowData.kelurahan,
-  //         RT: this.rowData.RT,
-  //         RW: this.rowData.RW,
-  //         status: 'Sudah Serah Terima',
-  //         tgl_serah_terima: '13/10/2003',
-  //         No_BAST: '660/2565.B/DCK/2003',
-  //         jumlah_psu: 5,
-  //         keterangan: 'Perumahan Bagus',
-  //       },
-  //     });
-  // }
   openWindowForm() {
-    this.windowService.open(PopupDataPerumahanComponent, { title: `Window` });
+    console.log("row data perumahan", this.rowData);
+    this.windowService.open(PopupDataPerumahanComponent,
+      {
+        title: this.rowData.nama_perumahan,
+        context: {
+          nama_pengembang : this.rowData.nama_pengembang,
+          luas_perumahan: this.rowData.luas_perumahan,
+          foto: '9',
+          kecamatan: this.rowData.kecamatan,
+          kelurahan: this.rowData.kelurahan,
+          RT: this.rowData.RT,
+          RW: this.rowData.RW,
+          status: 'Sudah Serah Terima',
+          tgl_serah_terima: '13/10/2003',
+          no_bast: '660/2565.B/DCK/2003',
+          jumlah_psu: 5,
+          keterangan: 'Perumahan Bagus',
+        },
+      });
   }
 }
