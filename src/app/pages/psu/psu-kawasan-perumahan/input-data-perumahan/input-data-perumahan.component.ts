@@ -18,6 +18,7 @@ export class InputDataPerumahanComponent implements OnInit {
   statusSerahTerima: boolean;
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
+  formPerumahan: any;
 
   public dataSaranaForm: FormGroup;
   public dataJalanSaluranForm: FormGroup;
@@ -67,10 +68,28 @@ export class InputDataPerumahanComponent implements OnInit {
     this.dataCCTVForm = this.formBuilderDataCCTV.group({
       dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
     });
+    this.formPerumahan = this.dataSaranaForm.get('dataSarana') as FormArray;
+    const control = this.formPerumahan.controls
   }
   /**
    * Add Data......................................
    * */
+
+  get formDataCCTV() {
+    return <FormArray>this.dataCCTVForm.get('dataCCTV');
+  }
+
+  get formdataSarana() {
+    return <FormArray>this.dataSaranaForm.get('dataSarana');
+  }
+
+  get formdataJalanSaluran() {
+    return <FormArray>this.dataJalanSaluranForm.get('dataJalanSaluran');
+  }
+
+  get formdataTaman() {
+    return <FormArray>this.dataTamanForm.get('dataTaman');
+  }
   public addDataSarana() {
     const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
     dataSarana.push(this.createDataSaranaFormGroup())
@@ -93,9 +112,6 @@ export class InputDataPerumahanComponent implements OnInit {
   /**
    * Remove Data......................................
    * */
-  get formData() {
-    return this.dataSaranaForm.get('dataSarana') as FormArray;
-  }
   public removeDataSarana(j: number) {
     const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
     if (dataSarana.length > 1) {

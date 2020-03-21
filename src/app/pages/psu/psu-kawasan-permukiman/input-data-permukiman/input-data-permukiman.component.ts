@@ -51,6 +51,18 @@ export class InputDataPermukimanComponent implements OnInit {
     this.disableKelurahan = true;
   }
 
+  get formdataPengelola() {
+    return <FormArray>this.dataPengelolaForm.get('dataPengelola');
+  }
+  get formdataFoto() {
+    return <FormArray>this.dataFotoTPUForm.get('dataFotoTPU');
+  }
+  get formdataInventaris() {
+    return <FormArray>this.dataInventarisForm.get('dataInventaris');
+  }
+  get formdataCCTV() {
+    return <FormArray>this.dataCCTVForm.get('dataCCTV');
+  }
   changeKecamatan(kecamatan) {
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;

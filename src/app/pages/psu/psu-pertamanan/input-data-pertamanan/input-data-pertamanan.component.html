@@ -71,7 +71,7 @@
 
           <form class="basic-container" [formGroup]="dataPetugasForm">
             <div formArrayName="dataPetugas">
-              <div *ngFor="let dataPetugas of dataPetugasForm.get('dataPetugas').controls;
+              <div *ngFor="let dataPetugas of formdataPetugas.controls;
               let i = index" [formGroupName]="i">
                 <h3>Data Ke-{{i + 1}}</h3>
 
@@ -154,7 +154,7 @@
 
           <form class="basic-container" [formGroup]="dataFotoTamanForm">
             <div formArrayName="dataFotoTaman">
-              <div *ngFor="let dataFotoTaman of dataFotoTamanForm.get('dataFotoTaman').controls;
+              <div *ngFor="let dataFotoTaman of formdataFotoTaman.controls;
                         let e = index" [formGroupName]="e">
                 <h3>Data Ke-{{e + 1}}</h3>
 
@@ -201,7 +201,7 @@
 
           <form class="basic-container" [formGroup]="dataPeralatanForm">
             <div formArrayName="dataPeralatan">
-              <div *ngFor="let dataPeralatan of dataPeralatanForm.get('dataPeralatan').controls;
+              <div *ngFor="let dataPeralatan of formdataPeralatan.controls;
                         let k = index" [formGroupName]="k">
                 <h3>Data Ke-{{k + 1}}</h3>
 
@@ -297,7 +297,7 @@
 
           <form class="basic-container" [formGroup]="dataSoftscapeForm">
             <div formArrayName="dataSoftscape">
-              <div *ngFor="let dataSoftscape of dataSoftscapeForm.get('dataSoftscape').controls;
+              <div *ngFor="let dataSoftscape of formdataSoftscape.controls;
                         let s = index" [formGroupName]="s">
                 <h3>Data Ke-{{s + 1}}</h3>
 
@@ -395,7 +395,7 @@
 
           <form class="basic-container" [formGroup]="dataHardscapeForm">
             <div formArrayName="dataHardscape">
-              <div *ngFor="let dataHardscape of dataHardscapeForm.get('dataHardscape').controls;
+              <div *ngFor="let dataHardscape of formdataHardscape.controls;
                         let h = index" [formGroupName]="h">
                 <h3>Data Ke-{{h + 1}}</h3>
 
@@ -492,7 +492,7 @@
 
           <form class="basic-container" [formGroup]="dataCCTVForm">
             <div formArrayName="dataCCTV">
-              <div *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+              <div *ngFor="let dataCCTV of formdataCCTV.controls;
                         let p = index" [formGroupName]="p">
                 <h3>Data Ke-{{p + 1}}</h3>
 

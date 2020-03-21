@@ -16,6 +16,7 @@ export class PopupPertamananComponent implements OnInit {
     @Input() RW: any;
     @Input() jumlah_petugas: any;
     @Input() keterangan: any;
+    @Input() foto: any;
     detailPertamanan: Object;
     ngOnInit(): void {
         this.detailPertamanan = {

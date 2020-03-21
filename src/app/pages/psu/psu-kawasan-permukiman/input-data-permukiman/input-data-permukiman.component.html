@@ -66,7 +66,7 @@
 
           <form class="basic-container" [formGroup]="dataPengelolaForm">
             <div formArrayName="dataPengelola">
-              <div *ngFor="let dataPengelola of dataPengelolaForm.get('dataPengelola').controls;
+              <div *ngFor="let dataPengelola of formdataPengelola.controls;
               let j = index" [formGroupName]="j">
                 <h3>Data Ke-{{j + 1}}</h3>
 
@@ -144,7 +144,7 @@
 
           <form class="basic-container" [formGroup]="dataFotoTPUForm">
             <div formArrayName="dataFotoTPU">
-              <div *ngFor="let dataFotoTPU of dataFotoTPUForm.get('dataFotoTPU').controls;
+              <div *ngFor="let dataFotoTPU of formdataFoto.controls;
               let k = index" [formGroupName]="k">
                 <h3>Data Ke-{{k + 1}}</h3>
 
@@ -191,7 +191,7 @@
 
           <form class="basic-container" [formGroup]="dataInventarisForm">
             <div formArrayName="dataInventaris">
-              <div *ngFor="let dataInventaris of dataInventarisForm.get('dataInventaris').controls;
+              <div *ngFor="let dataInventaris of formdataInventaris.controls;
               let m = index" [formGroupName]="m">
                 <h3>Data Ke-{{m + 1}}</h3>
 
@@ -311,7 +311,7 @@
 
           <form class="basic-container" [formGroup]="dataCCTVForm">
             <div formArrayName="dataCCTV">
-              <div *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+              <div *ngFor="let dataCCTV of formdataCCTV.controls;
               let p = index" [formGroupName]="p">
                 <h3>Data Ke-{{p + 1}}</h3>
 

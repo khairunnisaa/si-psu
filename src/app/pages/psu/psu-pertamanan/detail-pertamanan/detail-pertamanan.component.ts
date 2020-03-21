@@ -8,7 +8,25 @@ import {Router} from '@angular/router';
   styleUrls: ['./detail-pertamanan.component.scss'],
 })
 export class DetailPertamananComponent implements OnInit {
-  public state = '';
+  public state = {
+    dataDetailPertamanan: {
+      nama_taman: '',
+      nama_pelaksana: '',
+      luas_taman: '',
+      tahun_dibangun: '',
+      kecamatan: '',
+      kelurahan: '',
+      RT: '',
+      RW: '',
+      keterangan: '',
+      CCTV: '',
+      hardscape: '',
+      softscape: '',
+      peralatan_pemelihara: '',
+      foto_taman: '',
+      petugas: '',
+    },
+  };
   constructor(private router: Router) {
   }
 
@@ -17,5 +35,4 @@ export class DetailPertamananComponent implements OnInit {
     console.log("states uy", this.state);
     // history.state.data
   }
-
 }

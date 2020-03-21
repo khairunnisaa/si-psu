@@ -105,8 +105,8 @@
 
           <form class="basic-container" [formGroup]="dataSaranaForm">
             <div formArrayName="dataSarana">
-              <div *ngFor="let dataSarana of
-                dataSaranaForm.get('dataSarana').controls; let j = index" [formGroupName]="j">
+              <div *ngFor="let dataSarana of formdataSarana.controls; let j = index"
+                   [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -187,9 +187,9 @@
 
           <form class="basic-container" [formGroup]="dataJalanSaluranForm">
             <div formArrayName="dataJalanSaluran">
-              <div *ngFor="let dataJalanSaluran of
-              dataJalanSaluranForm.get('dataJalanSaluran').controls;
+              <div *ngFor="let dataPetugas of formdataJalanSaluran.controls;
               let k = index" [formGroupName]="k">
+
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -269,8 +269,8 @@
           </div>
 
           <form class="basic-container" [formGroup]="dataTamanForm">
-            <div formArrayName="dataTaman">
-              <div *ngFor="let dataTaman of dataTamanForm.get('dataTaman').controls;
+            <div formArrayName="dataTamanForm">
+              <div *ngFor="let dataTaman of formdataTaman.controls;
               let n = index" [formGroupName]="n">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
@@ -383,7 +383,7 @@
 
           <form class="basic-container" [formGroup]="dataCCTVForm">
             <div formArrayName="dataCCTV">
-              <div *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+              <div *ngFor="let dataCCTV of formDataCCTV.controls;
               let m = index" [formGroupName]="m">
 
                 <h3>Data Ke-{{m + 1}}</h3>

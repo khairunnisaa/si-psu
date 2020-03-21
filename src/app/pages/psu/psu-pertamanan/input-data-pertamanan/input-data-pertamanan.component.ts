@@ -36,6 +36,26 @@ export class InputDataPertamananComponent implements OnInit {
     this.disableKelurahan = true
   }
 
+  get formdataPetugas() {
+    return <FormArray>this.dataPetugasForm.get('dataPetugas');
+  }
+  get formdataFotoTaman() {
+    return <FormArray>this.dataFotoTamanForm.get('dataFotoTaman');
+  }
+  get formdataPeralatan() {
+    return <FormArray>this.dataPeralatanForm.get('dataPeralatan');
+  }
+  get formdataSoftscape() {
+    return <FormArray>this.dataSoftscapeForm.get('dataSoftscape');
+  }
+  get formdataHardscape() {
+    return <FormArray>this.dataHardscapeForm.get('dataHardscape');
+  }
+  get formdataCCTV() {
+    return <FormArray>this.dataCCTVForm.get('dataCCTV');
+  }
+
+
   changeKecamatan(kecamatan) {
     console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
