@@ -187,9 +187,9 @@
 
           <form class="basic-container" [formGroup]="dataJalanSaluranForm">
             <div formArrayName="dataJalanSaluran">
-              <div *ngFor="let dataPetugas of dataJalanSaluranForm.get('dataJalanSaluran').controls;
+              <div *ngFor="let dataJalanSaluran of
+              dataJalanSaluranForm.get('dataJalanSaluran').controls;
               let k = index" [formGroupName]="k">
-
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -269,9 +269,8 @@
           </div>
 
           <form class="basic-container" [formGroup]="dataTamanForm">
-            <div formArrayName="dataTamanForm">
-              <div *ngFor="let dataTaman of
-                  dataTamanForm.get('dataTaman').controls;
+            <div formArrayName="dataTaman">
+              <div *ngFor="let dataTaman of dataTamanForm.get('dataTaman').controls;
               let n = index" [formGroupName]="n">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>

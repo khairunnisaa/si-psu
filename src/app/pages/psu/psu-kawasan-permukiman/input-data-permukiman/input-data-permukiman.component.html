@@ -59,74 +59,82 @@
           </div>
 
           <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Pengelola / Penjaga TPU</label>
+            <label class="label col-sm-12 col-form-label label-border">Pengelola / Penjaga
+              TPU</label>
           </div>
 
-          <form class="basic-container"
-                [formGroup]="dataPengelolaForm" *ngFor="let dataPengelola of
-                dataPengelolaForm.get('dataPengelola').controls;
-                let j = index" [formGroupName]="j">
-            <h3>Data Ke-{{j+1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaPengelola" class="label col-sm-3 col-form-label">Nama</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama"
-                     id="namaPengelola" name="nama">
-            </div>
-          </div>
+          <form class="basic-container" [formGroup]="dataPengelolaForm">
+            <div formArrayName="dataPengelola">
+              <div *ngFor="let dataPengelola of dataPengelolaForm.get('dataPengelola').controls;
+              let j = index" [formGroupName]="j">
+                <h3>Data Ke-{{j + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Umur"
-                     id="umur" name="umur">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaPengelola" class="label col-sm-3 col-form-label">Nama</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama"
+                           id="namaPengelola" name="nama">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
-              Terakhir</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Pendidikan Terakhir" class="select-pendidikan"
-                         name="pendidikan" id="pendidikan">
-                <nb-option *ngFor="let pilihPendidikan of pendidikan"
-                           value="{{pilihPendidikan}}">{{pilihPendidikan}}</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Umur"
+                           id="umur" name="umur">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="tugasPengelolah" class="label col-sm-3 col-form-label">Tugas</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Tugas"
-                     id="tugasPengelolah" name="tugas">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+                    Terakhir</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Pendidikan Terakhir" class="select-pendidikan"
+                               name="pendidikan" id="pendidikan">
+                      <nb-option *ngFor="let pilihPendidikan of pendidikan"
+                                 value="{{pilihPendidikan}}">{{pilihPendidikan}}</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="keteranganTugas" class="label col-sm-3 col-form-label">Keterangan</label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="tugasPengelolah" class="label col-sm-3 col-form-label">Tugas</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Tugas"
+                           id="tugasPengelolah" name="tugas">
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="keteranganTugas"
+                         class="label col-sm-3 col-form-label">Keterangan</label>
+                  <div class="col-sm-9">
                <textarea rows="5" nbInput fullWidth shape="round"
                          placeholder="Keterangan"
                          id="keteranganTugas" name="keteranganTugas">
                </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataPengelola()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataPengelolah(j)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataPengelola()" (click)="disableTombolTambah($event)">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataPengelolah(j)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           </form>
 
 
@@ -134,98 +142,106 @@
             <label class="label col-sm-12 col-form-label label-border">Foto TPU</label>
           </div>
 
-          <form class="basic-container"
-                [formGroup]="dataFotoTPUForm" *ngFor="let dataFotoTPU of
-                dataFotoTPUForm.get('dataFotoTPU').controls;
-                let k = index" [formGroupName]="k">
-            <h3>Data Ke-{{k+1}}</h3>
-            <hr>
+          <form class="basic-container" [formGroup]="dataFotoTPUForm">
+            <div formArrayName="dataFotoTPU">
+              <div *ngFor="let dataFotoTPU of dataFotoTPUForm.get('dataFotoTPU').controls;
+              let k = index" [formGroupName]="k">
+                <h3>Data Ke-{{k + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Foto</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                     id="namaTPU" name="namaTPU">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Foto</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                           id="namaTPU" name="namaTPU">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="fotoTPU" class="label col-sm-3 col-form-label">File Foto TPU</label>
-            <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTPU"
-                     name="fotoTPU">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="fotoTPU" class="label col-sm-3 col-form-label">File Foto TPU</label>
+                  <div class="col-sm-9">
+                    <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTPU"
+                           name="fotoTPU">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataFotoTPU()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataFotoTPU(k)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataFotoTPU()" (click)="disableTombolTambah($event)">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataFotoTPU(k)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           </form>
-
 
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Inventaris Alat</label>
           </div>
 
-          <form class="basic-container"
-                [formGroup]="dataInventarisForm" *ngFor="let dataInventaris of
-                dataInventarisForm.get('dataInventaris').controls;
-                let m = index" [formGroupName]="m">
-            <h3>Data Ke-{{m+1}}</h3>
+          <form class="basic-container" [formGroup]="dataInventarisForm">
+            <div formArrayName="dataInventaris">
+              <div *ngFor="let dataInventaris of dataInventarisForm.get('dataInventaris').controls;
+              let m = index" [formGroupName]="m">
+                <h3>Data Ke-{{m + 1}}</h3>
 
 
-          <div class="form-group row">
-            <label for="namaAlat" class="label col-sm-3 col-form-label">Nama Alat</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Alat"
-                     id="namaAlat" name="namaAlat">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaAlat" class="label col-sm-3 col-form-label">Nama Alat</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama Alat"
+                           id="namaAlat" name="namaAlat">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="jumlahAlat" class="label col-sm-3 col-form-label">Jumlah Alat</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Jumlah Alat"
-                     id="jumlahAlat" name="jumlahAlat">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="jumlahAlat" class="label col-sm-3 col-form-label">Jumlah Alat</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Jumlah Alat"
+                           id="jumlahAlat" name="jumlahAlat">
+                  </div>
+                </div>
 
 
-          <div class="form-group row">
-            <label for="keteranganInventaris" class="label col-sm-3 col-form-label">Keterangan
-            </label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="keteranganInventaris" class="label col-sm-3 col-form-label">Keterangan
+                  </label>
+                  <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan"
                         id="keteranganInventaris" name="keteranganInventaris">
               </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataInventaris()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataInventaris(m)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataInventaris()" (click)="disableTombolTambah($event)">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataInventaris(m)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           </form>
 
           <div class="form-group row">
@@ -293,43 +309,47 @@
             <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
           </div>
 
-          <form class="basic-container"
-                [formGroup]="dataCCTVForm" *ngFor="let dataCCTV of
-                dataCCTVForm.get('dataCCTV').controls;
-                let p = index" [formGroupName]="p">
-            <h3>Data Ke-{{p+1}}</h3>
+          <form class="basic-container" [formGroup]="dataCCTVForm">
+            <div formArrayName="dataCCTV">
+              <div *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+              let p = index" [formGroupName]="p">
+                <h3>Data Ke-{{p + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
-                     id="namaCCTV" name="namaCCTV">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                           id="namaCCTV" name="namaCCTV">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="ipCamera" class="label col-sm-3 col-form-label">IP Camera</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="IP Camera"
-                     id="ipCamera" name="ipCamera">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="ipCamera" class="label col-sm-3 col-form-label">IP Camera</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="IP Camera"
+                           id="ipCamera" name="ipCamera">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()"(click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus"  (click)="removeDataCCTV(p)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataCCTV()" (click)="disableTombolTambah($event)">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataCCTV(p)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
           </form>
-
 
           <div class="form-group row">
             <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
@@ -345,7 +365,7 @@
             <div class="offset-sm-3 col-sm-9">
               <button type="submit" nbButton size="small" status="success">Input</button>
               &nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton  size="small" status="danger">Batal</button>
+              <button type="submit" nbButton size="small" status="danger">Batal</button>
             </div>
           </div>
         </form>
