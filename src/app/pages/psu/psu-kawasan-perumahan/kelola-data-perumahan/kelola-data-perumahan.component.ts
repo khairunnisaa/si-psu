@@ -123,9 +123,13 @@ export class KelolaDataPerumahanComponent implements OnInit {
     console.log("kelurahan", this.kelurahan);
   }
 
-  changeKelurahan(kelurahan) {
+  changeKelurahan(kelurahan, kecamatan) {
     this.source.setFilter([
       // fields we want to include in the search
+      {
+        field: 'kecamatan',
+        search: kecamatan,
+      },
       {
         field: 'kelurahan',
         search: kelurahan,
@@ -133,7 +137,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
     ], true);
     // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
     // this.selectedData).states.find(state => state.name === state).cities;
-    console.log("kelurahan ini", kelurahan)
+    console.log("kelurahan ini", kelurahan, kecamatan)
   }
   exportAsXLSX() {
     this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
