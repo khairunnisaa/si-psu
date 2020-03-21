@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ViewCell } from 'ng2-smart-table';
 import { NbWindowService } from '@nebular/theme';
-import {PopupPertamananComponent} from "./popup-pertamanan.component";
+import { PopupPertamananComponent } from "./popup-pertamanan.component";
 
 
 @Component({
@@ -42,8 +42,8 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
           kelurahan: 'Tegar Beriman',
           RT: 13,
           RW: 4,
-          jumlah_petugas:5,
-          keterangan:'Taman yang bagus',
+          jumlah_petugas: 5,
+          keterangan: 'Taman yang bagus',
           hasBackdrop: false,
           closeOnEsc: false,
         },
