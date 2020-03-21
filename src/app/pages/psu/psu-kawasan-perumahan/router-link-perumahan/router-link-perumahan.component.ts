@@ -18,6 +18,7 @@ export class RouterLinkPerumahanComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("rendervalue", this.rowData);
     this.renderValue = this.value.toString();
   }
 

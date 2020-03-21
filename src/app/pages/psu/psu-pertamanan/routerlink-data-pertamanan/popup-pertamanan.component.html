@@ -1,3 +1,60 @@
-<p>
-  popup-pertamanan works!
-</p>
+<table class="table table-borderless table-sm">
+  <tbody>
+  <tr>
+    <td>Nama Pelaksana</td>
+    <td>:</td>
+    <td>{{nama_pelaksana}}</td>
+    <td rowspan="10"><img src="../../../../../assets/images/camera1.jpg"></td>
+  </tr>
+  <tr>
+    <td>Luas Taman (m2)</td>
+    <td>:</td>
+    <td>{{luas_taman}}</td>
+  </tr>
+  <tr>
+    <td>Foto</td>
+    <td>:</td>
+    <td>{{foto}}</td>
+  </tr>
+  <tr>
+    <td>Lokasi</td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Kecamatan</td>
+    <td>:</td>
+    <td>{{kecamatan}}</td>
+  </tr>
+  <tr>
+    <td>Kelurahan</td>
+    <td>:</td>
+    <td>{{kelurahan}}</td>
+  </tr>
+  <tr>
+    <td>RT</td>
+    <td>:</td>
+    <td>{{RT}}</td>
+  </tr>
+  <tr>
+    <td>RW</td>
+    <td>:</td>
+    <td>{{RW}}</td>
+  </tr>
+  <tr>
+    <td>Jumlah Petugas</td>
+    <td>:</td>
+    <td>{{jumlah_petugas}}</td>
+  </tr>
+  <tr>
+    <td>Keterangan</td>
+    <td>:</td>
+    <td>{{keterangan}}</td>
+  </tr>
+  <tr>
+    <td colspan="4"><a routerLink="../../../pages/psu-pertamanan/detail-pertamanan"
+                       [state]="detailPertamanan"
+                       (click)="close($event)"><b>Selengkapnya...</b></a></td>
+  </tr>
+  </tbody>
+</table>

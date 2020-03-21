@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header class="text-center">
-    <h4>Pemda Park</h4>
+    <h4>{{ this.state.dataDetailPertamanan.nama_taman}}</h4>
   </nb-card-header>
   <nb-card-body>
     <div class="row show-grid">
@@ -11,10 +11,13 @@
         <div><label>Lokasi</label></div>
       </div>
       <div class="col-6 col-md-6 spasi">
-        <div>: <label>Adhi Karya</label></div>
-        <div>: <label>1000</label></div>
-        <div>: <label>2010</label></div>
-        <div>: <label>Cibinong, Tegar Beriman, RT.13 / RW.4</label></div>
+        <div>: <label>{{this.state.dataDetailPertamanan.nama_pelaksana}}</label></div>
+        <div>: <label>{{this.state.dataDetailPertamanan.luas_taman}}</label></div>
+        <div>: <label>{{this.state.dataDetailPertamanan.tahun_dibangun}}</label></div>
+        <div>: <label>{{this.state.dataDetailPertamanan.kecamatan}},
+          {{this.state.dataDetailPertamanan.kelurahan}}, RT.
+          {{this.state.dataDetailPertamanan.RT}} /
+          RW. {{this.state.dataDetailPertamanan.RW}}</label></div>
       </div>
     </div>
     <strong><label>Petugas Pemelihara </label></strong>
@@ -30,38 +33,15 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Ahmad Marzuki</td>
-        <td>45 Tahun</td>
-        <td>S1, Teknik Informatika</td>
-        <td>Koordinator TPU</td>
-        <td>-</td>
+      <tr *ngFor="let petugasPemelihara of this.state.dataDetailPertamanan.petugas">
+        <th scope="row">{{petugasPemelihara.id}}</th>
+        <td>{{petugasPemelihara.nama}}</td>
+        <td>{{petugasPemelihara.umur}}</td>
+        <td>{{petugasPemelihara.pendidikan_terakhir}}</td>
+        <td>{{petugasPemelihara.tugas}}</td>
+        <td>{{petugasPemelihara.keterangan}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Mursalih</td>
-        <td>50 Tahun</td>
-        <td>SMP</td>
-        <td>Petugas Kebersihan TPU</td>
-        <td>Tugas dalam lingkungan TPU</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Jonatan Cristin</td>
-        <td>20 Tahun</td>
-        <td>SMA</td>
-        <td>Petugas Kebersihan TPU</td>
-        <td>Tugas dalam lingkungan TPU</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Ikhwan Suntana</td>
-        <td>67 Tahun</td>
-        <td>SMP</td>
-        <td>Petugas Penggali Kubur</td>
-        <td>Tugas dalam lingkungan TPU</td>
-      </tr>
+
       </tbody>
     </table>
 
@@ -75,21 +55,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Taman 1</td>
-        <td><img src="../../../../../assets/images/TAMAN/taman%201.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Taman 2</td>
-        <td><img src="../../../../../assets/images/TAMAN/taman%202.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Taman 3</td>
-        <td><img src="../../../../../assets/images/TAMAN/taman%203.jpg"
-                 class="rounded"></td>
+      <tr *ngFor="let dataFotoTaman of this.state.dataDetailPertamanan.foto_taman">
+        <th scope="row">{{dataFotoTaman.id}}</th>
+        <td>{{dataFotoTaman.nama_foto}}</td>
+        <td><img src="{{dataFotoTaman.path_foto}}" class="rounded"></td>
       </tr>
       </tbody>
     </table>
@@ -108,50 +77,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cangkul</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Sabit</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Sapu Lidi</td>
-        <td>20 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Truk Pengakut Sampah</td>
-        <td>5 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Keranda Mayat</td>
-        <td>3 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
+      <tr  *ngFor="let dataPeralatan of this.state.dataDetailPertamanan.peralatan_pemelihara">
+        <th scope="row">{{dataPeralatan.id}}</th>
+        <td>{{dataPeralatan.nama_alat}}</td>
+        <td>{{dataPeralatan.jumlah}}</td>
+        <td>{{dataPeralatan.merk}}</td>
+        <td>{{dataPeralatan.tahun_diperoleh}}</td>
+        <td>{{dataPeralatan.kondisi}}</td>
+        <td>{{dataPeralatan.keterangan}}</td>
       </tr>
       </tbody>
     </table>
@@ -170,50 +103,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cangkul</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Sabit</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Sapu Lidi</td>
-        <td>20 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Truk Pengakut Sampah</td>
-        <td>5 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Keranda Mayat</td>
-        <td>3 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
+      <tr *ngFor="let dataSoftscape of this.state.dataDetailPertamanan.softscape">
+        <th scope="row">{{dataSoftscape.id}}</th>
+        <td>{{dataSoftscape.nama_alat}}</td>
+        <td>{{dataSoftscape.jumlah}}</td>
+        <td>{{dataSoftscape.merk}}</td>
+        <td>{{dataSoftscape.tahun_perolehan}}</td>
+        <td>{{dataSoftscape.kondisi}}</td>
+        <td>{{dataSoftscape.keterangan}}</td>
       </tr>
       </tbody>
     </table>
@@ -232,50 +129,14 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cangkul</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Sabit</td>
-        <td>10 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Sapu Lidi</td>
-        <td>20 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Truk Pengakut Sampah</td>
-        <td>5 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Keranda Mayat</td>
-        <td>3 Unit</td>
-        <td>Paragon</td>
-        <td>2019</td>
-        <td>Baik</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
+      <tr *ngFor="let dataHardscape of this.state.dataDetailPertamanan.hardscape">
+        <th scope="row">{{dataHardscape.id}}</th>
+        <td>{{dataHardscape.nama_alat}}</td>
+        <td>{{dataHardscape.jumlah}}</td>
+        <td>{{dataHardscape.merk}}</td>
+        <td>{{dataHardscape.tahun_diperoleh}}</td>
+        <td>{{dataHardscape.kondisi}}</td>
+        <td>{{dataHardscape.keterangan}}</td>
       </tr>
       </tbody>
     </table>
@@ -299,30 +160,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Pintu Gerbang Utama</td>
-        <td>10.110.200.16</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Makan Tengah</td>
-        <td>10.110.200.15</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Kolam Ikan</td>
-        <td>10.110.200.14</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Pintu Belakang</td>
-        <td>10.110.200.13</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Taman Bagian Dalam</td>
-        <td>10.110.200.11</td>
+      <tr *ngFor="let dataCCTV of this.state.dataDetailPertamanan.CCTV">
+        <th scope="row">{{dataCCTV.id}}</th>
+        <td>{{dataCCTV.nama_cctv}}</td>
+        <td>{{dataCCTV.ip_cctv}}</td>
       </tr>
       </tbody>
     </table>
@@ -332,7 +173,7 @@
         <div><label>Keterangan</label></div>
       </div>
       <div class="col-10 col-md-6 spasi">
-        <div>: <label>Taman Sangat ramai DI Malam Hari</label></div>
+        <div>: <label>{{this.state.dataDetailPertamanan.keterangan}}</label></div>
       </div>
     </div>
     <br>

@@ -183,7 +183,7 @@
                 *ngFor="let dataJalanSaluran of
                 dataJalanSaluranForm.get('dataJalanSaluran').controls;
                 let k = index" [formGroupName]="k">
-            <hr *ngIf="statusSerahTerima">
+
             <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
 
             <div class="form-group row" *ngIf="statusSerahTerima">
@@ -258,7 +258,7 @@
           </div>
           <form class="basic-container" [formGroup]="dataTamanForm" *ngFor="let dataTaman of
           dataTamanForm.get('dataTaman').controls; let n = index" [formGroupName]="n">
-            <hr *ngIf="statusSerahTerima">
+
             <h3 *ngIf="statusSerahTerima">Data Ke-{{n+1}}</h3>
 
             <div class="form-group row" *ngIf="statusSerahTerima">
@@ -365,7 +365,7 @@
           <form class="basic-container" [formGroup]="dataCCTVForm"
                 *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
                 let m = index" [formGroupName]="m">
-            <hr>
+
             <h3>Data Ke-{{m+1}}</h3>
             <div class="form-group row">
               <label for="namaCCTVPerumahan"

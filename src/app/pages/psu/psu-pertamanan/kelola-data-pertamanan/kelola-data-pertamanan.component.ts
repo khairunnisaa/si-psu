@@ -39,8 +39,7 @@ export class KelolaDataPertamananComponent implements OnInit {
         title: 'Nama Taman',
         type: 'custom',
         filter: false,
-        valuePrepareFunction: (cell, row) => {
-          console.log('row cell === ', row, cell);
+        valuePrepareFunction: (cell) => {
           return cell;
         },
         renderComponent: RouterlinkDataPertamananComponent,

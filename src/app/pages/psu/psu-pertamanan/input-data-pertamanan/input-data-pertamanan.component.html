@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12">
     <nb-card>
-      <nb-card-header>Input Data Kawasan Pertamanan </nb-card-header>
+      <nb-card-header>Input Data Kawasan Pertamanan</nb-card-header>
       <nb-card-body>
         <form>
           <div class="form-group row">
@@ -48,17 +48,19 @@
             <div class="col-sm-9">
               <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
                          (selectedChange)="changeKecamatan($event)">
-                <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">
+                <nb-option *ngFor="let dataKecamatan of kecamatan"
+                           value="{{dataKecamatan.kecamatan}}">
                   {{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
 
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"(change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"
+                         (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
                 <nb-option *ngFor="let dataKelurahan of kelurahan"
                            value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}
                 </nb-option>
               </nb-select>&nbsp;&nbsp;
 
-              <input type="text" nbInput placeholder ="RT" name="rt" class="text-rt-rw" name="rt">
+              <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt">
               &nbsp;&nbsp;
               <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw">
             </div>
@@ -67,77 +69,81 @@
             <label class="label col-sm-12 col-form-label label-border">Petugas Pemelihara</label>
           </div>
 
-          <form class="basic-container" [formGroup]="dataPetugasForm" >
-            <div formArrayName="dataPetugasku">
-              <div *ngFor="let email of dataPetugasForm.get('dataPetugasku').controls; let i = index"
-                   [formGroupName]="i">
+          <form class="basic-container" [formGroup]="dataPetugasForm">
+            <div formArrayName="dataPetugas">
+              <div *ngFor="let dataPetugas of dataPetugasForm.get('dataPetugas').controls;
+              let i = index" [formGroupName]="i">
+                <h3>Data Ke-{{i + 1}}</h3>
 
-            <h3>Data Ke-{{i+1}}</h3>
+                <div class="form-group row">
+                  <label for="namaPemelihara" class="label col-sm-3 col-form-label">Nama</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama"
+                           id="namaPemelihara" name="luasTaman">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="namaPemelihara" class="label col-sm-3 col-form-label">Nama</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama"
-                     id="namaPemelihara" name="luasTaman">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Umur"
+                           id="umur" name="umur">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Umur"
-                     id="umur" name="umur">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
+                    Terakhir</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan"
+                               name="pendidikan" id="pendidikan">
+                      <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
+                      <nb-option value="SD">SD</nb-option>
+                      <nb-option value="SMP">SMP</nb-option>
+                      <nb-option value="SMA">SMA</nb-option>
+                      <nb-option value="SMK">SMK</nb-option>
+                      <nb-option value="S1">S1</nb-option>
+                      <nb-option value="S2">S2</nb-option>
+                      <nb-option value="S3">S3</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="pendidikan" class="label col-sm-3 col-form-label">Pendidikan
-              Terakhir</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan" name="pendidikan" id="pendidikan">
-                <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
-                <nb-option value="SD">SD</nb-option>
-                <nb-option value="SMP">SMP</nb-option>
-                <nb-option value="SMA">SMA</nb-option>
-                <nb-option value="SMK">SMK</nb-option>
-                <nb-option value="S1">S1</nb-option>
-                <nb-option value="S2">S2</nb-option>
-                <nb-option value="S3">S3</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="tugasPemelihara" class="label col-sm-3 col-form-label">Tugas</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Tugas"
+                           id="tugasPemelihara" name="tugas">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="tugasPemelihara" class="label col-sm-3 col-form-label">Tugas</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Tugas"
-                     id="tugasPemelihara" name="tugas">
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="keteranganTugas" class="label col-sm-3 col-form-label">Keterangan</label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="keteranganTugas"
+                         class="label col-sm-3 col-form-label">Keterangan</label>
+                  <div class="col-sm-9">
                <textarea rows="5" nbInput fullWidth shape="round"
                          placeholder="Keterangan"
                          id="keteranganTugas" name="keteranganTugas">
                </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataPetugas(i)" [disabled]="disableRemoveDataPetugas[i]">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataPetugas(i, $event)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataPetugas()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataPetugas(i)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </form>
@@ -146,343 +152,385 @@
             <label class="label col-sm-12 col-form-label label-border">Foto Taman</label>
           </div>
 
-<!--          <form class="basic-container"-->
-<!--                [formGroup]="dataFotoTamanForm" *ngFor="let dataFotoTaman of-->
-<!--                dataFotoTamanForm.get('dataFotoTaman').controls;-->
-<!--                let k = index" [formGroupName]="k">-->
-<!--            <h3>Data Ke-{{k+1}}</h3>-->
+          <form class="basic-container" [formGroup]="dataFotoTamanForm">
+            <div formArrayName="dataFotoTaman">
+              <div *ngFor="let dataFotoTaman of dataFotoTamanForm.get('dataFotoTaman').controls;
+                        let e = index" [formGroupName]="e">
+                <h3>Data Ke-{{e + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                     id="namaFoto" name="namaFoto">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama Foto" id="namaFoto"
+                           name="namaFoto">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="fotoTaman" class="label col-sm-3 col-form-label">File Foto Taman</label>
-            <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTaman"
-                     name="fotoTaman">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="fotoTaman" class="label col-sm-3 col-form-label">File Foto
+                    Taman</label>
+                  <div class="col-sm-9">
+                    <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTaman"
+                           name="fotoTaman">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataFotoTaman()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataFotoTaman(k)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataFotoTaman()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataFotoTaman(e)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-<!--          </form>-->
+          </form>
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Peralatan Pemelihara</label>
           </div>
 
-<!--          <form class="basic-container"-->
-<!--                [formGroup]="dataPeralatanForm" *ngFor="let dataPeralatan of-->
-<!--                dataPeralatanForm.get('dataPeralatan').controls;-->
-<!--                let n = index" [formGroupName]="n">-->
-<!--            <h3>Data Ke-{{n+1}}</h3>-->
+          <form class="basic-container" [formGroup]="dataPeralatanForm">
+            <div formArrayName="dataPeralatan">
+              <div *ngFor="let dataPeralatan of dataPeralatanForm.get('dataPeralatan').controls;
+                        let k = index" [formGroupName]="k">
+                <h3>Data Ke-{{k + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaJenis" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                     id="namaJenis" name="namaJenis">
-            </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Jumlah"
-                     id="jumlah" name="jumlah">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaJenis" class="label col-sm-3 col-form-label">Jenis / Nama
+                    Alat</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                           id="namaJenis" name="namaJenis">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="merk" class="label col-sm-3 col-form-label">Merk / Tipe</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                     id="merk" name="merk">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Jumlah"
+                           id="jumlah" name="jumlah">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
-                         id="tahunDiperoleh">
-                <nb-option value="2015">2015</nb-option>
-                <nb-option value="2016">2016</nb-option>
-                <nb-option value="2017">2017</nb-option>
-                <nb-option value="2018">2018</nb-option>
-                <nb-option value="2019">2019</nb-option>
-                <nb-option value="2020">2020</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="merk" class="label col-sm-3 col-form-label">Merk / Tipe</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                           id="merk" name="merk">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="kondisiAlat" class="label col-sm-3 col-form-label">Kondisi</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiAlat"
-                         id="kondisiAlat">
-                <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
-                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun
+                    Diperoleh</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                               id="tahunDiperoleh">
+                      <nb-option value="2015">2015</nb-option>
+                      <nb-option value="2016">2016</nb-option>
+                      <nb-option value="2017">2017</nb-option>
+                      <nb-option value="2018">2018</nb-option>
+                      <nb-option value="2019">2019</nb-option>
+                      <nb-option value="2020">2020</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="keteranganAlat" class="label col-sm-3 col-form-label">Keterangan</label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="kondisiAlat" class="label col-sm-3 col-form-label">Kondisi</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
+                               name="kondisiAlat"
+                               id="kondisiAlat">
+                      <nb-option value="Baik">Baik</nb-option>
+                      <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                      <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label for="keteranganAlat"
+                         class="label col-sm-3 col-form-label">Keterangan</label>
+                  <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
                         id="keteranganAlat" name="keteranganAlat">
                </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataPeralatan()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataPeralatan(n)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataPeralatan()" (click)="disableTombolTambah($event)">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataPeralatan(k)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-<!--          </form>-->
+          </form>
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Softscape</label>
           </div>
 
-<!--          <form class="basic-container"-->
-<!--                [formGroup]="dataSoftscapeForm" *ngFor="let dataSoftscape of-->
-<!--                dataSoftscapeForm.get('dataSoftscape').controls;-->
-<!--                let m = index" [formGroupName]="m">-->
-<!--            <h3>Data Ke-{{m+1}}</h3>-->
+          <form class="basic-container" [formGroup]="dataSoftscapeForm">
+            <div formArrayName="dataSoftscape">
+              <div *ngFor="let dataSoftscape of dataSoftscapeForm.get('dataSoftscape').controls;
+                        let s = index" [formGroupName]="s">
+                <h3>Data Ke-{{s + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaSoftscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Jenis / Nama Alat"
-                     id="namaSoftscape" name="namaSoftscape">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaSoftscape" class="label col-sm-3 col-form-label">Jenis / Nama
+                    Alat</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Jenis / Nama Alat"
+                           id="namaSoftscape" name="namaSoftscape">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="jumlahSoftscape" class="label col-sm-3 col-form-label">Jumlah</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Jumlah"
-                     id="jumlahSoftscape" name="jumlahSoftscape">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="jumlahSoftscape" class="label col-sm-3 col-form-label">Jumlah</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Jumlah"
+                           id="jumlahSoftscape" name="jumlahSoftscape">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="merkSoftscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                     id="merkSoftscape" name="merkSoftscape">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="merkSoftscape" class="label col-sm-3 col-form-label">Merk /
+                    Tipe</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                           id="merkSoftscape" name="merkSoftscape">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun Diperoleh</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
-                         id="tahunDiperoleh">
-                <nb-option value="2015">2015</nb-option>
-                <nb-option value="2016">2016</nb-option>
-                <nb-option value="2017">2017</nb-option>
-                <nb-option value="2018">2018</nb-option>
-                <nb-option value="2019">2019</nb-option>
-                <nb-option value="2020">2020</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun
+                    Diperoleh</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
+                               id="tahunDiperoleh">
+                      <nb-option value="2015">2015</nb-option>
+                      <nb-option value="2016">2016</nb-option>
+                      <nb-option value="2017">2017</nb-option>
+                      <nb-option value="2018">2018</nb-option>
+                      <nb-option value="2019">2019</nb-option>
+                      <nb-option value="2020">2020</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="kondisiSoftscape" class="label col-sm-3 col-form-label">Kondisi</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiSoftcape"
-                         id="kondisiSoftscape">
-                <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
-                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="kondisiSoftscape"
+                         class="label col-sm-3 col-form-label">Kondisi</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
+                               name="kondisiSoftcape"
+                               id="kondisiSoftscape">
+                      <nb-option value="Baik">Baik</nb-option>
+                      <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                      <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="keteranganSofscape" class="label col-sm-3 col-form-label">Keterangan</label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="keteranganSofscape"
+                         class="label col-sm-3 col-form-label">Keterangan</label>
+                  <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
                         id="keteranganSofscape" name="keteranganSofscape">
                </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataSoftscape()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataSoftscape(m)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataSoftscape()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataSoftscape(s)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-<!--          </form>-->
+          </form>
 
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Hardscape</label>
           </div>
 
-<!--          <form class="basic-container"-->
-<!--                [formGroup]="dataHardscapeForm" *ngFor="let dataHardscape of-->
-<!--                dataHardscapeForm.get('dataHardscape').controls;-->
-<!--                let l = index" [formGroupName]="l">-->
-<!--            <h3>Data Ke-{{l+1}}</h3>-->
+          <form class="basic-container" [formGroup]="dataHardscapeForm">
+            <div formArrayName="dataHardscape">
+              <div *ngFor="let dataHardscape of dataHardscapeForm.get('dataHardscape').controls;
+                        let h = index" [formGroupName]="h">
+                <h3>Data Ke-{{h + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaHardscape" class="label col-sm-3 col-form-label">Jenis / Nama Alat</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                     id="namaHardscape" name="namaJenis">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaHardscape" class="label col-sm-3 col-form-label">Jenis / Nama
+                    Alat</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama Foto"
+                           id="namaHardscape" name="namaJenis">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="jumlahHardscape" class="label col-sm-3 col-form-label">Jumlah</label>
-            <div class="col-sm-9">
-              <input type="number" nbInput fullWidth placeholder="Jumlah"
-                     id="jumlahHardscape" name="jumlah">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="jumlahHardscape" class="label col-sm-3 col-form-label">Jumlah</label>
+                  <div class="col-sm-9">
+                    <input type="number" nbInput fullWidth placeholder="Jumlah"
+                           id="jumlahHardscape" name="jumlah">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="merkHardscape" class="label col-sm-3 col-form-label">Merk / Tipe</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                     id="merkHardscape" name="merkHardscape">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="merkHardscape" class="label col-sm-3 col-form-label">Merk /
+                    Tipe</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
+                           id="merkHardscape" name="merkHardscape">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="tahunDiperolehHardscape" class="label col-sm-3 col-form-label">Tahun
-              Diperoleh</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahunHardscape" id="tahunDiperolehhardscape">
-                <nb-option value="2015">2015</nb-option>
-                <nb-option value="2016">2016</nb-option>
-                <nb-option value="2017">2017</nb-option>
-                <nb-option value="2018">2018</nb-option>
-                <nb-option value="2019">2019</nb-option>
-                <nb-option value="2020">2020</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="tahunDiperolehHardscape" class="label col-sm-3 col-form-label">Tahun
+                    Diperoleh</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan"
+                               name="tahunHardscape" id="tahunDiperolehhardscape">
+                      <nb-option value="2015">2015</nb-option>
+                      <nb-option value="2016">2016</nb-option>
+                      <nb-option value="2017">2017</nb-option>
+                      <nb-option value="2018">2018</nb-option>
+                      <nb-option value="2019">2019</nb-option>
+                      <nb-option value="2020">2020</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="kondisiHardscape" class="label col-sm-3 col-form-label">Kondisi</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kondisi Alat" class="select-kelurahan" name="kondisiHardscape"
-                         id="kondisiHardscape">
-                <nb-option value="Baik">Baik</nb-option>
-                <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
-                <nb-option value="Rusak Berat">Rusak Berat</nb-option>
-              </nb-select>
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="kondisiHardscape"
+                         class="label col-sm-3 col-form-label">Kondisi</label>
+                  <div class="col-sm-9">
+                    <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
+                               name="kondisiHardscape"
+                               id="kondisiHardscape">
+                      <nb-option value="Baik">Baik</nb-option>
+                      <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
+                      <nb-option value="Rusak Berat">Rusak Berat</nb-option>
+                    </nb-select>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="keteranganHardscape" class="label col-sm-3 col-form-label">Keterangan
-            </label>
-            <div class="col-sm-9">
+                <div class="form-group row">
+                  <label for="keteranganHardscape" class="label col-sm-3 col-form-label">Keterangan
+                  </label>
+                  <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
                         id="keteranganHardscape" name="keteranganhardscape">
                </textarea>
-            </div>
-          </div>
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataHardscape()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataHardscape(l)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataHardscape()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataHardscape(h)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-<!--          </form>-->
+          </form>
 
           <div class="form-group row">
             <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
           </div>
 
-<!--          <form class="basic-container"-->
-<!--                [formGroup]="dataCCTVForm" *ngFor="let dataCCTV1 of-->
-<!--                dataCCTVForm.get('dataCCTV1').controls;-->
-<!--                let p = index" [formGroupName]="p">-->
-<!--            <h3>Data Ke-{{p+1}}</h3>-->
+          <form class="basic-container" [formGroup]="dataCCTVForm">
+            <div formArrayName="dataCCTV">
+              <div *ngFor="let dataCCTV of dataCCTVForm.get('dataCCTV').controls;
+                        let p = index" [formGroupName]="p">
+                <h3>Data Ke-{{p + 1}}</h3>
 
-          <div class="form-group row">
-            <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama CCTV"
-                     id="namaCCTV" name="namaCCTV">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="Nama CCTV"
+                           id="namaCCTV" name="namaCCTV">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="ipCCTV" class="label col-sm-3 col-form-label">IP CCTV</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="IP CCTV"
-                     id="ipCCTV" name="ipCCTV">
-            </div>
-          </div>
+                <div class="form-group row">
+                  <label for="ipCCTV" class="label col-sm-3 col-form-label">IP CCTV</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput fullWidth placeholder="IP CCTV"
+                           id="ipCCTV" name="ipCCTV">
+                  </div>
+                </div>
 
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label"></label>
-            <div class="col-sm-9">
-              <button type="submit" nbButton status="success" nbButton size="tiny" class="btn-hapus"
-                      (click)="addDataCCTV()" (click)="disableTombolTambah($event)">
-                <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>Tambah Data
-              </button>&nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger" nbButton size="tiny"
-                      class="btn-hapus" (click)="removeDataCCTV(p)">
-                <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>Hapus Data
-              </button>
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataCCTV()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataCCTV(p)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-<!--          </form>-->
+          </form>
 
           <div class="form-group row">
             <label for="keteranganTaman" class="label col-sm-3 col-form-label">Keterangan

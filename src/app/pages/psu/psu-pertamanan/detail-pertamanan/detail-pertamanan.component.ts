@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -7,10 +8,15 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./detail-pertamanan.component.scss'],
 })
 export class DetailPertamananComponent implements OnInit {
-
-  constructor() {
+  public state = '';
+  // @Input()
+  constructor(private router: Router) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.state = window.history.state;
+    console.log("states uy", this.state);
+    // history.state.data
+  }
 
 }

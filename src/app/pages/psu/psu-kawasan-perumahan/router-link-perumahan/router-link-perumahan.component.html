@@ -2,7 +2,12 @@
 <!--  (click)="onClick()">{{ renderValue }}-->
 <!--  <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon></span></a>-->
 
+<!--<span><b>{{ renderValue }}</b></span>-->
+<!--<a routerLink="../../../pages/psu-kawasan-perumahan/detail-data-perumahan">-->
+<!--  <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon>-->
+<!--</a>-->
+
 <span><b>{{ renderValue }}</b></span>
-<a routerLink="../../../pages/psu-kawasan-perumahan/detail-data-perumahan">
+<a [routerLink]="['../../../pages/psu-kawasan-perumahan/detail-data-perumahan',id]">
   <nb-icon icon="maximize-outline" pack="eva" class="detail-rata-kanan"></nb-icon>
 </a>

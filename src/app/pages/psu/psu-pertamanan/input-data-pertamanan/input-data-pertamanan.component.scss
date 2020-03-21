@@ -5,8 +5,9 @@
 .label-border {
   color: #206ea1;
   font-size: 1rem;
-  border: #2d8ac7 solid 1px;
+  border: #e3e3e3 solid 1px;
   text-align: center;
+  background: #e3e3e3;
 }
 
 .select-kondisi {
@@ -16,3 +17,12 @@
 .select-status {
   width: 7rem;
 }
+
+h3 {
+  border: #e6e6e6 solid 2px;
+  width: 12rem;
+  text-align: center;
+  background: #e3e3e3;
+}
+
+

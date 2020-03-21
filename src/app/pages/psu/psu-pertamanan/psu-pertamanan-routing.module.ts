@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import {RouterModule, Routes, Router} from '@angular/router';
 import {PsuPertamananComponent} from './psu-pertamanan.component';
 import {KelolaDataPertamananComponent} from './kelola-data-pertamanan/kelola-data-pertamanan.component';
 import {InputDataPertamananComponent} from "./input-data-pertamanan/input-data-pertamanan.component";

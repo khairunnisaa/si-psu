@@ -18,71 +18,29 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
   @Input() value: string | number;
   @Input() rowData: any;
   url: string;
-
   constructor(private windowService: NbWindowService) {
   }
 
   ngOnInit() {
     this.renderValue = this.value.toString();
   }
-
-  openWindow(contentTemplate) {
-    this.disabledEscTemplate,
-    this.windowService.open(
-      contentTemplate,
+  openWindowForm() {
+    console.log("row data pertamanan", this.rowData);
+    this.windowService.open(PopupPertamananComponent,
       {
-        title: 'Pemda Park',
+        title: this.rowData.nama_taman,
         context: {
-          id: 1,
-          nama_taman: 'Pemda Park',
-          nama_pelaksana: 'Adhi Karya',
-          luas_taman: '1000 m2',
+          nama_taman : this.rowData,
+          nama_pelaksana: this.rowData.nama_pelaksana,
+          luas_taman: this.rowData.luas_taman,
           foto: '9',
-          kecamatan: 'Cibinong',
-          kelurahan: 'Tegar Beriman',
-          RT: 13,
-          RW: 4,
+          kecamatan: this.rowData.kecamatan,
+          kelurahan: this.rowData.kelurahan,
+          RT: this.rowData.RT,
+          RW: this.rowData.RW,
           jumlah_petugas: 5,
           keterangan: 'Taman yang bagus',
-          hasBackdrop: false,
-          closeOnEsc: false,
         },
-      },
-    );
+      });
   }
-
-  close() {
-    this.close();
-  }
-
-  openWindowForm() {
-    this.windowService.open(PopupPertamananComponent, { title: `Window` });
-  }
-
-  openWindowWithoutBackdrop() {
-    this.windowService.open(
-      this.disabledEscTemplate,
-      {
-        title: 'Window without backdrop',
-        hasBackdrop: false,
-        closeOnEsc: false,
-      },
-    );
-  }
-
-
-  // onClick() {
-  //   console.log('rowData === ', this.rowData);
-  //   switch (this.rowData.no) {
-  //     case 1:
-  //       this.url = '../../pages/beranda';
-  //       break;
-  //     case 2:
-  //       this.url = 'Monday';
-  //       break;
-  //     case 3:
-  //       this.url = 'Tuesday';
-  //       break;
-  //   }
-  // }
 }

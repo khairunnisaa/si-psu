@@ -8,7 +8,7 @@ describe('PopupPertamananComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopupPertamananComponent ]
+      declarations: [ PopupPertamananComponent ],
     })
     .compileComponents();
   }));

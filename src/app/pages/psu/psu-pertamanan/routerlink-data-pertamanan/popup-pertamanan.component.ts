@@ -1,26 +1,30 @@
-import { Component, OnInit } from '@angular/core';
-import { NbWindowRef } from '@nebular/theme';
+import {Component, Input, OnInit} from '@angular/core';
+import {NbWindowRef} from '@nebular/theme';
 
 @Component({
   selector: 'ngx-popup-pertamanan',
-  template: `
-    <form class="form">
-      <label for="subject">Subject:</label>
-      <input nbInput id="subject" type="text">
-
-      <label class="text-label" for="text">Text:</label>
-      <textarea nbInput id="text"></textarea>
-      <a routerLink="../../../pages/psu-pertamanan/detail-pertamanan"
-         (click)="close()">Selengkapnya...</a>
-    </form>
-  `,
+  templateUrl: './popup-pertamanan.component.html',
   styleUrls: ['./popup-pertamanan.component.scss'],
 })
-export class PopupPertamananComponent {
+export class PopupPertamananComponent implements OnInit {
+    @Input() nama_pelaksana: any;
+    @Input() luas_taman: any;
+    @Input() nama_taman: any;
+    detailPertamanan: Object;
+    ngOnInit(): void {
+        this.detailPertamanan = {
+          nama_pelaksana: this.nama_pelaksana,
+          luas_taman : this.luas_taman,
+          dataDetailPertamanan : this.nama_taman,
+        };
+        console.log("detail pertamanan", this.detailPertamanan);
+    }
 
-  constructor(public windowRef: NbWindowRef) { }
+  constructor(public windowRef: NbWindowRef) {
+  }
 
-  close() {
+  close(eve) {
+    console.log("close popup pertamanan", eve.target);
     this.windowRef.close();
   }
 
