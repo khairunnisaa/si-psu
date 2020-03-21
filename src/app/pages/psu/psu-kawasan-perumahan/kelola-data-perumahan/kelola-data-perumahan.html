@@ -15,7 +15,8 @@
                    value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
       </nb-select>&nbsp;&nbsp;
 
-      <nb-select placeholder="Status" class="select-status" name="status" id="status">
+      <nb-select placeholder="Status" class="select-status" name="status" id="status"
+                 (change)="statusChange($event)">
         <nb-option *ngFor="let pilih_status of statusSelect" value="{{pilih_status}}">{{pilih_status}}</nb-option>
       </nb-select>&nbsp;&nbsp;
 
@@ -50,7 +51,7 @@
 
     <div class="col-md-12" style="overflow-x: scroll;">
       <div class="smart-table-container" style="width: 1500px;">
-        <ng2-smart-table [settings]="settings" [source]="source" (custom)="open()">
+        <ng2-smart-table [settings]="settings" [source]="source">
         </ng2-smart-table>
       </div>
     </div>
