@@ -10,7 +10,8 @@ import { WindowFormComponent } from './window-form/window-form.component';
 export class WindowComponent {
 
   @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
-  @ViewChild('disabledEsc', { read: TemplateRef, static: true }) disabledEscTemplate: TemplateRef<HTMLElement>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true })
+  disabledEscTemplate: TemplateRef<HTMLElement>;
 
   constructor(private windowService: NbWindowService) {}
 

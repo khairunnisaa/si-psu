@@ -1,5 +1,12 @@
 import { NgModule } from '@angular/core';
-import { NbCardModule, NbDialogModule, NbIconModule, NbInputModule, NbTreeGridModule} from '@nebular/theme';
+import {
+  NbCardModule,
+  NbDialogModule,
+  NbIconModule,
+  NbInputModule,
+  NbTreeGridModule,
+  NbWindowModule,
+} from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import {
   NbActionsModule,
@@ -21,7 +28,7 @@ import { InputDataPerumahanComponent } from './input-data-perumahan/input-data-p
 import { RouterLinkPerumahanComponent } from './router-link-perumahan/router-link-perumahan.component';
 import { RekapitulasiPerumahanComponent } from './rekapitulasi-perumahan/rekapitulasi-perumahan.component';
 import { MonitoringPerumahanComponent } from './monitoring-perumahan/monitoring-perumahan.component';
-
+import { PopupDataPerumahanComponent } from './router-link-perumahan/popup-data-perumahan.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +40,7 @@ import { MonitoringPerumahanComponent } from './monitoring-perumahan/monitoring-
     RouterLinkPerumahanComponent,
     RekapitulasiPerumahanComponent,
     MonitoringPerumahanComponent,
+    PopupDataPerumahanComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -50,12 +58,13 @@ import { MonitoringPerumahanComponent } from './monitoring-perumahan/monitoring-
     NbUserModule,
     CommonModule,
     NbDialogModule.forChild(),
+    NbWindowModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
   ],
   entryComponents: [
-    DetailPerumahanComponent,
     RouterLinkPerumahanComponent,
+    PopupDataPerumahanComponent,
   ],
 })
 export class PsuKawasanPerumahanModule { }

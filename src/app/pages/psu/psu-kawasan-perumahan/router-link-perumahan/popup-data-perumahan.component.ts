@@ -11,12 +11,13 @@ import {NbWindowRef} from "@nebular/theme";
       <textarea nbInput id="text"></textarea>
     </form>
   `,
-  styleUrls: ['./popup-data-permukiman.component.scss'],
+  styleUrls: ['./popup-data-perumahan.component.scss'],
 })
-export class PopupDataPermukimanComponent {
-  constructor(public windowRef: NbWindowRef) {
-  }
+export class PopupDataPerumahanComponent {
+  constructor(public windowRef: NbWindowRef) { }
+
   close() {
     this.windowRef.close();
   }
+
 }

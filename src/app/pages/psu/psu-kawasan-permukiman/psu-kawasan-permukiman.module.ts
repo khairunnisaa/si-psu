@@ -1,6 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
-import { NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule } from '@nebular/theme';
+import {
+  NbCardModule,
+  NbDialogModule,
+  NbIconModule,
+  NbInputModule,
+  NbTreeGridModule,
+  NbWindowModule,
+} from '@nebular/theme';
 import {
   NbActionsModule,
   NbButtonModule,
@@ -9,7 +16,6 @@ import {
   NbRadioModule,
   NbSelectModule,
   NbUserModule,
-  NbTooltipModule,
 } from '@nebular/theme';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {CommonModule} from "@angular/common";
@@ -22,7 +28,7 @@ import { InputDataPermukimanComponent } from './input-data-permukiman/input-data
 import { RouterlinkKawasanPermukimanComponent } from './routerlink-kawasan-permukiman/routerlink-kawasan-permukiman.component';
 import { RekapitulasiPermukimanComponent } from './rekapitulasi-permukiman/rekapitulasi-permukiman.component';
 import { MonitoringPermukimanComponent } from './monitoring-permukiman/monitoring-permukiman.component';
-import { PopupDataPermukimanComponent } from './popup-data-permukiman/popup-data-permukiman.component';
+import {PopupDataPermukimanComponent} from "./routerlink-kawasan-permukiman/popup-data-permukiman.component";
 
 
 @NgModule({
@@ -53,13 +59,15 @@ import { PopupDataPermukimanComponent } from './popup-data-permukiman/popup-data
     NbSelectModule,
     NbUserModule,
     CommonModule,
+    NbDialogModule.forChild(),
+    NbWindowModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
-    NbTooltipModule,
 
   ],
   entryComponents: [
     RouterlinkKawasanPermukimanComponent,
+    PopupDataPermukimanComponent,
   ],
 })
 export class PsuKawasanPermukimanModule { }

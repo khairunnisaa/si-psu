@@ -6,7 +6,6 @@ import {InputDataPermukimanComponent} from "./input-data-permukiman/input-data-p
 import {DetailPermukimanComponent} from "./detail-permukiman/detail-permukiman.component";
 import {MonitoringPermukimanComponent} from "./monitoring-permukiman/monitoring-permukiman.component";
 import {RekapitulasiPermukimanComponent} from "./rekapitulasi-permukiman/rekapitulasi-permukiman.component";
-import {PopupDataPermukimanComponent} from "./popup-data-permukiman/popup-data-permukiman.component";
 
 const routes: Routes = [{
   path: '',
@@ -32,10 +31,6 @@ const routes: Routes = [{
       path: 'monitoring-permukiman',
       component: MonitoringPermukimanComponent,
     },
-    {
-      path: 'popup-data-permukiman',
-      component: PopupDataPermukimanComponent,
-    },
   ],
 }];
 
@@ -54,5 +49,4 @@ export const routedComponents = [
   DetailPermukimanComponent,
   RekapitulasiPermukimanComponent,
   MonitoringPermukimanComponent,
-  PopupDataPermukimanComponent,
 ];

@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { NbDialogService } from '@nebular/theme';
-import {ShowcaseDialogComponent} from '../../../modal-overlays/dialog/showcase-dialog/showcase-dialog.component';
+import {Component, Input, OnInit, TemplateRef, ViewChild} from '@angular/core';
+import {NbWindowService} from '@nebular/theme';
+import {PopupDataPerumahanComponent} from "./popup-data-perumahan.component";
 
 @Component({
   selector: 'ngx-router-link-perumahan',
@@ -9,36 +9,44 @@ import {ShowcaseDialogComponent} from '../../../modal-overlays/dialog/showcase-d
 })
 export class RouterLinkPerumahanComponent implements OnInit {
 
+
+  @ViewChild('contentTemplate', { static: true }) contentTemplate: TemplateRef<any>;
+  @ViewChild('disabledEsc', { read: TemplateRef, static: true })
+  disabledEscTemplate: TemplateRef<HTMLElement>;
   renderValue: string;
   @Input() value: string | number;
   @Input() rowData: any;
   url: string;
 
-  constructor(private dialogService: NbDialogService) {
+  constructor(private windowService: NbWindowService) {
   }
 
   ngOnInit() {
-    console.log("rendervalue", this.rowData);
     this.renderValue = this.value.toString();
   }
 
-  onClick() {
-    console.log('rowData input === ', this.rowData);
-    switch (this.rowData.id) {
-      case 1:
-        this.url = '../../../pages/psu-kawasan-perumahan/detail-data-perumahan';
-        break;
-      case 2:
-        this.url = '../../pages/psu/input-data-perumahan';
-        break;
-      case 3:
-        this.url = '../../pages/psu/input-data-perumahan';
-        break;
-    }
-    //   this.dialogService.open(PopUpDataPerumahanComponent, {
-    //     context: {
-    //       title: this.renderValue,
-    //     },
-    //   });
+  // openWindowForm() {
+  //   console.log("row data perumahan", this.rowData);
+  //   this.windowService.open(PopupDataPerumahanComponent,
+  //     {
+  //       title: this.rowData.nama_perumahan,
+  //       context: {
+  //         nama_pengembang : this.rowData,
+  //         luas_perumahan: this.rowData.nama_pelaksana,
+  //         foto: '9',
+  //         kecamatan: this.rowData.kecamatan,
+  //         kelurahan: this.rowData.kelurahan,
+  //         RT: this.rowData.RT,
+  //         RW: this.rowData.RW,
+  //         status: 'Sudah Serah Terima',
+  //         tgl_serah_terima: '13/10/2003',
+  //         No_BAST: '660/2565.B/DCK/2003',
+  //         jumlah_psu: 5,
+  //         keterangan: 'Perumahan Bagus',
+  //       },
+  //     });
+  // }
+  openWindowForm() {
+    this.windowService.open(PopupDataPerumahanComponent, { title: `Window` });
   }
 }

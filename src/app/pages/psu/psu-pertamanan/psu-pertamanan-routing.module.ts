@@ -47,4 +47,6 @@ export const routedComponents = [
   KelolaDataPertamananComponent,
   InputDataPertamananComponent,
   DetailPertamananComponent,
+  RekapitulasiPertamananComponent,
+  MonitoringPertamananComponent,
 ];
