@@ -31,7 +31,6 @@ export class PopupPertamananComponent implements OnInit {
   }
 
   close(eve) {
-    console.log("close popup pertamanan", eve.target);
     this.windowRef.close();
   }
 

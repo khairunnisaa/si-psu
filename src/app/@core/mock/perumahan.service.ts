@@ -26,6 +26,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '13/10/2019',
       no_bast: '660/2565.B/DCK/2003',
+      sph: '712871831.819318939.1301',
       jumlah_psu: '5',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -250,6 +251,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '2/12/2010',
       no_bast: '839/3738.B/DCK/2390',
+      sph: '3762736872.2398209382038.23923',
       jumlah_psu: '10',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -698,6 +700,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '20/2/2019',
       no_bast: '220/2009.B/DCK/3939',
+      sph: '263727362.23029398293.230929',
       jumlah_psu: '9',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -1146,6 +1149,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '29/10/2019',
       no_bast: '399/2992.B/THK/2029',
+      sph: '727367273267.2382983923.239238',
       jumlah_psu: '21',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -1594,6 +1598,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '21/11/2016',
       no_bast: '199/3939.B/TGH/3838',
+      sph: '2382983923.2382938923.32323',
       jumlah_psu: '11',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -1818,6 +1823,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '2/1/2017',
       no_bast: '299/2929.B/ERT/2929',
+      sph: '712871831.819318939.1301',
       jumlah_psu: '5',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -2042,6 +2048,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '11/10/2000',
       no_bast: '119/3299.B/TGH/3291',
+      sph: '712871831.819318939.1301',
       jumlah_psu: '11',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -2266,6 +2273,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '12/12/2019',
       no_bast: '130/2999.B/TGH/3301',
+      sph: '712871831.819318939.1301',
       jumlah_psu: '15',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
@@ -2490,6 +2498,7 @@ export class PerumahanService extends TableDataPerumahan {
       status: "Sudah Serah Terima",
       tgl_serah_terima: '11/10/2010',
       no_bast: '159/3033.B/TTY/3301',
+      sph: '712871831.819318939.1301',
       jumlah_psu: '11',
       keterangan: 'Perumahan Indah dan Sejuk',
       foto: [
