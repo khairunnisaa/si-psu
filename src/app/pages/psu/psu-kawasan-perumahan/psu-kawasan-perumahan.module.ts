@@ -35,6 +35,8 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from '../../maps/maps.module';
+import {WebcamModule} from 'ngx-webcam';
+import {CameraPerumahanComponent} from './camera-perumahan/camera-perumahan.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,7 @@ import {MapsModule} from '../../maps/maps.module';
     RekapitulasiPerumahanComponent,
     MonitoringPerumahanComponent,
     PopupDataPerumahanComponent,
+    CameraPerumahanComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -74,6 +77,7 @@ import {MapsModule} from '../../maps/maps.module';
     NbTabsetModule,
     AgmCoreModule,
     MapsModule,
+    WebcamModule,
   ],
   entryComponents: [
     RouterLinkPerumahanComponent,

@@ -25,6 +25,8 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from '../../maps/maps.module';
+import {CameraPertamananComponent} from './camera-pertamanan/camera-pertamanan.component';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,7 @@ import {MapsModule} from '../../maps/maps.module';
     PopupPertamananComponent,
     RekapitulasiPertamananComponent,
     MonitoringPertamananComponent,
+    CameraPertamananComponent,
   ],
   imports: [
     NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
@@ -66,6 +69,7 @@ import {MapsModule} from '../../maps/maps.module';
     NbTabsetModule,
     AgmCoreModule,
     MapsModule,
+    WebcamModule,
   ],
   entryComponents: [
     RouterlinkDataPertamananComponent,

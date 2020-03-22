@@ -35,6 +35,8 @@ import {NgxEchartsModule} from 'ngx-echarts';
 import {NgxChartsModule} from '@swimlane/ngx-charts';
 import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from '../../maps/maps.module';
+import {WebcamModule} from 'ngx-webcam';
+import {CameraPermukimanComponent} from './camera-permukiman/camera-permukiman.component';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import {MapsModule} from '../../maps/maps.module';
     RekapitulasiPermukimanComponent,
     MonitoringPermukimanComponent,
     PopupDataPermukimanComponent,
+    CameraPermukimanComponent,
 
   ],
   imports: [
@@ -76,6 +79,7 @@ import {MapsModule} from '../../maps/maps.module';
     NbTabsetModule,
     AgmCoreModule,
     MapsModule,
+    WebcamModule,
 
   ],
   entryComponents: [
