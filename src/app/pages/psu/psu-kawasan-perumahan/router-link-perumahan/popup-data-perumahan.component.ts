@@ -20,6 +20,7 @@ export class PopupDataPerumahanComponent {
   @Input() jumlah_psu: string;
   @Input() keterangan: string;
   @Input() detailPerumahan: string;
+  @Input() cctv: string;
 
   constructor(public windowRef: NbWindowRef) { }
   close() {
