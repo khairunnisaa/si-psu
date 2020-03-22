@@ -1,21 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 import {LocalDataSource} from 'ng2-smart-table';
-import {NbThemeService} from '@nebular/theme';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ngx-rekapitulasi-perumahan',
-  templateUrl: './rekapitulasi-perumahan.component.html',
-  styleUrls: ['./rekapitulasi-perumahan.component.scss'],
+  selector: 'ngx-psu-bar-perumahan',
+  template: `<ngx-charts-bar-vertical
+    [view]="view"
+    [trimXAxisTicks]="false"
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [barPadding]="barPadding"
+    (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>`,
 })
-export class RekapitulasiPerumahanComponent implements OnInit {
-
+export class RekapitulasiBarPerumahanComponent implements OnInit {
   options: any = {};
   themeSubscription: any;
   single: any[];
   multi: any[];
 
-  view: any[] = [900, 400];
+  view: any[] = [400, 400];
 
   // options
   showXAxis = true;
@@ -26,7 +39,7 @@ export class RekapitulasiPerumahanComponent implements OnInit {
   xAxisLabel = 'Status';
   showYAxisLabel = true;
   yAxisLabel = 'Jumlah';
-  barPadding = 180;
+  barPadding = 30;
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
@@ -57,5 +70,4 @@ export class RekapitulasiPerumahanComponent implements OnInit {
     console.log(event);
     this.router.navigate(['/pages/psu-kawasan-perumahan/kelola-data-perumahan']);
   }
-
 }

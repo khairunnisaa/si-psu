@@ -21,7 +21,7 @@ export class RekapitulasiComponent implements OnInit {
   gradient = false;
   showLegend = false;
   showXAxisLabel = true;
-  xAxisLabel = 'Status';
+  xAxisLabel = 'Deviasi';
   showYAxisLabel = true;
   yAxisLabel = 'Jumlah';
   barPadding = 30;
@@ -34,15 +34,15 @@ export class RekapitulasiComponent implements OnInit {
   ngOnInit() {
     this.single = [
       {
-        "name": "Sudah Serah Terima",
+        "name": "Deviasi 0 - 5 %",
         "value": 894,
       },
       {
-        "name": "Belum Serah Terima",
+        "name": "Deviasi 5 - 10 %",
         "value": 500,
       },
       {
-        "name": "Terlantar",
+        "name": "Deviasi > 10 %",
         "value": 720,
       },
     ]

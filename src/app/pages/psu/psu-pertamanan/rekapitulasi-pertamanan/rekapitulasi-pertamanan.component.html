@@ -3,7 +3,21 @@
     Rekapitulasi Data Pertamanan
   </nb-card-header>
   <nb-card-body>
-    <h2 style="text-align: center">Under Construction</h2>
-    <img src="../../../../../assets/images/gaya.gif">
+    <ngx-charts-bar-vertical
+      [view]="view"
+      [trimXAxisTicks]="false"
+      [scheme]="colorScheme"
+      [results]="single"
+      [gradient]="gradient"
+      [xAxis]="showXAxis"
+      [yAxis]="showYAxis"
+      [legend]="showLegend"
+      [showXAxisLabel]="showXAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+      [barPadding]="barPadding"
+      (select)="onSelect($event)">
+    </ngx-charts-bar-vertical>
   </nb-card-body>
 </nb-card>

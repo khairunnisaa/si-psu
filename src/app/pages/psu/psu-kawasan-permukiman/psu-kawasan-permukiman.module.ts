@@ -4,7 +4,7 @@ import {
   NbCardModule,
   NbDialogModule,
   NbIconModule,
-  NbInputModule,
+  NbInputModule, NbTabsetModule,
   NbTreeGridModule,
   NbWindowModule,
 } from '@nebular/theme';
@@ -29,6 +29,12 @@ import { RouterlinkKawasanPermukimanComponent } from './routerlink-kawasan-permu
 import { RekapitulasiPermukimanComponent } from './rekapitulasi-permukiman/rekapitulasi-permukiman.component';
 import { MonitoringPermukimanComponent } from './monitoring-permukiman/monitoring-permukiman.component';
 import {PopupDataPermukimanComponent} from "./routerlink-kawasan-permukiman/popup-data-permukiman.component";
+import {ChartsModule} from '../../charts/charts.module';
+import {ChartModule} from 'angular2-chartjs';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {AgmCoreModule} from '@agm/core';
+import {MapsModule} from '../../maps/maps.module';
 
 
 @NgModule({
@@ -63,6 +69,13 @@ import {PopupDataPermukimanComponent} from "./routerlink-kawasan-permukiman/popu
     NbWindowModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule,
+    ChartModule,
+    NgxEchartsModule,
+    NgxChartsModule,
+    NbTabsetModule,
+    AgmCoreModule,
+    MapsModule,
 
   ],
   entryComponents: [
