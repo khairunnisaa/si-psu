@@ -3020,6 +3020,9 @@ SOFTWARE.
 ngx-echarts
 MIT
 
+ngx-webcam
+MIT
+
 pace-js
 MIT
 Copyright (c) 2013 HubSpot, Inc.
