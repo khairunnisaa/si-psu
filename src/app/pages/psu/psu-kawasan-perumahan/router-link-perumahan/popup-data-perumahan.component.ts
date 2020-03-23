@@ -24,7 +24,6 @@ export class PopupDataPerumahanComponent implements OnInit {
   @Input() keterangan: any;
   @Input() cctv: any;
   @Input() dataPerumahan: any;
-
   detailPerumahan: Object;
 
   ngOnInit(): void {

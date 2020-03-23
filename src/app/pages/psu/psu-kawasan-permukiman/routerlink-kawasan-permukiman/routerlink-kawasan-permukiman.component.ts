@@ -24,6 +24,24 @@ export class RouterlinkKawasanPermukimanComponent implements OnInit {
   }
 
   openWindowForm() {
-    this.windowService.open(PopupDataPermukimanComponent, {title: `Window`});
+    console.log("row data permukiman", this.rowData);
+    this.windowService.open(PopupDataPermukimanComponent,
+      {
+        title: this.rowData.nama_tpu,
+        context: {
+          nama_tpu: this.rowData.nama_tpu,
+          luas_tpu: this.rowData.luas_tpu,
+          foto: 10,
+          daya_tampung_tpu: this.rowData.daya_tampung_tpu,
+          kecamatan: this.rowData.kecamatan,
+          kelurahan: this.rowData.kelurahan,
+          RT: this.rowData.RT,
+          RW: this.rowData.RW,
+          status: this.rowData.status.operasional,
+          kondisi: this.rowData.status.kondisi,
+          keterangan: this.rowData.keterangan,
+          dataPermukiman: this.rowData,
+        },
+      });
   }
 }
