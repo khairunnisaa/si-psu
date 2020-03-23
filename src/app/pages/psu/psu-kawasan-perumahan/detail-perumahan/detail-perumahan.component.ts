@@ -9,7 +9,8 @@ import {Component, Input, OnInit} from '@angular/core';
 export class DetailPerumahanComponent implements OnInit {
 
   public state = {
-    detailDataPerumahan: {
+    dataPerumahan: {
+      id: '',
       nama_perumahan: '',
       nama_pengembang: '',
       luas_perumahan: '',
@@ -26,7 +27,13 @@ export class DetailPerumahanComponent implements OnInit {
       peralatan_pemelihara: '',
       foto: '',
       petugas: '',
-      dataPerumahan: '',
+      sarana: '',
+      jumlah_rumah: '',
+      status: '',
+      tgl_serah_terima: '',
+      no_bast: '',
+      sph: '',
+      jalan_saluran: '',
     },
   };
   constructor() {

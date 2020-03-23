@@ -11,14 +11,17 @@
         <div><label>Lokasi</label></div>
         <div><strong><label>Status</label></strong></div>
         <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;Tanggal Serah Terima</label></strong></div>
-        <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima</label></strong></div>
+        <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima</label></strong>
+        </div>
         <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;SPH</label></strong></div>
       </div>
       <div class="col-6 col-md-6 spasi">
         <div>: <label>{{ this.state.dataPerumahan.nama_pengembang }}</label></div>
         <div>: <label>{{ this.state.dataPerumahan.luas_perumahan }}</label></div>
         <div>: <label>{{ this.state.dataPerumahan.jumlah_rumah }} unit</label></div>
-        <div>: <label>{{ this.state.dataPerumahan.kecamatan }}, {{ this.state.kelurahan }}, RT.{{
+        <div>: <label>{{ this.state.dataPerumahan.kecamatan }}, {{
+          this.state.dataPerumahan.kelurahan }},
+          RT.{{
           this.state.dataPerumahan.RT}} / RW.{{ this.state.dataPerumahan.RW }}</label></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.status }}</label></strong></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima }}</label></strong></div>
@@ -40,7 +43,8 @@
       <tr *ngFor="let fotoPerumahan of this.state.dataPerumahan.foto">
         <th scope="row">{{fotoPerumahan.id}}</th>
         <td>{{fotoPerumahan.nama_foto}}</td>
-        <td><img src="{{fotoPerumahan.path_foto}}" class="rounded"></td>
+        <td><a target="_blank" href="{{fotoPerumahan.path_foto}}"><img
+          src="{{fotoPerumahan.path_foto}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -48,12 +52,16 @@
     <table class="table table-sm table-bordered">
       <thead class="table-primary">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nama Sarana</th>
-        <th scope="col">Luas Sarana (m2)</th>
-        <th scope="col">Foto Sarana</th>
-        <th scope="col">Kondisi Sarana</th>
-        <th scope="col">Koordinat </th>
+        <th scope="col" rowspan="2">#</th>
+        <th scope="col" rowspan="2">Nama Sarana</th>
+        <th scope="col" rowspan="2">Luas Sarana (m2)</th>
+        <th scope="col" rowspan="2">Foto Sarana</th>
+        <th scope="col" rowspan="2">Kondisi Sarana</th>
+        <th scope="col" colspan="2">Koordinat</th>
+      </tr>
+      <tr>
+        <th scope="col">Longitude</th>
+        <th scope="col">Latitude</th>
       </tr>
       </thead>
       <tbody>
@@ -61,11 +69,15 @@
         <th scope="row">{{dataSarana.id}}</th>
         <td>{{dataSarana.nama_sarana}}</td>
         <td>{{dataSarana.luas_sarana}}</td>
-        <td><img *ngFor="let dataFotoSarana of dataSarana.foto_sarana"
-                 src="{{dataFotoSarana}}" class="rounded"></td>
-        <td>{{dataSarana.kodisi_sarana}}</td>
-        <td *ngFor="let dataKoordinat of dataSarana.koordinat">
-          {{dataKoordinat.longitude}} || {{dataKoordinat.latitude}}</td>
+        <td>
+          <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana" target="_blank" href="{{dataFotoSarana}}">
+          <img src="{{dataFotoSarana}}" style="width:150px">
+          </a></td>
+        <td>{{dataSarana.kondisi_sarana}}</td>
+        <td *ngFor="let dataLongitude of dataSarana.koordinat">
+          {{dataLongitude.longitude}}</td>
+        <td *ngFor="let dataLatitude of dataSarana.koordinat">
+          {{dataLatitude.latitude}}</td>
       </tr>
     </table>
 
@@ -73,30 +85,32 @@
     <table class="table table table-sm table-bordered">
       <thead class="table-primary">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nama Jalan dan Saluran</th>
-        <th scope="col">Luas Jalan dan Saluran</th>
-        <th scope="col">Foto Jalan dan Saluran</th>
-        <th scope="col">Kondisi Jalan dan Saluran</th>
-        <th scope="col">Koordinat </th>
+        <th scope="col" rowspan="2">#</th>
+        <th scope="col" rowspan="2">Nama Jalan dan Saluran</th>
+        <th scope="col" rowspan="2">Luas Jalan dan Saluran</th>
+        <th scope="col" rowspan="2">Foto Jalan dan Saluran</th>
+        <th scope="col" rowspan="2">Kondisi Jalan dan Saluran</th>
+        <th scope="col" colspan="2">Koordinat</th>
+      </tr>
+      <tr>
+        <th scope="col">Longitude</th>
+        <th scope="col">Latitude</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Jalan Suka Mulya</td>
-        <td>3.75 m</td>
-        <td>Gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jalan Mesjid 3</td>
-        <td>3.75 m</td>
-        <td>gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
+      <tr *ngFor="let dataJalanSaluran of this.state.dataPerumahan.jalan_saluran">
+        <th scope="row">{{dataJalanSaluran.id}}</th>
+        <td>{{dataJalanSaluran.nama_jalan_saluran}}</td>
+        <td>{{dataJalanSaluran.luas_jalan_saluran}}</td>
+        <td><a *ngFor="let dataFotoJalanSaluran of dataJalanSaluran.foto_jalan_saluran"
+               target="_blank" href="{{dataFotoJalanSaluran}}">
+          <img src="{{dataFotoJalanSaluran}}" style="width:150px">
+        </a></td>
+        <td>{{dataJalanSaluran.kondisi}}</td>
+        <td *ngFor="let dataLongitude of dataJalanSaluran.koordinat">
+          {{dataLongitude.longitude}}</td>
+        <td *ngFor="let dataLatitude of dataJalanSaluran.koordinat">
+          {{dataLatitude.latitude}}</td>
       </tr>
       </tbody>
     </table>
@@ -105,30 +119,32 @@
     <table class="table table table-sm table-bordered">
       <thead class="table-primary">
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">Nama Taman</th>
-        <th scope="col">Luas Taman (m2)</th>
-        <th scope="col">Foto Taman</th>
-        <th scope="col">Kondisi Taman</th>
-        <th scope="col">Koordinat </th>
+        <th scope="col" rowspan="2">#</th>
+        <th scope="col" rowspan="2">Nama Taman</th>
+        <th scope="col" rowspan="2">Luas Taman (m2)</th>
+        <th scope="col" rowspan="2">Foto Taman</th>
+        <th scope="col" rowspan="2">Kondisi Taman</th>
+        <th scope="col" colspan="2">Koordinat</th>
+      </tr>
+      <tr>
+        <th scope="col">Longitude</th>
+        <th scope="col">Latitude</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Lapangan Cinta</td>
-        <td>100 m2</td>
-        <td>gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Lapangan Taman Ketawa</td>
-        <td>100 m2</td>
-        <td>gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
+      <tr *ngFor="let dataTaman of this.state.dataPerumahan.taman">
+        <th scope="row">{{dataTaman.id}}</th>
+        <td>{{dataTaman.nama_taman}}</td>
+        <td>{{dataTaman.luas_taman}}</td>
+        <td><a *ngFor="let dataFotoTaman of dataTaman.foto_taman"
+               target="_blank" href="{{dataFotoTaman}}">
+          <img src="{{dataFotoTaman}}" style="width:150px"></a>
+        </td>
+        <td>{{dataTaman.kondisi}}</td>
+        <td *ngFor="let dataLongitude of dataTaman.koordinat">
+          {{dataLongitude.longitude}}</td>
+        <td *ngFor="let dataLatitude of dataTaman.koordinat">
+          {{dataLatitude.latitude}}</td>
       </tr>
       </tbody>
     </table>
@@ -138,7 +154,10 @@
         <div><label>Koordinat Perumahan</label></div>
       </div>
       <div class="col-10 col-md-6 spasi">
-        <div>: <label><b>32° 18.385' U 122° 36.875' B</b></label></div>
+        <div> Longitude
+          :<label><b>{{ this.state.dataPerumahan.koordinat_perumahan.longitude }}</b></label><br></div>
+        <div> Longitude
+          :<label><b>{{ this.state.dataPerumahan.koordinat_perumahan.latitude }}</b></label><br></div>
       </div>
     </div>
 
@@ -148,34 +167,17 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Nama CCTV</th>
-        <th scope="col">IP Camera</th>
+        <th scope="col">IP CCTV</th>
+        <th scope="col">Video</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Pintu Gerbang Utama</td>
-        <td>10.110.200.16</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Mesjid</td>
-        <td>10.110.200.15</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Pintu Gerbang Belakang</td>
-        <td>10.110.200.14</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Taman Ketawa</td>
-        <td>10.110.200.13</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Pintu Tengah</td>
-        <td>10.110.200.11</td>
+      <tr *ngFor="let dataCCTV of this.state.dataPerumahan.cctv">
+        <th scope="row">{{dataCCTV.id}}</th>
+        <td>{{dataCCTV.nama_cctv}}</td>
+        <td>{{dataCCTV.ip_cctv}}</td>
+        <td>
+          <a target="_blank" href="{{dataCCTV.video}}"><img src="{{dataCCTV.video}}" style="width:150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -192,10 +194,12 @@
 
     <a routerLink="../../../pages/psu-kawasan-perumahan/kelola-data-perumahan" nbButton
        status="primary" nbButton size="small">
-      <nb-icon icon="arrow-back-outline" pack="eva"></nb-icon>Kembali</a>
+      <nb-icon icon="arrow-back-outline" pack="eva"></nb-icon>
+      Kembali</a>
     <a routerLink="" nbButton
        status="success" nbButton size="small" class="btn-rata-kanan">
-      <nb-icon icon="printer-outline" pack="eva"></nb-icon>Cetak</a>
+      <nb-icon icon="printer-outline" pack="eva"></nb-icon>
+      Cetak</a>
 
   </nb-card-body>
 </nb-card>

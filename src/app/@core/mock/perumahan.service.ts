@@ -56,7 +56,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -73,7 +73,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -90,7 +90,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -209,32 +209,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -281,7 +287,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -298,7 +304,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -315,7 +321,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -434,32 +440,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -505,7 +517,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -522,7 +534,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -539,7 +551,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -597,6 +609,12 @@ export class PerumahanService extends TableDataPerumahan {
             {
               longitude: '-6.579588',
               latitude: '106.785614',
+            },
+          ],
+          koordinat_perumahan: [
+            {
+              longitude: '-6.232363',
+              latitude: '106.676766',
             },
           ],
         },
@@ -658,32 +676,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -730,7 +754,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -747,7 +771,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -764,7 +788,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -883,32 +907,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -954,7 +984,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -971,7 +1001,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -988,7 +1018,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -1107,32 +1137,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -1179,7 +1215,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -1196,7 +1232,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -1213,7 +1249,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -1332,32 +1368,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -1403,7 +1445,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -1420,7 +1462,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -1437,7 +1479,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -1495,6 +1537,12 @@ export class PerumahanService extends TableDataPerumahan {
             {
               longitude: '-6.579588',
               latitude: '106.785614',
+            },
+          ],
+          koordinat_perumahan: [
+            {
+              longitude: '-6.232363',
+              latitude: '106.676766',
             },
           ],
         },
@@ -1556,32 +1604,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -1628,7 +1682,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -1645,7 +1699,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -1662,7 +1716,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -1781,32 +1835,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -1853,7 +1913,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -1870,7 +1930,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -1887,7 +1947,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -2006,32 +2066,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -2078,7 +2144,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -2095,7 +2161,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -2112,7 +2178,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -2231,32 +2297,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -2303,7 +2375,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -2320,7 +2392,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -2337,7 +2409,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -2456,32 +2528,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
@@ -2528,7 +2606,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Baik',
+          kondisi_sarana: 'Baik',
           koordinat: [
             {
               longitude: '-6.229293',
@@ -2545,7 +2623,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Ringan',
+          kondisi_sarana: 'Rusak Ringan',
           koordinat: [
             {
               longitude: '-6.583787',
@@ -2562,7 +2640,7 @@ export class PerumahanService extends TableDataPerumahan {
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
             '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
-          kodisi_sarana: 'Rusak Berat',
+          kondisi_sarana: 'Rusak Berat',
           koordinat: [
             {
               longitude: '-6.583606',
@@ -2681,32 +2759,38 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_cctv: 'Gerbang Utama',
-          id_cctv: '10.110.200.20',
+          ip_cctv: '10.110.200.20',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
-          id_cctv: '10.110.200.19',
+          ip_cctv: '10.110.200.19',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
-          id_cctv: '10.110.200.18',
+          ip_cctv: '10.110.200.18',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
-          id_cctv: '10.110.200.17',
+          ip_cctv: '10.110.200.17',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
-          id_cctv: '10.110.200.16',
+          ip_cctv: '10.110.200.16',
           video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+        },
+      ],
+      koordinat_perumahan: [
+        {
+          longitude: '-6.232363',
+          latitude: '106.676766',
         },
       ],
     },
