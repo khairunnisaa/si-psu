@@ -42,17 +42,17 @@
     <td>:</td>
     <td>{{RW}}</td>
   </tr>
-  <tr>
+  <tr *ngFor="let stat of status">
     <td><b>Status</b></td>
     <td>:</td>
-    <td><b>{{status}}</b></td>
+    <td><b>{{stat.operasional}}</b></td>
   </tr>
-  <tr>
+  <tr *ngFor="let stat of status">
     <td></td>
     <td></td>
     <td><b>Kondisi</b></td>
     <td>:</td>
-    <td><b>{{kondisi}}</b></td>
+    <td><b>{{stat.kondisi}}</b></td>
   </tr>
   <tr>
     <td><b>Keterangan</b></td>

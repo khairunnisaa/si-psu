@@ -36,7 +36,7 @@
         <th scope="row">{{dataPengelola.id}}</th>
         <td>{{dataPengelola.nama}}</td>
         <td>{{dataPengelola.umur}}</td>
-        <td>{{dataPengelola.pendidikan_terakhir}}</td>
+        <td>{{dataPengelola.pendidikan}}</td>
         <td>{{dataPengelola.tugas}}</td>
         <td>{{dataPengelola.keterangan}}</td>
       </tr>
@@ -55,8 +55,9 @@
       <tbody>
       <tr *ngFor="let dataFotoTPU of this.state.dataPermukiman.foto_tpu">
         <th scope="row">{{dataFotoTPU.id}}</th>
-        <td>{{dataFotoTPU.nama}}</td>
-        <td><img src="{{dataFotoTPU.part_foto}}" class="rounded"></td>
+        <td>{{dataFotoTPU.nama_foto}}</td>
+        <td><a target="_blank" href="{{dataFotoTPU.part_foto}}"><img
+          src="{{dataFotoTPU.part_foto}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -72,7 +73,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataInvetaris of this.state.dataPermukiman.inventaris">
+      <tr *ngFor="let dataInvetaris of this.state.dataPermukiman.inventaris_alat">
         <th scope="row">{{dataInvetaris.id}}</th>
         <td>{{dataInvetaris.nama_alat}}</td>
         <td>{{dataInvetaris.jumlah}}</td>
@@ -82,15 +83,16 @@
     </table>
 
     <div class="row show-grid">
-      <div class="col-4 col-sm-4">
+      <div class="col-2 col-sm-2">
         <div><label>Status</label></div>
         <div><label>Koordinat TPU</label></div>
       </div>
       <div class="col-6 col-md-6 spasi">
-        <div>:
-          <label>{{ this.state.dataPermukiman.status }} || Kondisi :
-            {{ this.state.dataPermukiman.kondisi }}</label></div>
-        <div>: <label>{{ this.state.dataPermukiman.koordinat }}</label></div>
+        <div *ngFor="let dataStatus of this.state.dataPermukiman.status">
+          : <label><b>{{dataStatus.operasional }} || Kondisi :
+          {{ dataStatus.kondisi }}</b></label></div>
+        <div *ngFor="let dataKoordinat of this.state.dataPermukiman.koordinat">
+          : <label><b>{{dataKoordinat.longitude}} , {{dataKoordinat.latitude}}</b></label></div>
       </div>
     </div>
 
@@ -109,7 +111,8 @@
         <th scope="row">{{dataCCTV.id}}</th>
         <td>{{dataCCTV.nama_cctv}}</td>
         <td>{{dataCCTV.ip_cctv}}</td>
-        <td>{{dataCCTV.video}}</td>
+        <td><a target="_blank" href="{{dataCCTV.video}}"><img
+          src="{{dataCCTV.video}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>

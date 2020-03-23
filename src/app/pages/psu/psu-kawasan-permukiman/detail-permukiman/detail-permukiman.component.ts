@@ -19,9 +19,10 @@ export class DetailPermukimanComponent implements OnInit {
       RW: '',
       keterangan: '',
       pengelola: '',
+      foto_tpu: '',
       inventaris_alat: '',
       status: '',
-      koordinat_tpu: '',
+      koordinat: '',
       sarana: '',
       cctv: '',
     },
@@ -31,6 +32,6 @@ export class DetailPermukimanComponent implements OnInit {
 
   ngOnInit() {
     this.state = window.history.state;
-    console.log('State Permukiman', this.state.dataPermukiman)
+    console.log('State Permukiman', this.state.dataPermukiman.status)
   }
 }
