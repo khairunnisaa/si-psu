@@ -4,6 +4,7 @@ import {LocalDataSource} from 'ng2-smart-table';
 import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 import {RouterlinkDataPertamananComponent} from "../routerlink-data-pertamanan/routerlink-data-pertamanan.component";
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'ngx-kelola-data-pertamanan',
@@ -82,7 +83,8 @@ export class KelolaDataPertamananComponent implements OnInit {
   disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
 
   constructor(private service: TableDataPertamanan,
-              private getKecamatanService: TableDataKecamatan) {
+              private getKecamatanService: TableDataKecamatan,
+              private location: Location) {
 
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
@@ -115,5 +117,8 @@ export class KelolaDataPertamananComponent implements OnInit {
   }
   ngOnInit() {
     this.disableKelurahan = true;
+  }
+  goBack() {
+    this.location.back();
   }
 }

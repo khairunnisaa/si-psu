@@ -3,7 +3,9 @@
     Monitoring Data Perumahan
   </nb-card-header>
   <nb-card-body>
-    <h2 style="text-align: center">Under Construction</h2>
-    <img src="../../../../../assets/images/gaya.gif">
+    <ngx-app-camera-perumahan (pictureTaken)="handleImage($event)"></ngx-app-camera-perumahan>
+    <div class="snapshot" *ngIf="webcamImage">
+      <img [src]="webcamImage.imageAsDataUrl"  alt="webcam"/>
+    </div>
   </nb-card-body>
 </nb-card>

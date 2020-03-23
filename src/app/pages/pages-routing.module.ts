@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { BerandaComponent} from './beranda/beranda.component';
+import { RekapitulasiComponent } from "./psu/rekapitulasi/rekapitulasi.component";
 
 
 const routes: Routes = [{
@@ -13,6 +14,10 @@ const routes: Routes = [{
     {
       path : 'beranda',
       component: BerandaComponent,
+    },
+    {
+      path: 'rekapitulasi',
+      component: RekapitulasiComponent,
     },
     {
       path : 'psu',
