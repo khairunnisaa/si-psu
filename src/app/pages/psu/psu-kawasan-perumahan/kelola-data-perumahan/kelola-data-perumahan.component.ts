@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Location } from '@angular/common';
 
 import { TableDataPerumahan } from '../../../../@core/data/perumahan';
 import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
@@ -95,7 +96,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
 
   status = [ 'Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   constructor(private service: TableDataPerumahan,
-              private getKecamatanService: TableDataKecamatan) {
+              private getKecamatanService: TableDataKecamatan,
+              private location: Location) {
 
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
@@ -164,5 +166,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
     // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
     // this.selectedData).states.find(state => state.name === state).cities;
     console.log("kelurahan ini", status)
+  }
+  goBack() {
+    this.location.back();
   }
 }

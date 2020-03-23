@@ -1,0 +1,57 @@
+<div style="text-align:center" class="row">
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+</div>
+<div style="text-align:center" class="row">
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+  <div class="col-4">
+    <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
+            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
+            (initError)="handleInitError($event)"></webcam>
+    <br/>
+    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+  </div>
+</div>
+
+<h4 *ngIf="errors.length > 0">Messages:</h4>
+<ul *ngFor="let error of errors">
+  <li>{{error | json}}</li>
+</ul>

@@ -1,5 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { LocalDataSource } from 'ng2-smart-table';
+import { Location } from '@angular/common';
 import { TableDataPermukiman } from '../../../../@core/data/permukiman';
 import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
 
@@ -83,6 +84,7 @@ export class KelolaDataPermukimanComponent implements OnInit {
   constructor(
     private service: TableDataPermukiman,
     private getKecamatanService: TableDataKecamatan,
+    private location: Location,
   ) {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
@@ -114,4 +116,9 @@ export class KelolaDataPermukimanComponent implements OnInit {
   ngOnInit() {
     this.disableKelurahan = true;
   }
+
+  goBack() {
+    this.location.back();
+  }
+
 }

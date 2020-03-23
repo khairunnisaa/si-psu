@@ -4,7 +4,7 @@ import {
   NbCardModule, NbCheckboxModule, NbDatepickerModule,
   NbIconModule, NbDialogModule,
   NbInputModule, NbRadioModule, NbSelectModule,
-  NbTreeGridModule, NbUserModule, NbWindowModule,
+  NbTreeGridModule, NbUserModule, NbWindowModule, NbTabsetModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,14 @@ import { CommonModule} from "@angular/common";
 import { PopupPertamananComponent } from './routerlink-data-pertamanan/popup-pertamanan.component';
 import { RekapitulasiPertamananComponent } from './rekapitulasi-pertamanan/rekapitulasi-pertamanan.component';
 import { MonitoringPertamananComponent } from './monitoring-pertamanan/monitoring-pertamanan.component';
+import {ChartsModule} from '../../charts/charts.module';
+import {ChartModule} from 'angular2-chartjs';
+import {NgxEchartsModule} from 'ngx-echarts';
+import {NgxChartsModule} from '@swimlane/ngx-charts';
+import {AgmCoreModule} from '@agm/core';
+import {MapsModule} from '../../maps/maps.module';
+import {CameraPertamananComponent} from './camera-pertamanan/camera-pertamanan.component';
+import {WebcamModule} from 'ngx-webcam';
 
 @NgModule({
   declarations: [
@@ -31,6 +39,7 @@ import { MonitoringPertamananComponent } from './monitoring-pertamanan/monitorin
     PopupPertamananComponent,
     RekapitulasiPertamananComponent,
     MonitoringPertamananComponent,
+    CameraPertamananComponent,
   ],
   imports: [
     NbCardModule, NbIconModule, NbInputModule, NbTreeGridModule,
@@ -53,6 +62,14 @@ import { MonitoringPertamananComponent } from './monitoring-pertamanan/monitorin
     NbWindowModule.forChild(),
     FormsModule,
     ReactiveFormsModule,
+    ChartsModule,
+    ChartModule,
+    NgxEchartsModule,
+    NgxChartsModule,
+    NbTabsetModule,
+    AgmCoreModule,
+    MapsModule,
+    WebcamModule,
   ],
   entryComponents: [
     RouterlinkDataPertamananComponent,

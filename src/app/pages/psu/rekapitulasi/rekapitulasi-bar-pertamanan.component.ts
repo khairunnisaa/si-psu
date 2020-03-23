@@ -1,21 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, OnInit} from '@angular/core';
+import { NbThemeService } from '@nebular/theme';
 import {LocalDataSource} from 'ng2-smart-table';
-import {NbThemeService} from '@nebular/theme';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'ngx-rekapitulasi-pertamanan',
-  templateUrl: './rekapitulasi-pertamanan.component.html',
-  styleUrls: ['./rekapitulasi-pertamanan.component.scss'],
+  selector: 'ngx-psu-bar-pertamanan',
+  template: `<ngx-charts-bar-vertical
+    [view]="view"
+    [trimXAxisTicks]="false"
+    [scheme]="colorScheme"
+    [results]="single"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel"
+    [barPadding]="barPadding"
+    (select)="onSelect($event)">
+  </ngx-charts-bar-vertical>`,
 })
-export class RekapitulasiPertamananComponent implements OnInit {
-
+export class RekapitulasiBarPertamananComponent implements OnInit {
   options: any = {};
   themeSubscription: any;
   single: any[];
   multi: any[];
 
-  view: any[] = [800, 400];
+  view: any[] = [400, 300];
 
   // options
   showXAxis = true;
@@ -26,7 +39,7 @@ export class RekapitulasiPertamananComponent implements OnInit {
   xAxisLabel = 'Seluruh Taman';
   showYAxisLabel = true;
   yAxisLabel = 'Jumlah';
-  barPadding = 300;
+  barPadding = 60;
 
   colorScheme = {
     domain: ['#0000FF', '#5AA454', '#AAAAAA'],
