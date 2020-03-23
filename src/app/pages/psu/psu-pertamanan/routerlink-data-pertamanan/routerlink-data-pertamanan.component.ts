@@ -39,7 +39,7 @@ export class RouterlinkDataPertamananComponent implements OnInit, ViewCell {
           RT: this.rowData.RT,
           RW: this.rowData.RW,
           jumlah_petugas: 5,
-          keterangan: 'Taman yang bagus',
+          keterangan: this.rowData.keterangan,
         },
       });
   }

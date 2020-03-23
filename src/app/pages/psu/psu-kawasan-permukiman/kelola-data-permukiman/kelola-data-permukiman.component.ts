@@ -41,7 +41,6 @@ export class KelolaDataPermukimanComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log('row cell === ', row, cell);
           return cell;
         },
         renderComponent: RouterlinkKawasanPermukimanComponent,

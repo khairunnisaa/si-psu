@@ -1,12 +1,12 @@
 <nb-card>
   <nb-card-header class="text-center">
-    <h4>Perumahan Bumi Citra Asri</h4>
+    <h4>{{this.state.dataPerumahan.nama_perumahan}}</h4>
   </nb-card-header>
   <nb-card-body>
     <div class="row show-grid">
       <div class="col-4 col-sm-4">
         <div><label>Nama Pengembang</label></div>
-        <div><label>Luas Perumahan</label></div>
+        <div><label>Luas Perumahan (m2)</label></div>
         <div><label>Jumlah Rumah</label></div>
         <div><label>Lokasi</label></div>
         <div><strong><label>Status</label></strong></div>
@@ -15,14 +15,15 @@
         <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;SPH</label></strong></div>
       </div>
       <div class="col-6 col-md-6 spasi">
-        <div>: <label>PT. Riscon Hasanah</label></div>
-        <div>: <label>10000 m2</label></div>
-        <div>: <label>900 Unit</label></div>
-        <div>: <label>Cibinong, Tonjong, RT.3 / RW.12</label></div>
-        <div>: <strong><label>Sudah Serah Terima</label></strong></div>
-        <div>: <strong><label>17 September 2019</label></strong></div>
-        <div>: <strong><label>IX/P45.90.902.100/XXI/2019</label></strong></div>
-        <div>: <strong><label>N789.9090.9000.100</label></strong></div>
+        <div>: <label>{{ this.state.dataPerumahan.nama_pengembang }}</label></div>
+        <div>: <label>{{ this.state.dataPerumahan.luas_perumahan }}</label></div>
+        <div>: <label>{{ this.state.dataPerumahan.jumlah_rumah }} unit</label></div>
+        <div>: <label>{{ this.state.dataPerumahan.kecamatan }}, {{ this.state.kelurahan }}, RT.{{
+          this.state.dataPerumahan.RT}} / RW.{{ this.state.dataPerumahan.RW }}</label></div>
+        <div>: <strong><label>{{ this.state.dataPerumahan.status }}</label></strong></div>
+        <div>: <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima }}</label></strong></div>
+        <div>: <strong><label>{{ this.state.dataPerumahan.no_bast }}</label></strong></div>
+        <div>: <strong><label>{{ this.state.dataPerumahan.sph }}</label></strong></div>
       </div>
     </div>
 
@@ -36,21 +37,10 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Pembersihan Makam</td>
-        <td><img src="../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Penyiraman Makan</td>
-        <td><img src="../../../../../assets/images/PERUMAHAN/perumahan%202.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Penyiraman Makan</td>
-        <td><img src="../../../../../assets/images/PERUMAHAN/perumahan%203.jpg"
-                 class="rounded"></td>
+      <tr *ngFor="let fotoPerumahan of this.state.dataPerumahan.foto">
+        <th scope="row">{{fotoPerumahan.id}}</th>
+        <td>{{fotoPerumahan.nama_foto}}</td>
+        <td><img src="{{fotoPerumahan.path_foto}}" class="rounded"></td>
       </tr>
       </tbody>
     </table>
@@ -67,23 +57,16 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Lapangan Olahraga Basket</td>
-        <td>100 m2</td>
-        <td>gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
+      <tr *ngFor="let dataSarana of this.state.dataPerumahan.sarana">
+        <th scope="row">{{dataSarana.id}}</th>
+        <td>{{dataSarana.nama_sarana}}</td>
+        <td>{{dataSarana.luas_sarana}}</td>
+        <td><img *ngFor="let dataFotoSarana of dataSarana.foto_sarana"
+                 src="{{dataFotoSarana}}" class="rounded"></td>
+        <td>{{dataSarana.kodisi_sarana}}</td>
+        <td *ngFor="let dataKoordinat of dataSarana.koordinat">
+          {{dataKoordinat.longitude}} || {{dataKoordinat.latitude}}</td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Lapangan Olahraga Volly</td>
-        <td>100 m2</td>
-        <td>gambar</td>
-        <td>Baik</td>
-        <td>32° 18.385' U 122° 36.875' B</td>
-      </tr>
-      </tbody>
     </table>
 
     <strong><label>PSU Yang Diserahkan : Data Jalan dan Saluran</label></strong>
