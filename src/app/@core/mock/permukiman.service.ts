@@ -24,7 +24,7 @@ export class PermukimanService extends TableDataPermukiman {
         umur: 23,
         pendidikan: 'SMA',
         tugas: 'Pengawas Lapangan',
-        keretangan: 'Pegawai Pemda KAB. Bogor',
+        keterangan: 'Pegawai Pemda KAB. Bogor',
       },
       {
         id: '2',
@@ -32,7 +32,7 @@ export class PermukimanService extends TableDataPermukiman {
         umur: 67,
         pendidikan: 'SD',
         tugas: 'Pemeliharan TPU',
-        keretangan: 'Pegawai Honorer',
+        keterangan: 'Pegawai Honorer',
       },
       {
         id: '3',
@@ -40,7 +40,7 @@ export class PermukimanService extends TableDataPermukiman {
         umur: 34,
         pendidikan: 'S1',
         tugas: 'Pengawas Koordinator Lapangan',
-        keretangan: 'Pegawai Pemda KAB. Bogor',
+        keterangan: 'Pegawai Pemda KAB. Bogor',
       },
       {
         id: '4',
@@ -48,7 +48,7 @@ export class PermukimanService extends TableDataPermukiman {
         umur: 23,
         pendidikan: 'SMA',
         tugas: 'Pengawas Lapangan',
-        keretangan: 'Pegawai Pemda KAB. Bogor',
+        keterangan: 'Pegawai Pemda KAB. Bogor',
       },
       {
         id: '5',
@@ -56,7 +56,7 @@ export class PermukimanService extends TableDataPermukiman {
         umur: 56,
         pendidikan: 'SMP',
         tugas: 'Pemelihara',
-        keretangan: 'Pegawai Honorer',
+        keterangan: 'Pegawai Honorer',
       },
     ],
     foto_tpu: [
@@ -182,7 +182,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -190,7 +190,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -198,7 +198,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -206,7 +206,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -214,7 +214,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -340,7 +340,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -348,7 +348,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -356,7 +356,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -364,7 +364,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -372,7 +372,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -498,7 +498,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -506,7 +506,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -514,7 +514,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -522,7 +522,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -530,7 +530,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -656,7 +656,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -664,7 +664,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -672,7 +672,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -680,7 +680,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -688,7 +688,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -814,7 +814,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -822,7 +822,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -830,7 +830,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -838,7 +838,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -846,7 +846,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -972,7 +972,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -980,7 +980,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -988,7 +988,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -996,7 +996,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1004,7 +1004,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -1130,7 +1130,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -1138,7 +1138,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -1146,7 +1146,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -1154,7 +1154,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1162,7 +1162,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -1288,7 +1288,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -1296,7 +1296,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -1304,7 +1304,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -1312,7 +1312,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1320,7 +1320,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -1446,7 +1446,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -1454,7 +1454,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -1462,7 +1462,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -1470,7 +1470,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1478,7 +1478,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -1604,7 +1604,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -1612,7 +1612,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -1620,7 +1620,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -1628,7 +1628,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1636,7 +1636,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [
@@ -1762,7 +1762,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '2',
@@ -1770,7 +1770,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 67,
           pendidikan: 'SD',
           tugas: 'Pemeliharan TPU',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
         {
           id: '3',
@@ -1778,7 +1778,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 34,
           pendidikan: 'S1',
           tugas: 'Pengawas Koordinator Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '4',
@@ -1786,7 +1786,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 23,
           pendidikan: 'SMA',
           tugas: 'Pengawas Lapangan',
-          keretangan: 'Pegawai Pemda KAB. Bogor',
+          keterangan: 'Pegawai Pemda KAB. Bogor',
         },
         {
           id: '5',
@@ -1794,7 +1794,7 @@ export class PermukimanService extends TableDataPermukiman {
           umur: 56,
           pendidikan: 'SMP',
           tugas: 'Pemelihara',
-          keretangan: 'Pegawai Honorer',
+          keterangan: 'Pegawai Honorer',
         },
       ],
       foto_tpu: [

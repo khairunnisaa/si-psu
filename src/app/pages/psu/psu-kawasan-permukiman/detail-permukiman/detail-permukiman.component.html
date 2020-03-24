@@ -1,6 +1,6 @@
 <nb-card>
   <nb-card-header class="text-center">
-    <h4>TPU Kuburan Kecil Padurenan</h4>
+    <h4>{{ this.state.dataPermukiman.nama_tpu }}</h4>
   </nb-card-header>
   <nb-card-body>
     <div class="row show-grid">
@@ -9,17 +9,14 @@
         <div><label>Daya Tampung TPU</label></div>
         <div><label>Tahun Digunakan</label></div>
         <div><label>Lokasi</label></div>
-        <div><strong><label>Status</label></strong></div>
-        <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;Tanggal Serah Terima</label></strong></div>
-        <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara Serah Terima</label></strong></div>
-        <div><strong><label> &nbsp;&nbsp;&nbsp;&nbsp;SPH</label></strong></div>
-
       </div>
       <div class="col-6 col-md-6 spasi">
-        <div>: <label>TPU Kuburan Kecil Padurenan</label></div>
-        <div>: <label>200 m2</label></div>
-        <div>: <label>400</label></div>
-        <div>: <label>Gunung Sindur, Padurenan, RT.18 / RW.1</label></div>
+        <div>: <label>{{ this.state.dataPermukiman.luas_tpu }}</label></div>
+        <div>: <label>{{ this.state.dataPermukiman.daya_tampung_tpu }}</label></div>
+        <div>: <label>{{ this.state.dataPermukiman.tahun_digunakan }}</label></div>
+        <div>:
+          <label>{{ this.state.dataPermukiman.kecamatan }}, {{ this.state.dataPermukiman.kelurahan }},
+            RT.{{ this.state.dataPermukiman.RT }} / RW.{{ this.state.dataPermukiman.RW }}</label></div>
       </div>
     </div>
     <strong><label>Pengelola / Penjaga TPU </label></strong>
@@ -35,37 +32,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Ahmad Marzuki</td>
-        <td>45 Tahun</td>
-        <td>S1, Teknik Informatika</td>
-        <td>Koordinator TPU</td>
-        <td>-</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Mursalih</td>
-        <td>50 Tahun</td>
-        <td>SMP</td>
-        <td>Petugas Kebersihan TPU</td>
-        <td>Tugas dalam lingkungan TPU</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Jonatan Cristin</td>
-        <td>20 Tahun</td>
-        <td>SMA</td>
-        <td>Petugas Kebersihan TPU</td>
-        <td>Tugas dalam lingkungan TPU</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Ikhwan Suntana</td>
-        <td>67 Tahun</td>
-        <td>SMP</td>
-        <td>Petugas Penggali Kubur</td>
-        <td>Tugas dalam lingkungan TPU</td>
+      <tr *ngFor="let dataPengelola of this.state.dataPermukiman.pengelola">
+        <th scope="row">{{dataPengelola.id}}</th>
+        <td>{{dataPengelola.nama}}</td>
+        <td>{{dataPengelola.umur}}</td>
+        <td>{{dataPengelola.pendidikan}}</td>
+        <td>{{dataPengelola.tugas}}</td>
+        <td>{{dataPengelola.keterangan}}</td>
       </tr>
       </tbody>
     </table>
@@ -80,21 +53,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Pembersihan Makam</td>
-        <td><img src="../../../../../assets/images/TPU/TPU%20Padurenan%202.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Penyiraman Makan</td>
-        <td><img src="../../../../../assets/images/TPU/TPU%20Padurenan.jpg" class="rounded"></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Penyiraman Makan</td>
-        <td><img src="../../../../../assets/images/TPU/TPU%20Padurenan%203.jpg"
-                 class="rounded"></td>
+      <tr *ngFor="let dataFotoTPU of this.state.dataPermukiman.foto_tpu">
+        <th scope="row">{{dataFotoTPU.id}}</th>
+        <td>{{dataFotoTPU.nama_foto}}</td>
+        <td><a target="_blank" href="{{dataFotoTPU.part_foto}}"><img
+          src="{{dataFotoTPU.part_foto}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -110,47 +73,26 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Cangkul</td>
-        <td>10 Unit</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Sabit</td>
-        <td>10 Unit</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Sapu Lidi</td>
-        <td>20 Unit</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Truk Pengakut Sampah</td>
-        <td>5 Unit</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Keranda Mayat</td>
-        <td>3 Unit</td>
-        <td>Dari Pemerintah Kab.Bogor</td>
+      <tr *ngFor="let dataInvetaris of this.state.dataPermukiman.inventaris_alat">
+        <th scope="row">{{dataInvetaris.id}}</th>
+        <td>{{dataInvetaris.nama_alat}}</td>
+        <td>{{dataInvetaris.jumlah}}</td>
+        <td>{{dataInvetaris.keterangan}}</td>
       </tr>
       </tbody>
     </table>
 
     <div class="row show-grid">
-      <div class="col-4 col-sm-4">
+      <div class="col-2 col-sm-2">
         <div><label>Status</label></div>
         <div><label>Koordinat TPU</label></div>
       </div>
       <div class="col-6 col-md-6 spasi">
-        <div>: <label>Sudah Operasional  || Kondisi : Baik</label></div>
-        <div>: <label>32° 18.385' U 122° 36.875' B</label></div>
+        <div *ngFor="let dataStatus of this.state.dataPermukiman.status">
+          : <label><b>{{dataStatus.operasional }} || Kondisi :
+          {{ dataStatus.kondisi }}</b></label></div>
+        <div *ngFor="let dataKoordinat of this.state.dataPermukiman.koordinat">
+          : <label><b>{{dataKoordinat.longitude}} , {{dataKoordinat.latitude}}</b></label></div>
       </div>
     </div>
 
@@ -161,33 +103,16 @@
         <th scope="col">#</th>
         <th scope="col">Nama CCTV</th>
         <th scope="col">IP Camera</th>
+        <th scope="col">Video</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Pintu Gerbang Utama</td>
-        <td>10.110.200.16</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Makan Tengah</td>
-        <td>10.110.200.15</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Makan Keramat</td>
-        <td>10.110.200.14</td>
-      </tr>
-      <tr>
-        <th scope="row">4</th>
-        <td>Pintu Belakang</td>
-        <td>10.110.200.13</td>
-      </tr>
-      <tr>
-        <th scope="row">5</th>
-        <td>Makan Bagian Dalam</td>
-        <td>10.110.200.11</td>
+      <tr *ngFor="let dataCCTV of this.state.dataPermukiman.cctv">
+        <th scope="row">{{dataCCTV.id}}</th>
+        <td>{{dataCCTV.nama_cctv}}</td>
+        <td>{{dataCCTV.ip_cctv}}</td>
+        <td><a target="_blank" href="{{dataCCTV.video}}"><img
+          src="{{dataCCTV.video}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -197,7 +122,7 @@
         <div><label>Keterangan</label></div>
       </div>
       <div class="col-10 col-md-6 spasi">
-        <div>: <label>Makan Ini Selalu Ramai Pada Saat Malam Jumat Kliwon</label></div>
+        <div>: <label>{{ this.state.dataPermukiman.keterangan }}</label></div>
       </div>
     </div>
     <br>
