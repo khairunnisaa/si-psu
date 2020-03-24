@@ -33,17 +33,17 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_foto: 'Tampak Depan',
-          path_foto: '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+          path_foto: 'assets/images/PERUMAHAN/peruamahan%201.jpg',
         },
         {
           id: '2',
           nama_foto: 'Tampak Belakang',
-          path_foto: '../../../../../assets/images/PERUMAHAN/perumahan%202.jpg',
+          path_foto: 'assets/images/PERUMAHAN/perumahan%202.jpg',
         },
         {
           id: '3',
           nama_foto: 'Tampak Samping',
-          path_foto: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          path_foto: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
       ],
       sarana: [
@@ -52,9 +52,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_sarana: 'Lapangan Bulutangkis',
           luas_sarana: '500',
           foto_sarana: [
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
           kondisi_sarana: 'Baik',
           koordinat: [
@@ -69,9 +69,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_sarana: 'Lapangan Bola Volly',
           luas_sarana: '300',
           foto_sarana: [
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
           kondisi_sarana: 'Rusak Ringan',
           koordinat: [
@@ -86,9 +86,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_sarana: 'Lapangan Sepak Bola',
           luas_sarana: '700',
           foto_sarana: [
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
           kondisi_sarana: 'Rusak Berat',
           koordinat: [
@@ -105,9 +105,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_jalan_saluran: 'JL. Pegangsaaan Timur Raya No.23',
           luas_jalan_saluran: '7',
           foto_jalan_saluran: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Baik',
           koordinat: [
@@ -122,9 +122,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_jalan_saluran: 'JL. Agus Salam No.56',
           luas_jalan_saluran: '7',
           foto_jalan_saluran: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Rusak Ringan',
           koordinat: [
@@ -139,9 +139,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_jalan_saluran: 'JL. Mejid Timur Raya No.77',
           luas_jalan_saluran: '7',
           foto_jalan_saluran: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Rusak Berat',
           koordinat: [
@@ -158,9 +158,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_taman: 'Taman Pergangsaan Timur',
           luas_taman: '7',
           foto_taman: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Baik',
           koordinat: [
@@ -175,9 +175,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_taman: 'Taman Cinta Mamat',
           luas_taman: '700',
           foto_taman: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Rusak Ringan',
           koordinat: [
@@ -192,9 +192,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_taman: 'Taman Singaparma Djadul',
           luas_taman: '100',
           foto_taman: [
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
-            '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
+            'assets/images/PERUMAHAN/peruamahan%201.jpg',
           ],
           kondisi: 'Rusak Berat',
           koordinat: [
@@ -210,31 +210,31 @@ export class PerumahanService extends TableDataPerumahan {
           id: '1',
           nama_cctv: 'Gerbang Utama',
           ip_cctv: '10.110.200.20',
-          video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          video: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '2',
           nama_cctv: 'Taman Cinta',
           ip_cctv: '10.110.200.19',
-          video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          video: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '3',
           nama_cctv: 'Posko Komando 1',
           ip_cctv: '10.110.200.18',
-          video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          video: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '4',
           nama_cctv: 'Depan Masjid',
           ip_cctv: '10.110.200.17',
-          video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          video: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
         {
           id: '5',
           nama_cctv: 'Pintu Belakang',
           ip_cctv: '10.110.200.16',
-          video: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          video: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
       ],
       koordinat_perumahan: [
@@ -264,17 +264,17 @@ export class PerumahanService extends TableDataPerumahan {
         {
           id: '1',
           nama_foto: 'Tampak Depan',
-          path_foto: '../../../../../assets/images/PERUMAHAN/peruamahan%201.jpg',
+          path_foto: 'assets/images/PERUMAHAN/peruamahan%201.jpg',
         },
         {
           id: '2',
           nama_foto: 'Tampak Belakang',
-          path_foto: '../../../../../assets/images/PERUMAHAN/perumahan%202.jpg',
+          path_foto: 'assets/images/PERUMAHAN/perumahan%202.jpg',
         },
         {
           id: '3',
           nama_foto: 'Tampak Samping',
-          path_foto: '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+          path_foto: 'assets/images/PERUMAHAN/perumahan%203.jpg',
         },
       ],
       sarana: [
@@ -283,9 +283,9 @@ export class PerumahanService extends TableDataPerumahan {
           nama_sarana: 'Lapangan Bulutangkis',
           luas_sarana: '500',
           foto_sarana: [
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
-            '../../../../../assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
+            'assets/images/PERUMAHAN/perumahan%203.jpg',
           ],
           kondisi_sarana: 'Baik',
           koordinat: [

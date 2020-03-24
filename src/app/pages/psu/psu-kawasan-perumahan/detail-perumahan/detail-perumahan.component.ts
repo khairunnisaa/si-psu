@@ -34,6 +34,12 @@ export class DetailPerumahanComponent implements OnInit {
       no_bast: '',
       sph: '',
       jalan_saluran: '',
+      taman: '',
+      koordinat_perumahan: {
+        longitude: '',
+        latitude: '',
+      },
+      cctv: '',
     },
   };
   constructor() {

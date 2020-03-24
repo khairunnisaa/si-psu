@@ -63,19 +63,19 @@ export class PermukimanService extends TableDataPermukiman {
       {
         id: 1,
         nama_foto: 'Makan 1',
-        part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%202.jpg',
+        part_foto: 'assets/images/TPU/TPU%20Padurenan%202.jpg',
 
       },
       {
         id: 2,
         nama_foto: 'Makan 2',
-        part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        part_foto: 'assets/images/TPU/TPU%20Padurenan.jpg',
 
       },
       {
         id: 3,
         nama_foto: 'Makan 3',
-        part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%203.jpg',
+        part_foto: '.assets/images/TPU/TPU%20Padurenan%203.jpg',
       },
     ],
     inventaris_alat: [
@@ -125,43 +125,43 @@ export class PermukimanService extends TableDataPermukiman {
         id: 1,
         nama_cctv: 'Camera 1',
         ip_cctv: '110.11.90.1',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 2,
         nama_cctv: 'Camera 2',
         ip_cctv: '110.11.90.2',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 3,
         nama_cctv: 'Camera 3',
         ip_cctv: '110.11.90.3',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 4,
         nama_cctv: 'Camera 4',
         ip_cctv: '110.11.90.4',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 5,
         nama_cctv: 'Camera 5',
         ip_cctv: '110.11.90.5',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 6,
         nama_cctv: 'Camera 6',
         ip_cctv: '110.11.90.6',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
       {
         id: 7,
         nama_cctv: 'Camera 7',
         ip_cctv: '110.11.90.7',
-        video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+        video: 'assets/images/TPU/TPU%20Padurenan.jpg',
       },
     ],
     keterangan: 'TPU No.1',
@@ -221,19 +221,19 @@ export class PermukimanService extends TableDataPermukiman {
         {
           id: 1,
           nama_foto: 'Makan 1',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%202.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan%202.jpg',
 
         },
         {
           id: 2,
           nama_foto: 'Makan 2',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan.jpg',
 
         },
         {
           id: 3,
           nama_foto: 'Makan 3',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%203.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan%203.jpg',
         },
       ],
       inventaris_alat: [
@@ -283,43 +283,43 @@ export class PermukimanService extends TableDataPermukiman {
           id: 1,
           nama_cctv: 'Camera 1',
           ip_cctv: '110.11.90.1',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 2,
           nama_cctv: 'Camera 2',
           ip_cctv: '110.11.90.2',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 3,
           nama_cctv: 'Camera 3',
           ip_cctv: '110.11.90.3',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 4,
           nama_cctv: 'Camera 4',
           ip_cctv: '110.11.90.4',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 5,
           nama_cctv: 'Camera 5',
           ip_cctv: '110.11.90.5',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 6,
           nama_cctv: 'Camera 6',
           ip_cctv: '110.11.90.6',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 7,
           nama_cctv: 'Camera 7',
           ip_cctv: '110.11.90.7',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
       ],
       keterangan: 'TPU No.1',
@@ -379,19 +379,19 @@ export class PermukimanService extends TableDataPermukiman {
         {
           id: 1,
           nama_foto: 'Makan 1',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%202.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan%202.jpg',
 
         },
         {
           id: 2,
           nama_foto: 'Makan 2',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan.jpg',
 
         },
         {
           id: 3,
           nama_foto: 'Makan 3',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%203.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan%203.jpg',
         },
       ],
       inventaris_alat: [
@@ -441,43 +441,43 @@ export class PermukimanService extends TableDataPermukiman {
           id: 1,
           nama_cctv: 'Camera 1',
           ip_cctv: '110.11.90.1',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 2,
           nama_cctv: 'Camera 2',
           ip_cctv: '110.11.90.2',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 3,
           nama_cctv: 'Camera 3',
           ip_cctv: '110.11.90.3',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 4,
           nama_cctv: 'Camera 4',
           ip_cctv: '110.11.90.4',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 5,
           nama_cctv: 'Camera 5',
           ip_cctv: '110.11.90.5',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 6,
           nama_cctv: 'Camera 6',
           ip_cctv: '110.11.90.6',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
         {
           id: 7,
           nama_cctv: 'Camera 7',
           ip_cctv: '110.11.90.7',
-          video: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          video: 'assets/images/TPU/TPU%20Padurenan.jpg',
         },
       ],
       keterangan: 'TPU No.1',
@@ -537,13 +537,13 @@ export class PermukimanService extends TableDataPermukiman {
         {
           id: 1,
           nama_foto: 'Makan 1',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan%202.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan%202.jpg',
 
         },
         {
           id: 2,
           nama_foto: 'Makan 2',
-          part_foto: '../../../../../assets/images/TPU/TPU%20Padurenan.jpg',
+          part_foto: 'assets/images/TPU/TPU%20Padurenan.jpg',
 
         },
         {
