@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PsuComponent } from './psu.component';
+import { UserComponent } from "./user/user.component";
 
 
 
@@ -10,7 +11,12 @@ const routes: Routes = [{
   component: PsuComponent,
   children: [
   ],
-}];
+},
+  {
+    path: 'data-user',
+    component: UserComponent,
+  },
+];
 
 @NgModule({
   imports: [

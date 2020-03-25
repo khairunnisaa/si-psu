@@ -89,6 +89,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
       // },
     },
   };
+  loadingLargeGroup = false;
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
   kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
@@ -148,9 +149,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
     this.data_rumah_json = this.service.importFileExcel(event);
   }
 
-  onFileName(event) {
-    document.getElementById('output').innerHTML = this.data_rumah_json;
-  }
   ngOnInit() {
     this.disableKelurahan = true;
   }
@@ -169,5 +167,11 @@ export class KelolaDataPerumahanComponent implements OnInit {
   }
   goBack() {
     this.location.back();
+  }
+
+  toggleLoadingLargeGroupAnimation() {
+    this.loadingLargeGroup = true;
+
+    setTimeout(() => this.loadingLargeGroup = false, 3000);
   }
 }

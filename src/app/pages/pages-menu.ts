@@ -5,13 +5,11 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'Beranda',
     icon: 'home-outline',
     link: '/pages/beranda',
-    home: true,
   },
   {
     title: 'Rekapitulasi',
     icon: 'bar-chart-outline',
     link: '/pages/rekapitulasi',
-    home: true,
   },
 
   {
@@ -22,6 +20,10 @@ export const MENU_ITEMS: NbMenuItem[] = [
     title: 'PSU',
     icon: 'layout-outline',
     children: [
+      {
+        title: 'Data User',
+        link: '/pages/psu/data-user',
+      },
       {
         title: 'PSU Perumahan',
         link: '/',

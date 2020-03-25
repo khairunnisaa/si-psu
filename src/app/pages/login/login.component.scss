@@ -1,0 +1,13 @@
+@import '../../@theme/styles/themes';
+
+.form-inline {
+  margin: 0 5px 5px 0;
+}
+h4 {
+  text-align: center;
+}
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}

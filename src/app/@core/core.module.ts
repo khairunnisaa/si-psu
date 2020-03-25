@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NbAuthModule, NbDummyAuthStrategy } from '@nebular/auth';
+import {NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy} from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -65,6 +65,8 @@ import {TableDataKecamatan} from "./data/kecamatan";
 import {KecamatanService} from "./mock/kecamatan.service";
 import {TableDataKelurahan} from "./data/kelurahan";
 import {KelurahanService} from "./mock/kelurahan.service";
+import {TableDataUser} from "./data/data-user";
+import {DataUserService} from "./mock/data-user.service";
 
 const socialLinks = [
   {
@@ -109,6 +111,7 @@ const DATA_SERVICES = [
   { provide: TableDataPertamanan, useClass: PertamananService },
   { provide: TableDataKecamatan, useClass: KecamatanService },
   { provide: TableDataKelurahan, useClass: KelurahanService },
+  { provide: TableDataUser, useClass: DataUserService },
 ];
 
 export class NbSimpleRoleProvider extends NbRoleProvider {
@@ -124,9 +127,18 @@ export const NB_CORE_PROVIDERS = [
   ...NbAuthModule.forRoot({
 
     strategies: [
-      NbDummyAuthStrategy.setup({
+      // NbDummyAuthStrategy.setup({
+      //   name: 'email',
+      //   delay: 3000,
+      // }),
+      NbPasswordAuthStrategy.setup({
         name: 'email',
-        delay: 3000,
+        login: {
+          redirect: {
+            success: '/pages/',
+            failure: 'false', // stay on the same page
+          },
+        },
       }),
     ],
     forms: {

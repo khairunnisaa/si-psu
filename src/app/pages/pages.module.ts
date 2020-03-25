@@ -1,5 +1,17 @@
 import { NgModule } from '@angular/core';
 import {NbCardModule, NbMenuModule, NbTabsetModule} from '@nebular/theme';
+import { FormsModule } from '@angular/forms';
+import {
+  NbDialogModule,
+  NbIconModule,
+  NbInputModule,
+  NbTreeGridModule,
+  NbWindowModule,
+  NbButtonModule,
+  NbAlertModule,
+  NbCheckboxModule,
+} from '@nebular/theme';
+
 
 import { ThemeModule } from '../@theme/theme.module';
 import { PagesComponent } from './pages.component';
@@ -21,6 +33,7 @@ import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from './maps/maps.module';
 import {RekapitulasiBarPertamananComponent} from './psu/rekapitulasi/rekapitulasi-bar-pertamanan.component';
 import {RekapitulasiBarPerumahanComponent} from './psu/rekapitulasi/rekapitulasi-bar-perumahan.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -39,6 +52,15 @@ import {RekapitulasiBarPerumahanComponent} from './psu/rekapitulasi/rekapitulasi
     NbCardModule,
     AgmCoreModule,
     MapsModule,
+    NbDialogModule,
+    NbIconModule,
+    NbInputModule,
+    NbTreeGridModule,
+    NbWindowModule,
+    NbButtonModule,
+    NbAlertModule,
+    FormsModule,
+    NbCheckboxModule,
   ],
   declarations: [
     PagesComponent,
@@ -50,6 +72,7 @@ import {RekapitulasiBarPerumahanComponent} from './psu/rekapitulasi/rekapitulasi
     RekapitulasiBarPermukimanComponent,
     RekapitulasiBarPertamananComponent,
     RekapitulasiBarPerumahanComponent,
+    LoginComponent,
   ],
   entryComponents: [
     DetailBerandaComponent,
