@@ -29,19 +29,17 @@ export class KelolaDataUserComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      navigasi: {
-        title: 'Navigasi',
-        filter: false,
-        type: 'html',
-        valuePrepareFunction: (value) => {
-          return `<a routerLink=" " role="button" class="btn btn-warning btn-lg">
-          <i class="fa fa-edit text-black-50"></i></a>
-
-          <a routerLink=" "  role="button" class="btn btn-danger btn-lg">
-          <i class="fa fa-trash"></i></a>`
+      navigasi:
+        {
+          title: 'Navigasi',
+          type: 'html',
+          valuePrepareFunction: (cell, row) => {
+            return `<a title="Edit" href="./../../pages/psu-user/edit-data-user/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
+                    <a title="Hapus" href="./../../pages/psu-user/hapus-data-user/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
+          },
+          filter: false,
         },
       },
-    },
   };
 
   constructor(

@@ -1,10 +1,10 @@
-import { Component, OnInit} from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { Location } from '@angular/common';
+import {Component, OnInit} from '@angular/core';
+import {LocalDataSource} from 'ng2-smart-table';
+import {Location} from '@angular/common';
 
-import { TableDataPerumahan } from '../../../../@core/data/perumahan';
-import { RouterLinkPerumahanComponent } from "../router-link-perumahan/router-link-perumahan.component";
-import { TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {TableDataPerumahan} from '../../../../@core/data/perumahan';
+import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link-perumahan.component";
+import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
@@ -28,7 +28,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
         filter: false,
       },
       nama_perumahan: {
-        name : 'nama_perumahan',
+        name: 'nama_perumahan',
         title: 'Nama Perumahan',
         type: 'custom',
         filter: false,
@@ -68,11 +68,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      status: {
-        title: 'status',
-        type: 'string',
-        filter: false,
-      },
       // name: {
       //   title: 'Full Name',
       //   filter: {
@@ -80,22 +75,35 @@ export class KelolaDataPerumahanComponent implements OnInit {
       //     config: {
       //       selectText: 'Select...',
       //       list: [
-      //         { value: 'Glenna Reichert', title: 'Glenna Reichert' },
-      //         { value: 'Kurtis Weissnat', title: 'Kurtis Weissnat' },
-      //         { value: 'Chelsey Dietrich', title: 'Chelsey Dietrich' },
+      //         {value: 'Glenna Reichert', title: 'Glenna Reichert'},
+      //         {value: 'Kurtis Weissnat', title: 'Kurtis Weissnat'},
+      //         {value: 'Chelsey Dietrich', title: 'Chelsey Dietrich'},
       //       ],
       //     },
       //   },
       // },
+      navigasi:
+        {
+          title: 'Navigasi',
+          type: 'html',
+          valuePrepareFunction: (cell, row) => {
+            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/edit-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
+                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/hapus-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
+          },
+          filter: false,
+        },
     },
   };
-  loadingLargeGroup = false;
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
-  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
-  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
-  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
+  kecamatan: string[];
+  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];
+  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;
+  /** Disable Slect Kelurahan **/
 
-  status = [ 'Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
+  status = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
+
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan,
               private location: Location) {
@@ -108,8 +116,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
     this.disableKelurahan = true;
     this.years = [];
     for (let i = 0; i <= 10; ++i) {
-    this.years.push(2010 + i);
-}
+      this.years.push(2010 + i);
+    }
   }
 
   changeKecamatan(kecamatan) {
@@ -142,9 +150,11 @@ export class KelolaDataPerumahanComponent implements OnInit {
     // this.selectedData).states.find(state => state.name === state).cities;
     console.log("kelurahan ini", kelurahan, kecamatan)
   }
+
   exportAsXLSX() {
     this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
   }
+
   onFileChange(event) {
     this.data_rumah_json = this.service.importFileExcel(event);
   }
@@ -165,13 +175,16 @@ export class KelolaDataPerumahanComponent implements OnInit {
     // this.selectedData).states.find(state => state.name === state).cities;
     console.log("kelurahan ini", status)
   }
+
   goBack() {
     this.location.back();
   }
 
-  toggleLoadingLargeGroupAnimation() {
-    this.loadingLargeGroup = true;
-
-    setTimeout(() => this.loadingLargeGroup = false, 3000);
+  onDeleteConfirm(event): void {
+    if (window.confirm('Are you sure you want to delete?')) {
+      event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
   }
 }

@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InputDataUserComponent implements OnInit {
 
-  levelUser = ['Super Admin', 'Admin'];
+  levelUser = ['Administrator', 'Operator PSU Perumahan', 'Operator PSU Kawasan Permukiman',
+    'Operator PSU Pertamanan'];
 
   constructor() { }
 
