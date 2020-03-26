@@ -40,8 +40,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
       },
       nama_pengembang: {
         title: 'Nama Pengembang',
-        type: 'string',
         filter: false,
+        type: 'string',
       },
       luas_perumahan: {
         title: 'Luas Perumahan (m2)',

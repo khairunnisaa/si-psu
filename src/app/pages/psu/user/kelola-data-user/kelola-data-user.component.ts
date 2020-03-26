@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {LocalDataSource} from "ng2-smart-table";
 import {Location} from "@angular/common";
 import {TableDataUser} from "../../../../@core/data/data-user";
@@ -29,13 +29,21 @@ export class KelolaDataUserComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      tombol: {
+      navigasi: {
         title: 'Navigasi',
-        type: 'string',
         filter: false,
+        type: 'html',
+        valuePrepareFunction: (value) => {
+          return `<a routerLink=" " role="button" class="btn btn-warning btn-lg">
+          <i class="fa fa-edit text-black-50"></i></a>
+
+          <a routerLink=" "  role="button" class="btn btn-danger btn-lg">
+          <i class="fa fa-trash"></i></a>`
+        },
       },
     },
   };
+
   constructor(
     private location: Location,
     private getDataUserService: TableDataUser) {
@@ -44,6 +52,10 @@ export class KelolaDataUserComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
