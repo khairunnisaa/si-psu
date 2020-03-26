@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserComponent } from './user.component';
+import { KelolaDataUserComponent } from './kelola-data-user.component';
 
-describe('UserComponent', () => {
-  let component: UserComponent;
-  let fixture: ComponentFixture<UserComponent>;
+describe('KelolaDataUserComponent', () => {
+  let component: KelolaDataUserComponent;
+  let fixture: ComponentFixture<KelolaDataUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserComponent ]
+      declarations: [ KelolaDataUserComponent ],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UserComponent);
+    fixture = TestBed.createComponent(KelolaDataUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

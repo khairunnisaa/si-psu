@@ -41,6 +41,11 @@ const routes: Routes = [{
         .then(m => m.PsuPertamananModule),
     },
     {
+      path: 'psu-user',
+      loadChildren: () => import('./psu/user/user.module')
+      .then(m => m.UserModule),
+    },
+    {
       path: 'modal-overlays',
       loadChildren: () => import('./modal-overlays/modal-overlays.module')
         .then(m => m.ModalOverlaysModule),

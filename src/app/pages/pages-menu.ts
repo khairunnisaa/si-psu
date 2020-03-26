@@ -1,4 +1,4 @@
-import { NbMenuItem } from '@nebular/theme';
+import {NbMenuItem} from '@nebular/theme';
 
 export const MENU_ITEMS: NbMenuItem[] = [
   {
@@ -22,7 +22,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
     children: [
       {
         title: 'Data User',
-        link: '/pages/psu/data-user',
+        link: '',
+        children: [
+          {
+            title: 'Kelola Data',
+            link: '/pages/psu-user/kelola-data-user',
+          },
+        ],
       },
       {
         title: 'PSU Perumahan',
