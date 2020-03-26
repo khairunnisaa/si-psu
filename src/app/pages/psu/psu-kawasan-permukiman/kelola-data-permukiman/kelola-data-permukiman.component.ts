@@ -1,8 +1,8 @@
-import { Component, OnInit} from '@angular/core';
-import { LocalDataSource } from 'ng2-smart-table';
-import { Location } from '@angular/common';
-import { TableDataPermukiman } from '../../../../@core/data/permukiman';
-import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
+import {Component, OnInit} from '@angular/core';
+import {LocalDataSource} from 'ng2-smart-table';
+import {Location} from '@angular/common';
+import {TableDataPermukiman} from '../../../../@core/data/permukiman';
+import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 
 import {RouterlinkKawasanPermukimanComponent} from "../routerlink-kawasan-permukiman/routerlink-kawasan-permukiman.component";
 
@@ -75,12 +75,26 @@ export class KelolaDataPermukimanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-    },
+      navigasi:
+        {
+          title: 'Navigasi',
+          type: 'html',
+          valuePrepareFunction: (cell, row) => {
+            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
+                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
+          },
+          filter: false,
+        },
+      },
   };
   statusSelect = ['Sudah Operasional', 'Belum Operasional'];
-  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
-  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
-  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
+  kecamatan: string[];
+  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];
+  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;
+
+  /** Disable Slect Kelurahan **/
   constructor(
     private service: TableDataPermukiman,
     private getKecamatanService: TableDataKecamatan,

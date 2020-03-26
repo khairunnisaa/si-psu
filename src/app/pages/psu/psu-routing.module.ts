@@ -10,7 +10,8 @@ const routes: Routes = [{
   component: PsuComponent,
   children: [
   ],
-}];
+},
+];
 
 @NgModule({
   imports: [

@@ -75,7 +75,17 @@ export class KelolaDataPertamananComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-    },
+      navigasi:
+        {
+          title: 'Navigasi',
+          type: 'html',
+          valuePrepareFunction: (cell, row) => {
+            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
+                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
+          },
+          filter: false,
+        },
+     },
   };
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/

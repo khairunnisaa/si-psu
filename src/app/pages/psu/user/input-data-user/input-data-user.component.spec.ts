@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PsuComponent } from './psu.component';
+import { InputDataUserComponent } from './input-data-user.component';
 
-describe('PsuComponent', () => {
-  let component: PsuComponent;
-  let fixture: ComponentFixture<PsuComponent>;
+describe('InputDataUserComponent', () => {
+  let component: InputDataUserComponent;
+  let fixture: ComponentFixture<InputDataUserComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PsuComponent ],
+      declarations: [ InputDataUserComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PsuComponent);
+    fixture = TestBed.createComponent(InputDataUserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

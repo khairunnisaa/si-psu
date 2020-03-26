@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import { Ng2SmartTableModule} from 'ng2-smart-table';
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {
   NbCardModule,
   NbDialogModule,
@@ -7,7 +7,9 @@ import {
   NbInputModule, NbTabsetModule,
   NbTreeGridModule,
   NbWindowModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
+import { Ng2SmartTableModule} from 'ng2-smart-table';
 import {
   NbActionsModule,
   NbButtonModule,
@@ -18,32 +20,27 @@ import {
   NbUserModule,
 } from '@nebular/theme';
 
-import { PsuRoutingModule, routedComponents} from './psu-routing.module';
-import { PsuComponent} from './psu.component';
-import { UserComponent } from './user/user.component';
-
-
-
-
+import { UserRoutingModule, routedComponents } from './user-routing.module';
+import { KelolaDataUserComponent } from './kelola-data-user/kelola-data-user.component';
+import { InputDataUserComponent } from './input-data-user/input-data-user.component';
 
 @NgModule({
   declarations: [
     ...routedComponents,
-    PsuComponent,
-    UserComponent,
-    /*
-        yang modul hanya punya submenu tidak usah dideklarasikan
-     */
+    KelolaDataUserComponent,
+    InputDataUserComponent,
   ],
   imports: [
-    PsuRoutingModule,
-    Ng2SmartTableModule,
+    CommonModule,
+    UserRoutingModule,
     NbCardModule,
     NbDialogModule,
     NbIconModule,
     NbInputModule, NbTabsetModule,
     NbTreeGridModule,
     NbWindowModule,
+    NbSpinnerModule,
+    Ng2SmartTableModule,
     NbActionsModule,
     NbButtonModule,
     NbCheckboxModule,
@@ -53,5 +50,4 @@ import { UserComponent } from './user/user.component';
     NbUserModule,
   ],
 })
-export class PsuModule {
-}
+export class UserModule { }

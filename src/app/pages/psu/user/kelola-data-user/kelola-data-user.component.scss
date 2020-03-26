@@ -1,0 +1,11 @@
+@import '../../../../@theme/styles/themes';
+
+.form-inline {
+  margin: 0 5px 5px 0;
+}
+
+@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}
