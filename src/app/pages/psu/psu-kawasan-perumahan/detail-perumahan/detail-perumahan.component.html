@@ -40,7 +40,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let fotoPerumahan of this.state.dataPerumahan.foto">
+      <tr *ngFor="let fotoPerumahan of this.state.dataPerumahan.fotos">
         <th scope="row">{{fotoPerumahan.id}}</th>
         <td>{{fotoPerumahan.nama_foto}}</td>
         <td><a target="_blank" href="{{fotoPerumahan.path_foto}}"><img
@@ -65,12 +65,13 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataSarana of this.state.dataPerumahan.sarana">
+      <tr *ngFor="let dataSarana of this.state.dataPerumahan.saranas">
         <th scope="row">{{dataSarana.id}}</th>
         <td>{{dataSarana.nama_sarana}}</td>
         <td>{{dataSarana.luas_sarana}}</td>
         <td>
-          <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana" target="_blank" href="{{dataFotoSarana}}">
+          <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana.split(',')" target="_blank"
+             href="{{dataFotoSarana}}">
           <img src="{{dataFotoSarana}}" style="width:150px">
           </a></td>
         <td>{{dataSarana.kondisi_sarana}}</td>
@@ -98,18 +99,18 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataJalanSaluran of this.state.dataPerumahan.jalan_saluran">
+      <tr *ngFor="let dataJalanSaluran of this.state.dataPerumahan.jalansalurans">
         <th scope="row">{{dataJalanSaluran.id}}</th>
         <td>{{dataJalanSaluran.nama_jalan_saluran}}</td>
         <td>{{dataJalanSaluran.luas_jalan_saluran}}</td>
-        <td><a *ngFor="let dataFotoJalanSaluran of dataJalanSaluran.foto_jalan_saluran"
+        <td><a *ngFor="let dataFotoJalanSaluran of dataJalanSaluran.foto_jalan_saluran.split(',')"
                target="_blank" href="{{dataFotoJalanSaluran}}">
           <img src="{{dataFotoJalanSaluran}}" style="width:150px">
         </a></td>
         <td>{{dataJalanSaluran.kondisi}}</td>
-        <td *ngFor="let dataLongitude of dataJalanSaluran.koordinat">
+        <td *ngFor="let dataLongitude of dataJalanSaluran.koordinattamans">
           {{dataLongitude.longitude}}</td>
-        <td *ngFor="let dataLatitude of dataJalanSaluran.koordinat">
+        <td *ngFor="let dataLatitude of dataJalanSaluran.koordinattamans">
           {{dataLatitude.latitude}}</td>
       </tr>
       </tbody>
@@ -132,11 +133,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataTaman of this.state.dataPerumahan.taman">
+      <tr *ngFor="let dataTaman of this.state.dataPerumahan.tamans">
         <th scope="row">{{dataTaman.id}}</th>
         <td>{{dataTaman.nama_taman}}</td>
         <td>{{dataTaman.luas_taman}}</td>
-        <td><a *ngFor="let dataFotoTaman of dataTaman.foto_taman"
+        <td><a *ngFor="let dataFotoTaman of dataTaman.foto_taman.split(',')"
                target="_blank" href="{{dataFotoTaman}}">
           <img src="{{dataFotoTaman}}" style="width:150px"></a>
         </td>
@@ -172,7 +173,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataCCTV of this.state.dataPerumahan.cctv">
+      <tr *ngFor="let dataCCTV of this.state.dataPerumahan.cctvs">
         <th scope="row">{{dataCCTV.id}}</th>
         <td>{{dataCCTV.nama_cctv}}</td>
         <td>{{dataCCTV.ip_cctv}}</td>

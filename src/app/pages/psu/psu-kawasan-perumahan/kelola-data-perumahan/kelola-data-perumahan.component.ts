@@ -33,7 +33,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          // console.log("row rumah == ", row, cell);
+          console.log("row rumah == ", row, cell);
           return cell;
         },
         renderComponent: RouterLinkPerumahanComponent,
@@ -107,11 +107,11 @@ export class KelolaDataPerumahanComponent implements OnInit {
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan,
               private location: Location) {
-
-    const data = this.service.getData();
-    this.source = new LocalDataSource(data);
+    this.source = new LocalDataSource();
+    const data = this.service.getData().then((datas) => {
+      this.source.load(datas);
+    });
     this.kecamatan = this.getKecamatanService.getData();
-
 
     this.disableKelurahan = true;
     this.years = [];
@@ -152,7 +152,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
   }
 
   exportAsXLSX() {
-    this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
+    // this.service.exportAsExcelFile(this.service.getData(), 'perumahan');
   }
 
   onFileChange(event) {

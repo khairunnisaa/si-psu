@@ -23,6 +23,8 @@ export class RouterLinkPerumahanComponent implements OnInit {
 
   ngOnInit() {
     this.renderValue = this.value.toString();
+    console.log('render value', this.renderValue);
+    console.log('row data ', this.rowData);
   }
 
   openWindowForm() {
@@ -35,7 +37,7 @@ export class RouterLinkPerumahanComponent implements OnInit {
           nama_pengembang : this.rowData.nama_pengembang,
           luas_perumahan: this.rowData.luas_perumahan,
           jumlah_rumah: this.rowData.jumlah_rumah,
-          foto: this.rowData.foto.length,
+          foto: this.rowData.fotos.length,
           kecamatan: this.rowData.kecamatan,
           kelurahan: this.rowData.kelurahan,
           RT: this.rowData.RT,
@@ -46,7 +48,7 @@ export class RouterLinkPerumahanComponent implements OnInit {
           sph: this.rowData.sph,
           jumlah_psu: this.rowData.jumlah_psu,
           keterangan: this.rowData.keterangan,
-          cctv: this.rowData.cctv.video,
+          // cctv: this.rowData.cctv.video,
           dataPerumahan : this.rowData,
         },
       });

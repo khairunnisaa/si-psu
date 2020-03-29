@@ -6,7 +6,8 @@ import {TableDataPertamanan} from '../data/pertamanan';
 })
 export class PertamananService extends TableDataPertamanan {
 
-  data = [{
+  data = [
+    {
     id: 1,
     nama_taman: 'Pemda Park',
     nama_pelaksana: 'Adhi Karya',
