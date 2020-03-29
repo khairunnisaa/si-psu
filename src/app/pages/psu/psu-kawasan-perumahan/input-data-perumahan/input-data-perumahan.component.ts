@@ -18,7 +18,7 @@ export class InputDataPerumahanComponent implements OnInit {
   statusSerahTerima: boolean;
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
-  formPerumahan: any;
+  formPerumahan: FormGroup;
 
   public dataSaranaForm: FormGroup;
   public dataJalanSaluranForm: FormGroup;
@@ -31,11 +31,32 @@ export class InputDataPerumahanComponent implements OnInit {
     private formBuilderDataJalanSaluran: FormBuilder,
     private formBuilderDataTaman: FormBuilder,
     private formBuilderDataCCTV: FormBuilder,
+    private fb: FormBuilder,
     ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
+    this.formPerumahan = new FormGroup({
+      formDataPerumahan : this.fb.group({
+        namaPerumahan : new FormControl(''),
+        namaPengembang : new FormControl(''),
+        luasPerumahan : new FormControl(''),
+        kecamatan : new FormControl(''),
+        kabupaten : new FormControl(''),
+        rt : new FormControl(''),
+        rw : new FormControl(''),
+        status : new FormControl(''),
+        tanggalSerahTerima : new FormControl(''),
+        noBeritaAcaraSerahTerima : new FormControl(''),
+        sph : new FormControl(''),
+        dataSarana: this.fb.array([this.createDataSaranaFormGroup()]),
+        dataJalanSaluran: this.fb.array([this.createDataJalanSaluranFormGroup()]),
+        dataTamanForm: this.fb.array([this.createDataTamanFormGroup()]),
+        dataCCTV: this.fb.array([this.createDataCCTVFormGroup()]),
+      }),
+    })
+
   }
 
   changeKecamatan(kecamatan) {
@@ -51,6 +72,9 @@ export class InputDataPerumahanComponent implements OnInit {
     console.log("kelurahan ini", kelurahan)
   }
 
+  inputPerumahans() {
+    console.log("form value perumahan", this.formPerumahan.value);
+  }
   ngOnInit() {
     this.statusSerahTerima = false;
     this.statusBelumSerahTerima = false;
@@ -68,52 +92,37 @@ export class InputDataPerumahanComponent implements OnInit {
     this.dataCCTVForm = this.formBuilderDataCCTV.group({
       dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
     });
-    this.formPerumahan = this.dataSaranaForm.get('dataSarana') as FormArray;
+    // this.formPerumahan = this.dataSaranaForm.get('dataSarana') as FormArray;
     const control = this.formPerumahan.controls
   }
   /**
    * Add Data......................................
    * */
 
-  get formDataCCTV() {
-    return <FormArray>this.dataCCTVForm.get('dataCCTV');
-  }
-
-  get formdataSarana() {
-    return <FormArray>this.dataSaranaForm.get('dataSarana');
-  }
-
-  get formdataJalanSaluran() {
-    return <FormArray>this.dataJalanSaluranForm.get('dataJalanSaluran');
-  }
-
-  get formdataTaman() {
-    return <FormArray>this.dataTamanForm.get('dataTaman');
-  }
   public addDataSarana() {
-    const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
+    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('dataSarana') as FormArray;
     dataSarana.push(this.createDataSaranaFormGroup())
   }
 
   public addDataJalanSaluran() {
-    const dataJalanSaluran = this.dataJalanSaluranForm.get('dataJalanSaluran') as FormArray;
+    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('dataJalanSaluran') as FormArray;
     dataJalanSaluran.push(this.createDataJalanSaluranFormGroup())
   }
 
   public addDataTaman() {
-    const dataTaman = this.dataTamanForm.get('dataTaman') as FormArray;
+    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('dataTamanForm') as FormArray;
     dataTaman.push(this.createDataTamanFormGroup())
   }
 
   public addDataCCTV() {
-    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
   /**
    * Remove Data......................................
    * */
   public removeDataSarana(j: number) {
-    const dataSarana = this.dataSaranaForm.get('dataSarana') as FormArray;
+    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('dataSarana') as FormArray;
     if (dataSarana.length > 1) {
       dataSarana.removeAt(j)
     } else {
@@ -122,7 +131,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataJalanSaluran(k: number) {
-    const dataJalanSaluran = this.dataJalanSaluranForm.get('dataJalanSaluran') as FormArray;
+    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('dataJalanSaluran') as FormArray;
     if (dataJalanSaluran.length > 1) {
       dataJalanSaluran.removeAt(k)
     } else {
@@ -131,7 +140,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataTaman(n: number) {
-    const dataTaman = this.dataTamanForm.get('dataTaman') as FormArray;
+    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('dataTamanForm') as FormArray;
     if (dataTaman.length > 1) {
       dataTaman.removeAt(n)
     } else {
@@ -140,7 +149,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataCCTV(m: number) {
-    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
     if (dataCCTV.length > 1) {
       dataCCTV.removeAt(m)
     } else {
@@ -151,31 +160,40 @@ export class InputDataPerumahanComponent implements OnInit {
    * Create Data......................................
    * */
 
-  private createDataSaranaFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+  private createDataSaranaFormGroup() {
+    return this.fb.group({
+      'namaSaranaPSU': '',
+      'luasSaranaPSU': '',
+      'fotoSaranaPSU': '',
+      'kondisiSaranaPSU': '',
+      'koordinatPSU': '',
     })
   }
 
   private createDataJalanSaluranFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+    return this.fb.group({
+      'namajalanSaluran': [''],
+      'luasJalanSaluran': [''],
+      'fotoJalanSaluran': [''],
+      'kondisiJalanSaluran': [''],
+      'koordinatJalanSaluran': [''],
     })
   }
 
   private createDataTamanFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+    return this.fb.group({
+      'namaTaman': '',
+      'luasTaman': '',
+      'fotoTaman': '',
+      'kondisiTaman': '',
+      'koordinatTaman': '',
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+    return this.fb.group({
+      'namaCCTVPerumahan': '',
+      'ipCameraPerumahan': '',
     })
   }
 

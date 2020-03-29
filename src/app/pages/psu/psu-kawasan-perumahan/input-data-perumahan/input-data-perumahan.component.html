@@ -3,12 +3,13 @@
     <nb-card>
       <nb-card-header>Input Data Kawasan Perumahan</nb-card-header>
       <nb-card-body>
-        <form>
+        <form [formGroup]="formPerumahan" (ngSubmit)="inputPerumahans()">
+          <div formGroupName="formDataPerumahan">
           <div class="form-group row">
             <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama Perumahan</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                     id="namaPerumahan" name="namaPerumahan">
+                     id="namaPerumahan" name="namaPerumahan"  formControlName="namaPerumahan">
             </div>
 
           </div>
@@ -17,7 +18,7 @@
               Pengembang</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
-                     name="namaPengembang">
+                     name="namaPengembang" formControlName="namaPengembang">
             </div>
 
           </div>
@@ -26,14 +27,14 @@
               (m2)</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Luas Perumahan" id="luasPerumahan"
-                     name="luasPerumahan">
+                     name="luasPerumahan" formControlName="luasPerumahan" >
             </div>
           </div>
 
           <div class="form-group row">
             <label for="fotoPerumahan" class="label col-sm-3 col-form-label">Foto Perumahan</label>
             <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Perumahan" id="fotoPerumahan">
+              <input type="file" nbInput placeholder="Foto Perumahan" id="fotoPerumahan" >
             </div>
           </div>
 
@@ -41,18 +42,22 @@
             <label class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
               <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         id="kecamatan" (selectedChange)="changeKecamatan($event)">
+                         id="kecamatan" (selectedChange)="changeKecamatan($event)"
+                         formControlName="kecamatan">
                 <nb-option *ngFor="let dataKecamatan of kecamatan"
                            value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
               <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
+                         formControlName="kabupaten"
                          (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
                 <nb-option *ngFor="let dataKelurahan of kelurahan"
                            value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt">
+              <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
+                     formControlName="rt">
               &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw">
+              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
+                     formControlName="rw">
             </div>
           </div>
 
@@ -61,7 +66,7 @@
                    class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Status</label>
             <div class="col-sm-9">
               <nb-select (selectedChange)="onSelectOption($event)" placeholder="Status"
-                         class="select-status" name="status" id="status">
+                         class="select-status" name="status" id="status"  formControlName="status">
                 <nb-option *ngFor="let pilih_status of statusSelect"
                            value="{{pilih_status}}">{{pilih_status}}</nb-option>
               </nb-select>&nbsp;&nbsp;
@@ -74,7 +79,7 @@
               Terima</label>
             <div class="col-sm-9">
               <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                     name="tanggalSerahTerima" id="tanggalSerahTerima">
+                     name="tanggalSerahTerima" id="tanggalSerahTerima"  formControlName="tanggalSerahTerima">
               <nb-datepicker #formpicker></nb-datepicker>
             </div>
           </div>
@@ -85,7 +90,7 @@
             </label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
-                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima">
+                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima" formControlName="noBeritaAcaraSerahTerima">
             </div>
           </div>
           <div class="form-group row" *ngIf="statusSerahTerima">
@@ -94,7 +99,7 @@
             </label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph"
-                     name="sph">
+                     name="sph" formControlName="sph">
             </div>
           </div>
 
@@ -103,9 +108,10 @@
             <label class="label col-sm-12 col-form-label label-border">Data Sarana</label>
           </div>
 
-          <form class="basic-container" [formGroup]="dataSaranaForm">
             <div formArrayName="dataSarana">
-              <div *ngFor="let dataSarana of formdataSarana.controls; let j = index"
+              <div *ngFor="let dataSarana of
+              formPerumahan.controls.formDataPerumahan.controls['dataSarana'].controls; let j =
+              index"
                    [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
 
@@ -115,7 +121,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaSaranaPSU"
                            placeholder="Nama Sarana"
-                           name="namaSaranaPSU">
+                           name="namaSaranaPSU" formControlName="namaSaranaPSU">
                   </div>
                 </div>
 
@@ -125,7 +131,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Luas Sarana"
                            id="luasSaranaPSU"
-                           nama="namaSaranaPSU">
+                           name="luasSaranaPSU" formControlName="luasSaranaPSU">
                   </div>
                 </div>
 
@@ -134,7 +140,7 @@
                     Sarana</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Sarana" name="fotoSaranaPSU"
-                           id="fotoSaranaPSU">
+                           id="fotoSaranaPSU" formControlName="fotoSaranaPSU">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -142,7 +148,7 @@
                     Sarana</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               name="kondisiSaranaPSU" id="kondisiSaranaPSU">
+                               name="kondisiSaranaPSU" id="kondisiSaranaPSU" formControlName="kondisiSaranaPSU">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -154,7 +160,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="KoordinatPSU"
-                           id="koordinatPSU">
+                           id="koordinatPSU" formControlName="koordinatPSU">
                   </div>
                 </div>
 
@@ -176,7 +182,6 @@
                 </div>
               </div>
             </div>
-          </form>
           <!--          PSU YANG DISERAHKAN ..........................-->
 
           <!--Jalan dan Saluran ---------------- Jalan dan Saluran --------------------------->
@@ -185,9 +190,8 @@
           </div>
 
 
-          <form class="basic-container" [formGroup]="dataJalanSaluranForm">
             <div formArrayName="dataJalanSaluran">
-              <div *ngFor="let dataPetugas of formdataJalanSaluran.controls;
+              <div *ngFor="let dataJalanSaluran of formPerumahan.controls.formDataPerumahan.controls['dataJalanSaluran'].controls;
               let k = index" [formGroupName]="k">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
@@ -198,7 +202,7 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaJalanSaluran"
-                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran">
+                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran" formControlName="namajalanSaluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -207,7 +211,7 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="luasJalanSaluran"
-                           placeholder="Luas Jalan dan Saluran">
+                           placeholder="Luas Jalan dan Saluran" formControlName="luasJalanSaluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -215,8 +219,9 @@
                     Jalan dan
                     Saluran</label>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth id="fotoJalanSaluran"
-                           placeholder="Password" name="fotoJalanSaluran">
+                    <input type="file" nbInput fullWidth id="fotoJalanSaluran"
+                           placeholder="Foto Jalan dan Saluran" name="fotoJalanSaluran"
+                           formControlName="fotoJalanSaluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -224,7 +229,7 @@
                     Jalan dan Saluran</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               name="kondisiJalanSaluran" id="kondisiJalanSaluran">
+                               name="kondisiJalanSaluran" id="kondisiJalanSaluran" formControlName="kondisiJalanSaluran">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -235,9 +240,9 @@
                   <label for="koordinatJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9">
-                    <input type="password" nbInput fullWidth
+                    <input type="text" nbInput fullWidth
                            placeholder="Koordinat (Poin Polygon Polyline)"
-                           id="koordinatJalanSaluran">
+                           id="koordinatJalanSaluran" formControlName="koordinatJalanSaluran">
                   </div>
                 </div>
 
@@ -259,7 +264,6 @@
                 </div>
               </div>
             </div>
-          </form>
 
           <!--Jalan dan Saluran ----------------------Jalan dan Saluran ---------------------->
 
@@ -268,9 +272,9 @@
             <label class="label col-sm-12 col-form-label label-border">Data Taman</label>
           </div>
 
-          <form class="basic-container" [formGroup]="dataTamanForm">
+<!--          <form class="basic-container" [formGroup]="dataTamanForm">-->
             <div formArrayName="dataTamanForm">
-              <div *ngFor="let dataTaman of formdataTaman.controls;
+              <div *ngFor="let dataTaman of formPerumahan.controls.formDataPerumahan.controls['dataTamanForm'].controls;
               let n = index" [formGroupName]="n">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
@@ -280,7 +284,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
-                           id="namaTaman">
+                           id="namaTaman" formControlName="namaTaman">
                   </div>
                 </div>
 
@@ -290,7 +294,7 @@
                   <div class="col-sm-9">
                     <input type="password" nbInput fullWidth placeholder="Luas Taman"
                            name="luasTaman"
-                           id="luasTaman">
+                           id="luasTaman" formControlName="luasTaman">
                   </div>
                 </div>
 
@@ -299,7 +303,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman"
-                           name="fotoTaman">
+                           name="fotoTaman" formControlName="fotoTaman">
                   </div>
                 </div>
 
@@ -308,7 +312,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               id="kondisiTaman" name="kondisiTaman">
+                               id="kondisiTaman" name="kondisiTaman" formControlName="kondisiTaman" >
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -322,7 +326,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Koordinat
-              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman">
+              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman" formControlName="koordinatTaman">
                   </div>
                 </div>
 
@@ -344,7 +348,7 @@
                 </div>
               </div>
             </div>
-          </form>
+<!--          </form>-->
 
           <!--          Taman --------------------- Taman ------------------------------ Taman   -->
           <div class="form-group row" *ngIf="statusBelumSerahTerima">
@@ -381,9 +385,9 @@
             <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
           </div>
 
-          <form class="basic-container" [formGroup]="dataCCTVForm">
             <div formArrayName="dataCCTV">
-              <div *ngFor="let dataCCTV of formDataCCTV.controls;
+              <div *ngFor="let dataCCTV of
+              formPerumahan.controls.formDataPerumahan.controls['dataCCTV'].controls;
               let m = index" [formGroupName]="m">
 
                 <h3>Data Ke-{{m + 1}}</h3>
@@ -393,7 +397,7 @@
                     Perumahan</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                           id="namaCCTVPerumahan" name="namaCCTVPerumahan">
+                           id="namaCCTVPerumahan" name="namaCCTVPerumahan" formControlName="namaCCTVPerumahan">
                   </div>
                 </div>
 
@@ -403,7 +407,7 @@
                     Camera</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="IP Camera"
-                           id="ipCameraPerumahan" name="ipCameraPerumahan">
+                           id="ipCameraPerumahan" name="ipCameraPerumahan" formControlName="ipCameraPerumahan">
                   </div>
                 </div>
 
@@ -425,7 +429,6 @@
                 </div>
               </div>
             </div>
-          </form>
 
           <div class="form-group row">
             <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
@@ -444,8 +447,7 @@
               <button type="submit" nbButton status="danger">Batal</button>
             </div>
           </div>
-
-
+          </div>
         </form>
       </nb-card-body>
     </nb-card>
