@@ -2,13 +2,12 @@ import {Injectable} from '@angular/core';
 import {TableDataPerumahan} from '../data/perumahan';
 import * as FileSaver from 'file-saver';
 import * as XLSX from 'xlsx';
-import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs";
+import {HttpClient} from '@angular/common/http';
 
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-const baseUrl = 'http://localhost:7777';
+const baseUrl = 'http://localhost:7777/perumahans';
 
 @Injectable({
   providedIn: 'root',
@@ -2812,9 +2811,35 @@ export class PerumahanService extends TableDataPerumahan {
 
   // emulating request to the server
   async getData() {
-    const data = await this.http.get(baseUrl + '/perumahans').toPromise();
+    const data = await this.http.get(baseUrl).toPromise();
     // console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
+  }
+
+  async postData(perumahan) {
+    const perumahanData = {
+      nama_perumahan: perumahan.nama_perumahan,
+      nama_pengembang: perumahan.nama_pengembang,
+      luas_perumahan: perumahan.luas_perumahan,
+      jumlah_rumah: perumahan.jumlah_perumahan,
+      kecamatan: perumahan.kecamatan,
+      kelurahan: perumahan.kelurahan,
+      RT: perumahan.RT,
+      RW : perumahan.RW,
+      status: perumahan.status,
+      tgl_serah_terima: perumahan.tgl_serah_terima,
+      no_bast: perumahan.no_bast,
+      sph: perumahan.sph,
+      jumlah_psu : perumahan.jumlah_psu,
+      keterangan: perumahan.keterangan,
+      fotos: [],
+      saranas : [perumahan.saranas],
+      jalansalurans: [perumahan.jalansalurans],
+      tamans: [],
+      cctvs: [],
+    };
+    console.log("perumahan data to post ", perumahanData);
+    // return await this.http.post(baseUrl, perumahanData).toPromise();
   }
 
   exportAsExcelFile(json: any[], excelFileName: string): void {

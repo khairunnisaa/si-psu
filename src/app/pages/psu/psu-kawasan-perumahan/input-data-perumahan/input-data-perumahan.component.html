@@ -9,7 +9,7 @@
             <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama Perumahan</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                     id="namaPerumahan" name="namaPerumahan"  formControlName="namaPerumahan">
+                     id="namaPerumahan" name="namaPerumahan"  formControlName="nama_perumahan">
             </div>
 
           </div>
@@ -18,7 +18,7 @@
               Pengembang</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
-                     name="namaPengembang" formControlName="namaPengembang">
+                     name="namaPengembang" formControlName="nama_pengembang">
             </div>
 
           </div>
@@ -27,7 +27,7 @@
               (m2)</label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="Luas Perumahan" id="luasPerumahan"
-                     name="luasPerumahan" formControlName="luasPerumahan" >
+                     name="luasPerumahan" formControlName="luas_perumahan" >
             </div>
           </div>
 
@@ -47,17 +47,17 @@
                 <nb-option *ngFor="let dataKecamatan of kecamatan"
                            value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
-                         formControlName="kabupaten"
+              <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kabupaten"
+                         formControlName="kelurahan"
                          (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
                 <nb-option *ngFor="let dataKelurahan of kelurahan"
                            value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
               <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
-                     formControlName="rt">
+                     formControlName="RT">
               &nbsp;&nbsp;
               <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
-                     formControlName="rw">
+                     formControlName="RW">
             </div>
           </div>
 
@@ -79,7 +79,7 @@
               Terima</label>
             <div class="col-sm-9">
               <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                     name="tanggalSerahTerima" id="tanggalSerahTerima"  formControlName="tanggalSerahTerima">
+                     name="tanggalSerahTerima" id="tanggalSerahTerima"  formControlName="tgl_serah_terima">
               <nb-datepicker #formpicker></nb-datepicker>
             </div>
           </div>
@@ -90,7 +90,7 @@
             </label>
             <div class="col-sm-9">
               <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
-                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima" formControlName="noBeritaAcaraSerahTerima">
+                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima" formControlName="no_bast">
             </div>
           </div>
           <div class="form-group row" *ngIf="statusSerahTerima">
@@ -108,9 +108,9 @@
             <label class="label col-sm-12 col-form-label label-border">Data Sarana</label>
           </div>
 
-            <div formArrayName="dataSarana">
+            <div formArrayName="saranas">
               <div *ngFor="let dataSarana of
-              formPerumahan.controls.formDataPerumahan.controls['dataSarana'].controls; let j =
+              formPerumahan.controls.formDataPerumahan.controls['saranas'].controls; let j =
               index"
                    [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
@@ -121,7 +121,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaSaranaPSU"
                            placeholder="Nama Sarana"
-                           name="namaSaranaPSU" formControlName="namaSaranaPSU">
+                           name="namaSaranaPSU" formControlName="nama_sarana">
                   </div>
                 </div>
 
@@ -131,7 +131,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Luas Sarana"
                            id="luasSaranaPSU"
-                           name="luasSaranaPSU" formControlName="luasSaranaPSU">
+                           name="luasSaranaPSU" formControlName="luas_sarana">
                   </div>
                 </div>
 
@@ -140,7 +140,7 @@
                     Sarana</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Sarana" name="fotoSaranaPSU"
-                           id="fotoSaranaPSU" formControlName="fotoSaranaPSU">
+                           id="fotoSaranaPSU" formControlName="foto_sarana">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -148,7 +148,7 @@
                     Sarana</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               name="kondisiSaranaPSU" id="kondisiSaranaPSU" formControlName="kondisiSaranaPSU">
+                               name="kondisiSaranaPSU" id="kondisiSaranaPSU" formControlName="kondisi_sarana">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -160,7 +160,7 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="KoordinatPSU"
-                           id="koordinatPSU" formControlName="koordinatPSU">
+                           id="koordinatPSU" formControlName="koordinat">
                   </div>
                 </div>
 
@@ -190,8 +190,8 @@
           </div>
 
 
-            <div formArrayName="dataJalanSaluran">
-              <div *ngFor="let dataJalanSaluran of formPerumahan.controls.formDataPerumahan.controls['dataJalanSaluran'].controls;
+            <div formArrayName="jalansalurans">
+              <div *ngFor="let dataJalanSaluran of formPerumahan.controls.formDataPerumahan.controls['jalansalurans'].controls;
               let k = index" [formGroupName]="k">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
@@ -202,7 +202,7 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaJalanSaluran"
-                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran" formControlName="namajalanSaluran">
+                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran" formControlName="nama_jalan_saluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -211,7 +211,7 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="luasJalanSaluran"
-                           placeholder="Luas Jalan dan Saluran" formControlName="luasJalanSaluran">
+                           placeholder="Luas Jalan dan Saluran" formControlName="luas_jalan_saluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -221,7 +221,7 @@
                   <div class="col-sm-9">
                     <input type="file" nbInput fullWidth id="fotoJalanSaluran"
                            placeholder="Foto Jalan dan Saluran" name="fotoJalanSaluran"
-                           formControlName="fotoJalanSaluran">
+                           formControlName="foto_jalan_saluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -229,7 +229,8 @@
                     Jalan dan Saluran</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               name="kondisiJalanSaluran" id="kondisiJalanSaluran" formControlName="kondisiJalanSaluran">
+                               name="kondisiJalanSaluran" id="kondisiJalanSaluran"
+                               formControlName="kondisi">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -242,7 +243,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth
                            placeholder="Koordinat (Poin Polygon Polyline)"
-                           id="koordinatJalanSaluran" formControlName="koordinatJalanSaluran">
+                           id="koordinatJalanSaluran" formControlName="koordinatjalansalurans">
                   </div>
                 </div>
 

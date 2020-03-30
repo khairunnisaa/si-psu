@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 import {LocalDataSource} from "ng2-smart-table";
+import {TableDataPerumahan} from '../../../../@core/data/perumahan';
 
 @Component({
   selector: 'ngx-input-data-perumahan',
@@ -32,6 +33,7 @@ export class InputDataPerumahanComponent implements OnInit {
     private formBuilderDataTaman: FormBuilder,
     private formBuilderDataCCTV: FormBuilder,
     private fb: FormBuilder,
+    private service: TableDataPerumahan,
     ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
@@ -39,19 +41,19 @@ export class InputDataPerumahanComponent implements OnInit {
     this.disableKelurahan = true;
     this.formPerumahan = new FormGroup({
       formDataPerumahan : this.fb.group({
-        namaPerumahan : new FormControl(''),
-        namaPengembang : new FormControl(''),
-        luasPerumahan : new FormControl(''),
+        nama_perumahan : new FormControl(''),
+        nama_pengembang : new FormControl(''),
+        luas_perumahan : new FormControl(''),
         kecamatan : new FormControl(''),
-        kabupaten : new FormControl(''),
-        rt : new FormControl(''),
-        rw : new FormControl(''),
+        kelurahan : new FormControl(''),
+        RT : new FormControl(''),
+        RW : new FormControl(''),
         status : new FormControl(''),
-        tanggalSerahTerima : new FormControl(''),
-        noBeritaAcaraSerahTerima : new FormControl(''),
+        tgl_serah_terima : new FormControl(''),
+        no_bast : new FormControl(''),
         sph : new FormControl(''),
-        dataSarana: this.fb.array([this.createDataSaranaFormGroup()]),
-        dataJalanSaluran: this.fb.array([this.createDataJalanSaluranFormGroup()]),
+        saranas: this.fb.array([this.createDataSaranaFormGroup()]),
+        jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
         dataTamanForm: this.fb.array([this.createDataTamanFormGroup()]),
         dataCCTV: this.fb.array([this.createDataCCTVFormGroup()]),
       }),
@@ -73,7 +75,8 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   inputPerumahans() {
-    console.log("form value perumahan", this.formPerumahan.value);
+    console.log("form value perumahan", this.formPerumahan.value.formDataPerumahan);
+    this.service.postData(this.formPerumahan.value.formDataPerumahan);
   }
   ngOnInit() {
     this.statusSerahTerima = false;
@@ -93,14 +96,13 @@ export class InputDataPerumahanComponent implements OnInit {
       dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
     });
     // this.formPerumahan = this.dataSaranaForm.get('dataSarana') as FormArray;
-    const control = this.formPerumahan.controls
   }
   /**
    * Add Data......................................
    * */
 
   public addDataSarana() {
-    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('dataSarana') as FormArray;
+    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('saranas') as FormArray;
     dataSarana.push(this.createDataSaranaFormGroup())
   }
 
@@ -122,7 +124,7 @@ export class InputDataPerumahanComponent implements OnInit {
    * Remove Data......................................
    * */
   public removeDataSarana(j: number) {
-    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('dataSarana') as FormArray;
+    const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('saranas') as FormArray;
     if (dataSarana.length > 1) {
       dataSarana.removeAt(j)
     } else {
@@ -162,21 +164,21 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataSaranaFormGroup() {
     return this.fb.group({
-      'namaSaranaPSU': '',
-      'luasSaranaPSU': '',
-      'fotoSaranaPSU': '',
-      'kondisiSaranaPSU': '',
-      'koordinatPSU': '',
+      'nama_sarana': '',
+      'luas_sarana': '',
+      'foto_sarana': '',
+      'kondisi_sarana': '',
+      'koordinat': '',
     })
   }
 
   private createDataJalanSaluranFormGroup(): FormGroup {
     return this.fb.group({
-      'namajalanSaluran': [''],
-      'luasJalanSaluran': [''],
-      'fotoJalanSaluran': [''],
-      'kondisiJalanSaluran': [''],
-      'koordinatJalanSaluran': [''],
+      'nama_jalan_saluran': '',
+      'luas_jalan_saluran': '',
+      'foto_jalan_saluran': '',
+      'kondisi': '',
+      'koordinatjalansalurans': '',
     })
   }
 
