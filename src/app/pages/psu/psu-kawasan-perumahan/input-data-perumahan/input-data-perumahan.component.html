@@ -32,10 +32,24 @@
           </div>
 
           <div class="form-group row">
-            <label for="fotoPerumahan" class="label col-sm-3 col-form-label">Foto Perumahan</label>
-            <div class="col-sm-9">
-              <input type="file" nbInput placeholder="Foto Perumahan" id="fotoPerumahan" >
+            <label for="" class="label col-sm-3 col-form-label">Foto Perumahan</label>
+            <div class="col-sm-9" formArrayName="fotos">
+              <input type="file" (change)="onFileUpload($event)" name="fotos" multiple placeholder="Foto Perumahan" >
+              <div  *ngFor="let foto of
+              formPerumahan.controls.formDataPerumahan.controls['fotos'].controls; let fot = index">
+                <div [formGroupName]="fot">
+
+                  <!-- foto ditampilkan --->
+              <div class="imagePreview" *ngIf="urls && urls !== ''">
+                <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto" width="180">
+                  <!--judul foto -->
+                <label *ngIf="foto.value.path_foto">
+                  <input formControlName="nama_foto" placeholder="nama foto" type="text" nbInput fullWidth>
+                </label>
+              </div>
+                </div>
             </div>
+          </div>
           </div>
 
           <div class="form-group row">
@@ -161,6 +175,7 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="KoordinatPSU"
                            id="koordinatPSU" formControlName="koordinat">
+
                   </div>
                 </div>
 
