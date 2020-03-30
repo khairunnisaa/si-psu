@@ -1,10 +1,30 @@
-.spasi {
-  padding-bottom: 25px;
+* {
+  box-sizing: border-box;
 }
-.btn-rata-kanan {
-  float: right;
+
+body {
+  font-family: Arial;
+  font-size: 17px;
 }
-img {
-  width: 400px;
-  height: 200px;
+
+.container {
+  position: relative;
+  max-width: 300px;
+  margin: 0 auto;
 }
+
+.container img {vertical-align: middle;}
+
+.container .content {
+  position: absolute;
+  bottom: 41px;
+  background: #666666; /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1;
+  width: 100%;
+  padding:5px;
+}
+h5 {
+  color: #8f9bb3;
+}
+

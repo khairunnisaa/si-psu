@@ -41,18 +41,18 @@
           <div class="form-group row">
             <label class="label col-sm-3 col-form-label">Lokasi</label>
             <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         id="kecamatan" (selectedChange)="changeKecamatan($event)"
-                         formControlName="kecamatan">
-                <nb-option *ngFor="let dataKecamatan of kecamatan"
-                           value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+              <nb-select placeholder="Kecamatan" name="kecamatan"
+                         (selectedChange)="changeKecamatan($event)">
+                <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
+
               <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kabupaten"
                          formControlName="kelurahan"
                          (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
                 <nb-option *ngFor="let dataKelurahan of kelurahan"
                            value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
               </nb-select>&nbsp;&nbsp;
+
               <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
                      formControlName="RT">
               &nbsp;&nbsp;
@@ -83,6 +83,7 @@
               <nb-datepicker #formpicker></nb-datepicker>
             </div>
           </div>
+
           <div class="form-group row" *ngIf="statusSerahTerima">
             <label for="noBeritaAcaraSerahTerima"
                    class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara
@@ -143,6 +144,7 @@
                            id="fotoSaranaPSU" formControlName="foto_sarana">
                   </div>
                 </div>
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="kondisiSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Konsidi
                     Sarana</label>
