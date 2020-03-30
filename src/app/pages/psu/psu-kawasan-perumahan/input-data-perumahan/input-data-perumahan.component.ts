@@ -25,6 +25,7 @@ export class InputDataPerumahanComponent implements OnInit {
   public dataJalanSaluranForm: FormGroup;
   public dataTamanForm: FormGroup;
   public dataCCTVForm: FormGroup;
+  urls: any[] = [];
 
   constructor(
     private getKecamatanService: TableDataKecamatan,
@@ -52,6 +53,7 @@ export class InputDataPerumahanComponent implements OnInit {
         tgl_serah_terima : new FormControl(''),
         no_bast : new FormControl(''),
         sph : new FormControl(''),
+        fotos: this.fb.array([this.createImageGroup('')]),
         saranas: this.fb.array([this.createDataSaranaFormGroup()]),
         jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
         dataTamanForm: this.fb.array([this.createDataTamanFormGroup()]),
@@ -120,6 +122,13 @@ export class InputDataPerumahanComponent implements OnInit {
     const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
+
+  public addFotos(img) {
+    const fotos = this.formPerumahan.controls.formDataPerumahan.get('fotos') as FormArray;
+    // fotos.push(img);
+    fotos.push(this.createImageGroup(img))
+  }
+
   /**
    * Remove Data......................................
    * */
@@ -164,11 +173,11 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataSaranaFormGroup() {
     return this.fb.group({
-      'nama_sarana': '',
-      'luas_sarana': '',
-      'foto_sarana': '',
-      'kondisi_sarana': '',
-      'koordinat': '',
+      nama_sarana: '',
+      luas_sarana: '',
+      foto_sarana: '',
+      kondisi_sarana: '',
+      koordinat: '',
     })
   }
 
@@ -199,6 +208,13 @@ export class InputDataPerumahanComponent implements OnInit {
     })
   }
 
+  private createImageGroup(img): FormGroup {
+    return this.fb.group({
+      path_foto: img,
+      nama_foto: '',
+    })
+  }
+
   onSelectOption(status) {
     console.log("onselect", status);
     if (status === "Sudah Serah Terima") {
@@ -213,6 +229,21 @@ export class InputDataPerumahanComponent implements OnInit {
       this.statusSerahTerima =  false;
       this.statusBelumSerahTerima = false;
       this.statusTerlantar = true;
+    }
+  }
+
+  onFileUpload(event: any) {
+    this.urls = [];
+    const selectedFiles = event.target.files;
+    if (selectedFiles) {
+      for (const file of selectedFiles) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+          this.addFotos(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
     }
   }
 }

@@ -2832,7 +2832,7 @@ export class PerumahanService extends TableDataPerumahan {
       sph: perumahan.sph,
       jumlah_psu : perumahan.jumlah_psu,
       keterangan: perumahan.keterangan,
-      fotos: [],
+      fotos: [perumahan.fotos],
       saranas : [perumahan.saranas],
       jalansalurans: [perumahan.jalansalurans],
       tamans: [],
