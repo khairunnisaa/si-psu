@@ -21,8 +21,8 @@
                        id="namaPengembang"
                        name="namaPengembang" formControlName="nama_pengembang">
               </div>
-
             </div>
+
             <div class="form-group row">
               <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan
                 (m2)</label>
@@ -94,21 +94,43 @@
             </div>
 
             <!-- kordinat perumahan -->
-            <div class="form-group row">
-              <label for="longitudePerumahan"
-                     class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
-              <div class="col-sm-9" formArrayName="koordinats">
-                <div *ngFor="let dataTaman of
+            <div formArrayName="koordinats">
+              <div *ngFor="let dataKoordinat of
               formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
-              let n = index" [formGroupName]="n">
-                  <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
-                         name="longitude" formControlName="longitude">,&nbsp;&nbsp;
-                  <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
-                         name="latitude"  formControlName="latitude">
+                        let u = index" [formGroupName]="u">
+
+                <div class="form-group row">
+                  <label for="longitude" class="label col-sm-3 col-form-label">Koordinat
+                    Perumahan <b>Data Ke-{{u + 1}}</b></label>
+                  <div class="col-sm-9">
+
+                    <input type="text" nbInput placeholder="Latitude"
+                           id="longitude" name="latitude" formControlName="longitude">
+                    <input type="text" nbInput placeholder="Latitude"
+                           id="latitude" name="latitude" formControlName="latitude">
+
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataKoordinat()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataKoordinat(u)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-
             <!-- keterangan perumahan -->
             <div class="form-group row">
               <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
@@ -184,6 +206,7 @@
                            name="namaSaranaPSU" formControlName="nama_sarana">
                   </div>
                 </div>
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="luasSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas
                     Sarana</label>

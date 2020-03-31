@@ -91,7 +91,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public addDataJalanSaluran() {
-    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('dataJalanSaluran') as FormArray;
+    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('jalansalurans') as FormArray;
     dataJalanSaluran.push(this.createDataJalanSaluranFormGroup())
   }
 
@@ -101,7 +101,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public addDataCCTV() {
-    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('cctvs') as FormArray;
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
 
@@ -110,6 +110,12 @@ export class InputDataPerumahanComponent implements OnInit {
     // fotos.push(img);
     fotos.push(this.createImageGroup(img))
   }
+
+  public addDataKoordinat() {
+    const dataKoordinat = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
+    dataKoordinat.push(this.createDataKoordinatFormGroup())
+  }
+
 
   /**
    * Remove Data......................................
@@ -124,7 +130,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataJalanSaluran(k: number) {
-    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('dataJalanSaluran') as FormArray;
+    const dataJalanSaluran = this.formPerumahan.controls.formDataPerumahan.get('jalansalurans') as FormArray;
     if (dataJalanSaluran.length > 1) {
       dataJalanSaluran.removeAt(k)
     } else {
@@ -142,11 +148,20 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataCCTV(m: number) {
-    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('cctvs') as FormArray;
     if (dataCCTV.length > 1) {
       dataCCTV.removeAt(m)
     } else {
       dataCCTV.reset()
+    }
+  }
+
+  public removeDataKoordinat(m: number) {
+    const dataKoordinat = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
+    if (dataKoordinat.length > 1) {
+      dataKoordinat.removeAt(m)
+    } else {
+      dataKoordinat.reset()
     }
   }
   /**
@@ -163,6 +178,13 @@ export class InputDataPerumahanComponent implements OnInit {
     })
   }
   private createKoordinat(): FormGroup {
+    return this.fb.group({
+      longitude: new FormControl(),
+      latitude: new FormControl(),
+    })
+  }
+
+  private createDataKoordinatFormGroup(): FormGroup {
     return this.fb.group({
       longitude: new FormControl(),
       latitude: new FormControl(),
