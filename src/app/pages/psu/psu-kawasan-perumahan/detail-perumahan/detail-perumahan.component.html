@@ -69,7 +69,7 @@
         <th scope="row">{{dataSarana.id}}</th>
         <td>{{dataSarana.nama_sarana}}</td>
         <td>{{dataSarana.luas_sarana}}</td>
-        <td>
+        <td *ngIf="dataSarana.foto_sarana!==null">
           <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana.split(',')" target="_blank"
              href="{{dataFotoSarana}}">
           <img src="{{dataFotoSarana}}" style="width:150px">
@@ -103,7 +103,9 @@
         <th scope="row">{{dataJalanSaluran.id}}</th>
         <td>{{dataJalanSaluran.nama_jalan_saluran}}</td>
         <td>{{dataJalanSaluran.luas_jalan_saluran}}</td>
-        <td><a *ngFor="let dataFotoJalanSaluran of dataJalanSaluran.foto_jalan_saluran.split(',')"
+        <td *ngIf="dataJalanSaluran.foto_jalan_saluran!==null"><a *ngFor="let dataFotoJalanSaluran
+         of
+        dataJalanSaluran.foto_jalan_saluran.split(',')"
                target="_blank" href="{{dataFotoJalanSaluran}}">
           <img src="{{dataFotoJalanSaluran}}" style="width:150px">
         </a></td>
@@ -137,7 +139,8 @@
         <th scope="row">{{dataTaman.id}}</th>
         <td>{{dataTaman.nama_taman}}</td>
         <td>{{dataTaman.luas_taman}}</td>
-        <td><a *ngFor="let dataFotoTaman of dataTaman.foto_taman.split(',')"
+        <td *ngIf="dataTaman.foto_taman!==null"><a *ngFor="let dataFotoTaman of
+        dataTaman.foto_taman.split(',')"
                target="_blank" href="{{dataFotoTaman}}">
           <img src="{{dataFotoTaman}}" style="width:150px"></a>
         </td>
