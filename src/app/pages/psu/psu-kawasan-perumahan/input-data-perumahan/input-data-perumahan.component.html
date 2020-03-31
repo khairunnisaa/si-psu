@@ -5,122 +5,163 @@
       <nb-card-body>
         <form [formGroup]="formPerumahan" (ngSubmit)="inputPerumahans()">
           <div formGroupName="formDataPerumahan">
-          <div class="form-group row">
-            <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                     id="namaPerumahan" name="namaPerumahan"  formControlName="nama_perumahan">
-            </div>
-
-          </div>
-          <div class="form-group row">
-            <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama
-              Pengembang</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
-                     name="namaPengembang" formControlName="nama_pengembang">
-            </div>
-
-          </div>
-          <div class="form-group row">
-            <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan
-              (m2)</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Luas Perumahan" id="luasPerumahan"
-                     name="luasPerumahan" formControlName="luas_perumahan" >
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label for="" class="label col-sm-3 col-form-label">Foto Perumahan</label>
-            <div class="col-sm-9" formArrayName="fotos">
-              <input type="file" (change)="onFileUpload($event)" name="fotos" multiple placeholder="Foto Perumahan" >
-              <div  *ngFor="let foto of
-              formPerumahan.controls.formDataPerumahan.controls['fotos'].controls; let fot = index">
-                <div [formGroupName]="fot">
-
-                  <!-- foto ditampilkan --->
-              <div class="imagePreview" *ngIf="urls && urls !== ''">
-                <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto" width="180">
-                  <!--judul foto -->
-                <label *ngIf="foto.value.path_foto">
-                  <input formControlName="nama_foto" placeholder="nama foto" type="text" nbInput fullWidth>
-                </label>
+            <div class="form-group row">
+              <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama
+                Perumahan</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
+                       id="namaPerumahan" name="namaPerumahan" formControlName="nama_perumahan">
               </div>
+            </div>
+            <div class="form-group row">
+              <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama
+                Pengembang</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Nama Pengembang"
+                       id="namaPengembang"
+                       name="namaPengembang" formControlName="nama_pengembang">
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan
+                (m2)</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Luas Perumahan" id="luasPerumahan"
+                       name="luasPerumahan" formControlName="luas_perumahan">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="jumlah_perumahan" class="label col-sm-3 col-form-label">Jumlah Perumahan
+                </label>
+              <div class="col-sm-9">
+                <input type="number" nbInput placeholder="Luas Perumahan" id="jumlah_perumahan"
+                       name="jumlah_perumahan" formControlName="jumlah_perumahan"> Unit
+              </div>
+            </div>
+
+            <div class="form-group row" formArrayName="fotos">
+              <label for="fotoPerumahan" class="label col-sm-3 col-form-label">Foto
+                Perumahan</label>
+              <div class="col-sm-9">
+                <input type="file" (change)="onFileUpload($event)" name="fotos" multiple
+                       placeholder="Foto Perumahan" id="fotoPerumahan" nbInput>
+                <!--                <div *ngFor="let foto of formPerumahan.controls.formDataPerumahan.controls['fotos'].controls; let fot = index">-->
+                <!--                  <div [formGroupName]="fot">-->
+
+                <!--                    &lt;!&ndash; foto ditampilkan -&ndash;&gt;-->
+                <!--                    <div class="imagePreview col-sm-3" *ngIf="urls && urls !== ''">-->
+
+                <!--                      <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto"-->
+                <!--                           width="180">-->
+                <!--                      &lt;!&ndash;judul foto &ndash;&gt;-->
+                <!--                      <br><br>-->
+                <!--                      <label *ngIf="foto.value.path_foto">-->
+                <!--                        <input formControlName="nama_foto" placeholder="nama foto" type="text"-->
+                <!--                               nbInput>-->
+                <!--                      </label>-->
+                <!--                    </div>-->
+                <!--                  </div>-->
+                <!--                </div>-->
+
+
+              </div>
+              <div
+                *ngFor="let foto of formPerumahan.controls.formDataPerumahan.controls['fotos'].controls; let fot = index">
+                <div [formGroupName]="fot">
+                  <div class="col-sm-3">
+                    <br>
+                    <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto"
+                         width="220" height="150" *ngIf="urls && urls !== ''"><br>
+                    <label *ngIf="foto.value.path_foto"><br>
+                      <input formControlName="nama_foto" placeholder="nama foto" type="text"
+                             nbInput>
+                    </label>
+                  </div>
                 </div>
-            </div>
-          </div>
-          </div>
+              </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">Lokasi</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         id="kecamatan" (selectedChange)="changeKecamatan($event)"
-                         formControlName="kecamatan">
-                <nb-option *ngFor="let dataKecamatan of kecamatan"
-                           value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
-              </nb-select>&nbsp;&nbsp;
-              <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kabupaten"
-                         formControlName="kelurahan"
-                         (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
-                <nb-option *ngFor="let dataKelurahan of kelurahan"
-                           value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
-              </nb-select>&nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
-                     formControlName="RT">
-              &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
-                     formControlName="RW">
-            </div>
-          </div>
+              <div class="form-group row">
+                <label for="fotoPerumahan" class="label col-sm-3 col-form-label"></label>
 
-          <div class="form-group row">
-            <label for="status"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Status</label>
-            <div class="col-sm-9">
-              <nb-select (selectedChange)="onSelectOption($event)" placeholder="Status"
-                         class="select-status" name="status" id="status"  formControlName="status">
-                <nb-option *ngFor="let pilih_status of statusSelect"
-                           value="{{pilih_status}}">{{pilih_status}}</nb-option>
-              </nb-select>&nbsp;&nbsp;
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal
-              Serah
-              Terima</label>
-            <div class="col-sm-9">
-              <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                     name="tanggalSerahTerima" id="tanggalSerahTerima"  formControlName="tgl_serah_terima">
-              <nb-datepicker #formpicker></nb-datepicker>
-            </div>
-          </div>
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label for="noBeritaAcaraSerahTerima"
-                   class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara
-              Serah Terima
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
-                     name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima" formControlName="no_bast">
-            </div>
-          </div>
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label for="sph" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH<br>
-              &nbsp;&nbsp;&nbsp;&nbsp;(Surat Pengakuan Hak)
-            </label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph"
-                     name="sph" formControlName="sph">
-            </div>
-          </div>
 
-          <!--          PSU YANG DISERAHKAN ..........................-->
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label class="label col-sm-12 col-form-label label-border">Data Sarana</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label">Lokasi</label>
+              <div class="col-sm-9">
+                <nb-select placeholder="Kecamatan" name="kecamatan"
+                           (selectedChange)="changeKecamatan($event)">
+                  <nb-option *ngFor="let dataKecamatan of kecamatan"
+                             value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+                </nb-select>&nbsp;&nbsp;
+
+                <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kabupaten"
+                           formControlName="kelurahan"
+                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+                  <nb-option *ngFor="let dataKelurahan of kelurahan"
+                             value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
+                </nb-select>&nbsp;&nbsp;
+
+                <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
+                       formControlName="RT">
+                &nbsp;&nbsp;
+                <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
+                       formControlName="RW">
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <label for="status"
+                     class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Status</label>
+              <div class="col-sm-9">
+                <nb-select (selectedChange)="onSelectOption($event)" placeholder="Status"
+                           class="select-status" name="status" id="status" formControlName="status">
+                  <nb-option *ngFor="let pilih_status of statusSelect"
+                             value="{{pilih_status}}">{{pilih_status}}</nb-option>
+                </nb-select>&nbsp;&nbsp;
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal
+                Serah
+                Terima</label>
+              <div class="col-sm-9">
+                <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
+                       name="tanggalSerahTerima" id="tanggalSerahTerima"
+                       formControlName="tgl_serah_terima">
+                <nb-datepicker #formpicker></nb-datepicker>
+              </div>
+            </div>
+
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label for="noBeritaAcaraSerahTerima"
+                     class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara
+                Serah Terima
+              </label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
+                       name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima"
+                       formControlName="no_bast">
+              </div>
+            </div>
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label for="sph" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;(Surat Pengakuan Hak)
+              </label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph"
+                       name="sph" formControlName="sph">
+              </div>
+            </div>
+
+            <!--          PSU YANG DISERAHKAN ..........................-->
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label class="label col-sm-12 col-form-label label-border">Data Sarana</label>
+            </div>
 
             <div formArrayName="saranas">
               <div *ngFor="let dataSarana of
@@ -157,12 +198,14 @@
                            id="fotoSaranaPSU" formControlName="foto_sarana">
                   </div>
                 </div>
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="kondisiSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Konsidi
                     Sarana</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               name="kondisiSaranaPSU" id="kondisiSaranaPSU" formControlName="kondisi_sarana">
+                               name="kondisiSaranaPSU" id="kondisiSaranaPSU"
+                               formControlName="kondisi_sarana">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -197,12 +240,12 @@
                 </div>
               </div>
             </div>
-          <!--          PSU YANG DISERAHKAN ..........................-->
+            <!--          PSU YANG DISERAHKAN ..........................-->
 
-          <!--Jalan dan Saluran ---------------- Jalan dan Saluran --------------------------->
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran</label>
-          </div>
+            <!--Jalan dan Saluran ---------------- Jalan dan Saluran --------------------------->
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran</label>
+            </div>
 
 
             <div formArrayName="jalansalurans">
@@ -217,7 +260,8 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaJalanSaluran"
-                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran" formControlName="nama_jalan_saluran">
+                           placeholder="Nama Jalan dan Saluran" name="namajalanSaluran"
+                           formControlName="nama_jalan_saluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -226,13 +270,13 @@
                     Saluran</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="luasJalanSaluran"
-                           placeholder="Luas Jalan dan Saluran" formControlName="luas_jalan_saluran">
+                           placeholder="Luas Jalan dan Saluran"
+                           formControlName="luas_jalan_saluran">
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="fotoJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto
-                    Jalan dan
-                    Saluran</label>
+                    Jalan dan Saluran</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput fullWidth id="fotoJalanSaluran"
                            placeholder="Foto Jalan dan Saluran" name="fotoJalanSaluran"
@@ -281,12 +325,12 @@
               </div>
             </div>
 
-          <!--Jalan dan Saluran ----------------------Jalan dan Saluran ---------------------->
+            <!--Jalan dan Saluran ----------------------Jalan dan Saluran ---------------------->
 
-          <!--Taman ---------------------- Taman ----------------- Taman ----------------------------->
-          <div class="form-group row" *ngIf="statusSerahTerima">
-            <label class="label col-sm-12 col-form-label label-border">Data Taman</label>
-          </div>
+            <!--Taman ---------------------- Taman ----------------- Taman ----------------------------->
+            <div class="form-group row" *ngIf="statusSerahTerima">
+              <label class="label col-sm-12 col-form-label label-border">Data Taman</label>
+            </div>
 
 <!--          <form class="basic-container" [formGroup]="dataTamanForm">-->
             <div formArrayName="tamans">
@@ -367,42 +411,44 @@
                 </div>
               </div>
             </div>
-<!--          </form>-->
+            <!--          </form>-->
 
-          <!--          Taman --------------------- Taman ------------------------------ Taman   -->
-          <div class="form-group row" *ngIf="statusBelumSerahTerima">
-            <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
-            </label>
-            <div class="col-sm-9">
+            <!--          Taman --------------------- Taman ------------------------------ Taman   -->
+            <div class="form-group row" *ngIf="statusBelumSerahTerima">
+              <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+              </label>
+              <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Belum Serah Terima"
                         name="keteranganBelumSerahTerima"
                         id="keteranganBelumSerahTerima"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row" *ngIf="statusTerlantar">
-            <label for="keteranganTerlantar" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
-            </label>
-            <div class="col-sm-9">
+            <div class="form-group row" *ngIf="statusTerlantar">
+              <label for="keteranganTerlantar" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
+              </label>
+              <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Terlantar"
                         id="keteranganTerlantar" name="keteranganTerlantar"></textarea>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="koordinatPerumahan"
-                   class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Koordinat Perumahan"
-                     id="koordinatPerumahan" name="koordinatPerumahan">
+            <div class="form-group row">
+              <label for="longitudePerumahan"
+                     class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
+                       name="longitude">,&nbsp;&nbsp;
+                <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
+                       name="latitude">
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
+            </div>
 
             <div formArrayName="dataCCTV">
               <div *ngFor="let dataCCTV of
@@ -449,10 +495,10 @@
               </div>
             </div>
 
-          <div class="form-group row">
-            <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
-            </label>
-            <div class="col-sm-9">
+            <div class="form-group row">
+              <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
+              </label>
+              <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Perumahan"
                         id="keteranganPerumahan" name="keteranganPerumahan"
@@ -460,13 +506,13 @@
             </div>
           </div>
 
-          <div class="form-group row">
-            <div class="offset-sm-3 col-sm-9">
-              <button type="submit" nbButton status="success">Input</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger">Batal</button>
+            <div class="form-group row">
+              <div class="offset-sm-3 col-sm-9">
+                <button type="submit" nbButton status="success">Input</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button type="submit" nbButton status="danger">Batal</button>
+              </div>
             </div>
-          </div>
           </div>
         </form>
       </nb-card-body>

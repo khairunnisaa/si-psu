@@ -1,53 +1,81 @@
 <div style="text-align:center" class="row">
-  <div class="col-4">
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 1
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
   </div>
-  <div class="col-4">
+
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 2
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
+
   </div>
-  <div class="col-4">
+
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 3
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
   </div>
-</div>
-<div style="text-align:center" class="row">
-  <div class="col-4">
+
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 4
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
   </div>
-  <div class="col-4">
+
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 5
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
   </div>
-  <div class="col-4">
+
+  <div class="col-4 container">
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
             (initError)="handleInitError($event)"></webcam>
-    <br/>
-    <div class="actionBtn" (click)="triggerSnapshot();" title="Take Picture">📸</div>
+    <div class="content">
+      <h5>Camera 6
+        <button
+          (click)="triggerSnapshot();"
+          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+    </div>
   </div>
 </div>
 
