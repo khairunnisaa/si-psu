@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LocalDataSource} from "ng2-smart-table";
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {TableDataPerumahan} from "../../../../@core/data/perumahan";
+import {TableDataPermukiman} from "../../../../@core/data/permukiman";
 
 @Component({
   selector: 'ngx-input-data-permukiman',
@@ -13,6 +15,7 @@ export class InputDataPermukimanComponent implements OnInit {
   public dataFotoTPUForm: FormGroup;
   public dataInventarisForm: FormGroup;
   public dataCCTVForm: FormGroup;
+  formPermukiman: FormGroup;
   statusSudahOperasional: boolean;
   statusBelumOperasional: boolean;
 
@@ -20,48 +23,46 @@ export class InputDataPermukimanComponent implements OnInit {
   pendidikan = ['Tidak Ada Pendidikan', 'SD', 'SMP', 'SMK', 'SMA', 'Madrasah', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'];
   kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
   kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
-  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
+  disableKelurahan: boolean;
 
+  /** Disable Slect Kelurahan **/
   constructor(
               private formBuilderDataPengelola: FormBuilder,
               private formBuilderDataFotoTPU: FormBuilder,
               private formBuilderDataInventaris: FormBuilder,
               private formBuilderDataCCTV: FormBuilder,
               private getKecamatanService: TableDataKecamatan,
+              private fb: FormBuilder,
+              private service: TableDataPermukiman,
   ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
+
+    this.formPermukiman = new FormGroup({
+      formDataPermukiman : this.fb.group({
+        nama_tpu : new FormControl(''),
+        luas_tpu : new FormControl(''),
+        daya_tampung_tpu : new FormControl(''),
+        tahun_digunakan : new FormControl(''),
+        kecamatan : new FormControl(''),
+        kelurahan : new FormControl(''),
+        RT : new FormControl(''),
+        RW : new FormControl(''),
+        keterangan : new FormControl(''),
+        pengelolas: this.fb.array([this.createPengelolaFormGroup()]),
+        fotos: this.fb.array([this.createImageGroup('')]),
+        inventarisalats: this.fb.array([this.createDataInventarisAlatFormGroup()]),
+        status: this.fb.array([this.createDataStatusFormGroup()]),
+        cctvs: this.fb.array([this.createDataCCTVFormGroup()]),
+        koordinats: this.fb.array([this.createDataKoordinatFormGroup()]),
+      }),
+    });
   }
 
   ngOnInit() {
-    this.dataPengelolaForm = this.formBuilderDataPengelola.group({
-      dataPengelola: this.formBuilderDataPengelola.array([this.createDataPengelolaFormGroup()]),
-    });
-    this.dataFotoTPUForm = this.formBuilderDataFotoTPU.group({
-      dataFotoTPU: this.formBuilderDataFotoTPU.array([this.createDataFotoTPUFormGroup()]),
-    });
-    this.dataInventarisForm = this.formBuilderDataInventaris.group({
-      dataInventaris: this.formBuilderDataInventaris.array([this.createDataInventarisFormGroup()]),
-    });
-    this.dataCCTVForm = this.formBuilderDataCCTV.group({
-      dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
-    });
     this.disableKelurahan = true;
-  }
-
-  get formdataPengelola() {
-    return <FormArray>this.dataPengelolaForm.get('dataPengelola');
-  }
-  get formdataFoto() {
-    return <FormArray>this.dataFotoTPUForm.get('dataFotoTPU');
-  }
-  get formdataInventaris() {
-    return <FormArray>this.dataInventarisForm.get('dataInventaris');
-  }
-  get formdataCCTV() {
-    return <FormArray>this.dataCCTVForm.get('dataCCTV');
   }
   changeKecamatan(kecamatan) {
     this.disableKelurahan = false;
@@ -81,17 +82,18 @@ export class InputDataPermukimanComponent implements OnInit {
 
   public addDataPengelola() {
     const dataPengelola = this.dataPengelolaForm.get('dataPengelola') as FormArray;
-    dataPengelola.push(this.createDataPengelolaFormGroup())
+    dataPengelola.push(this.createPengelolaFormGroup())
   }
 
-  public addDataFotoTPU() {
-    const dataFotoTPU = this.dataFotoTPUForm.get('dataFotoTPU') as FormArray;
-    dataFotoTPU.push(this.createDataFotoTPUFormGroup())
+  public addFotos(img) {
+    const fotos = this.formPermukiman.controls.formDataPermukiman.get('fotos') as FormArray;
+    // fotos.push(img);
+    fotos.push(this.createImageGroup(img))
   }
 
   public addDataInventaris() {
     const dataInventaris = this.dataInventarisForm.get('dataInventaris') as FormArray;
-    dataInventaris.push(this.createDataInventarisFormGroup())
+    dataInventaris.push(this.createDataInventarisAlatFormGroup())
   }
 
   public addDataCCTV() {
@@ -135,47 +137,56 @@ export class InputDataPermukimanComponent implements OnInit {
     }
   }
 
-  private createDataPengelolaFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+  /**
+   * Create Data......................................
+   * */
+
+  private createPengelolaFormGroup() {
+    return this.fb.group({
+      nama: '',
+      umur: '',
+      pendidikan: '',
+      tugas: '',
+      keterangan: '',
     })
   }
 
-  private createDataFotoTPUFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+  private createDataInventarisAlatFormGroup(): FormGroup {
+    return this.fb.group({
+      nama_alat: '',
+      jumlah: '',
+      keterangan: '',
     })
   }
 
-  private createDataInventarisFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+  private createDataStatusFormGroup(): FormGroup {
+    return this.fb.group({
+      operasional: '',
+      kondisi: '',
+      keterangan: '',
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl(''),
-      'emailLabel': new FormControl(''),
+    return this.fb.group({
+      nama_cctv: '',
+      ip_cctv: '',
+      video: '',
     })
   }
 
-  private createEmailFormGroup(): FormGroup {
-    return new FormGroup({
-      'emailAddress': new FormControl('', Validators.email),
-      'emailLabel': new FormControl(''),
+  private createDataKoordinatFormGroup(): FormGroup {
+    return this.fb.group({
+      longitude: '',
+      latitude: '',
     })
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Apakah Anda Yakin Ingin Menghapus?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  private createImageGroup(img): FormGroup {
+    return this.fb.group({
+      path_foto: img,
+      nama_foto: '',
+    })
   }
 
   onSelectOption(status) {
@@ -186,6 +197,21 @@ export class InputDataPermukimanComponent implements OnInit {
     } else if (status === "Belum Operasional") {
       this.statusSudahOperasional = false;
       this.statusBelumOperasional = true;
+    }
+  }
+
+  onFileUpload(event: any) {
+    this.urls = [];
+    const selectedFiles = event.target.files;
+    if (selectedFiles) {
+      for (const file of selectedFiles) {
+        const reader = new FileReader();
+        reader.onload = (e: any) => {
+          this.urls.push(e.target.result);
+          this.addFotos(e.target.result);
+        };
+        reader.readAsDataURL(file);
+      }
     }
   }
 }

@@ -3,12 +3,16 @@
     <webcam [height]="300" [width]="300" [trigger]="triggerObservable"
             (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
-            (initError)="handleInitError($event)"></webcam>
+            (initError)="handleInitError($event)" id="myvideo"></webcam>
     <div class="content">
       <h5>Camera 1
         <button
           (click)="triggerSnapshot();"
-          class="tombol-camera"><i class="fa fa-camera-retro"></i></button></h5>
+          class="tombol-camera"><i class="fa fa-camera-retro"></i>
+        </button>
+        <button onclick="openFullscreen();"><i class="fa fa-square-full"></i>
+        </button>
+      </h5>
     </div>
   </div>
 
@@ -86,3 +90,18 @@
 <ul *ngFor="let error of errors">
   <li>{{error | json}}</li>
 </ul>
+
+<script>
+  var elem = document.getElementById("myvideo");
+  function openFullscreen() {
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { /* Firefox */
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE/Edge */
+      elem.msRequestFullscreen();
+    }
+  }
+</script>

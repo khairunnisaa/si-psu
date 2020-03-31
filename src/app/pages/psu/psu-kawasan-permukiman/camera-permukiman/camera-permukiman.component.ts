@@ -1,24 +1,4 @@
-// import {Component, Input, OnInit} from '@angular/core';
-// import { ViewCell } from 'ng2-smart-table';
-//
-// @Component({
-//   selector: 'ngx-detail-perumahan',
-//   templateUrl: './camera-perumahan.component.html',
-//   styleUrls: ['./camera-perumahan.component.scss'],
-// })
-// export class CameraPerumahanComponent implements OnInit, ViewCell {
-//   renderValue: string;
-//   @Input() value: string | number;
-//   @Input() rowData: any;
-//   url: string;
-//
-//   constructor() {
-//   }
-//
-//   ngOnInit() {
-//
-//   }
-// }
+
 
 import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
@@ -93,5 +73,5 @@ export class CameraPermukimanComponent implements OnInit {
   public get nextWebcamObservable(): Observable<boolean|string> {
     return this.nextWebcam.asObservable();
   }
-}
 
+}
