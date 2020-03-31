@@ -2821,7 +2821,7 @@ export class PerumahanService extends TableDataPerumahan {
       nama_perumahan: perumahan.nama_perumahan,
       nama_pengembang: perumahan.nama_pengembang,
       luas_perumahan: perumahan.luas_perumahan,
-      jumlah_rumah: perumahan.jumlah_perumahan,
+      jumlah_rumah: perumahan.jumlah_rumah,
       kecamatan: perumahan.kecamatan,
       kelurahan: perumahan.kelurahan,
       RT: perumahan.RT,
@@ -2835,11 +2835,12 @@ export class PerumahanService extends TableDataPerumahan {
       fotos: [perumahan.fotos],
       saranas : [perumahan.saranas],
       jalansalurans: [perumahan.jalansalurans],
-      tamans: [],
-      cctvs: [],
+      tamans: [perumahan.tamans],
+      cctvs: [perumahan.cctvs],
+      koordinats: [perumahan.koordinats],
     };
     console.log("perumahan data to post ", perumahanData);
-    // return await this.http.post(baseUrl, perumahanData).toPromise();
+    return await this.http.post(baseUrl, perumahanData).toPromise();
   }
 
   exportAsExcelFile(json: any[], excelFileName: string): void {

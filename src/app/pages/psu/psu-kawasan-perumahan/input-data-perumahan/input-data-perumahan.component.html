@@ -289,8 +289,9 @@
           </div>
 
 <!--          <form class="basic-container" [formGroup]="dataTamanForm">-->
-            <div formArrayName="dataTamanForm">
-              <div *ngFor="let dataTaman of formPerumahan.controls.formDataPerumahan.controls['dataTamanForm'].controls;
+            <div formArrayName="tamans">
+              <div *ngFor="let dataTaman of
+              formPerumahan.controls.formDataPerumahan.controls['tamans'].controls;
               let n = index" [formGroupName]="n">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
@@ -300,7 +301,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
-                           id="namaTaman" formControlName="namaTaman">
+                           id="namaTaman" formControlName="nama_taman">
                   </div>
                 </div>
 
@@ -310,7 +311,7 @@
                   <div class="col-sm-9">
                     <input type="password" nbInput fullWidth placeholder="Luas Taman"
                            name="luasTaman"
-                           id="luasTaman" formControlName="luasTaman">
+                           id="luasTaman" formControlName="luas_taman">
                   </div>
                 </div>
 
@@ -319,7 +320,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman"
-                           name="fotoTaman" formControlName="fotoTaman">
+                           name="fotoTaman" formControlName="foto_taman">
                   </div>
                 </div>
 
@@ -328,7 +329,8 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               id="kondisiTaman" name="kondisiTaman" formControlName="kondisiTaman" >
+                               id="kondisiTaman" name="kondisiTaman"
+                               formControlName="kondisi" >
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -342,7 +344,8 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Koordinat
-              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman" formControlName="koordinatTaman">
+              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman"
+                           formControlName="koordinattamans">
                   </div>
                 </div>
 
@@ -413,7 +416,7 @@
                     Perumahan</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                           id="namaCCTVPerumahan" name="namaCCTVPerumahan" formControlName="namaCCTVPerumahan">
+                           id="namaCCTVPerumahan" name="namaCCTVPerumahan" formControlName="nama_cctv">
                   </div>
                 </div>
 
@@ -423,7 +426,7 @@
                     Camera</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="IP Camera"
-                           id="ipCameraPerumahan" name="ipCameraPerumahan" formControlName="ipCameraPerumahan">
+                           id="ipCameraPerumahan" name="ipCameraPerumahan" formControlName="ip_cctv">
                   </div>
                 </div>
 
@@ -452,7 +455,8 @@
             <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Perumahan"
-                        id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
+                        id="keteranganPerumahan" name="keteranganPerumahan"
+                        formControlName="keterangan"></textarea>
             </div>
           </div>
 
