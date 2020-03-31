@@ -37,7 +37,7 @@
                 </label>
               <div class="col-sm-9">
                 <input type="number" nbInput placeholder="Luas Perumahan" id="jumlah_perumahan"
-                       name="jumlah_perumahan" formControlName="jumlah_perumahan"> Unit
+                       name="jumlah_perumahan" formControlName="jumlah_rumah"> Unit
               </div>
             </div>
 
@@ -53,7 +53,7 @@
                   <div class="col-sm-3">
                     <br>
                     <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto"
-                         width="220" height="150" *ngIf="urls && urls !== ''"><br>
+                         width="220" height="150" *ngIf="foto.value.nama_foto"><br>
                     <label *ngIf="foto.value.path_foto"><br>
                       <input formControlName="nama_foto" placeholder="nama foto" type="text"
                              nbInput>
@@ -93,6 +93,35 @@
               </div>
             </div>
 
+            <!-- kordinat perumahan -->
+            <div class="form-group row">
+              <label for="longitudePerumahan"
+                     class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
+              <div class="col-sm-9" formArrayName="koordinats">
+                <div *ngFor="let dataTaman of
+              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
+              let n = index" [formGroupName]="n">
+                  <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
+                         name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                  <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
+                         name="latitude"  formControlName="latitude">
+                </div>
+              </div>
+            </div>
+
+            <!-- keterangan perumahan -->
+            <div class="form-group row">
+              <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
+              </label>
+              <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan Perumahan"
+                        id="keteranganPerumahan" name="keteranganPerumahan"
+                        formControlName="keterangan"></textarea>
+              </div>
+            </div>
+
+            <!-- status perumahan -->
             <div class="form-group row">
               <label for="status"
                      class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Status</label>
@@ -104,7 +133,6 @@
                 </nb-select>&nbsp;&nbsp;
               </div>
             </div>
-
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal
                 Serah
@@ -116,7 +144,6 @@
                 <nb-datepicker #formpicker></nb-datepicker>
               </div>
             </div>
-
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label for="noBeritaAcaraSerahTerima"
                      class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara
@@ -138,18 +165,16 @@
               </div>
             </div>
 
-            <!--          PSU YANG DISERAHKAN ..........................-->
+            <!-- PSU YANG DISERAHKAN  sarana -->
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label class="label col-sm-12 col-form-label label-border">Data Sarana</label>
             </div>
-
             <div formArrayName="saranas">
               <div *ngFor="let dataSarana of
               formPerumahan.controls.formDataPerumahan.controls['saranas'].controls; let j =
               index"
                    [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="namaSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama
                     Sarana</label>
@@ -159,7 +184,6 @@
                            name="namaSaranaPSU" formControlName="nama_sarana">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="luasSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas
                     Sarana</label>
@@ -169,7 +193,6 @@
                            name="luasSaranaPSU" formControlName="luas_sarana">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="fotoSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto
                     Sarana</label>
@@ -178,9 +201,9 @@
                            id="fotoSaranaPSU" formControlName="foto_sarana">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="kondisiSaranaPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Konsidi
+                  <label for="kondisiSaranaPSU"
+                         class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi
                     Sarana</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
@@ -193,17 +216,21 @@
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="koordinatPSU" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
+                  <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-                  <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth placeholder="KoordinatPSU"
-                           id="koordinatPSU" formControlName="koordinat">
-
-                  </div>
+                    <div class="col-sm-9" formArrayName="koordinat">
+                      <div *ngFor="let dataSarana of
+              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls; let j =
+              index" [formGroupName]="j">
+                      <input type="text" nbInput placeholder="Longitude" id="longitudesarana"
+                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                      <input type="text" nbInput placeholder="Latitude" id="latitudesarana"
+                             name="latitude"  formControlName="latitude">
+                    </div>
+                    </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
                     <button type="submit" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
@@ -211,8 +238,7 @@
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
-                            class="btn-hapus" (click)="removeDataSarana(j)">
+                    <button type="submit" nbButton status="danger" nbButton size="tiny" class="btn-hapus" (click)="removeDataSarana(j)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
                     </button>
@@ -220,9 +246,8 @@
                 </div>
               </div>
             </div>
-            <!--          PSU YANG DISERAHKAN ..........................-->
 
-            <!--Jalan dan Saluran ---------------- Jalan dan Saluran --------------------------->
+            <!------------------ Jalan dan Saluran --------------------------->
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label class="label col-sm-12 col-form-label label-border">Jalan Dan Saluran</label>
             </div>
@@ -277,17 +302,21 @@
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="koordinatJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
+                  <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-                  <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth
-                           placeholder="Koordinat (Poin Polygon Polyline)"
-                           id="koordinatJalanSaluran" formControlName="koordinatjalansalurans">
+                  <div class="col-sm-9" formArrayName="koordinatjalansalurans">
+                    <div *ngFor="let dataTaman of
+              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
+              let n = index" [formGroupName]="n">
+                      <input type="text" nbInput placeholder="Longitude" id="longitudejalansaluran"
+                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                      <input type="text" nbInput placeholder="Latitude" id="latitudejalansaluran"
+                             name="latitude"  formControlName="latitude">
+                    </div>
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
                     <button type="submit" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
@@ -305,74 +334,68 @@
               </div>
             </div>
 
-            <!--Jalan dan Saluran ----------------------Jalan dan Saluran ---------------------->
-
             <!--Taman ---------------------- Taman ----------------- Taman ----------------------------->
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label class="label col-sm-12 col-form-label label-border">Data Taman</label>
             </div>
-
-            <!--          <form class="basic-container" [formGroup]="dataTamanForm">-->
-            <div formArrayName="dataTamanForm">
-              <div *ngFor="let dataTaman of formPerumahan.controls.formDataPerumahan.controls['dataTamanForm'].controls;
-              let n = index" [formGroupName]="n">
-
+            <div formArrayName="tamans">
+              <div *ngFor="let dataTaman of
+              formPerumahan.controls.formDataPerumahan.controls['tamans'].controls; let n = index" [formGroupName]="n">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama
                     Taman</label>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
-                           id="namaTaman" formControlName="namaTaman">
+                    <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman" id="namaTaman" formControlName="nama_taman">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas
-                    Taman</label>
+                  <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Taman</label>
                   <div class="col-sm-9">
                     <input type="password" nbInput fullWidth placeholder="Luas Taman"
                            name="luasTaman"
-                           id="luasTaman" formControlName="luasTaman">
+                           id="luasTaman" formControlName="luas_taman">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto
-                    Taman</label>
+                  <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Taman</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman"
-                           name="fotoTaman" formControlName="fotoTaman">
+                           name="fotoTaman" formControlName="foto_taman">
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="kondisiTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi
                     Taman</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
-                               id="kondisiTaman" name="kondisiTaman" formControlName="kondisiTaman">
+                               id="kondisiTaman" name="kondisiTaman"
+                               formControlName="kondisi" >
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
                     </nb-select>&nbsp;&nbsp;
                   </div>
                 </div>
-
                 <div class="form-group row" *ngIf="statusSerahTerima">
+
                   <label for="koordinatTaman"
                          class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-                  <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth placeholder="Koordinat
-              (Poin Polygon Polyline)" id="koordinatTaman" name="koordinatTaman"
-                           formControlName="koordinatTaman">
+                  <div class="col-sm-9" formArrayName="koordinattamans">
+                    <div *ngFor="let dataTaman of
+              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
+              let n = index" [formGroupName]="n">
+                      <input type="text" nbInput placeholder="Longitude" id="longitudedatataman"
+                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                      <input type="text" nbInput placeholder="Latitude" id="latitudedatataman"
+                             name="latitude"  formControlName="latitude">
+                    </div>
                   </div>
                 </div>
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
                     <button type="submit" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
@@ -414,20 +437,8 @@
             </div>
 
             <div class="form-group row">
-              <label for="longitudePerumahan"
-                     class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
-              <div class="col-sm-9">
-                <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
-                       name="longitude">,&nbsp;&nbsp;
-                <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
-                       name="latitude">
-              </div>
-            </div>
-
-            <div class="form-group row">
               <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
             </div>
-
             <div formArrayName="dataCCTV">
               <div *ngFor="let dataCCTV of
               formPerumahan.controls.formDataPerumahan.controls['dataCCTV'].controls;
@@ -440,8 +451,7 @@
                     Perumahan</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                           id="namaCCTVPerumahan" name="namaCCTVPerumahan"
-                           formControlName="namaCCTVPerumahan">
+                           id="namaCCTVPerumahan" name="namaCCTVPerumahan" formControlName="nama_cctv">
                   </div>
                 </div>
 
@@ -451,13 +461,12 @@
                     Camera</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="IP Camera"
-                           id="ipCameraPerumahan" name="ipCameraPerumahan"
-                           formControlName="ipCameraPerumahan">
+                           id="ipCameraPerumahan" name="ipCameraPerumahan" formControlName="ip_cctv">
                   </div>
                 </div>
 
                 <div class="form-group row">
-                  <label for="" class="label col-sm-3 col-form-label"></label>
+                  <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
                     <button type="submit" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
@@ -472,16 +481,6 @@
                     </button>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div class="form-group row">
-              <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
-              </label>
-              <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan Perumahan"
-                        id="keteranganPerumahan" name="keteranganPerumahan"></textarea>
               </div>
             </div>
 

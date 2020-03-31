@@ -21,18 +21,10 @@ export class InputDataPerumahanComponent implements OnInit {
   statusTerlantar: boolean;
   formPerumahan: FormGroup;
 
-  public dataSaranaForm: FormGroup;
-  public dataJalanSaluranForm: FormGroup;
-  public dataTamanForm: FormGroup;
-  public dataCCTVForm: FormGroup;
   urls: any[] = [];
 
   constructor(
     private getKecamatanService: TableDataKecamatan,
-    private formBuilderDataSarana: FormBuilder,
-    private formBuilderDataJalanSaluran: FormBuilder,
-    private formBuilderDataTaman: FormBuilder,
-    private formBuilderDataCCTV: FormBuilder,
     private fb: FormBuilder,
     private service: TableDataPerumahan,
     ) {
@@ -42,22 +34,27 @@ export class InputDataPerumahanComponent implements OnInit {
     this.disableKelurahan = true;
     this.formPerumahan = new FormGroup({
       formDataPerumahan : this.fb.group({
-        nama_perumahan : new FormControl(''),
-        nama_pengembang : new FormControl(''),
-        luas_perumahan : new FormControl(''),
-        kecamatan : new FormControl(''),
-        kelurahan : new FormControl(''),
-        RT : new FormControl(''),
-        RW : new FormControl(''),
-        status : new FormControl(''),
-        tgl_serah_terima : new FormControl(''),
-        no_bast : new FormControl(''),
-        sph : new FormControl(''),
+        nama_perumahan : new FormControl(),
+        nama_pengembang : new FormControl(),
+        luas_perumahan : new FormControl(),
+        jumlah_rumah : new FormControl(),
+        kecamatan : new FormControl(),
+        kelurahan : new FormControl(),
+        RT : new FormControl(),
+        RW : new FormControl(),
+        status : new FormControl(),
+        tgl_serah_terima : new FormControl(),
+        jumlah_psu: new FormControl(),
+        no_bast : new FormControl(),
+        sph : new FormControl(),
+        keterangan : new FormControl(),
         fotos: this.fb.array([this.createImageGroup('')]),
         saranas: this.fb.array([this.createDataSaranaFormGroup()]),
         jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
-        dataTamanForm: this.fb.array([this.createDataTamanFormGroup()]),
+        tamans: this.fb.array([this.createDataTamanFormGroup()]),
         dataCCTV: this.fb.array([this.createDataCCTVFormGroup()]),
+        koordinats: this.fb.array([this.createKoordinat()]),
+
       }),
     })
 
@@ -71,8 +68,6 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   changeKelurahan(kelurahan) {
-    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
-    // this.selectedData).states.find(state => state.name === state).cities;
     console.log("kelurahan ini", kelurahan)
   }
 
@@ -85,19 +80,6 @@ export class InputDataPerumahanComponent implements OnInit {
     this.statusBelumSerahTerima = false;
     this.statusTerlantar = false;
     this.disableKelurahan = true;
-    this.dataSaranaForm = this.formBuilderDataSarana.group({
-      dataSarana: this.formBuilderDataSarana.array([this.createDataSaranaFormGroup()]),
-    });
-    this.dataJalanSaluranForm = this.formBuilderDataJalanSaluran.group({
-      dataJalanSaluran: this.formBuilderDataJalanSaluran.array([this.createDataJalanSaluranFormGroup()]),
-    });
-    this.dataTamanForm = this.formBuilderDataTaman.group({
-      dataTaman: this.formBuilderDataTaman.array([this.createDataTamanFormGroup()]),
-    });
-    this.dataCCTVForm = this.formBuilderDataCCTV.group({
-      dataCCTV: this.formBuilderDataCCTV.array([this.createDataCCTVFormGroup()]),
-    });
-    // this.formPerumahan = this.dataSaranaForm.get('dataSarana') as FormArray;
   }
   /**
    * Add Data......................................
@@ -114,7 +96,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public addDataTaman() {
-    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('dataTamanForm') as FormArray;
+    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('tamans') as FormArray;
     dataTaman.push(this.createDataTamanFormGroup())
   }
 
@@ -151,7 +133,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataTaman(n: number) {
-    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('dataTamanForm') as FormArray;
+    const dataTaman = this.formPerumahan.controls.formDataPerumahan.get('tamans') as FormArray;
     if (dataTaman.length > 1) {
       dataTaman.removeAt(n)
     } else {
@@ -173,45 +155,52 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataSaranaFormGroup() {
     return this.fb.group({
-      nama_sarana: '',
-      luas_sarana: '',
-      foto_sarana: '',
-      kondisi_sarana: '',
-      koordinat: '',
+      nama_sarana: new FormControl(),
+      luas_sarana: new FormControl(),
+      foto_sarana: new FormControl(),
+      kondisi_sarana: new FormControl(),
+      koordinat: this.fb.array([this.createKoordinat()]),
+    })
+  }
+  private createKoordinat(): FormGroup {
+    return this.fb.group({
+      longitude: new FormControl(),
+      latitude: new FormControl(),
     })
   }
 
   private createDataJalanSaluranFormGroup(): FormGroup {
     return this.fb.group({
-      'nama_jalan_saluran': '',
-      'luas_jalan_saluran': '',
-      'foto_jalan_saluran': '',
-      'kondisi': '',
-      'koordinatjalansalurans': '',
+      nama_jalan_saluran: new FormControl(),
+      luas_jalan_saluran: new FormControl(),
+      foto_jalan_saluran: new FormControl(),
+      kondisi: new FormControl(),
+      koordinatjalansalurans: this.fb.array([this.createKoordinat()]),
     })
   }
 
   private createDataTamanFormGroup(): FormGroup {
     return this.fb.group({
-      'namaTaman': '',
-      'luasTaman': '',
-      'fotoTaman': '',
-      'kondisiTaman': '',
-      'koordinatTaman': '',
+      nama_taman: new FormControl(),
+      luas_taman: new FormControl(),
+      foto_taman: new FormControl(),
+      kondisi: new FormControl(),
+      koordinattamans: this.fb.array([this.createKoordinat()]),
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
     return this.fb.group({
-      'namaCCTVPerumahan': '',
-      'ipCameraPerumahan': '',
+      nama_cctv: new FormControl(),
+      ip_cctv: new FormControl(),
+      video: new FormControl(),
     })
   }
 
   private createImageGroup(img): FormGroup {
     return this.fb.group({
       path_foto: img,
-      nama_foto: '',
+      nama_foto: new FormControl(),
     })
   }
 
