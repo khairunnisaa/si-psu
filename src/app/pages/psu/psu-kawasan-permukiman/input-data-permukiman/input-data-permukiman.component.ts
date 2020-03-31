@@ -21,19 +21,17 @@ export class InputDataPermukimanComponent implements OnInit {
 
   source: LocalDataSource;
   pendidikan = ['Tidak Ada Pendidikan', 'SD', 'SMP', 'SMK', 'SMA', 'Madrasah', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'];
-  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
-  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
+  kecamatan: string[];
+  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];
+  /**  Variabel Array Select Data Kelurahan **/
   disableKelurahan: boolean;
 
   /** Disable Slect Kelurahan **/
   constructor(
-              private formBuilderDataPengelola: FormBuilder,
-              private formBuilderDataFotoTPU: FormBuilder,
-              private formBuilderDataInventaris: FormBuilder,
-              private formBuilderDataCCTV: FormBuilder,
-              private getKecamatanService: TableDataKecamatan,
-              private fb: FormBuilder,
-              private service: TableDataPermukiman,
+    private getKecamatanService: TableDataKecamatan,
+    private fb: FormBuilder,
+    private service: TableDataPermukiman,
   ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
@@ -41,16 +39,16 @@ export class InputDataPermukimanComponent implements OnInit {
     this.disableKelurahan = true;
 
     this.formPermukiman = new FormGroup({
-      formDataPermukiman : this.fb.group({
-        nama_tpu : new FormControl(''),
-        luas_tpu : new FormControl(''),
-        daya_tampung_tpu : new FormControl(''),
-        tahun_digunakan : new FormControl(''),
-        kecamatan : new FormControl(''),
-        kelurahan : new FormControl(''),
-        RT : new FormControl(''),
-        RW : new FormControl(''),
-        keterangan : new FormControl(''),
+      formDataPermukiman: this.fb.group({
+        nama_tpu: new FormControl(''),
+        luas_tpu: new FormControl(''),
+        daya_tampung_tpu: new FormControl(''),
+        tahun_digunakan: new FormControl(''),
+        kecamatan: new FormControl(''),
+        kelurahan: new FormControl(''),
+        RT: new FormControl(''),
+        RW: new FormControl(''),
+        keterangan: new FormControl(''),
         pengelolas: this.fb.array([this.createPengelolaFormGroup()]),
         fotos: this.fb.array([this.createImageGroup('')]),
         inventarisalats: this.fb.array([this.createDataInventarisAlatFormGroup()]),
@@ -64,6 +62,7 @@ export class InputDataPermukimanComponent implements OnInit {
   ngOnInit() {
     this.disableKelurahan = true;
   }
+
   changeKecamatan(kecamatan) {
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
@@ -81,7 +80,7 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   public addDataPengelola() {
-    const dataPengelola = this.dataPengelolaForm.get('dataPengelola') as FormArray;
+    const dataPengelola = this.formPermukiman.controls.formDataPermukiman.get('pengelolas') as FormArray;
     dataPengelola.push(this.createPengelolaFormGroup())
   }
 
@@ -92,17 +91,17 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   public addDataInventaris() {
-    const dataInventaris = this.dataInventarisForm.get('dataInventaris') as FormArray;
+    const dataInventaris = this.formPermukiman.controls.formDataPermukiman.get('inventarisalats') as FormArray;
     dataInventaris.push(this.createDataInventarisAlatFormGroup())
   }
 
   public addDataCCTV() {
-    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPermukiman.controls.formDataPermukiman.get('cctvs') as FormArray;
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
 
   public removeDataPengelolah(j: number) {
-    const dataPengelola = this.dataPengelolaForm.get('dataPengelola') as FormArray;
+    const dataPengelola = this.formPermukiman.controls.formDataPermukiman.get('pengelolas') as FormArray;
     if (dataPengelola.length > 1) {
       dataPengelola.removeAt(j)
     } else {
@@ -111,7 +110,7 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   public removeDataFotoTPU(k: number) {
-    const dataFotoTPU = this.dataFotoTPUForm.get('dataFotoTPU') as FormArray;
+    const dataFotoTPU = this.formPermukiman.controls.formDataPermukiman.get('fotos') as FormArray;
     if (dataFotoTPU.length > 1) {
       dataFotoTPU.removeAt(k)
     } else {
@@ -120,7 +119,7 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   public removeDataInventaris(m: number) {
-    const dataInventaris = this.dataInventarisForm.get('dataInventaris') as FormArray;
+    const dataInventaris = this.formPermukiman.controls.formDataPermukiman.get('inventarisalats') as FormArray;
     if (dataInventaris.length > 1) {
       dataInventaris.removeAt(m)
     } else {
@@ -129,7 +128,7 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   public removeDataCCTV(p: number) {
-    const dataCCTV = this.dataCCTVForm.get('dataCCTV') as FormArray;
+    const dataCCTV = this.formPermukiman.controls.formDataPermukiman.get('cctvs') as FormArray;
     if (dataCCTV.length > 1) {
       dataCCTV.removeAt(p)
     } else {
@@ -201,17 +200,22 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   onFileUpload(event: any) {
-    this.urls = [];
+    // this.urls = [];
     const selectedFiles = event.target.files;
     if (selectedFiles) {
       for (const file of selectedFiles) {
         const reader = new FileReader();
         reader.onload = (e: any) => {
-          this.urls.push(e.target.result);
+          // this.urls.push(e.target.result);
           this.addFotos(e.target.result);
         };
         reader.readAsDataURL(file);
       }
     }
+  }
+
+  inputDataPermukimans() {
+    console.log("form value perumahan", this.formPermukiman.value.formDataPermukiman);
+    // this.service.postData(this.formPermukiman.value.formDataPermukiman);
   }
 }

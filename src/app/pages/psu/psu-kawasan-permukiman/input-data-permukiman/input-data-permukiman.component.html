@@ -3,7 +3,7 @@
     <nb-card>
       <nb-card-header>Input Data Kawasan Permukiman</nb-card-header>
       <nb-card-body>
-        <form [formGroup]="formPermukiman">
+        <form [formGroup]="formPermukiman" (ngSubmit)="inputDataPermukimans()">
           <div formGroupName="formDataPermukiman">
             <div class="form-group row">
               <label for="namaTPU" class="label col-sm-3 col-form-label">Nama Tempat Pemakaman Umum
@@ -269,7 +269,7 @@
             </div>
 
             <div formArrayName="status">
-              <div *ngFor="let dataInventaris of
+              <div *ngFor="let dataStatus of
               formPermukiman.controls.formDataPermukiman.controls['status'].controls;
               let m = index" [formGroupName]="m">
                 <div class="form-group row">
@@ -386,15 +386,20 @@
                         formControlName="keterangan"></textarea>
               </div>
             </div>
-
-            <div class="form-group row">
-              <div class="offset-sm-3 col-sm-9">
-                <button type="submit" nbButton size="small" status="success">Input</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="submit" nbButton size="small" status="danger">Batal</button>
-              </div>
-            </div>
           </div>
+          <hr>
+          <button type="submit" nbButton size="small" status="primary" class="btn-submit">
+            <nb-icon icon="save-outline" pack="eva"></nb-icon> Simpan
+          </button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button routerLink="../../../pages/psu-kawasan-permukiman/kelola-data-permukiman"
+                  type="button"
+                  nbButton size="small" status="danger"> <nb-icon
+            icon="close-circle-outline" pack="eva"></nb-icon>Batal</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <button type="reset"
+                  nbButton size="small" status="info"> <nb-icon
+            icon="refresh-outline" pack="eva"></nb-icon>Reset</button>
         </form>
 
       </nb-card-body>

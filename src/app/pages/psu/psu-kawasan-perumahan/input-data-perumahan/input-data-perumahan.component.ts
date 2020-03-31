@@ -71,7 +71,7 @@ export class InputDataPerumahanComponent implements OnInit {
     console.log("kelurahan ini", kelurahan)
   }
 
-  inputPerumahans() {
+  inputDataPerumahans() {
     console.log("form value perumahan", this.formPerumahan.value.formDataPerumahan);
     this.service.postData(this.formPerumahan.value.formDataPerumahan);
   }

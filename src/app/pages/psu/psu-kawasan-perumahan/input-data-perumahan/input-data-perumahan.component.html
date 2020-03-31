@@ -3,7 +3,7 @@
     <nb-card>
       <nb-card-header>Input Data Kawasan Perumahan</nb-card-header>
       <nb-card-body>
-        <form [formGroup]="formPerumahan" (ngSubmit)="inputPerumahans()">
+        <form [formGroup]="formPerumahan" (ngSubmit)="inputDataPerumahans()">
           <div formGroupName="formDataPerumahan">
             <div class="form-group row">
               <label for="namaPerumahan" class="label col-sm-3 col-form-label">Nama
@@ -27,8 +27,8 @@
               <label for="luasPerumahan" class="label col-sm-3 col-form-label">Luas Perumahan
                 (m2)</label>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth placeholder="Luas Perumahan" id="luasPerumahan"
-                       name="luasPerumahan" formControlName="luas_perumahan">
+                <input type="text" nbInput placeholder="Luas Perumahan" id="luasPerumahan"
+                       name="luasPerumahan" formControlName="luas_perumahan"> (m2)
               </div>
             </div>
 
@@ -36,7 +36,7 @@
               <label for="jumlah_perumahan" class="label col-sm-3 col-form-label">Jumlah Perumahan
                 </label>
               <div class="col-sm-9">
-                <input type="number" nbInput placeholder="Luas Perumahan" id="jumlah_perumahan"
+                <input type="number" nbInput placeholder="Jumlah Perumahan" id="jumlah_perumahan"
                        name="jumlah_perumahan" formControlName="jumlah_rumah"> Unit
               </div>
             </div>
@@ -484,13 +484,19 @@
               </div>
             </div>
 
-            <div class="form-group row">
-              <div class="offset-sm-3 col-sm-9">
-                <button type="submit" nbButton status="success">Input</button>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <button type="submit" nbButton status="danger">Batal</button>
-              </div>
-            </div>
+            <hr>
+            <button type="submit" nbButton size="small" status="primary" class="btn-submit">
+              <nb-icon icon="save-outline" pack="eva"></nb-icon> Simpan
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button routerLink="../../../pages/psu-kawasan-perumahan/kelola-data-perumahan"
+                    type="button"
+                    nbButton size="small" status="danger"> <nb-icon
+              icon="close-circle-outline" pack="eva"></nb-icon>Batal</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="reset"
+                    nbButton size="small" status="info"> <nb-icon
+              icon="refresh-outline" pack="eva"></nb-icon>Reset</button>
           </div>
         </form>
       </nb-card-body>

@@ -3,75 +3,94 @@
     <nb-card>
       <nb-card-header>Input Data Kawasan Pertamanan</nb-card-header>
       <nb-card-body>
-        <form>
-          <div class="form-group row">
-            <label for="namaTaman" class="label col-sm-3 col-form-label">Nama Taman</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Taman"
-                     id="namaTaman" name="namaTaman">
+        <form [formGroup]="formPertamanan" (ngSubmit)="inputDataPertamanans()">
+          <div formGroupName="formDataPertamanan">
+            <div class="form-group row">
+              <label for="namaTaman" class="label col-sm-3 col-form-label">Nama Taman</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Nama Taman"
+                       id="namaTaman" name="namaTaman" formControlName="nama_taman">
+              </div>
+
+            </div>
+            <div class="form-group row">
+              <label for="namaPelaksana" class="label col-sm-3 col-form-label">Nama
+                Pelaksana</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Nama Pelaksana" id="namaPelaksana"
+                       name="namaPelaksana" formControlName="nama_pelaksana">
+              </div>
             </div>
 
-          </div>
-          <div class="form-group row">
-            <label for="namaPelaksana" class="label col-sm-3 col-form-label">Nama Pelaksana</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Nama Pelaksana" id="namaPelaksana"
-                     name="namaPelaksana">
+            <div class="form-group row">
+              <label for="luasTaman" class="label col-sm-3 col-form-label">Luas Taman (m2)</label>
+              <div class="col-sm-9">
+                <input type="text" nbInput fullWidth placeholder="Luas Taman (m2)"
+                       id="LuasTaman" name="luasTaman" formControlName="luas_taman">
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="luasTaman" class="label col-sm-3 col-form-label">Luas Taman (m2)</label>
-            <div class="col-sm-9">
-              <input type="text" nbInput fullWidth placeholder="Luas Taman (m2)"
-                     id="LuasTaman" name="luasTaman">
+            <div class="form-group row">
+              <label for="tahunDibangun" class="label col-sm-3 col-form-label">Tahun
+                Dibangun</label>
+              <div class="col-sm-9">
+                <nb-select placeholder="Tahun Dibangun" class="select-kelurahan" name="tahun"
+                           id="tahunDibangun" formControlName="tahun_dibangun">
+                  <nb-option value="2015">2015</nb-option>
+                  <nb-option value="2016">2016</nb-option>
+                  <nb-option value="2017">2017</nb-option>
+                  <nb-option value="2018">2018</nb-option>
+                  <nb-option value="2019">2019</nb-option>
+                  <nb-option value="2020">2020</nb-option>
+                </nb-select>
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label for="tahunDibangun" class="label col-sm-3 col-form-label">Tahun Dibangun</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Tahun Dibangun" class="select-kelurahan" name="tahun"
-                         id="tahunDibangun">
-                <nb-option value="2015">2015</nb-option>
-                <nb-option value="2016">2016</nb-option>
-                <nb-option value="2017">2017</nb-option>
-                <nb-option value="2018">2018</nb-option>
-                <nb-option value="2019">2019</nb-option>
-                <nb-option value="2020">2020</nb-option>
-              </nb-select>
+            <div class="form-group row">
+              <label class="label col-sm-3 col-form-label">Lokasi</label>
+              <div class="col-sm-9">
+                <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
+                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan">
+                  <nb-option *ngFor="let dataKecamatan of kecamatan"
+                             value="{{dataKecamatan.kecamatan}}">
+                    {{dataKecamatan.kecamatan}}</nb-option>
+                </nb-select>&nbsp;&nbsp;
+
+                <nb-select placeholder="Kelurahan" class="select-kelurahan" name="kelurahan"
+                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan"
+                           formControlName="kelurahan">
+                  <nb-option *ngFor="let dataKelurahan of kelurahan"
+                             value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}
+                  </nb-option>
+                </nb-select>&nbsp;&nbsp;
+
+                <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
+                       formControlName="RT">
+                &nbsp;&nbsp;
+                <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
+                       formControlName="RW">
+              </div>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <label class="label col-sm-3 col-form-label">Lokasi</label>
-            <div class="col-sm-9">
-              <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                         (selectedChange)="changeKecamatan($event)">
-                <nb-option *ngFor="let dataKecamatan of kecamatan"
-                           value="{{dataKecamatan.kecamatan}}">
-                  {{dataKecamatan.kecamatan}}</nb-option>
-              </nb-select>&nbsp;&nbsp;
-
-              <nb-select placeholder="Kelurahan" class="select-kelurahan" name="keluarahan"
-                         (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
-                <nb-option *ngFor="let dataKelurahan of kelurahan"
-                           value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}
-                </nb-option>
-              </nb-select>&nbsp;&nbsp;
-
-              <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt">
-              &nbsp;&nbsp;
-              <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw">
+            <div class="form-group row">
+              <label for="keteranganTaman" class="label col-sm-3 col-form-label">Keterangan
+              </label>
+              <div class="col-sm-9">
+              <textarea rows="5" nbInput fullWidth shape="round"
+                        placeholder="Keterangan"
+                        id="keteranganTaman" name="keteranganTaman"
+                        formControlName="keterangan"></textarea>
+              </div>
             </div>
-          </div>
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Petugas Pemelihara</label>
-          </div>
 
-          <form class="basic-container" [formGroup]="dataPetugasForm">
-            <div formArrayName="dataPetugas">
-              <div *ngFor="let dataPetugas of formdataPetugas.controls;
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Petugas Pemelihara</label>
+            </div>
+
+
+            <div formArrayName="petugas">
+              <div *ngFor="let dataPetugas of
+              formPertamanan.controls.formDataPertamanan.controls['petugas'].controls;
               let i = index" [formGroupName]="i">
                 <h3>Data Ke-{{i + 1}}</h3>
 
@@ -79,7 +98,7 @@
                   <label for="namaPemelihara" class="label col-sm-3 col-form-label">Nama</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama"
-                           id="namaPemelihara" name="luasTaman">
+                           id="namaPemelihara" name="namaPemelihara" formControlName="nama">
                   </div>
                 </div>
 
@@ -87,7 +106,7 @@
                   <label for="umur" class="label col-sm-3 col-form-label">Umur</label>
                   <div class="col-sm-9">
                     <input type="number" nbInput fullWidth placeholder="Umur"
-                           id="umur" name="umur">
+                           id="umur" name="umur" formControlName="umur">
                   </div>
                 </div>
 
@@ -96,7 +115,8 @@
                     Terakhir</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Pendidikan Terakhir" class="select-kecamatan"
-                               name="pendidikan" id="pendidikan">
+                               name="pendidikan" id="pendidikan"
+                               formControlName="pendidikan_terakhir">
                       <nb-option value="Tidak Ada Pendidikan">Tidak Ada Pendidikan</nb-option>
                       <nb-option value="SD">SD</nb-option>
                       <nb-option value="SMP">SMP</nb-option>
@@ -113,7 +133,7 @@
                   <label for="tugasPemelihara" class="label col-sm-3 col-form-label">Tugas</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Tugas"
-                           id="tugasPemelihara" name="tugas">
+                           id="tugasPemelihara" name="tugas" formControlName="tugas">
                   </div>
                 </div>
 
@@ -123,7 +143,7 @@
                   <div class="col-sm-9">
                <textarea rows="5" nbInput fullWidth shape="round"
                          placeholder="Keterangan"
-                         id="keteranganTugas" name="keteranganTugas">
+                         id="keteranganTugas" name="keteranganTugas" formControlName="keterangan">
                </textarea>
                   </div>
                 </div>
@@ -146,15 +166,14 @@
                 </div>
               </div>
             </div>
-          </form>
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Foto Taman</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Foto Taman</label>
+            </div>
 
-          <form class="basic-container" [formGroup]="dataFotoTamanForm">
-            <div formArrayName="dataFotoTaman">
-              <div *ngFor="let dataFotoTaman of formdataFotoTaman.controls;
+            <div formArrayName="fotos">
+              <div *ngFor="let dataFotoTaman of
+               formPertamanan.controls.formDataPertamanan.controls['fotos'].controls;
                         let e = index" [formGroupName]="e">
                 <h3>Data Ke-{{e + 1}}</h3>
 
@@ -162,7 +181,7 @@
                   <label for="namaFoto" class="label col-sm-3 col-form-label">Nama Foto</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama Foto" id="namaFoto"
-                           name="namaFoto">
+                           name="namaFoto" formControlName="nama_foto">
                   </div>
                 </div>
 
@@ -171,7 +190,7 @@
                     Taman</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Masukan Foto Taman" id="fotoTaman"
-                           name="fotoTaman">
+                           name="fotoTaman" formControlName="path_foto">
                   </div>
                 </div>
 
@@ -193,15 +212,15 @@
                 </div>
               </div>
             </div>
-          </form>
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Peralatan Pemelihara</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Peralatan
+                Pemelihara</label>
+            </div>
 
-          <form class="basic-container" [formGroup]="dataPeralatanForm">
-            <div formArrayName="dataPeralatan">
-              <div *ngFor="let dataPeralatan of formdataPeralatan.controls;
+
+            <div formArrayName="peralatanpemeliharans">
+              <div *ngFor="let dataPeralatan of formPertamanan.controls.formDataPertamanan.controls['peralatanpemeliharans'].controls;
                         let k = index" [formGroupName]="k">
                 <h3>Data Ke-{{k + 1}}</h3>
 
@@ -210,8 +229,8 @@
                   <label for="namaJenis" class="label col-sm-3 col-form-label">Jenis / Nama
                     Alat</label>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                           id="namaJenis" name="namaJenis">
+                    <input type="text" nbInput fullWidth placeholder="Nama Jenis Alat"
+                           id="namaJenis" name="namaJenis" formControlName="nama_alat">
                   </div>
                 </div>
 
@@ -219,7 +238,7 @@
                   <label for="jumlah" class="label col-sm-3 col-form-label">Jumlah</label>
                   <div class="col-sm-9">
                     <input type="number" nbInput fullWidth placeholder="Jumlah"
-                           id="jumlah" name="jumlah">
+                           id="jumlah" name="jumlah" formControlName="jumlah">
                   </div>
                 </div>
 
@@ -227,7 +246,7 @@
                   <label for="merk" class="label col-sm-3 col-form-label">Merk / Tipe</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                           id="merk" name="merk">
+                           id="merk" name="merk" formControlName="merk">
                   </div>
                 </div>
 
@@ -236,7 +255,7 @@
                     Diperoleh</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
-                               id="tahunDiperoleh">
+                               id="tahunDiperoleh" formControlName="tahun_diperoleh">
                       <nb-option value="2015">2015</nb-option>
                       <nb-option value="2016">2016</nb-option>
                       <nb-option value="2017">2017</nb-option>
@@ -252,7 +271,7 @@
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
                                name="kondisiAlat"
-                               id="kondisiAlat">
+                               id="kondisiAlat" formControlName="kondisi">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -266,7 +285,7 @@
                   <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
-                        id="keteranganAlat" name="keteranganAlat">
+                        id="keteranganAlat" name="keteranganAlat" formControlName="keterangan">
                </textarea>
                   </div>
                 </div>
@@ -289,15 +308,13 @@
                 </div>
               </div>
             </div>
-          </form>
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Softscape</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Softscape</label>
+            </div>
 
-          <form class="basic-container" [formGroup]="dataSoftscapeForm">
-            <div formArrayName="dataSoftscape">
-              <div *ngFor="let dataSoftscape of formdataSoftscape.controls;
+            <div formArrayName="softscapes">
+              <div *ngFor="let dataSoftscape of formPertamanan.controls.formDataPertamanan.controls['softscapes'].controls;
                         let s = index" [formGroupName]="s">
                 <h3>Data Ke-{{s + 1}}</h3>
 
@@ -306,7 +323,7 @@
                     Alat</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Jenis / Nama Alat"
-                           id="namaSoftscape" name="namaSoftscape">
+                           id="namaSoftscape" name="namaSoftscape" formControlName="nama_alat">
                   </div>
                 </div>
 
@@ -314,7 +331,7 @@
                   <label for="jumlahSoftscape" class="label col-sm-3 col-form-label">Jumlah</label>
                   <div class="col-sm-9">
                     <input type="number" nbInput fullWidth placeholder="Jumlah"
-                           id="jumlahSoftscape" name="jumlahSoftscape">
+                           id="jumlahSoftscape" name="jumlahSoftscape" formControlName="jumlah">
                   </div>
                 </div>
 
@@ -323,7 +340,7 @@
                     Tipe</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                           id="merkSoftscape" name="merkSoftscape">
+                           id="merkSoftscape" name="merkSoftscape" formControlName="merk">
                   </div>
                 </div>
 
@@ -331,8 +348,8 @@
                   <label for="tahunDiperoleh" class="label col-sm-3 col-form-label">Tahun
                     Diperoleh</label>
                   <div class="col-sm-9">
-                    <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan" name="tahun"
-                               id="tahunDiperoleh">
+                    <nb-select placeholder="Tahun Perolehan" class="select-kelurahan" name="tahun"
+                               id="tahunDiperoleh" formControlName="tahun_perolehan">
                       <nb-option value="2015">2015</nb-option>
                       <nb-option value="2016">2016</nb-option>
                       <nb-option value="2017">2017</nb-option>
@@ -349,7 +366,7 @@
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
                                name="kondisiSoftcape"
-                               id="kondisiSoftscape">
+                               id="kondisiSoftscape" formControlName="kondisi">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -363,7 +380,8 @@
                   <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
-                        id="keteranganSofscape" name="keteranganSofscape">
+                        id="keteranganSofscape" name="keteranganSofscape"
+                        formControlName="keterangan">
                </textarea>
                   </div>
                 </div>
@@ -386,16 +404,14 @@
                 </div>
               </div>
             </div>
-          </form>
 
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Hardscape</label>
-          </div>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Hardscape</label>
+            </div>
 
-          <form class="basic-container" [formGroup]="dataHardscapeForm">
-            <div formArrayName="dataHardscape">
-              <div *ngFor="let dataHardscape of formdataHardscape.controls;
+            <div formArrayName="hardscapes">
+              <div *ngFor="let dataHardscape of formPertamanan.controls.formDataPertamanan.controls['hardscapes'].controls;
                         let h = index" [formGroupName]="h">
                 <h3>Data Ke-{{h + 1}}</h3>
 
@@ -404,7 +420,7 @@
                     Alat</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama Foto"
-                           id="namaHardscape" name="namaJenis">
+                           id="namaHardscape" name="namaJenis" formControlName="nama_alat">
                   </div>
                 </div>
 
@@ -412,7 +428,7 @@
                   <label for="jumlahHardscape" class="label col-sm-3 col-form-label">Jumlah</label>
                   <div class="col-sm-9">
                     <input type="number" nbInput fullWidth placeholder="Jumlah"
-                           id="jumlahHardscape" name="jumlah">
+                           id="jumlahHardscape" name="jumlah" formControlName="jumlah">
                   </div>
                 </div>
 
@@ -421,7 +437,7 @@
                     Tipe</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Merk / Tipe"
-                           id="merkHardscape" name="merkHardscape">
+                           id="merkHardscape" name="merkHardscape" formControlName="merk">
                   </div>
                 </div>
 
@@ -430,7 +446,8 @@
                     Diperoleh</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Tahun Diperoleh" class="select-kelurahan"
-                               name="tahunHardscape" id="tahunDiperolehhardscape">
+                               name="tahunHardscape" id="tahunDiperolehhardscape"
+                               formControlName="tahun_perolehan">
                       <nb-option value="2015">2015</nb-option>
                       <nb-option value="2016">2016</nb-option>
                       <nb-option value="2017">2017</nb-option>
@@ -447,7 +464,7 @@
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Alat" class="select-kelurahan"
                                name="kondisiHardscape"
-                               id="kondisiHardscape">
+                               id="kondisiHardscape" formControlName="kondisi">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Rusak Ringan">Rusak Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
@@ -461,7 +478,8 @@
                   <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Alat"
-                        id="keteranganHardscape" name="keteranganhardscape">
+                        id="keteranganHardscape" name="keteranganhardscape"
+                        formControlName="keterangan">
                </textarea>
                   </div>
                 </div>
@@ -484,15 +502,16 @@
                 </div>
               </div>
             </div>
-          </form>
 
-          <div class="form-group row">
-            <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
-          </div>
 
-          <form class="basic-container" [formGroup]="dataCCTVForm">
-            <div formArrayName="dataCCTV">
-              <div *ngFor="let dataCCTV of formdataCCTV.controls;
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
+            </div>
+
+
+            <div formArrayName="cctvs">
+              <div *ngFor="let dataCCTV of
+              formPertamanan.controls.formDataPertamanan.controls['cctvs'].controls;
                         let p = index" [formGroupName]="p">
                 <h3>Data Ke-{{p + 1}}</h3>
 
@@ -500,7 +519,7 @@
                   <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV"
-                           id="namaCCTV" name="namaCCTV">
+                           id="namaCCTV" name="namaCCTV" formControlName="nama_cctv">
                   </div>
                 </div>
 
@@ -508,7 +527,7 @@
                   <label for="ipCCTV" class="label col-sm-3 col-form-label">IP CCTV</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="IP CCTV"
-                           id="ipCCTV" name="ipCCTV">
+                           id="ipCCTV" name="ipCCTV" formControlName="ip_cctv">
                   </div>
                 </div>
 
@@ -530,24 +549,62 @@
                 </div>
               </div>
             </div>
-          </form>
 
-          <div class="form-group row">
-            <label for="keteranganTaman" class="label col-sm-3 col-form-label">Keterangan
-            </label>
-            <div class="col-sm-9">
-              <textarea rows="5" nbInput fullWidth shape="round"
-                        placeholder="Keterangan"
-                        id="keteranganTaman" name="keteranganTaman"></textarea>
+            <div class="form-group row">
+              <label class="label col-sm-12 col-form-label label-border">Koordinat
+                Pertamanan</label>
             </div>
-          </div>
 
-          <div class="form-group row">
-            <div class="offset-sm-3 col-sm-9">
-              <button type="submit" nbButton status="success">Input</button>
-              &nbsp;&nbsp;&nbsp;&nbsp;
-              <button type="submit" nbButton status="danger">Batal</button>
+            <div formArrayName="koordinats">
+              <div *ngFor="let dataKoordinat of
+              formPertamanan.controls.formDataPertamanan.controls['koordinats'].controls;
+                        let u = index" [formGroupName]="u">
+                <h3>Data Ke-{{u + 1}}</h3>
+
+                <div class="form-group row">
+                  <label for="longitude" class="label col-sm-3 col-form-label">Koordinat
+                    Perumahan</label>
+                  <div class="col-sm-9">
+                    <input type="text" nbInput placeholder="Latitude"
+                           id="longitude" name="latitude" formControlName="longitude">
+                    <input type="text" nbInput placeholder="Latitude"
+                           id="latitude" name="latitude" formControlName="latitude">
+                  </div>
+                </div>
+
+
+                <div class="form-group row">
+                  <label class="label col-sm-3 col-form-label"></label>
+                  <div class="col-sm-9">
+                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                            class="btn-hapus"
+                            (click)="addDataKoordinatTaman()">
+                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      Tambah Data
+                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataKoordinat(u)">
+                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      Hapus Data
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
+
+            <hr>
+            <button type="submit" nbButton size="small" status="primary" class="btn-submit">
+              <nb-icon icon="save-outline" pack="eva"></nb-icon> Simpan
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button routerLink="../../../pages/psu-pertamanan/kelola-data-pertamanan"
+                    type="button"
+                    nbButton size="small" status="danger"> <nb-icon
+              icon="close-circle-outline" pack="eva"></nb-icon>Batal</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <button type="reset"
+                    nbButton size="small" status="info"> <nb-icon
+              icon="refresh-outline" pack="eva"></nb-icon>Reset</button>
           </div>
         </form>
       </nb-card-body>
