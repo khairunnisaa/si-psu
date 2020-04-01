@@ -8,7 +8,7 @@ describe('DetailPermukimanComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DetailPermukimanComponent ]
+      declarations: [ DetailPermukimanComponent ],
     })
     .compileComponents();
   }));

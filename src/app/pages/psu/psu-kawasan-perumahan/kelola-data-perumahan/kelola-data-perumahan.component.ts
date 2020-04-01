@@ -109,6 +109,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
               private location: Location) {
     this.source = new LocalDataSource();
     const data = this.service.getData().then((datas) => {
+      console.log("dataperumahan", datas);
       this.source.load(datas);
     });
     this.kecamatan = this.getKecamatanService.getData();
