@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LocalDataSource} from "ng2-smart-table";
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
-import {TableDataPerumahan} from "../../../../@core/data/perumahan";
 import {TableDataPermukiman} from "../../../../@core/data/permukiman";
 
 @Component({
@@ -18,6 +17,7 @@ export class InputDataPermukimanComponent implements OnInit {
   formPermukiman: FormGroup;
   statusSudahOperasional: boolean;
   statusBelumOperasional: boolean;
+  submitted = false;
 
   source: LocalDataSource;
   pendidikan = ['Tidak Ada Pendidikan', 'SD', 'SMP', 'SMK', 'SMA', 'Madrasah', 'D1', 'D2', 'D3', 'S1', 'S2', 'S3'];
@@ -40,15 +40,15 @@ export class InputDataPermukimanComponent implements OnInit {
 
     this.formPermukiman = new FormGroup({
       formDataPermukiman: this.fb.group({
-        nama_tpu: new FormControl(''),
-        luas_tpu: new FormControl(''),
-        daya_tampung_tpu: new FormControl(''),
-        tahun_digunakan: new FormControl(''),
-        kecamatan: new FormControl(''),
-        kelurahan: new FormControl(''),
-        RT: new FormControl(''),
-        RW: new FormControl(''),
-        keterangan: new FormControl(''),
+        nama_tpu: ['', Validators.required],
+        luas_tpu: ['', Validators.required],
+        daya_tampung_tpu: ['', Validators.required],
+        tahun_digunakan: ['', Validators.required],
+        kecamatan: ['', Validators.required],
+        kelurahan: ['', Validators.required],
+        RT: ['', Validators.required],
+        RW: ['', Validators.required],
+        keterangan: ['', Validators.required],
         pengelolas: this.fb.array([this.createPengelolaFormGroup()]),
         fotos: this.fb.array([this.createImageGroup('')]),
         inventarisalats: this.fb.array([this.createDataInventarisAlatFormGroup()]),
@@ -59,6 +59,9 @@ export class InputDataPermukimanComponent implements OnInit {
     });
   }
 
+  get f() {
+    return this.formPermukiman.controls.formDataPermukiman['controls'];
+  }
   ngOnInit() {
     this.disableKelurahan = true;
   }
@@ -216,6 +219,15 @@ export class InputDataPermukimanComponent implements OnInit {
 
   inputDataPermukimans() {
     console.log("form value perumahan", this.formPermukiman.value.formDataPermukiman);
-    // this.service.postData(this.formPermukiman.value.formDataPermukiman);
+
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.formPermukiman.invalid) {
+      return;
+    }
+
+    // display form values on success
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formPermukiman.value, null, 4));
   }
 }

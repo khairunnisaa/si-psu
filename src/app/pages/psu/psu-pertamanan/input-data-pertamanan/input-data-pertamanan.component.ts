@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { LocalDataSource } from "ng2-smart-table";
 import { TableDataKecamatan } from "../../../../@core/data/kecamatan";
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {TableDataPerumahan} from "../../../../@core/data/perumahan";
 import {TableDataPertamanan} from "../../../../@core/data/pertamanan";
 
 @Component({
@@ -16,28 +15,28 @@ export class InputDataPertamananComponent implements OnInit {
   kecamatan: string[];
   kelurahan: string[];
   disableKelurahan: boolean;
+  submitted = false;
 
   constructor(
-    private fb: FormBuilder,
-    private service: TableDataPertamanan,
-
-    private getKecamatanService: TableDataKecamatan) {
+      private fb: FormBuilder,
+      private service: TableDataPertamanan,
+      private getKecamatanService: TableDataKecamatan) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
 
     this.formPertamanan = new FormGroup({
-      formDataPertamanan : this.fb.group({
-        nama_taman : new FormControl(),
-        nama_pelaksana : new FormControl(),
-        luas_taman : new FormControl(),
-        keterangan : new FormControl(),
-        kecamatan : new FormControl(),
-        kelurahan : new FormControl(),
-        RT : new FormControl(),
-        RW : new FormControl(),
-        tahun_dibangun : new FormControl(),
+      formDataPertamanan: this.fb.group({
+        nama_taman: ['', Validators.required],
+        nama_pelaksana: ['', Validators.required],
+        luas_taman: ['', Validators.required],
+        keterangan: ['', Validators.required],
+        kecamatan: new FormControl(),
+        kelurahan: new FormControl(),
+        RT: ['', Validators.required],
+        RW: ['', Validators.required],
+        tahun_dibangun: ['', Validators.required],
         petugas: this.fb.array([this.createDataPetugasFormGroup()]),
         fotos: this.fb.array([this.createImageGroup('')]),
         softscapes: this.fb.array([this.createDataSoftscapeFormGroup()]),
@@ -48,6 +47,10 @@ export class InputDataPertamananComponent implements OnInit {
 
       }),
     })
+  }
+
+  get f() {
+    return this.formPertamanan.controls.formDataPertamanan['controls'];
   }
 
   changeKecamatan(kecamatan) {
@@ -65,7 +68,11 @@ export class InputDataPertamananComponent implements OnInit {
 
   ngOnInit() {
     this.disableKelurahan = true;
+    /**
+     * Validasi Form Pertamanan .........................................................
+     */
   }
+
   disableTombolTambah($event: MouseEvent) {
     ($event.target as HTMLButtonElement).disabled = true;
     // Do actions.
@@ -141,6 +148,7 @@ export class InputDataPertamananComponent implements OnInit {
       dataSoftscape.reset()
     }
   }
+
   //
   public removeDataHardscape(h: number) {
     const dataHardscape = this.formPertamanan.controls.formDataPertamanan.get('hardscapes') as FormArray;
@@ -211,6 +219,7 @@ export class InputDataPertamananComponent implements OnInit {
       keterangan: new FormControl(),
     })
   }
+
   private createKoordinatTamanFormGroup(): FormGroup {
     return this.fb.group({
       longitude: new FormControl(),
@@ -236,5 +245,14 @@ export class InputDataPertamananComponent implements OnInit {
   inputDataPertamanans() {
     console.log("form value perumahan", this.formPertamanan.value.formDataPertamanan);
     // this.service.postData(this.formPertamanan.value.formDataPertamanan);
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.formPertamanan.invalid) {
+      return;
+    }
+
+    // display form values on success
+    alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formPertamanan.value, null, 4));
   }
 }

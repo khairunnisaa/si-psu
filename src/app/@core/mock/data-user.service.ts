@@ -17,13 +17,19 @@ export class DataUserService extends TableDataUser {
       id: 2,
       username: 'aditya',
       password: '12345',
-      level: 'admin',
+      level: 'Operator PSU Pertamanan',
     },
     {
       id: 3,
       username: 'khairunnisa',
       password: 'khairunnisa',
-      level: 'admin',
+      level: 'Operator PSU Perumahan',
+    },
+    {
+      id: 4,
+      username: 'Jono Oh Jono',
+      password: '123456789',
+      level: 'Operator PSU Kawasan Permukiman',
     },
     ];
 

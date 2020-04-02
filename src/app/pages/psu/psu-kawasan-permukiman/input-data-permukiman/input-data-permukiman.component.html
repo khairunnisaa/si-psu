@@ -10,7 +10,12 @@
                 (TPU)</label>
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="Nama Tempat Pemakaman Umum (TPU)"
-                       id="namaTPU" name="namaTPU" formControlName="nama_tpu">
+                       id="namaTPU" name="namaTPU" formControlName="nama_tpu"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.nama_tpu.errors }">
+                <div *ngIf="submitted && f.nama_tpu.errors" class="invalid-feedback">
+                  <div *ngIf="f.nama_tpu.errors.required">Masukan Nama TPU</div>
+                </div>
               </div>
 
             </div>
@@ -18,7 +23,11 @@
               <label for="luasTPU" class="label col-sm-3 col-form-label">Luas TPU</label>
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="Luas TPU" id="luasTPU"
-                       name="luasTPU" formControlName="luas_tpu">
+                       name="luasTPU" formControlName="luas_tpu" class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.luas_tpu.errors }">
+                <div *ngIf="submitted && f.luas_tpu.errors" class="invalid-feedback">
+                  <div *ngIf="f.luas_tpu.errors.required">Masukan Luas TPU</div>
+                </div>
               </div>
             </div>
 
@@ -37,7 +46,9 @@
                 Digunakan</label>
               <div class="col-sm-9">
                 <nb-select placeholder="tahun digunakan" name="tahunDigunakan"
-                           id="tahunDigunakan" formControlName="tahun_digunakan">
+                           id="tahunDigunakan" formControlName="tahun_digunakan"
+                           class="form-control select-tahun"
+                           [ngClass]="{ 'is-invalid': submitted && f.tahun_digunakan.errors }">
                   <nb-option value="2015">2015</nb-option>
                   <nb-option value="2016">2016</nb-option>
                   <nb-option value="2017">2017</nb-option>
@@ -45,6 +56,9 @@
                   <nb-option value="2019">2019</nb-option>
                   <nb-option value="2020">2020</nb-option>
                 </nb-select>
+                <div *ngIf="submitted && f.tahun_digunakan.errors" class="invalid-feedback">
+                  <div *ngIf="f.tahun_digunakan.errors.required">Pilih Tahun Digunakan</div>
+                </div>
               </div>
             </div>
 
@@ -52,24 +66,35 @@
               <label class="label col-sm-3 col-form-label">Lokasi</label>
               <div class="col-sm-9">
                 <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                           id="kecamatan" (selectedChange)="changeKecamatan($event)">
+                           id="kecamatan" (selectedChange)="changeKecamatan($event)"
+                           class="form-control select-kecamatan"
+                           [ngClass]="{ 'is-invalid': submitted && f.kecamatan.errors }">
                   <nb-option *ngFor="let dataKecamatan of kecamatan"
                              value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
                 </nb-select>&nbsp;&nbsp;
+                <div *ngIf="submitted && f.kecamatan.errors" class="invalid-feedback">
+                  <div *ngIf="f.kecamatan.errors.required">Pilih Kecamatan</div>
+                </div>
 
 
                 <nb-select placeholder="Kelurahan" class="select-kelurahan" name="kelurahan"
                            (change)="changeKelurahan($event)" [disabled]="disableKelurahan"
-                           formControlName="kelurahan">
+                           formControlName="kelurahan" class="form-control select-kecamatan"
+                           [ngClass]="{ 'is-invalid': submitted && f.kecamatan.errors }">
                   <nb-option *ngFor="let dataKelurahan of kelurahan"
                              value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
                 </nb-select>&nbsp;&nbsp;
+                <div *ngIf="submitted && f.kecamatan.errors" class="invalid-feedback">
+                  <div *ngIf="f.kecamatan.errors.required">Pilih Kecamatan</div>
+                </div>
 
-                <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
-                       formControlName="RT" formControlName="RT">
+                <input type="text" nbInput placeholder="RT"  name="rt"
+                       formControlName="RT" formControlName="RT"class="select-rt-rw">
                 &nbsp;&nbsp;
-                <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
-                       formControlName="RW" formControlName="RW">
+
+                <input type="text" nbInput placeholder="RW" name="rw"
+                       formControlName="RW" formControlName="RW"class="select-rt-rw">
+
               </div>
             </div>
 

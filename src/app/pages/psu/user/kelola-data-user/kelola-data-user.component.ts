@@ -29,6 +29,11 @@ export class KelolaDataUserComponent implements OnInit {
         type: 'string',
         filter: false,
       },
+      level: {
+        title: 'Level',
+        type: 'string',
+        filter: false,
+      },
       navigasi:
         {
           title: 'Navigasi',

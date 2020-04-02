@@ -105,15 +105,15 @@
         <td>{{dataJalanSaluran.nama_jalan_saluran}}</td>
         <td>{{dataJalanSaluran.luas_jalan_saluran}}</td>
         <td *ngIf="dataJalanSaluran.foto_jalan_saluran!==null"><a *ngFor="let dataFotoJalanSaluran
-         of
-        dataJalanSaluran.foto_jalan_saluran.split(',')"
-               target="_blank" href="{{dataFotoJalanSaluran}}">
-          <img src="{{dataFotoJalanSaluran}}" style="width:150px">
-        </a></td>
+         of dataJalanSaluran.foto_jalan_saluran.split(',')" target="_blank"
+                                                                   href="{{dataFotoJalanSaluran}}">
+        <img src="{{dataFotoJalanSaluran}}" style="width:150px">
+      </a></td>
         <td>{{dataJalanSaluran.kondisi}}</td>
-        <td *ngFor="let dataLongitude of dataJalanSaluran.koordinattamans">
-          {{dataLongitude.longitude}}</td>
-        <td *ngFor="let dataLatitude of dataJalanSaluran.koordinattamans">
+        <td>{{dataJalanSaluran.kondisi}}</td>
+        <td *ngFor="let dataLatitude of dataJalanSaluran['koordinatjalansalurans']">
+          {{dataLatitude.longitude}}</td>
+        <td *ngFor="let dataLatitude of dataJalanSaluran['koordinatjalansalurans']">
           {{dataLatitude.latitude}}</td>
       </tr>
       </tbody>
@@ -158,11 +158,12 @@
       <div class="col-3 col-sm-3">
         <div><label>Koordinat Perumahan</label></div>
       </div>
-      <div class="col-10 col-md-6 spasi">
+      <div class="col-10 col-md-6 spasi" *ngFor="let
+      kordinatrumah of this.state.dataPerumahan['koordinats']">
         <div> Longitude
-          :<label><b>{{ this.state.dataPerumahan.koordinat_perumahan.longitude }}</b></label><br></div>
+          :<label><b>{{ kordinatrumah.longitude }}</b></label><br></div>
         <div> Latitude
-          :<label><b>{{ this.state.dataPerumahan.koordinat_perumahan.latitude }}</b></label><br></div>
+          :<label><b>{{ kordinatrumah.latitude }}</b></label><br></div>
       </div>
     </div>
 
