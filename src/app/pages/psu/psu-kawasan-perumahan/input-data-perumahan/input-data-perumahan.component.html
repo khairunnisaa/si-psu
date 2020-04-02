@@ -230,7 +230,8 @@
             </div>
             <div formArrayName="saranas">
               <div *ngFor="let dataSarana of
-              formPerumahan.controls.formDataPerumahan['controls']['saranas']['controls']; let j =
+              this.formPerumahan.controls.formDataPerumahan['controls']['saranas']['controls']; let
+               j =
               index"
                    [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
@@ -240,7 +241,17 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaSaranaPSU"
                            placeholder="Nama Sarana"
-                           name="namaSaranaPSU" formControlName="nama_sarana">
+                           name="namaSaranaPSU" formControlName="nama_sarana" class="form-control"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                           dataSarana['controls'].nama_sarana.errors }"
+                    >
+                    <div *ngIf="submitted &&
+                    dataSarana['controls'].nama_sarana.errors"
+                         class="invalid-feedback">
+                      <div
+                          *ngIf="dataSarana['controls'].nama_sarana.errors.required">Masukan Nama
+                        Sarana</div>
+                    </div>
                   </div>
                 </div>
 
@@ -250,7 +261,17 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Luas Sarana"
                            id="luasSaranaPSU"
-                           name="luasSaranaPSU" formControlName="luas_sarana">
+                           name="luasSaranaPSU" formControlName="luas_sarana"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                           dataSarana['controls'].luas_sarana.errors }" class="form-control"
+                    >
+                    <div *ngIf="submitted &&
+                    dataSarana['controls'].luas_sarana.errors"
+                         class="invalid-feedback">
+                      <div
+                          *ngIf="dataSarana['controls'].luas_sarana.errors.required">Masukan Luas
+                        Sarana</div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -266,13 +287,24 @@
                          class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi
                     Sarana</label>
                   <div class="col-sm-9">
-                    <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
+                    <nb-select placeholder="Kondisi Dalam Keadaan..." class="form-control"
                                name="kondisiSaranaPSU" id="kondisiSaranaPSU"
-                               formControlName="kondisi_sarana">
+                               formControlName="kondisi_sarana"
+                               [ngClass]="{ 'is-invalid': submitted &&
+                           dataSarana['controls'].kondisi_sarana.errors }"
+                    >
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
                     </nb-select>&nbsp;&nbsp;
+                    <div *ngIf="submitted &&
+                    dataSarana['controls'].kondisi_sarana.errors"
+                         class="invalid-feedback">
+                      <div
+                          *ngIf="dataSarana['controls'].kondisi_sarana.errors.required">Masukan
+                        Kondisi
+                        Sarana</div>
+                    </div>
                   </div>
                 </div>
 
@@ -285,9 +317,29 @@
                       <div *ngFor="let dataSarana of this.koordinatSaranas; let
                            j = index" [formGroupName]="j">
                       <input type="text" nbInput placeholder="Longitude" id="longitudesarana"
-                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                             name="longitude" formControlName="longitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                           dataSarana['controls'].longitude.errors }" class="form-control">
+                        <div *ngIf="submitted &&
+                    dataSarana['controls'].longitude.errors"
+                             class="invalid-feedback">
+                          <div
+                              *ngIf="dataSarana['controls'].longitude.errors.required">Masukan
+                            Longitude
+                            Sarana</div>
+                        </div>,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudesarana"
-                             name="latitude"  formControlName="latitude">
+                             name="latitude"  formControlName="latitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                           dataSarana['controls'].latitude.errors }" class="form-control">
+                        <div *ngIf="submitted &&
+                    dataSarana['controls'].latitude.errors"
+                             class="invalid-feedback">
+                          <div
+                              *ngIf="dataSarana['controls'].latitude.errors.required">Masukan
+                            Latitude
+                            Sarana</div>
+                        </div>
 
 
                         <button type="button" nbButton status="success" nbButton size="tiny"
@@ -341,7 +393,16 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaJalanSaluran"
                            placeholder="Nama Jalan dan Saluran" name="namajalanSaluran"
-                           formControlName="nama_jalan_saluran">
+                           formControlName="nama_jalan_saluran"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                           dataJalanSaluran['controls'].nama_jalan_saluran.errors }" class="form-control">
+                    <div *ngIf="submitted &&
+                    dataJalanSaluran['controls'].nama_jalan_saluran.errors"
+                         class="invalid-feedback">
+                      <div
+                          *ngIf="dataJalanSaluran['controls'].nama_jalan_saluran.errors.required">Masukan
+                        Nama Jalan Saluran</div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -351,7 +412,16 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="luasJalanSaluran"
                            placeholder="Luas Jalan dan Saluran"
-                           formControlName="luas_jalan_saluran">
+                           formControlName="luas_jalan_saluran"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                           dataJalanSaluran['controls'].luas_jalan_saluran.errors }" class="form-control">
+                    <div *ngIf="submitted &&
+                    dataJalanSaluran['controls'].luas_jalan_saluran.errors"
+                         class="invalid-feedback">
+                      <div
+                          *ngIf="dataJalanSaluran['controls'].luas_jalan_saluran.errors.required">Masukan
+                       Luas Jalan Saluran</div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
