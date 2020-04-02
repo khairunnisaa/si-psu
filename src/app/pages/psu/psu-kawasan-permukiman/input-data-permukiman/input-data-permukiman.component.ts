@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormArray, FormControl, FormGroup, Validators} from '@angular/forms';
 import {LocalDataSource} from "ng2-smart-table";
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
-import {TableDataPerumahan} from "../../../../@core/data/perumahan";
 import {TableDataPermukiman} from "../../../../@core/data/permukiman";
 
 @Component({
