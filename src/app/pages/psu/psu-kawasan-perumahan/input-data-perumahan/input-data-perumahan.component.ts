@@ -83,6 +83,15 @@ export class InputDataPerumahanComponent implements OnInit {
               ['controls']['tamans']['controls'][l]['controls']['koordinattamans']['controls']
     }
   }
+  get saranas() {
+    for (let sarana = 0; sarana <
+    this.formPerumahan.controls.formDataPerumahan['controls']['saranas']['controls'].length; sarana++ ) {
+      console.log("get" +
+          " foto ",
+          this.formPerumahan.controls.formDataPerumahan['controls']['saranas']['controls'][sarana]['controls']);
+    }
+    return null;
+  }
 
   get f() {
     return this.formPerumahan.controls.formDataPerumahan['controls'];
@@ -260,26 +269,26 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataSaranaFormGroup(): FormGroup {
     return this.fb.group({
-      nama_sarana: new FormControl(),
-      luas_sarana: new FormControl(),
+      nama_sarana: ['', Validators.required],
+      luas_sarana: ['', Validators.required],
       foto_sarana: new FormControl(),
-      kondisi_sarana: new FormControl(),
+      kondisi_sarana: ['', Validators.required],
       koordinat: this.fb.array([this.createKoordinat()]),
     })
   }
   private createKoordinat(): FormGroup {
     return this.fb.group({
-      longitude: new FormControl(),
-      latitude: new FormControl(),
+      longitude: ['', Validators.required],
+      latitude: ['', Validators.required],
     })
   }
 
   private createDataJalanSaluranFormGroup(): FormGroup {
     return this.fb.group({
-      nama_jalan_saluran: new FormControl(),
-      luas_jalan_saluran: new FormControl(),
+      nama_jalan_saluran: ['', Validators.required],
+      luas_jalan_saluran: ['', Validators.required],
       foto_jalan_saluran: new FormControl(),
-      kondisi: new FormControl(),
+      kondisi: ['', Validators.required],
       koordinatjalansalurans: this.fb.array([this.createKoordinat()]),
     })
   }
