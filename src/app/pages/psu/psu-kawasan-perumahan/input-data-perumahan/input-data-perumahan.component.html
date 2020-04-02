@@ -106,22 +106,17 @@
                          name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                   <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
                          name="latitude"  formControlName="latitude">
-                  <div class="form-group row">
-                    <label class="label col-sm-3 col-form-label"></label>
-                    <div class="col-sm-9">
-                      <button type="button" nbButton status="success" nbButton size="tiny"
-                              class="btn-hapus"
-                              (click)="addDataKoordinatPerumahan()">
-                        <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                        Tambah Data
-                      </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                      <button type="button" nbButton status="danger" nbButton size="tiny"
-                              class="btn-hapus" (click)="removeKoordinatPerumahan(u)">
-                        <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                        Hapus Data
-                      </button>
-                    </div>
-                  </div>
+
+                  <button type="button" nbButton status="success" nbButton size="tiny"
+                          class="btn-hapus"
+                          (click)="addDataKoordinatPerumahan()">
+                    <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                  </button>
+                  <button type="button" nbButton status="danger" nbButton size="tiny"
+                          class="btn-hapus" (click)="removeKoordinatPerumahan(u)">
+                    <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                  </button>
+
                 </div>
               </div>
             </div>
@@ -235,32 +230,31 @@
                     </nb-select>&nbsp;&nbsp;
                   </div>
                 </div>
+
+<!--------------- Koordinat Sarana ------------------ Korrdinat Sarana --------------------------->
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                     <div class="col-sm-9" formArrayName="koordinat">
                       <div *ngFor="let dataSarana of this.koordinatSaranas; let
-               j = index" [formGroupName]="j">
+                           j = index" [formGroupName]="j">
                       <input type="text" nbInput placeholder="Longitude" id="longitudesarana"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudesarana"
                              name="latitude"  formControlName="latitude">
-                        <div class="form-group row">
-                          <label class="label col-sm-3 col-form-label"></label>
-                          <div class="col-sm-9">
-                            <button type="button" nbButton status="success" nbButton size="tiny"
-                                    class="btn-hapus"
-                                    (click)="addDataKoordinatSarana()">
-                              <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                              Tambah Data
-                            </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                            <button type="button" nbButton status="danger" nbButton size="tiny"
-                                    class="btn-hapus" (click)="removeKoordinatSarana(j)">
-                              <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                              Hapus Data
-                            </button>
-                          </div>
-                        </div>
+
+
+                        <button type="button" nbButton status="success" nbButton size="tiny"
+                                class="btn-hapus"
+                                (click)="addDataKoordinatSarana()">
+                          <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                        </button>
+                        <button type="button" nbButton status="danger" nbButton size="tiny"
+                                class="btn-hapus" (click)="removeKoordinatSarana(j)">
+                          <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                        </button>
+
                     </div>
                     </div>
                 </div>
@@ -343,27 +337,22 @@
 
                   <div class="col-sm-9" formArrayName="koordinatjalansalurans">
                     <div *ngFor="let dataTaman of this.koordinatJalanSalurans;
-              let n = index" [formGroupName]="n">
+                         let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudejalansaluran"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudejalansaluran"
                              name="latitude"  formControlName="latitude">
-                      <div class="form-group row">
-                        <label class="label col-sm-3 col-form-label"></label>
-                        <div class="col-sm-9">
-                          <button type="button" nbButton status="success" nbButton size="tiny"
-                                  class="btn-hapus"
-                                  (click)="addDataKoordinatJalanSaluran()">
-                            <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                            Tambah Data
-                          </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button type="button" nbButton status="danger" nbButton size="tiny"
-                                  class="btn-hapus" (click)="removeKoordinatJalanSaluran(n)">
-                            <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                            Hapus Data
-                          </button>
-                        </div>
-                      </div>
+
+                      <button type="button" nbButton status="success" nbButton size="tiny"
+                              class="btn-hapus"
+                              (click)="addDataKoordinatJalanSaluran()">
+                        <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      </button>
+                      <button type="button" nbButton status="danger" nbButton size="tiny"
+                              class="btn-hapus" (click)="removeKoordinatJalanSaluran(n)">
+                        <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      </button>
+
                     </div>
 
                   </div>
@@ -405,7 +394,7 @@
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Taman</label>
                   <div class="col-sm-9">
-                    <input type="password" nbInput fullWidth placeholder="Luas Taman"
+                    <input type="text" nbInput fullWidth placeholder="Luas Taman"
                            name="luasTaman"
                            id="luasTaman" formControlName="luas_taman">
                   </div>
@@ -437,27 +426,22 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9" formArrayName="koordinattamans">
                     <div *ngFor="let dataTaman of this.koordinatTamans;
-              let n = index" [formGroupName]="n">
+                          let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudedatataman"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudedatataman"
                              name="latitude"  formControlName="latitude">
-                      <div class="form-group row">
-                        <label class="label col-sm-3 col-form-label"></label>
-                        <div class="col-sm-9">
-                          <button type="button" nbButton status="success" nbButton size="tiny"
-                                  class="btn-hapus"
-                                  (click)="addDataKoordinatTaman()">
-                            <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                            Tambah Data
-                          </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                          <button type="button" nbButton status="danger" nbButton size="tiny"
-                                  class="btn-hapus" (click)="removeKoordinatTaman(n)">
-                            <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                            Hapus Data
-                          </button>
-                        </div>
-                      </div>
+
+                      <button type="button" nbButton status="success" nbButton size="tiny"
+                              class="btn-hapus"
+                              (click)="addDataKoordinatTaman()">
+                        <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      </button>
+                      <button type="button" nbButton status="danger" nbButton size="tiny"
+                              class="btn-hapus" (click)="removeKoordinatTaman(n)">
+                        <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      </button>
+
                     </div>
                   </div>
                 </div>
@@ -480,9 +464,8 @@
                 </div>
               </div>
             </div>
-            <!--          </form>-->
 
-            <!--          Taman --------------------- Taman ------------------------------ Taman   -->
+<!---------------- Taman --------------------- Taman ------------------------------ Taman -->
             <div class="form-group row" *ngIf="statusBelumSerahTerima">
               <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
               </label>
