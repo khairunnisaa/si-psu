@@ -39,20 +39,20 @@ export class InputDataPerumahanComponent implements OnInit {
     this.submitted = false;
     this.formPerumahan = new FormGroup({
       formDataPerumahan : this.fb.group({
-        nama_perumahan : new FormControl(),
-        nama_pengembang : new FormControl(),
-        luas_perumahan : new FormControl(),
-        jumlah_rumah : new FormControl(),
+        nama_perumahan : ['', Validators.required],
+        nama_pengembang : ['', Validators.required],
+        luas_perumahan : ['', Validators.required],
+        jumlah_rumah : ['', Validators.required],
         kecamatan : new FormControl(),
-        kelurahan : new FormControl(),
-        RT : new FormControl(),
-        RW : new FormControl(),
-        status : new FormControl(),
-        tgl_serah_terima : new FormControl(),
-        jumlah_psu: new FormControl(),
-        no_bast : new FormControl(),
-        sph : new FormControl(),
-        keterangan : new FormControl(),
+        kelurahan : ['', Validators.required],
+        RT : ['', Validators.required],
+        RW : ['', Validators.required],
+        status : ['', Validators.required],
+        tgl_serah_terima : ['', Validators.required],
+        jumlah_psu: ['', Validators.required],
+        no_bast : ['', Validators.required],
+        sph : ['', Validators.required],
+        keterangan : ['', Validators.required],
         fotos: this.fb.array([this.createImageGroup('')]),
         saranas: this.fb.array([this.createDataSaranaFormGroup()]),
         jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
@@ -82,6 +82,10 @@ export class InputDataPerumahanComponent implements OnInit {
           this.formPerumahan.controls.formDataPerumahan
               ['controls']['tamans']['controls'][l]['controls']['koordinattamans']['controls']
     }
+  }
+
+  get f() {
+    return this.formPerumahan.controls.formDataPerumahan['controls'];
   }
 
   changeKecamatan(kecamatan) {

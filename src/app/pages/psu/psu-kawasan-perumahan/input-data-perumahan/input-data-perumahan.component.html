@@ -11,16 +11,26 @@
                 Perumahan</label>
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="Nama Perumahan"
-                       id="namaPerumahan" name="namaPerumahan" formControlName="nama_perumahan">
+                       id="namaPerumahan" name="namaPerumahan" formControlName="nama_perumahan"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.nama_perumahan.errors }">
+                <div *ngIf="submitted && f.nama_perumahan.errors" class="invalid-feedback">
+                  <div *ngIf="f.nama_perumahan.errors.required">Masukan Nama Perumahan</div>
+                </div>
               </div>
             </div>
+
             <div class="form-group row">
               <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama
                 Pengembang</label>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth placeholder="Nama Pengembang"
-                       id="namaPengembang"
-                       name="namaPengembang" formControlName="nama_pengembang">
+                <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
+                       name="namaPengembang" formControlName="nama_pengembang"
+                       class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.nama_pengembang.errors }">
+                <div *ngIf="submitted && f.nama_pengembang.errors" class="invalid-feedback">
+                  <div *ngIf="f.nama_pengembang.errors.required">Masukan Nama Pengembang</div>
+                </div>
               </div>
             </div>
 
@@ -29,7 +39,12 @@
                 (m2)</label>
               <div class="col-sm-9">
                 <input type="text" nbInput placeholder="Luas Perumahan" id="luasPerumahan"
-                       name="luasPerumahan" formControlName="luas_perumahan"> (m2)
+                       name="luasPerumahan" formControlName="luas_perumahan"
+                       class="form-control size-input"
+                       [ngClass]="{ 'is-invalid': submitted && f.luas_perumahan.errors }">
+                <div *ngIf="submitted && f.luas_perumahan.errors" class="invalid-feedback">
+                  <div *ngIf="f.luas_perumahan.errors.required">Masukan Luas Perumahan</div>
+                </div>
               </div>
             </div>
 
@@ -38,7 +53,12 @@
                 </label>
               <div class="col-sm-9">
                 <input type="number" nbInput placeholder="Jumlah Perumahan" id="jumlah_perumahan"
-                       name="jumlah_perumahan" formControlName="jumlah_rumah"> Unit
+                       name="jumlah_perumahan" formControlName="jumlah_rumah"
+                       class="form-control size-input"
+                       [ngClass]="{ 'is-invalid': submitted && f.jumlah_rumah.errors }">
+                <div *ngIf="submitted && f.jumlah_rumah.errors" class="invalid-feedback">
+                  <div *ngIf="f.jumlah_rumah.errors.required">Masukan Luas Perumahan</div>
+                </div>
               </div>
             </div>
 
@@ -58,8 +78,7 @@
                     <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto"
                          width="220" height="150" *ngIf="foto.value.nama_foto"><br>
                     <label *ngIf="foto.value.path_foto"><br>
-                      <input formControlName="nama_foto" placeholder="nama foto" type="text"
-                             nbInput>
+                      <input formControlName="nama_foto" placeholder="nama foto" type="text"nbInput>
                     </label>
                   </div>
                 </div>
@@ -73,11 +92,14 @@
             <div class="form-group row">
               <label class="label col-sm-3 col-form-label">Lokasi</label>
               <div class="col-sm-9">
-                <nb-select class="select-kecamatan" placeholder="Kecamatan" name="kecamatan"
-                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan">
+                <nb-select placeholder="Kecamatan" name="kecamatan"
+                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan"
+                           class="select-kecamatan">
                   <nb-option *ngFor="let dataKecamatan of kecamatan"
-                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}</nb-option>
-                </nb-select>&nbsp;&nbsp;
+                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}
+                  </nb-option>
+                </nb-select>
+                &nbsp;&nbsp;
 
                 <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kelurahan"
                            formControlName="kelurahan"
@@ -131,7 +153,13 @@
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Perumahan"
                         id="keteranganPerumahan" name="keteranganPerumahan"
-                        formControlName="keterangan"></textarea>
+                        formControlName="keterangan"
+                        class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.keterangan.errors }">
+               </textarea>
+                <div *ngIf="submitted && f.keterangan.errors" class="invalid-feedback">
+                  <div *ngIf="f.keterangan.errors.required">Keterangan Perumahan</div>
+                </div>
               </div>
             </div>
 
@@ -153,11 +181,17 @@
                 Terima</label>
               <div class="col-sm-9">
                 <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
-                       name="tanggalSerahTerima" id="tanggalSerahTerima"
-                       formControlName="tgl_serah_terima">
+                       name="tanggalSerahTerima" id="tanggalSerahTerima" class="form-control"
+                       formControlName="tgl_serah_terima"  [ngClass]="{ 'is-invalid': submitted && f.tgl_serah_terima.errors }">
                 <nb-datepicker #formpicker></nb-datepicker>
+                <div *ngIf="submitted && f.tgl_serah_terima.errors" class="invalid-feedback">
+                  <div *ngIf="f.tgl_serah_terima.errors.required">Masukan Tanggal Serah Terima</div>
+                </div>
               </div>
             </div>
+
+
+
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label for="noBeritaAcaraSerahTerima"
                      class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;No. Berita Acara
@@ -166,16 +200,26 @@
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
                        name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima"
-                       formControlName="no_bast">
+                       formControlName="no_bast"  class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.no_bast.errors }">
+                <div *ngIf="submitted && f.no_bast.errors" class="invalid-feedback">
+                  <div *ngIf="f.no_bast.errors.required">Masukan No. Berita Acara Serah Terima</div>
+                </div>
               </div>
             </div>
+
+
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label for="sph" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;SPH<br>
                 &nbsp;&nbsp;&nbsp;&nbsp;(Surat Pengakuan Hak)
               </label>
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph"
-                       name="sph" formControlName="sph">
+                       name="sph" formControlName="sph"class="form-control"
+                       [ngClass]="{ 'is-invalid': submitted && f.sph.errors }">
+                <div *ngIf="submitted && f.sph.errors" class="invalid-feedback">
+                  <div *ngIf="f.sph.errors.required">Surat Pengakuan Hak</div>
+                </div>
               </div>
             </div>
 
