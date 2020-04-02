@@ -10,7 +10,7 @@
                  id="kecamatan" (selectedChange)="changeKecamatan($event)">
         <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
       </nb-select>&nbsp;&nbsp;
-      <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
+      <nb-select placeholder="kelurahan" class="select-kelurahan" name="kelurahan"
                  (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
         <nb-option *ngFor="let dataKelurahan of kelurahan"
                    value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>

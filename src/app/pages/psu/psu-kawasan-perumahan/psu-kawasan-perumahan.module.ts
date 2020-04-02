@@ -6,7 +6,7 @@ import {
   NbInputModule, NbTabsetModule,
   NbTreeGridModule,
   NbWindowModule,
-  NbSpinnerModule,
+  NbSpinnerModule, NbAlertModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import {
@@ -80,6 +80,7 @@ import {CameraPerumahanComponent} from './camera-perumahan/camera-perumahan.comp
     MapsModule,
     WebcamModule,
     NbSpinnerModule,
+    NbAlertModule,
   ],
   entryComponents: [
     RouterLinkPerumahanComponent,

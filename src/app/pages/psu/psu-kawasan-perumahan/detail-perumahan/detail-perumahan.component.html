@@ -24,7 +24,8 @@
           RT.{{
           this.state.dataPerumahan.RT}} / RW.{{ this.state.dataPerumahan.RW }}</label></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.status }}</label></strong></div>
-        <div>: <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima }}</label></strong></div>
+        <div>:
+          <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima | date: 'dd MMMM yyyy' }}</label></strong></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.no_bast }}</label></strong></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.sph }}</label></strong></div>
       </div>

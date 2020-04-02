@@ -20,7 +20,11 @@ export class InputDataPerumahanComponent implements OnInit {
   statusBelumSerahTerima: boolean;
   statusTerlantar: boolean;
   formPerumahan: FormGroup;
-
+  submitted: boolean;
+  // koordinat
+  koordinatSaranas: any;
+  koordinatJalanSalurans: any;
+  koordinatTamans: any;
   urls: any[] = [];
 
   constructor(
@@ -32,6 +36,7 @@ export class InputDataPerumahanComponent implements OnInit {
     this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
+    this.submitted = false;
     this.formPerumahan = new FormGroup({
       formDataPerumahan : this.fb.group({
         nama_perumahan : new FormControl(),
@@ -56,15 +61,32 @@ export class InputDataPerumahanComponent implements OnInit {
         koordinats: this.fb.array([this.createKoordinat()]),
 
       }),
-    })
-
+    });
+    // =========================== kordinat saranas ======================================
+    for (let k = 0; k < this.formPerumahan.controls.formDataPerumahan['controls']['saranas']
+        ['controls'].length; k++) {
+      this.koordinatSaranas = this.formPerumahan.controls.formDataPerumahan['controls']['saranas']
+          ['controls'][k]['controls']['koordinat']['controls'];
+    }
+    // ================================ kordinat jalan saluran ==================================
+    for (let l = 0; l < this.formPerumahan.controls.formDataPerumahan['controls']['jalansalurans']
+        ['controls'].length; l++) {
+      this.koordinatJalanSalurans =
+          this.formPerumahan.controls.formDataPerumahan
+              ['controls']['jalansalurans']['controls'][l]['controls']['koordinatjalansalurans']['controls']
+    }
+    // ================================ kordinat taman ==================================
+    for (let l = 0; l < this.formPerumahan.controls.formDataPerumahan['controls']['tamans']
+        ['controls'].length; l++) {
+      this.koordinatTamans =
+          this.formPerumahan.controls.formDataPerumahan
+              ['controls']['tamans']['controls'][l]['controls']['koordinattamans']['controls']
+    }
   }
 
   changeKecamatan(kecamatan) {
-    console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
-    console.log("kelurahan", this.kelurahan);
   }
 
   changeKelurahan(kelurahan) {
@@ -73,7 +95,12 @@ export class InputDataPerumahanComponent implements OnInit {
 
   inputDataPerumahans() {
     console.log("form value perumahan", this.formPerumahan.value.formDataPerumahan);
-    this.service.postData(this.formPerumahan.value.formDataPerumahan);
+    this.service.postData(this.formPerumahan.value.formDataPerumahan).then(res => {
+      if (res.status === 'OK') {
+        this.submitted = true;
+        // window.history.back();
+      }
+    });
   }
   ngOnInit() {
     this.statusSerahTerima = false;
@@ -101,7 +128,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public addDataCCTV() {
-    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('cctvs') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
 
@@ -111,19 +138,87 @@ export class InputDataPerumahanComponent implements OnInit {
     fotos.push(this.createImageGroup(img))
   }
 
-  public addDataKoordinat() {
-    const dataKoordinat = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
-    dataKoordinat.push(this.createDataKoordinatFormGroup())
+  public addDataKoordinatPerumahan() {
+    const koordinatPerumahan = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
+    koordinatPerumahan.push(this.createKoordinat())
   }
 
+  public addDataKoordinatSarana() {
+    const koordinatSarana = this.formPerumahan.controls.formDataPerumahan.get('saranas')['controls'];
+    for (let i = 0; i < koordinatSarana.length; i++) {
+      const kordinatsaranas = this.formPerumahan.controls.formDataPerumahan.get('saranas')['controls'][i].get('koordinat') as FormArray;
+      kordinatsaranas.push(this.createKoordinat())
+    }
+  }
 
+  public addDataKoordinatJalanSaluran() {
+    const koordinatjalansaluran = this.formPerumahan.controls.formDataPerumahan
+    .get('jalansalurans')['controls'] as FormArray;
+    for (let i = 0; i < koordinatjalansaluran.length; i++) {
+      const koordinatjalansalurans = this.formPerumahan.controls.formDataPerumahan
+      .get('jalansalurans')['controls'][i].get('koordinatjalansalurans') as FormArray;
+      koordinatjalansalurans.push(this.createKoordinat())
+    }
+  }
+
+  public addDataKoordinatTaman() {
+    const koordinattaman = this.formPerumahan.controls.formDataPerumahan
+    .get('tamans')['controls'] as FormArray;
+    for (let i = 0; i < koordinattaman.length; i++) {
+      const koordinattamans = this.formPerumahan.controls.formDataPerumahan
+      .get('tamans')['controls'][i].get('koordinattamans') as FormArray;
+      koordinattamans.push(this.createKoordinat())
+    }
+  }
   /**
    * Remove Data......................................
    * */
-  public removeDataSarana(j: number) {
+
+  public removeKoordinatPerumahan(u) {
+    const koordinatPerumahan = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
+    console.log('kordinatrumah', koordinatPerumahan);
+    if (koordinatPerumahan.length > 1) {
+      koordinatPerumahan.removeAt(u)
+    } else {
+      koordinatPerumahan.reset()
+    }
+  }
+  public removeKoordinatSarana(u) {
+    const koordinatsarana = this.formPerumahan.controls.formDataPerumahan.get('saranas') as FormArray;
+    for (let kor = 0; kor < koordinatsarana.controls.length; kor++) {
+      if (koordinatsarana.controls[kor]['controls']['koordinat'].length > 1) {
+        koordinatsarana.controls[kor]['controls']['koordinat'].removeAt(u)
+      } else {
+        koordinatsarana.controls[kor]['controls']['koordinat'].reset()
+      }
+    }
+  }
+  public removeKoordinatJalanSaluran(u) {
+    const koordinatjalansaluran = this.formPerumahan.controls.formDataPerumahan.get('jalansalurans') as FormArray;
+    for (let kor = 0; kor < koordinatjalansaluran.controls.length; kor++) {
+      if (koordinatjalansaluran.controls[kor]['controls']['koordinatjalansalurans'].length > 1) {
+        koordinatjalansaluran.controls[kor]['controls']['koordinatjalansalurans'].removeAt(u)
+      } else {
+        koordinatjalansaluran.controls[kor]['controls']['koordinatjalansalurans'].reset()
+      }
+    }
+  }
+
+  public removeKoordinatTaman(u) {
+    const koordinattaman = this.formPerumahan.controls.formDataPerumahan.get('tamans') as FormArray;
+    for (let kor = 0; kor < koordinattaman.controls.length; kor++) {
+      if (koordinattaman.controls[kor]['controls']['koordinattamans'].length > 1) {
+        koordinattaman.controls[kor]['controls']['koordinattamans'].removeAt(u)
+      } else {
+        koordinattaman.controls[kor]['controls']['koordinattamans'].reset()
+      }
+    }
+  }
+
+  public removeDataSarana(k: number) {
     const dataSarana = this.formPerumahan.controls.formDataPerumahan.get('saranas') as FormArray;
     if (dataSarana.length > 1) {
-      dataSarana.removeAt(j)
+      dataSarana.removeAt(k)
     } else {
       dataSarana.reset()
     }
@@ -148,27 +243,18 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   public removeDataCCTV(m: number) {
-    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('cctvs') as FormArray;
+    const dataCCTV = this.formPerumahan.controls.formDataPerumahan.get('dataCCTV') as FormArray;
     if (dataCCTV.length > 1) {
       dataCCTV.removeAt(m)
     } else {
       dataCCTV.reset()
     }
   }
-
-  public removeDataKoordinat(m: number) {
-    const dataKoordinat = this.formPerumahan.controls.formDataPerumahan.get('koordinats') as FormArray;
-    if (dataKoordinat.length > 1) {
-      dataKoordinat.removeAt(m)
-    } else {
-      dataKoordinat.reset()
-    }
-  }
   /**
    * Create Data......................................
    * */
 
-  private createDataSaranaFormGroup() {
+  private createDataSaranaFormGroup(): FormGroup {
     return this.fb.group({
       nama_sarana: new FormControl(),
       luas_sarana: new FormControl(),
@@ -178,13 +264,6 @@ export class InputDataPerumahanComponent implements OnInit {
     })
   }
   private createKoordinat(): FormGroup {
-    return this.fb.group({
-      longitude: new FormControl(),
-      latitude: new FormControl(),
-    })
-  }
-
-  private createDataKoordinatFormGroup(): FormGroup {
     return this.fb.group({
       longitude: new FormControl(),
       latitude: new FormControl(),
@@ -227,7 +306,6 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   onSelectOption(status) {
-    console.log("onselect", status);
     if (status === "Sudah Serah Terima") {
       this.statusSerahTerima = true;
       this.statusBelumSerahTerima = false;

@@ -3,6 +3,7 @@
     <nb-card>
       <nb-card-header>Input Data Kawasan Perumahan</nb-card-header>
       <nb-card-body>
+        <nb-alert *ngIf="submitted" outline="success">Sukses tambah data</nb-alert>
         <form [formGroup]="formPerumahan" (ngSubmit)="inputDataPerumahans()">
           <div formGroupName="formDataPerumahan">
             <div class="form-group row">
@@ -48,7 +49,9 @@
                 <input type="file" (change)="onFileUpload($event)" name="fotos" multiple
                        placeholder="Foto Perumahan" id="fotoPerumahan" nbInput>
               </div>
-              <div *ngFor="let foto of formPerumahan.controls.formDataPerumahan.controls['fotos'].controls; let fot = index">
+              <div *ngFor="let foto of
+              formPerumahan.controls.formDataPerumahan['controls']['fotos']['controls']; let fot =
+              index">
                 <div [formGroupName]="fot">
                   <div class="col-sm-3">
                     <br>
@@ -64,25 +67,23 @@
 
               <div class="form-group row">
                 <label for="fotoPerumahan" class="label col-sm-3 col-form-label"></label>
-
               </div>
             </div>
-
 
             <div class="form-group row">
               <label class="label col-sm-3 col-form-label">Lokasi</label>
               <div class="col-sm-9">
-                <nb-select placeholder="Kecamatan" name="kecamatan"
-                           (selectedChange)="changeKecamatan($event)">
+                <nb-select class="select-kecamatan" placeholder="Kecamatan" name="kecamatan"
+                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan">
                   <nb-option *ngFor="let dataKecamatan of kecamatan"
-                             value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}</nb-option>
                 </nb-select>&nbsp;&nbsp;
 
-                <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kabupaten"
+                <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kelurahan"
                            formControlName="kelurahan"
                            (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
                   <nb-option *ngFor="let dataKelurahan of kelurahan"
-                             value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
+                             value="{{dataKelurahan['namaKelurahan']}}">{{dataKelurahan['namaKelurahan']}}</nb-option>
                 </nb-select>&nbsp;&nbsp;
 
                 <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
@@ -94,43 +95,39 @@
             </div>
 
             <!-- kordinat perumahan -->
-            <div formArrayName="koordinats">
-              <div *ngFor="let dataKoordinat of
-              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
-                        let u = index" [formGroupName]="u">
-
-                <div class="form-group row">
-                  <label for="longitude" class="label col-sm-3 col-form-label">Koordinat
-                    Perumahan <b>Data Ke-{{u + 1}}</b></label>
-                  <div class="col-sm-9">
-
-                    <input type="text" nbInput placeholder="Latitude"
-                           id="longitude" name="latitude" formControlName="longitude">
-                    <input type="text" nbInput placeholder="Latitude"
-                           id="latitude" name="latitude" formControlName="latitude">
-
-                  </div>
-                </div>
-
-
-                <div class="form-group row">
-                  <label class="label col-sm-3 col-form-label"></label>
-                  <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
-                            class="btn-hapus"
-                            (click)="addDataKoordinat()">
-                      <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                      Tambah Data
-                    </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
-                            class="btn-hapus" (click)="removeDataKoordinat(u)">
-                      <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                      Hapus Data
-                    </button>
+            <div class="form-group row">
+              <label for="longitudePerumahan"
+                     class="label col-sm-3 col-form-label">Koordinat Perumahan</label>
+              <div class="col-sm-9" formArrayName="koordinats">
+                <div *ngFor="let dataRumah of
+              formPerumahan.controls.formDataPerumahan['controls']['koordinats']['controls'];
+              let u = index" [formGroupName]="u">
+                  <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
+                         name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                  <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
+                         name="latitude"  formControlName="latitude">
+                  <div class="form-group row">
+                    <label class="label col-sm-3 col-form-label"></label>
+                    <div class="col-sm-9">
+                      <button type="button" nbButton status="success" nbButton size="tiny"
+                              class="btn-hapus"
+                              (click)="addDataKoordinatPerumahan()">
+                        <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                        Tambah Data
+                      </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                      <button type="button" nbButton status="danger" nbButton size="tiny"
+                              class="btn-hapus" (click)="removeKoordinatPerumahan(u)">
+                        <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                        Hapus Data
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+
+
+
             <!-- keterangan perumahan -->
             <div class="form-group row">
               <label for="keteranganPerumahan" class="label col-sm-3 col-form-label">Keterangan
@@ -193,7 +190,7 @@
             </div>
             <div formArrayName="saranas">
               <div *ngFor="let dataSarana of
-              formPerumahan.controls.formDataPerumahan.controls['saranas'].controls; let j =
+              formPerumahan.controls.formDataPerumahan['controls']['saranas']['controls']; let j =
               index"
                    [formGroupName]="j">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{j + 1}}</h3>
@@ -242,26 +239,42 @@
                   <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                     <div class="col-sm-9" formArrayName="koordinat">
-                      <div *ngFor="let dataSarana of
-              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls; let j =
-              index" [formGroupName]="j">
+                      <div *ngFor="let dataSarana of this.koordinatSaranas; let
+               j = index" [formGroupName]="j">
                       <input type="text" nbInput placeholder="Longitude" id="longitudesarana"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudesarana"
                              name="latitude"  formControlName="latitude">
+                        <div class="form-group row">
+                          <label class="label col-sm-3 col-form-label"></label>
+                          <div class="col-sm-9">
+                            <button type="button" nbButton status="success" nbButton size="tiny"
+                                    class="btn-hapus"
+                                    (click)="addDataKoordinatSarana()">
+                              <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                              Tambah Data
+                            </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <button type="button" nbButton status="danger" nbButton size="tiny"
+                                    class="btn-hapus" (click)="removeKoordinatSarana(j)">
+                              <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                              Hapus Data
+                            </button>
+                          </div>
+                        </div>
                     </div>
                     </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
                             (click)="addDataSarana()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny" class="btn-hapus" (click)="removeDataSarana(j)">
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
+                            class="btn-hapus" (click)="removeDataSarana(j)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
                     </button>
@@ -277,7 +290,7 @@
 
 
             <div formArrayName="jalansalurans">
-              <div *ngFor="let dataJalanSaluran of formPerumahan.controls.formDataPerumahan.controls['jalansalurans'].controls;
+              <div *ngFor="let dataJalanSaluran of formPerumahan.controls.formDataPerumahan['controls']['jalansalurans']['controls'];
               let k = index" [formGroupName]="k">
 
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{k + 1}}</h3>
@@ -327,27 +340,44 @@
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
+
                   <div class="col-sm-9" formArrayName="koordinatjalansalurans">
-                    <div *ngFor="let dataTaman of
-              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
+                    <div *ngFor="let dataTaman of this.koordinatJalanSalurans;
               let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudejalansaluran"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudejalansaluran"
                              name="latitude"  formControlName="latitude">
+                      <div class="form-group row">
+                        <label class="label col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                          <button type="button" nbButton status="success" nbButton size="tiny"
+                                  class="btn-hapus"
+                                  (click)="addDataKoordinatJalanSaluran()">
+                            <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                            Tambah Data
+                          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button type="button" nbButton status="danger" nbButton size="tiny"
+                                  class="btn-hapus" (click)="removeKoordinatJalanSaluran(n)">
+                            <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                            Hapus Data
+                          </button>
+                        </div>
+                      </div>
                     </div>
+
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
                             (click)="addDataJalanSaluran()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataJalanSaluran(k)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
@@ -363,7 +393,7 @@
             </div>
             <div formArrayName="tamans">
               <div *ngFor="let dataTaman of
-              formPerumahan.controls.formDataPerumahan.controls['tamans'].controls; let n = index" [formGroupName]="n">
+              formPerumahan.controls.formDataPerumahan['controls']['tamans'].controls; let n = index" [formGroupName]="n">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama
@@ -402,17 +432,32 @@
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
 
-                  <label for="koordinatTaman"
+                  <label
                          class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9" formArrayName="koordinattamans">
-                    <div *ngFor="let dataTaman of
-              formPerumahan.controls.formDataPerumahan.controls['koordinats'].controls;
+                    <div *ngFor="let dataTaman of this.koordinatTamans;
               let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudedatataman"
                              name="longitude" formControlName="longitude">,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudedatataman"
                              name="latitude"  formControlName="latitude">
+                      <div class="form-group row">
+                        <label class="label col-sm-3 col-form-label"></label>
+                        <div class="col-sm-9">
+                          <button type="button" nbButton status="success" nbButton size="tiny"
+                                  class="btn-hapus"
+                                  (click)="addDataKoordinatTaman()">
+                            <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                            Tambah Data
+                          </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                          <button type="button" nbButton status="danger" nbButton size="tiny"
+                                  class="btn-hapus" (click)="removeKoordinatTaman(n)">
+                            <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                            Hapus Data
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -420,13 +465,13 @@
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
                             (click)="addDataTaman()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataTaman(n)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
@@ -464,7 +509,7 @@
             </div>
             <div formArrayName="dataCCTV">
               <div *ngFor="let dataCCTV of
-              formPerumahan.controls.formDataPerumahan.controls['dataCCTV'].controls;
+              formPerumahan.controls.formDataPerumahan['controls']['dataCCTV']['controls'];
               let m = index" [formGroupName]="m">
 
                 <h3>Data Ke-{{m + 1}}</h3>
@@ -491,13 +536,13 @@
                 <div class="form-group row">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
                             (click)="addDataCCTV()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataCCTV(m)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data

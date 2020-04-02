@@ -2832,12 +2832,12 @@ export class PerumahanService extends TableDataPerumahan {
       sph: perumahan.sph,
       jumlah_psu : perumahan.jumlah_psu,
       keterangan: perumahan.keterangan,
-      fotos: [perumahan.fotos],
-      saranas : [perumahan.saranas],
-      jalansalurans: [perumahan.jalansalurans],
-      tamans: [perumahan.tamans],
-      cctvs: [perumahan.cctvs],
-      koordinats: [perumahan.koordinats],
+      fotos: perumahan.fotos,
+      saranas : perumahan.saranas,
+      jalansalurans: perumahan.jalansalurans,
+      tamans: perumahan.tamans,
+      cctvs: perumahan.cctvs,
+      koordinats: perumahan.koordinats,
     };
     console.log("perumahan data to post ", perumahanData);
     return await this.http.post(baseUrl, perumahanData).toPromise();
