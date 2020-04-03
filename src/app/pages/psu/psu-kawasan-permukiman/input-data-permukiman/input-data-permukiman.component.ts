@@ -145,49 +145,49 @@ export class InputDataPermukimanComponent implements OnInit {
 
   private createPengelolaFormGroup() {
     return this.fb.group({
-      nama: '',
-      umur: '',
-      pendidikan: '',
-      tugas: '',
-      keterangan: '',
+      nama: ['', Validators.required],
+      umur: ['', Validators.required],
+      pendidikan: ['', Validators.required],
+      tugas: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createDataInventarisAlatFormGroup(): FormGroup {
     return this.fb.group({
-      nama_alat: '',
-      jumlah: '',
-      keterangan: '',
+      nama_alat: ['', Validators.required],
+      jumlah: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createDataStatusFormGroup(): FormGroup {
     return this.fb.group({
-      operasional: '',
-      kondisi: '',
-      keterangan: '',
+      operasional: ['', Validators.required],
+      kondisi: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
     return this.fb.group({
-      nama_cctv: '',
-      ip_cctv: '',
-      video: '',
+      nama_cctv: ['', Validators.required],
+      ip_cctv: ['', Validators.required],
+      video: ['', Validators.required],
     })
   }
 
   private createDataKoordinatFormGroup(): FormGroup {
     return this.fb.group({
-      longitude: '',
-      latitude: '',
+      longitude: ['', Validators.required],
+      latitude: ['', Validators.required],
     })
   }
 
   private createImageGroup(img): FormGroup {
     return this.fb.group({
       path_foto: img,
-      nama_foto: '',
+      nama_foto: ['', Validators.required],
     })
   }
 
