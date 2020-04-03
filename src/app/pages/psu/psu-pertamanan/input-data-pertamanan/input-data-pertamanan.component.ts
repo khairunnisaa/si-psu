@@ -179,66 +179,66 @@ export class InputDataPertamananComponent implements OnInit {
 
   private createDataPetugasFormGroup() {
     return this.fb.group({
-      nama: new FormControl(),
-      umur: new FormControl(),
-      pendidikan_terakhir: new FormControl(),
-      tugas: new FormControl(),
-      keterangan: new FormControl(),
+      nama:  ['', Validators.required],
+      umur:  ['', Validators.required],
+      pendidikan_terakhir:  ['', Validators.required],
+      tugas:  ['', Validators.required],
+      keterangan:  ['', Validators.required],
     })
   }
 
   private createDataSoftscapeFormGroup() {
     return this.fb.group({
-      nama_alat: new FormControl(),
-      jumlah: new FormControl(),
-      merk: new FormControl(),
-      kondisi: new FormControl(),
-      tahun_perolehan: new FormControl(),
-      keterangan: new FormControl(),
+      nama_alat: ['', Validators.required],
+      jumlah: ['', Validators.required],
+      merk: ['', Validators.required],
+      kondisi: ['', Validators.required],
+      tahun_perolehan: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createDataHardscapeFormGroup() {
     return this.fb.group({
-      nama_alat: new FormControl(),
-      jumlah: new FormControl(),
-      merk: new FormControl(),
-      kondisi: new FormControl(),
-      tahun_perolehan: new FormControl(),
-      keterangan: new FormControl(),
+      nama_alat: ['', Validators.required],
+      jumlah: ['', Validators.required],
+      merk: ['', Validators.required],
+      kondisi: ['', Validators.required],
+      tahun_perolehan: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createDataPeralatanPemeliharaFormGroup() {
     return this.fb.group({
-      nama_alat: new FormControl(),
-      jumlah: new FormControl(),
-      merk: new FormControl(),
-      kondisi: new FormControl(),
-      tahun_diperoleh: new FormControl(),
-      keterangan: new FormControl(),
+      nama_alat: ['', Validators.required],
+      jumlah: ['', Validators.required],
+      merk: ['', Validators.required],
+      kondisi: ['', Validators.required],
+      tahun_diperoleh: ['', Validators.required],
+      keterangan: ['', Validators.required],
     })
   }
 
   private createKoordinatTamanFormGroup(): FormGroup {
     return this.fb.group({
-      longitude: new FormControl(),
-      latitude: new FormControl(),
+      longitude: ['', Validators.required],
+      latitude: ['', Validators.required],
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
     return this.fb.group({
-      nama_cctv: new FormControl(),
-      ip_cctv: new FormControl(),
-      video: new FormControl(),
+      nama_cctv: ['', Validators.required],
+      ip_cctv: ['', Validators.required],
+      video: ['', Validators.required],
     })
   }
 
   private createImageGroup(img): FormGroup {
     return this.fb.group({
       path_foto: img,
-      nama_foto: new FormControl(),
+      nama_foto: ['', Validators.required],
     })
   }
 
