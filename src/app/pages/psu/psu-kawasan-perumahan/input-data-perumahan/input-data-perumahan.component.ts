@@ -287,7 +287,7 @@ export class InputDataPerumahanComponent implements OnInit {
     return this.fb.group({
       nama_jalan_saluran: ['', Validators.required],
       luas_jalan_saluran: ['', Validators.required],
-      foto_jalan_saluran: new FormControl(),
+      foto_jalan_saluran: ['', Validators.required],
       kondisi: ['', Validators.required],
       koordinatjalansalurans: this.fb.array([this.createKoordinat()]),
     })
@@ -295,19 +295,19 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataTamanFormGroup(): FormGroup {
     return this.fb.group({
-      nama_taman: new FormControl(),
-      luas_taman: new FormControl(),
-      foto_taman: new FormControl(),
-      kondisi: new FormControl(),
+      nama_taman: ['', Validators.required],
+      luas_taman: ['', Validators.required],
+      foto_taman: ['', Validators.required],
+      kondisi: ['', Validators.required],
       koordinattamans: this.fb.array([this.createKoordinat()]),
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
     return this.fb.group({
-      nama_cctv: new FormControl(),
-      ip_cctv: new FormControl(),
-      video: new FormControl(),
+      nama_cctv: ['', Validators.required],
+      ip_cctv: ['', Validators.required],
+      video: ['', Validators.required],
     })
   }
 

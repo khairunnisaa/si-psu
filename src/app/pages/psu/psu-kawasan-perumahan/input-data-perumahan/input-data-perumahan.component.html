@@ -24,7 +24,8 @@
               <label for="namaPengembang" class="label col-sm-3 col-form-label">Nama
                 Pengembang</label>
               <div class="col-sm-9">
-                <input type="text" nbInput fullWidth placeholder="Nama Pengembang" id="namaPengembang"
+                <input type="text" nbInput fullWidth placeholder="Nama Pengembang"
+                       id="namaPengembang"
                        name="namaPengembang" formControlName="nama_pengembang"
                        class="form-control"
                        [ngClass]="{ 'is-invalid': submitted && f.nama_pengembang.errors }">
@@ -50,7 +51,7 @@
 
             <div class="form-group row">
               <label for="jumlah_perumahan" class="label col-sm-3 col-form-label">Jumlah Perumahan
-                </label>
+              </label>
               <div class="col-sm-9">
                 <input type="number" nbInput placeholder="Jumlah Perumahan" id="jumlah_perumahan"
                        name="jumlah_perumahan" formControlName="jumlah_rumah"
@@ -78,7 +79,8 @@
                     <img [src]="foto.value.path_foto" [alt]="foto.value.nama_foto"
                          width="220" height="150" *ngIf="foto.value.nama_foto"><br>
                     <label *ngIf="foto.value.path_foto"><br>
-                      <input formControlName="nama_foto" placeholder="nama foto" type="text"nbInput>
+                      <input formControlName="nama_foto" placeholder="nama foto" type="text"
+                             nbInput>
                     </label>
                   </div>
                 </div>
@@ -125,9 +127,26 @@
               formPerumahan.controls.formDataPerumahan['controls']['koordinats']['controls'];
               let u = index" [formGroupName]="u">
                   <input type="text" nbInput placeholder="Longitude" id="longitudePerumahan"
-                         name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                         name="longitude" formControlName="longitude"
+                         class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted &&
+                         dataRumah['controls'].longitude.errors }">
+                  <div *ngIf="submitted &&
+                    dataRumah['controls'].longitude.errors"
+                       class="invalid-feedback">
+                    <div *ngIf="dataRumah['controls'].longitude.errors.required">Masukan Koordinat Longitude</div>
+                  </div>,&nbsp;&nbsp;
+
+
                   <input type="text" nbInput placeholder="Latitude" id="latitidePerumahan"
-                         name="latitude"  formControlName="latitude">
+                         name="latitude" formControlName="latitude" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted &&
+                         dataRumah['controls'].latitude.errors }">
+                  <div *ngIf="submitted &&
+                    dataRumah['controls'].latitude.errors"
+                       class="invalid-feedback">
+                    <div *ngIf="dataRumah['controls'].latitude.errors.required">Masukan Koordinat Latitude</div>
+                  </div>
 
                   <button type="button" nbButton status="success" nbButton size="tiny"
                           class="btn-hapus"
@@ -142,7 +161,6 @@
                 </div>
               </div>
             </div>
-
 
 
             <!-- keterangan perumahan -->
@@ -169,12 +187,22 @@
                      class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Status</label>
               <div class="col-sm-9">
                 <nb-select (selectedChange)="onSelectOption($event)" placeholder="Status"
-                           class="select-status" name="status" id="status" formControlName="status">
+                           name="status" id="status" formControlName="status"
+                           class="form-control select-status"
+                           [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
                   <nb-option *ngFor="let pilih_status of statusSelect"
-                             value="{{pilih_status}}">{{pilih_status}}</nb-option>
+                             value="{{pilih_status}}">{{pilih_status}}
+                  </nb-option>
                 </nb-select>&nbsp;&nbsp;
+                <div *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                  <div *ngIf="f.status.errors.required">Pilih Status</div>
+                </div>
               </div>
             </div>
+
+
+
+
             <div class="form-group row" *ngIf="statusSerahTerima">
               <label for="tanggalSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Tanggal
                 Serah
@@ -182,14 +210,14 @@
               <div class="col-sm-9">
                 <input nbInput placeholder="Tanggal Serah Terima" [nbDatepicker]="formpicker"
                        name="tanggalSerahTerima" id="tanggalSerahTerima" class="form-control"
-                       formControlName="tgl_serah_terima"  [ngClass]="{ 'is-invalid': submitted && f.tgl_serah_terima.errors }">
+                       formControlName="tgl_serah_terima"
+                       [ngClass]="{ 'is-invalid': submitted && f.tgl_serah_terima.errors }">
                 <nb-datepicker #formpicker></nb-datepicker>
                 <div *ngIf="submitted && f.tgl_serah_terima.errors" class="invalid-feedback">
                   <div *ngIf="f.tgl_serah_terima.errors.required">Masukan Tanggal Serah Terima</div>
                 </div>
               </div>
             </div>
-
 
 
             <div class="form-group row" *ngIf="statusSerahTerima">
@@ -200,7 +228,7 @@
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="No. Berita Acara Serah Terima"
                        name="noBeritaAcaraSerahTerima" id="noBeritaAcaraSerahTerima"
-                       formControlName="no_bast"  class="form-control"
+                       formControlName="no_bast" class="form-control"
                        [ngClass]="{ 'is-invalid': submitted && f.no_bast.errors }">
                 <div *ngIf="submitted && f.no_bast.errors" class="invalid-feedback">
                   <div *ngIf="f.no_bast.errors.required">Masukan No. Berita Acara Serah Terima</div>
@@ -215,12 +243,13 @@
               </label>
               <div class="col-sm-9">
                 <input type="text" nbInput fullWidth placeholder="Surat Pengakuan Hak" id="sph"
-                       name="sph" formControlName="sph"class="form-control"
+                       name="sph" formControlName="sph" class="form-control"
                        [ngClass]="{ 'is-invalid': submitted && f.sph.errors }">
                 <div *ngIf="submitted && f.sph.errors" class="invalid-feedback">
                   <div *ngIf="f.sph.errors.required">Surat Pengakuan Hak</div>
                 </div>
               </div>
+
             </div>
 
             <!-- PSU YANG DISERAHKAN  sarana -->
@@ -240,7 +269,8 @@
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth id="namaSaranaPSU"
                            placeholder="Nama Sarana"
-                           name="namaSaranaPSU" formControlName="nama_sarana" class="form-control"
+                           name="namaSaranaPSU" formControlName="nama_sarana"
+                           class="form-control"
                            [ngClass]="{ 'is-invalid': submitted &&
                            dataSarana['controls'].nama_sarana.errors }"
                     >
@@ -249,7 +279,8 @@
                          class="invalid-feedback">
                       <div
                           *ngIf="dataSarana['controls'].nama_sarana.errors.required">Masukan Nama
-                        Sarana</div>
+                        Sarana
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -262,14 +293,13 @@
                            id="luasSaranaPSU"
                            name="luasSaranaPSU" formControlName="luas_sarana"
                            [ngClass]="{ 'is-invalid': submitted &&
-                           dataSarana['controls'].luas_sarana.errors }" class="form-control"
-                    >
-                    <div *ngIf="submitted &&
-                    dataSarana['controls'].luas_sarana.errors"
+                           dataSarana['controls'].luas_sarana.errors }" class="form-control">
+                    <div *ngIf="submitted && dataSarana['controls'].luas_sarana.errors"
                          class="invalid-feedback">
                       <div
                           *ngIf="dataSarana['controls'].luas_sarana.errors.required">Masukan Luas
-                        Sarana</div>
+                        Sarana
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -302,57 +332,61 @@
                       <div
                           *ngIf="dataSarana['controls'].kondisi_sarana.errors.required">Masukan
                         Kondisi
-                        Sarana</div>
+                        Sarana
+                      </div>
                     </div>
                   </div>
                 </div>
 
-<!--------------- Koordinat Sarana ------------------ Korrdinat Sarana --------------------------->
+                <!--------------- Koordinat Sarana ------------------ Korrdinat Sarana --------------------------->
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
-                    <div class="col-sm-9" formArrayName="koordinat">
-                      <div *ngFor="let dataSarana of this.koordinatSaranas; let
+                  <div class="col-sm-9" formArrayName="koordinat">
+                    <div *ngFor="let dataSarana of this.koordinatSaranas; let
                            j = index" [formGroupName]="j">
                       <input type="text" nbInput placeholder="Longitude" id="longitudesarana"
                              name="longitude" formControlName="longitude"
                              [ngClass]="{ 'is-invalid': submitted &&
                            dataSarana['controls'].longitude.errors }" class="form-control">
-                        <div *ngIf="submitted &&
+                      <div *ngIf="submitted &&
                     dataSarana['controls'].longitude.errors"
-                             class="invalid-feedback">
-                          <div
-                              *ngIf="dataSarana['controls'].longitude.errors.required">Masukan
-                            Longitude
-                            Sarana</div>
-                        </div>,&nbsp;&nbsp;
+                           class="invalid-feedback">
+                        <div
+                            *ngIf="dataSarana['controls'].longitude.errors.required">Masukan
+                          Longitude
+                          Sarana
+                        </div>
+                      </div>
+                      ,&nbsp;&nbsp;
                       <input type="text" nbInput placeholder="Latitude" id="latitudesarana"
-                             name="latitude"  formControlName="latitude"
+                             name="latitude" formControlName="latitude"
                              [ngClass]="{ 'is-invalid': submitted &&
                            dataSarana['controls'].latitude.errors }" class="form-control">
-                        <div *ngIf="submitted &&
+                      <div *ngIf="submitted &&
                     dataSarana['controls'].latitude.errors"
-                             class="invalid-feedback">
-                          <div
-                              *ngIf="dataSarana['controls'].latitude.errors.required">Masukan
-                            Latitude
-                            Sarana</div>
+                           class="invalid-feedback">
+                        <div
+                            *ngIf="dataSarana['controls'].latitude.errors.required">Masukan
+                          Latitude
+                          Sarana
                         </div>
+                      </div>
 
 
-                        <button type="button" nbButton status="success" nbButton size="tiny"
-                                class="btn-hapus"
-                                (click)="addDataKoordinatSarana()">
-                          <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
-                        </button>
-                        <button type="button" nbButton status="danger" nbButton size="tiny"
-                                class="btn-hapus" (click)="removeKoordinatSarana(j)">
-                          <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
-                        </button>
+                      <button type="button" nbButton status="success" nbButton size="tiny"
+                              class="btn-hapus"
+                              (click)="addDataKoordinatSarana()">
+                        <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                      </button>
+                      <button type="button" nbButton status="danger" nbButton size="tiny"
+                              class="btn-hapus" (click)="removeKoordinatSarana(j)">
+                        <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                      </button>
 
                     </div>
-                    </div>
+                  </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label"></label>
@@ -394,16 +428,21 @@
                            placeholder="Nama Jalan dan Saluran" name="namajalanSaluran"
                            formControlName="nama_jalan_saluran"
                            [ngClass]="{ 'is-invalid': submitted &&
-                           dataJalanSaluran['controls'].nama_jalan_saluran.errors }" class="form-control">
+                           dataJalanSaluran['controls'].nama_jalan_saluran.errors }"
+                           class="form-control">
                     <div *ngIf="submitted &&
                     dataJalanSaluran['controls'].nama_jalan_saluran.errors"
                          class="invalid-feedback">
                       <div
-                          *ngIf="dataJalanSaluran['controls'].nama_jalan_saluran.errors.required">Masukan
-                        Nama Jalan Saluran</div>
+                          *ngIf="dataJalanSaluran['controls'].nama_jalan_saluran.errors.required">
+                        Masukan
+                        Nama Jalan Saluran
+                      </div>
                     </div>
                   </div>
                 </div>
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="luasJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas
                     Jalan dan
@@ -413,36 +452,58 @@
                            placeholder="Luas Jalan dan Saluran"
                            formControlName="luas_jalan_saluran"
                            [ngClass]="{ 'is-invalid': submitted &&
-                           dataJalanSaluran['controls'].luas_jalan_saluran.errors }" class="form-control">
-                    <div *ngIf="submitted &&
-                    dataJalanSaluran['controls'].luas_jalan_saluran.errors"
+                           dataJalanSaluran['controls'].luas_jalan_saluran.errors }"
+                           class="form-control">
+                    <div *ngIf="submitted && dataJalanSaluran['controls'].luas_jalan_saluran.errors"
                          class="invalid-feedback">
-                      <div
-                          *ngIf="dataJalanSaluran['controls'].luas_jalan_saluran.errors.required">Masukan
-                       Luas Jalan Saluran</div>
+                      <div *ngIf="dataJalanSaluran['controls'].luas_jalan_saluran.errors.required">
+                        Masukan
+                        Luas Jalan Saluran
+                      </div>
                     </div>
                   </div>
                 </div>
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="fotoJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto
                     Jalan dan Saluran</label>
                   <div class="col-sm-9">
-                    <input type="file" nbInput fullWidth id="fotoJalanSaluran"
+                    <input type="file" nbInput id="fotoJalanSaluran"
                            placeholder="Foto Jalan dan Saluran" name="fotoJalanSaluran"
-                           formControlName="foto_jalan_saluran">
+                           formControlName="foto_jalan_saluran"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                           dataJalanSaluran['controls'].foto_jalan_saluran.errors }"
+                           class="form-control">
+                    <div *ngIf="submitted && dataJalanSaluran['controls'].foto_jalan_saluran.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataJalanSaluran['controls'].foto_jalan_saluran.errors.required">
+                        Masukan Foto Jalan Saluran
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="kondisiJalanSaluran" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi
                     Jalan dan Saluran</label>
                   <div class="col-sm-9">
                     <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
                                name="kondisiJalanSaluran" id="kondisiJalanSaluran"
-                               formControlName="kondisi">
+                               formControlName="kondisi" [ngClass]="{ 'is-invalid': submitted &&
+                               dataJalanSaluran['controls'].kondisi.errors }"
+                               class="form-control">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
                     </nb-select>&nbsp;&nbsp;
+                    <div *ngIf="submitted && dataJalanSaluran['controls'].kondisi.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataJalanSaluran['controls'].kondisi.errors.required">
+                        Pilih Kondisi Jalan Saluran
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -450,25 +511,44 @@
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
 
                   <div class="col-sm-9" formArrayName="koordinatjalansalurans">
-                    <div *ngFor="let dataTaman of this.koordinatJalanSalurans;
+                    <div *ngFor="let dataJalanSaluran of this.koordinatJalanSalurans;
                          let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudejalansaluran"
-                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
-                      <input type="text" nbInput placeholder="Latitude" id="latitudejalansaluran"
-                             name="latitude"  formControlName="latitude">
+                             name="longitude" formControlName="longitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                               dataJalanSaluran['controls'].longitude.errors }"
+                             class="form-control">,&nbsp;&nbsp;
+                      <div *ngIf="submitted && dataJalanSaluran['controls'].longitude.errors"
+                           class="invalid-feedback">
+                        <div *ngIf="dataJalanSaluran['controls'].longitude.errors.required">
+                          Masukan Koordinat Longitude
+                        </div>
+                      </div>
 
-                      <button type="button" nbButton status="success" nbButton size="tiny"
+
+                      <input type="text" nbInput placeholder="Latitude" id="latitudejalansaluran"
+                             name="latitude" formControlName="latitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                               dataJalanSaluran['controls'].latitude.errors }"
+                             class="form-control">
+                      <div *ngIf="submitted && dataJalanSaluran['controls'].latitude.errors"
+                           class="invalid-feedback">
+                        <div *ngIf="dataJalanSaluran['controls'].latitude.errors.required">
+                          Masukan Koordinat Latitude
+                        </div>
+                      </div>
+
+                      <button type="button" status="success" nbButton size="tiny"
                               class="btn-hapus"
                               (click)="addDataKoordinatJalanSaluran()">
                         <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       </button>
-                      <button type="button" nbButton status="danger" nbButton size="tiny"
+                      <button type="button" status="danger" nbButton size="tiny"
                               class="btn-hapus" (click)="removeKoordinatJalanSaluran(n)">
                         <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       </button>
 
                     </div>
-
                   </div>
                 </div>
                 <div class="form-group row" *ngIf="statusSerahTerima">
@@ -496,55 +576,131 @@
             </div>
             <div formArrayName="tamans">
               <div *ngFor="let dataTaman of
-              formPerumahan.controls.formDataPerumahan['controls']['tamans'].controls; let n = index" [formGroupName]="n">
+              formPerumahan.controls.formDataPerumahan['controls']['tamans'].controls; let n = index"
+                   [formGroupName]="n">
                 <h3 *ngIf="statusSerahTerima">Data Ke-{{n + 1}}</h3>
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama
-                    Taman</label>
+                  <label for="namaTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Nama Taman</label>
                   <div class="col-sm-9">
-                    <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman" id="namaTaman" formControlName="nama_taman">
+                    <input type="text" nbInput fullWidth placeholder="Nama Taman" name="namaTaman"
+                           id="namaTaman" formControlName="nama_taman"[ngClass]="{ 'is-invalid': submitted &&
+                               dataTaman['controls'].nama_taman.errors }"
+                           class="form-control">
+                    <div *ngIf="submitted && dataTaman['controls'].nama_taman.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataTaman['controls'].nama_taman.errors.required">
+                        Masukan Nama Taman
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas Taman</label>
+                  <label for="luasTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Luas
+                    Taman</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Luas Taman"
                            name="luasTaman"
-                           id="luasTaman" formControlName="luas_taman">
+                           id="luasTaman" formControlName="luas_taman"
+                           [ngClass]="{ 'is-invalid': submitted &&
+                            dataTaman['controls'].luas_taman.errors }"
+                           class="form-control">
+                    <div *ngIf="submitted && dataTaman['controls'].luas_taman.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataTaman['controls'].luas_taman.errors.required">
+                        Masukan Luas Taman
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+
+
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
-                  <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto Taman</label>
+                  <label for="fotoTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Foto
+                    Taman</label>
                   <div class="col-sm-9">
                     <input type="file" nbInput placeholder="Foto Taman" id="fotoTaman"
                            name="fotoTaman" formControlName="foto_taman">
+                    <div *ngIf="submitted && dataTaman['controls'].foto_taman.errors"
+                            [ngClass]="{ 'is-invalid': submitted &&
+                            dataTaman['controls'].foto_taman.errors }"
+                         class="form-control invalid-feedback">
+                      <div *ngIf="dataTaman['controls'].foto_taman.errors.required">
+                        Masukan Foto Taman
+                      </div>
+                    </div>
                   </div>
                 </div>
+
+
+
+
+
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label for="kondisiTaman" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Kondisi
                     Taman</label>
                   <div class="col-sm-9">
-                    <nb-select placeholder="Kondisi Dalam Keadaan..." class="select-kondisi"
+                    <nb-select placeholder="Kondisi Dalam Keadaan..."
                                id="kondisiTaman" name="kondisiTaman"
-                               formControlName="kondisi" >
+                               formControlName="kondisi"
+                               [ngClass]="{ 'is-invalid': submitted &&
+                               dataTaman['controls'].foto_taman.errors }"
+                               class="form-control select-kondisi">
                       <nb-option value="Baik">Baik</nb-option>
                       <nb-option value="Ringan">Ringan</nb-option>
                       <nb-option value="Rusak Berat">Rusak Berat</nb-option>
                     </nb-select>&nbsp;&nbsp;
+                    <div *ngIf="submitted && dataTaman['controls'].kondisi.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataTaman['controls'].kondisi.errors.required">
+                        Masukan Luas Taman
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="form-group row" *ngIf="statusSerahTerima">
 
+
+
+
+                <div class="form-group row" *ngIf="statusSerahTerima">
                   <label
-                         class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
+                      class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Koordinat<br>
                     &nbsp;&nbsp;&nbsp;&nbsp;(Poin Polygon Polyline)</label>
                   <div class="col-sm-9" formArrayName="koordinattamans">
                     <div *ngFor="let dataTaman of this.koordinatTamans;
                           let n = index" [formGroupName]="n">
                       <input type="text" nbInput placeholder="Longitude" id="longitudedatataman"
-                             name="longitude" formControlName="longitude">,&nbsp;&nbsp;
+                             name="longitude" formControlName="longitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                               dataTaman['controls'].longitude.errors }"
+                             class="form-control">,&nbsp;&nbsp;
+
+                      <div *ngIf="submitted && dataTaman['controls'].longitude.errors"
+                           class="invalid-feedback">
+                        <div *ngIf="dataTaman['controls'].longitude.errors.required">
+                          Masukan Koordinat Longitude
+                        </div>
+                      </div>
+
+
                       <input type="text" nbInput placeholder="Latitude" id="latitudedatataman"
-                             name="latitude"  formControlName="latitude">
+                             name="latitude" formControlName="latitude"
+                             [ngClass]="{ 'is-invalid': submitted &&
+                               dataTaman['controls'].latitude.errors }"
+                             class="form-control">
+
+                      <div *ngIf="submitted && dataTaman['controls'].longitude.errors"
+                           class="invalid-feedback">
+                        <div *ngIf="dataTaman['controls'].longitude.errors.required">
+                          Masukan Koordinat Longitude
+                        </div>
+                      </div>
+
 
                       <button type="button" nbButton status="success" nbButton size="tiny"
                               class="btn-hapus"
@@ -555,10 +711,12 @@
                               class="btn-hapus" (click)="removeKoordinatTaman(n)">
                         <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       </button>
-
                     </div>
                   </div>
                 </div>
+
+
+
 
                 <div class="form-group row" *ngIf="statusSerahTerima">
                   <label class="label col-sm-3 col-form-label"></label>
@@ -579,7 +737,10 @@
               </div>
             </div>
 
-<!---------------- Taman --------------------- Taman ------------------------------ Taman -->
+
+
+
+            <!---------------- Taman --------------------- Taman ------------------------------ Taman -->
             <div class="form-group row" *ngIf="statusBelumSerahTerima">
               <label for="keteranganBelumSerahTerima" class="label col-sm-3 col-form-label">&nbsp;&nbsp;&nbsp;&nbsp;Keterangan
               </label>
@@ -587,7 +748,13 @@
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Belum Serah Terima"
                         name="keteranganBelumSerahTerima"
-                        id="keteranganBelumSerahTerima"></textarea>
+                        id="keteranganBelumSerahTerima"
+                        formControlName="keterangan"   class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.keterangan.errors }">
+              </textarea>
+                <div *ngIf="submitted && f.keterangan.errors" class="invalid-feedback">
+                  <div *ngIf="f.keterangan.errors.required"> Masukan Keterangan</div>
+                </div>
               </div>
             </div>
 
@@ -597,7 +764,13 @@
               <div class="col-sm-9">
               <textarea rows="5" nbInput fullWidth shape="round"
                         placeholder="Keterangan Terlantar"
-                        id="keteranganTerlantar" name="keteranganTerlantar"></textarea>
+                        id="keteranganTerlantar" name="keteranganTerlantar"
+                        formControlName="keterangan"   class="form-control"
+                        [ngClass]="{ 'is-invalid': submitted && f.keterangan.errors }">
+              </textarea>
+                <div *ngIf="submitted && f.keterangan.errors" class="invalid-feedback">
+                  <div *ngIf="f.keterangan.errors.required"> Masukan Keterangan</div>
+                </div>
               </div>
             </div>
 
@@ -616,7 +789,17 @@
                     Perumahan</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV Perumahan"
-                           id="namaCCTVPerumahan" name="namaCCTVPerumahan" formControlName="nama_cctv">
+                           id="namaCCTVPerumahan" name="namaCCTVPerumahan"
+                           formControlName="nama_cctv" [ngClass]="{ 'is-invalid': submitted &&
+                               dataCCTV['controls'].nama_cctv.errors }"
+                           class="form-control">
+
+                    <div *ngIf="submitted && dataCCTV['controls'].nama_cctv.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataCCTV['controls'].nama_cctv.errors.required">
+                        Masukan Nama CCTV
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -626,7 +809,17 @@
                     Camera</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="IP Camera"
-                           id="ipCameraPerumahan" name="ipCameraPerumahan" formControlName="ip_cctv">
+                           id="ipCameraPerumahan" name="ipCameraPerumahan"
+                           formControlName="ip_cctv"formControlName="nama_cctv" [ngClass]="{ 'is-invalid': submitted &&
+                               dataCCTV['controls'].ip_cctv.errors }"
+                           class="form-control">
+
+                    <div *ngIf="submitted && dataCCTV['controls'].ip_cctv.errors"
+                         class="invalid-feedback">
+                      <div *ngIf="dataCCTV['controls'].ip_cctv.errors.required">
+                        Masukan IP CCTV
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -651,17 +844,24 @@
 
             <hr>
             <button type="submit" nbButton size="small" status="primary" class="btn-submit">
-              <nb-icon icon="save-outline" pack="eva"></nb-icon> Simpan
+              <nb-icon icon="save-outline" pack="eva"></nb-icon>
+              Simpan
             </button>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button routerLink="../../../pages/psu-kawasan-perumahan/kelola-data-perumahan"
                     type="button"
-                    nbButton size="small" status="danger"> <nb-icon
-              icon="close-circle-outline" pack="eva"></nb-icon>Batal</button>
+                    nbButton size="small" status="danger">
+              <nb-icon
+                  icon="close-circle-outline" pack="eva"></nb-icon>
+              Batal
+            </button>
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="reset"
-                    nbButton size="small" status="info"> <nb-icon
-              icon="refresh-outline" pack="eva"></nb-icon>Reset</button>
+                    nbButton size="small" status="info">
+              <nb-icon
+                  icon="refresh-outline" pack="eva"></nb-icon>
+              Reset
+            </button>
           </div>
         </form>
       </nb-card-body>
