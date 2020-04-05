@@ -20,8 +20,8 @@ export class PerumahanService extends TableDataPerumahan {
 
   // emulating request to the server
   async getData() {
-    const data = await this.http.get(baseUrl + '/mutipleFiles').toPromise();
-    // console.log("Data: " + JSON.stringify(data['data']));
+    const data = await this.http.get(baseUrl).toPromise();
+    console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
   }
 

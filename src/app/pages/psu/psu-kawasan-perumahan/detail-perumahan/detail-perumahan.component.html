@@ -66,19 +66,20 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataSarana of this.state.dataPerumahan.saranas">
-        <th scope="row">{{dataSarana.id}}</th>
+      <tr *ngFor="let dataSarana of this.state.dataPerumahan.saranas let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{dataSarana.nama_sarana}}</td>
         <td>{{dataSarana.luas_sarana}}</td>
-        <td *ngIf="dataSarana.foto_sarana!==null">
+        <td>
+          <div *ngIf="dataSarana.foto_sarana!==null">
           <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana.split(',')" target="_blank"
              href="{{dataFotoSarana}}">
           <img src="{{dataFotoSarana}}" style="width:150px">
-          </a></td>
+          </a></div></td>
         <td>{{dataSarana.kondisi_sarana}}</td>
-        <td *ngFor="let dataLongitude of dataSarana.koordinat">
+        <td *ngFor="let dataLongitude of dataSarana['koordinat']">
           {{dataLongitude.longitude}}</td>
-        <td *ngFor="let dataLatitude of dataSarana.koordinat">
+        <td *ngFor="let dataLatitude of dataSarana['koordinat']">
           {{dataLatitude.latitude}}</td>
       </tr>
     </table>
@@ -109,7 +110,6 @@
                                                                    href="{{dataFotoJalanSaluran}}">
         <img src="{{dataFotoJalanSaluran}}" style="width:150px">
       </a></td>
-        <td>{{dataJalanSaluran.kondisi}}</td>
         <td>{{dataJalanSaluran.kondisi}}</td>
         <td *ngFor="let dataLatitude of dataJalanSaluran['koordinatjalansalurans']">
           {{dataLatitude.longitude}}</td>
@@ -146,9 +146,9 @@
           <img src="{{dataFotoTaman}}" style="width:150px"></a>
         </td>
         <td>{{dataTaman.kondisi}}</td>
-        <td *ngFor="let dataLongitude of dataTaman.koordinat">
+        <td *ngFor="let dataLongitude of dataTaman['koordinattamans']">
           {{dataLongitude.longitude}}</td>
-        <td *ngFor="let dataLatitude of dataTaman.koordinat">
+        <td *ngFor="let dataLatitude of dataTaman['koordinattamans']">
           {{dataLatitude.latitude}}</td>
       </tr>
       </tbody>

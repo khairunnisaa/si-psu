@@ -33,7 +33,7 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log("row rumah == ", row, cell);
+          console.log("row rumah == ", cell);
           return cell;
         },
         renderComponent: RouterLinkPerumahanComponent,
@@ -147,9 +147,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
         search: kelurahan,
       },
     ], true);
-    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
-    // this.selectedData).states.find(state => state.name === state).cities;
-    console.log("kelurahan ini", kelurahan, kecamatan)
   }
 
   exportAsXLSX() {
@@ -172,9 +169,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
         search: status,
       },
     ], false);
-    // this.kabupaten = this.getKecamatanService.getData().find(cntry => cntry.kecamatan ===
-    // this.selectedData).states.find(state => state.name === state).cities;
-    console.log("kelurahan ini", status)
   }
 
   goBack() {
