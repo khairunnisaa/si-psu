@@ -20,7 +20,7 @@ export class PerumahanService extends TableDataPerumahan {
 
   // emulating request to the server
   async getData() {
-    const data = await this.http.get(baseUrl).toPromise();
+    const data = await this.http.get(baseUrl + '/mutipleFiles').toPromise();
     // console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
   }
@@ -41,15 +41,21 @@ export class PerumahanService extends TableDataPerumahan {
       sph: perumahan.sph,
       jumlah_psu : perumahan.jumlah_psu,
       keterangan: perumahan.keterangan,
-      fotos: perumahan.fotos,
+      // fotos: perumahan.fotos,
       saranas : perumahan.saranas,
       jalansalurans: perumahan.jalansalurans,
       tamans: perumahan.tamans,
-      cctvs: perumahan.cctvs,
+      cctvs: perumahan.dataCCTV,
       koordinats: perumahan.koordinats,
     };
     console.log("perumahan data to post ", perumahanData);
     return await this.http.post(baseUrl, perumahanData).toPromise();
+  }
+
+  async postImage(formData) {
+    await this.http.post('http://localhost:7777/fotos/mutipleFiles', formData).toPromise().then(res => {
+      console.log("respon image", res);
+    });
   }
 
   exportAsExcelFile(json: any[], excelFileName: string): void {

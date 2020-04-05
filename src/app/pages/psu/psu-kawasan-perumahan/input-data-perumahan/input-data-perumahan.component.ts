@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
-import {LocalDataSource} from "ng2-smart-table";
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {TableDataKecamatan} from '../../../../@core/data/kecamatan';
+import {LocalDataSource} from 'ng2-smart-table';
 import {TableDataPerumahan} from '../../../../@core/data/perumahan';
 
 @Component({
@@ -25,7 +25,8 @@ export class InputDataPerumahanComponent implements OnInit {
   koordinatSaranas: any;
   koordinatJalanSalurans: any;
   koordinatTamans: any;
-  urls: any[] = [];
+  // urls: any[] = [];
+  images: [];
 
   constructor(
     private getKecamatanService: TableDataKecamatan,
@@ -53,7 +54,7 @@ export class InputDataPerumahanComponent implements OnInit {
         no_bast : ['', Validators.required],
         sph : ['', Validators.required],
         keterangan : ['', Validators.required],
-        fotos: this.fb.array([this.createImageGroup('')]),
+        fotos: this.fb.array([]),
         saranas: this.fb.array([this.createDataSaranaFormGroup()]),
         jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
         tamans: this.fb.array([this.createDataTamanFormGroup()]),
@@ -107,13 +108,25 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   inputDataPerumahans() {
-    console.log("form value perumahan", this.formPerumahan.value.formDataPerumahan);
+    console.log("form value perumahan", this.formPerumahan);
+    // if (this.formPerumahan.invalid) {
+    //   return;
+    // } else {
+
     this.service.postData(this.formPerumahan.value.formDataPerumahan).then(res => {
       if (res.status === 'OK') {
         this.submitted = true;
-        // window.history.back();
       }
-    });
+      // });
+    })
+    const formData = new FormData();
+    console.log(this.images);
+    if (this.images.length > 0) {
+    for (const img of this.images) {
+      formData.append('files', img);
+    }
+  }
+    this.service.postImage(formData)
   }
   ngOnInit() {
     this.statusSerahTerima = false;
@@ -287,7 +300,7 @@ export class InputDataPerumahanComponent implements OnInit {
     return this.fb.group({
       nama_jalan_saluran: ['', Validators.required],
       luas_jalan_saluran: ['', Validators.required],
-      foto_jalan_saluran: ['', Validators.required],
+      foto_jalan_saluran: new FormControl(),
       kondisi: ['', Validators.required],
       koordinatjalansalurans: this.fb.array([this.createKoordinat()]),
     })
@@ -297,7 +310,7 @@ export class InputDataPerumahanComponent implements OnInit {
     return this.fb.group({
       nama_taman: ['', Validators.required],
       luas_taman: ['', Validators.required],
-      foto_taman: ['', Validators.required],
+      foto_taman: new FormControl(),
       kondisi: ['', Validators.required],
       koordinattamans: this.fb.array([this.createKoordinat()]),
     })
@@ -335,17 +348,18 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   onFileUpload(event: any) {
-    this.urls = [];
-    const selectedFiles = event.target.files;
-    if (selectedFiles) {
-      for (const file of selectedFiles) {
-        const reader = new FileReader();
-        reader.onload = (e: any) => {
-          this.urls.push(e.target.result);
-          this.addFotos(e.target.result);
-        };
+    // this.urls = [];
+    if (event.target.files.length > 0) {
+      this.images = event.target.files;
+      for (const file of this.images) {
+            const reader = new FileReader();
+            reader.onload = (e: any) => {
+              // this.urls.push(e.target.result);
+              this.addFotos(e.target.result);
+            };
         reader.readAsDataURL(file);
-      }
+    }
     }
   }
 }
+
