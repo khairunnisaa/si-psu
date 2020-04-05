@@ -45,7 +45,7 @@ export class PerumahanService extends TableDataPerumahan {
       saranas : perumahan.saranas,
       jalansalurans: perumahan.jalansalurans,
       tamans: perumahan.tamans,
-      cctvs: perumahan.dataCCTV,
+      cctvs: perumahan.cctvs,
       koordinats: perumahan.koordinats,
     };
     console.log("perumahan data to post ", perumahanData);
