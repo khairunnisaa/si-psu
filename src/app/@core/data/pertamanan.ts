@@ -1,4 +1,4 @@
 export abstract class TableDataPertamanan {
-  abstract getData(): any[];
-  // abstract postData(pertamanan);
+  abstract getData(): Promise<any>;
+  abstract postData(pertamanan);
 }

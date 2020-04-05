@@ -95,9 +95,11 @@ export class KelolaDataPertamananComponent implements OnInit {
   constructor(private service: TableDataPertamanan,
               private getKecamatanService: TableDataKecamatan,
               private location: Location) {
-
-    const data = this.service.getData();
-    this.source = new LocalDataSource(data);
+    this.source = new LocalDataSource();
+    const data = this.service.getData().then((datas) => {
+      console.log("datapertamanan", datas);
+      this.source.load(datas);
+    });
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
     this.years = [];

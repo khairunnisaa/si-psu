@@ -243,14 +243,13 @@ export class InputDataPertamananComponent implements OnInit {
   }
 
   inputDataPertamanans() {
-    console.log("form value perumahan", this.formPertamanan.value.formDataPertamanan);
-    // this.service.postData(this.formPertamanan.value.formDataPertamanan);
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.formPertamanan.invalid) {
-      return;
-    }
+    console.log("form value Pertamanan", this.formPertamanan.value.formDataPertamanan);
+    this.service.postData(this.formPertamanan.value.formDataPertamanan).then(res => {
+      if (res.status === 'OK') {
+        this.submitted = true;
+        // window.history.back();
+      }
+    });
 
     // display form values on success
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formPertamanan.value, null, 4));

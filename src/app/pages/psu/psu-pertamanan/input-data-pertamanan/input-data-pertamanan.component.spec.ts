@@ -8,7 +8,7 @@ describe('InputDataPertamananComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InputDataPertamananComponent ]
+      declarations: [ InputDataPertamananComponent ],
     })
     .compileComponents();
   }));
