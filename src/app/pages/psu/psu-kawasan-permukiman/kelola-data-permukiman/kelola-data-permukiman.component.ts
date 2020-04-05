@@ -50,7 +50,7 @@ export class KelolaDataPermukimanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      daya_tampung_tpu: {
+      data_tampung_tpu: {
         title: 'Daya Tampung',
         type: 'string',
         filter: false,
@@ -100,8 +100,12 @@ export class KelolaDataPermukimanComponent implements OnInit {
     private getKecamatanService: TableDataKecamatan,
     private location: Location,
   ) {
-    const data = this.service.getData();
-    this.source = new LocalDataSource(data);
+    // const data = this.service.getData();
+    this.source = new LocalDataSource();
+    const data = this.service.getData().then((datas) => {
+      console.log("datapermukiman", datas);
+      this.source.load(datas);
+    });
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
   }

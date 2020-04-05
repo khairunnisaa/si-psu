@@ -33,8 +33,6 @@ export class InputDataPermukimanComponent implements OnInit {
     private fb: FormBuilder,
     private service: TableDataPermukiman,
   ) {
-    const data = this.getKecamatanService.getData();
-    this.source = new LocalDataSource(data);
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
 
@@ -44,7 +42,7 @@ export class InputDataPermukimanComponent implements OnInit {
         luas_tpu: ['', Validators.required],
         daya_tampung_tpu: ['', Validators.required],
         tahun_digunakan: ['', Validators.required],
-        kecamatan: ['', Validators.required],
+        kecamatan:  new FormControl(),
         kelurahan: ['', Validators.required],
         RT: ['', Validators.required],
         RW: ['', Validators.required],
@@ -218,14 +216,13 @@ export class InputDataPermukimanComponent implements OnInit {
   }
 
   inputDataPermukimans() {
-    console.log("form value perumahan", this.formPermukiman.value.formDataPermukiman);
-
-    this.submitted = true;
-
-    // stop here if form is invalid
-    if (this.formPermukiman.invalid) {
-      return;
-    }
+    console.log("form value Permukiman", this.formPermukiman.value.formDataPermukiman);
+    this.service.postData(this.formPermukiman.value.formDataPermukiman).then(res => {
+      if (res.status === 'OK') {
+        this.submitted = true;
+        // window.history.back();
+      }
+    });
 
     // display form values on success
     alert('SUCCESS!! :-)\n\n' + JSON.stringify(this.formPermukiman.value, null, 4));

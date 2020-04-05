@@ -62,39 +62,59 @@
               </div>
             </div>
 
+<!--            <div class="form-group row">-->
+<!--              <label class="label col-sm-3 col-form-label">Lokasi</label>-->
+<!--              <div class="col-sm-9">-->
+<!--                <nb-select placeholder="Kecamatan" name="kecamatan"-->
+<!--                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan"-->
+<!--                           class="select-kecamatan">-->
+<!--                  <nb-option *ngFor="let dataKecamatan of kecamatan"-->
+<!--                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}-->
+<!--                  </nb-option>-->
+<!--                </nb-select>-->
+
+
+<!--                <nb-select placeholder="Kelurahan" name="kelurahan"-->
+<!--                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan"-->
+<!--                           formControlName="kelurahan" class="select-kecamata">-->
+<!--                  <nb-option *ngFor="let dataKelurahan of kelurahan"-->
+<!--                             value="{{dataKelurahan.namaKelurahan}}">{{dataKelurahan.namaKelurahan}}</nb-option>-->
+<!--                </nb-select>&nbsp;&nbsp;-->
+
+<!--                <input type="text" nbInput placeholder="RT" name="rt"-->
+<!--                       formControlName="RT" formControlName="RT" class="select-rt-rw">-->
+<!--                &nbsp;&nbsp;-->
+
+<!--                <input type="text" nbInput placeholder="RW" name="rw"-->
+<!--                       formControlName="RW" formControlName="RW" class="select-rt-rw">-->
+
+<!--              </div>-->
+<!--            </div>-->
+
             <div class="form-group row">
               <label class="label col-sm-3 col-form-label">Lokasi</label>
               <div class="col-sm-9">
-                <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
-                           id="kecamatan" (selectedChange)="changeKecamatan($event)"
-                           class="form-control select-kecamatan"
-                           [ngClass]="{ 'is-invalid': submitted && f.kecamatan.errors }">
+                <nb-select placeholder="Kecamatan" name="kecamatan"
+                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan"
+                           class="select-kecamatan">
                   <nb-option *ngFor="let dataKecamatan of kecamatan"
-                             value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
-                </nb-select>&nbsp;&nbsp;
-                <div *ngIf="submitted && f.kecamatan.errors" class="invalid-feedback">
-                  <div *ngIf="f.kecamatan.errors.required">Pilih Kecamatan</div>
-                </div>
-
-
-                <nb-select placeholder="Kelurahan" class="select-kelurahan" name="kelurahan"
-                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan"
-                           formControlName="kelurahan" class="form-control select-kecamatan"
-                           [ngClass]="{ 'is-invalid': submitted && f.kecamatan.errors }">
-                  <nb-option *ngFor="let dataKelurahan of kelurahan"
-                             value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
-                </nb-select>&nbsp;&nbsp;
-                <div *ngIf="submitted && f.kecamatan.errors" class="invalid-feedback">
-                  <div *ngIf="f.kecamatan.errors.required">Pilih Kecamatan</div>
-                </div>
-
-                <input type="text" nbInput placeholder="RT" name="rt"
-                       formControlName="RT" formControlName="RT" class="select-rt-rw">
+                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}
+                  </nb-option>
+                </nb-select>
                 &nbsp;&nbsp;
 
-                <input type="text" nbInput placeholder="RW" name="rw"
-                       formControlName="RW" formControlName="RW" class="select-rt-rw">
+                <nb-select placeholder="Kelurahan" class="select-kecamatan" name="kelurahan"
+                           formControlName="kelurahan"
+                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
+                  <nb-option *ngFor="let dataKelurahan of kelurahan"
+                             value="{{dataKelurahan['namaKelurahan']}}">{{dataKelurahan['namaKelurahan']}}</nb-option>
+                </nb-select>&nbsp;&nbsp;
 
+                <input type="text" nbInput placeholder="RT" name="rt" class="text-rt-rw" name="rt"
+                       formControlName="RT">
+                &nbsp;&nbsp;
+                <input type="text" nbInput placeholder="RW" name="rw" class="text-rt-rw" name="rw"
+                       formControlName="RW">
               </div>
             </div>
 
