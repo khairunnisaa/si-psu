@@ -43,7 +43,7 @@ export class PopupDataPerumahanComponent implements OnInit {
       foto: this.foto,
       dataPerumahan : this.dataPerumahan,
     };
-    console.log("detail perumahan", this.detailPerumahan);
+    console.log("detail perumahan", this.dataPerumahan);
   }
 
   constructor(public windowRef: NbWindowRef) { }

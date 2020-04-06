@@ -118,7 +118,7 @@ export class InputDataPerumahanComponent implements OnInit {
         this.submitted = true;
       }
       // });
-    })
+    });
     const formData = new FormData();
     console.log(this.images);
     if (this.images.length > 0) {

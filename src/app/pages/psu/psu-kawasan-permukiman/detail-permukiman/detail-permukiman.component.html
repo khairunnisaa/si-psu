@@ -12,7 +12,7 @@
       </div>
       <div class="col-6 col-md-6 spasi">
         <div>: <label>{{ this.state.dataPermukiman.luas_tpu }}</label></div>
-        <div>: <label>{{ this.state.dataPermukiman.daya_tampung_tpu }}</label></div>
+        <div>: <label>{{ this.state.dataPermukiman.data_tampung_tpu }}</label></div>
         <div>: <label>{{ this.state.dataPermukiman.tahun_digunakan }}</label></div>
         <div>:
           <label>{{ this.state.dataPermukiman.kecamatan }}, {{ this.state.dataPermukiman.kelurahan }},
@@ -32,8 +32,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataPengelola of this.state.dataPermukiman.pengelola">
-        <th scope="row">{{dataPengelola.id}}</th>
+      <tr *ngFor="let dataPengelola of this.state.dataPermukiman.pengelolas let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{dataPengelola.nama}}</td>
         <td>{{dataPengelola.umur}}</td>
         <td>{{dataPengelola.pendidikan}}</td>
@@ -53,11 +53,11 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataFotoTPU of this.state.dataPermukiman.foto_tpu">
-        <th scope="row">{{dataFotoTPU.id}}</th>
+      <tr *ngFor="let dataFotoTPU of this.state.dataPermukiman.fotos let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{dataFotoTPU.nama_foto}}</td>
-        <td><a target="_blank" href="{{dataFotoTPU.part_foto}}"><img
-          src="{{dataFotoTPU.part_foto}}" style="width: 150px"></a></td>
+        <td><a target="_blank" href="{{dataFotoTPU.path_foto}}"><img
+          src="{{dataFotoTPU.path_foto}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -73,8 +73,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataInvetaris of this.state.dataPermukiman.inventaris_alat">
-        <th scope="row">{{dataInvetaris.id}}</th>
+      <tr *ngFor="let dataInvetaris of this.state.dataPermukiman.inventarisalats let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{dataInvetaris.nama_alat}}</td>
         <td>{{dataInvetaris.jumlah}}</td>
         <td>{{dataInvetaris.keterangan}}</td>
@@ -91,7 +91,7 @@
         <div *ngFor="let dataStatus of this.state.dataPermukiman.status">
           : <label><b>{{dataStatus.operasional }} || Kondisi :
           {{ dataStatus.kondisi }}</b></label></div>
-        <div *ngFor="let dataKoordinat of this.state.dataPermukiman.koordinat">
+        <div *ngFor="let dataKoordinat of this.state.dataPermukiman.koordinats">
           : <label><b>{{dataKoordinat.longitude}} , {{dataKoordinat.latitude}}</b></label></div>
       </div>
     </div>
@@ -107,12 +107,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataCCTV of this.state.dataPermukiman.cctv">
-        <th scope="row">{{dataCCTV.id}}</th>
+      <tr *ngFor="let dataCCTV of this.state.dataPermukiman.cctvs let i = index">
+        <th scope="row">{{i+1}}</th>
         <td>{{dataCCTV.nama_cctv}}</td>
         <td>{{dataCCTV.ip_cctv}}</td>
-        <td><a target="_blank" href="{{dataCCTV.video}}"><img
-          src="{{dataCCTV.video}}" style="width: 150px"></a></td>
+        <td><a target="_blank" href="{{dataCCTV.video}}">
+          <img src="{{dataCCTV.video}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>

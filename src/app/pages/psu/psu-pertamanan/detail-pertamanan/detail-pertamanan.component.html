@@ -33,7 +33,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let petugasPemelihara of this.state.dataDetailPertamanan.petugas">
+      <tr *ngFor="let petugasPemelihara of this.state.dataDetailPertamanan.petugas let i = index">
         <th scope="row">{{petugasPemelihara.id}}</th>
         <td>{{petugasPemelihara.nama}}</td>
         <td>{{petugasPemelihara.umur}}</td>
@@ -55,8 +55,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataFotoTaman of this.state.dataDetailPertamanan.foto_taman">
-        <th scope="row">{{dataFotoTaman.id}}</th>
+      <tr *ngFor="let dataFotoTaman of this.state.dataDetailPertamanan.fotos let i = index">
+        <th scope="row">{{i}}</th>
         <td>{{dataFotoTaman.nama_foto}}</td>
         <td><img src="{{dataFotoTaman.path_foto}}" class="rounded"></td>
       </tr>
@@ -77,8 +77,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr  *ngFor="let dataPeralatan of this.state.dataDetailPertamanan.peralatan_pemelihara">
-        <th scope="row">{{dataPeralatan.id}}</th>
+      <tr  *ngFor="let dataPeralatan of this.state.dataDetailPertamanan.peralatanpemeliharans let i = index">
+        <th scope="row">{{i}}</th>
         <td>{{dataPeralatan.nama_alat}}</td>
         <td>{{dataPeralatan.jumlah}}</td>
         <td>{{dataPeralatan.merk}}</td>
@@ -103,8 +103,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataSoftscape of this.state.dataDetailPertamanan.softscape">
-        <th scope="row">{{dataSoftscape.id}}</th>
+      <tr *ngFor="let dataSoftscape of this.state.dataDetailPertamanan.softscapes let i = index">
+        <th scope="row">{{i}}</th>
         <td>{{dataSoftscape.nama_alat}}</td>
         <td>{{dataSoftscape.jumlah}}</td>
         <td>{{dataSoftscape.merk}}</td>
@@ -129,12 +129,12 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataHardscape of this.state.dataDetailPertamanan.hardscape">
-        <th scope="row">{{dataHardscape.id}}</th>
+      <tr *ngFor="let dataHardscape of this.state.dataDetailPertamanan.hardscapes let i = index">
+        <th scope="row">{{i}}</th>
         <td>{{dataHardscape.nama_alat}}</td>
         <td>{{dataHardscape.jumlah}}</td>
         <td>{{dataHardscape.merk}}</td>
-        <td>{{dataHardscape.tahun_diperoleh}}</td>
+        <td>{{dataHardscape.tahun_perolehan}}</td>
         <td>{{dataHardscape.kondisi}}</td>
         <td>{{dataHardscape.keterangan}}</td>
       </tr>
@@ -161,8 +161,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let dataCCTV of this.state.dataDetailPertamanan.CCTV">
-        <th scope="row">{{dataCCTV.id}}</th>
+      <tr *ngFor="let dataCCTV of this.state.dataDetailPertamanan.cctvs let i = index">
+        <th scope="row">{{i}}</th>
         <td>{{dataCCTV.nama_cctv}}</td>
         <td>{{dataCCTV.ip_cctv}}</td>
         <td><img src="{{dataCCTV.video}}"></td>
