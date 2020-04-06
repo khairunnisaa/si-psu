@@ -5,7 +5,11 @@
     <td>:</td>
     <td>{{nama_pengembang}}</td>
     <td></td>
-    <td rowspan="9"><img src="assets/images/camera1.jpg"></td>
+    <td rowspan="9">
+      <div *ngIf="foto === 0">
+        <img src="assets/images/no-image.jpg" class="no-image">
+      </div>
+<!--      <img src="assets/images/camera1.jpg"></td>-->
   </tr>
   <tr>
     <td><b>Luas Perumahan (m2)</b></td>

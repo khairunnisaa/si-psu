@@ -1,4 +1,10 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ElementRef, ViewChild, OnDestroy} from '@angular/core';
+import {Subject} from "rxjs";
+import {Camera, SecurityCamerasData} from "../../../../@core/data/security-cameras";
+import {NbComponentSize, NbMediaBreakpointsService, NbThemeService} from "@nebular/theme";
+import JSMpeg from '@cycjimmy/jsmpeg-player';
+import {map, takeUntil} from "rxjs/operators";
+// const JSMpeg = require('jsmpeg-player');
 
 
 @Component({
@@ -6,7 +12,8 @@ import {Component, Input, OnInit} from '@angular/core';
   templateUrl: './detail-perumahan.component.html',
   styleUrls: ['./detail-perumahan.component.scss'],
 })
-export class DetailPerumahanComponent implements OnInit {
+export class DetailPerumahanComponent implements OnInit, OnDestroy {
+
 
   public state = {
     dataPerumahan: {
@@ -81,11 +88,49 @@ export class DetailPerumahanComponent implements OnInit {
       }],
     },
   };
-  constructor() {
-  }
+
+  private destroy$ = new Subject<void>();
+
+  cameras: Camera[];
+  selectedCamera: Camera;
+  isSingleView = false;
+  actionSize: NbComponentSize = 'medium';
+  @ViewChild('streaming', {static: false}) streamingcanvas: ElementRef;
+  constructor( private themeService: NbThemeService,
+               private breakpointService: NbMediaBreakpointsService,
+               private securityCamerasService: SecurityCamerasData) {}
 
   ngOnInit() {
+
+    // let player = new JSMpeg.Player('ws://localhost:9999', {
+    //   canvas: this.streamingcanvas, autoplay: true, audio: false, loop: true,
+    // });
+
     this.state = window.history.state;
-    console.log('State Perumahan', this.state)
+    console.log('State Perumahan', this.state);
+    this.securityCamerasService.getCamerasData()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((cameras: Camera[]) => {
+      this.cameras = cameras;
+      this.selectedCamera = this.cameras[0];
+    });
+
+    const breakpoints = this.breakpointService.getBreakpointsMap();
+    this.themeService.onMediaQueryChange()
+    .pipe(map(([, breakpoint]) => breakpoint.width))
+    .subscribe((width: number) => {
+      this.actionSize = width > breakpoints.md ? 'medium' : 'small';
+    });
+  }
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  selectCamera(camera: any) {
+    this.selectedCamera = camera;
+    this.isSingleView = true;
   }
 }
+
+

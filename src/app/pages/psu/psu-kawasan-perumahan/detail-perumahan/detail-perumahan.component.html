@@ -25,7 +25,8 @@
           this.state.dataPerumahan.RT}} / RW.{{ this.state.dataPerumahan.RW }}</label></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.status }}</label></strong></div>
         <div>:
-          <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima | date: 'dd MMMM yyyy' }}</label></strong></div>
+          <strong><label>{{ this.state.dataPerumahan.tgl_serah_terima | date: 'dd MMMM yyyy' }}</label></strong>
+        </div>
         <div>: <strong><label>{{ this.state.dataPerumahan.no_bast }}</label></strong></div>
         <div>: <strong><label>{{ this.state.dataPerumahan.sph }}</label></strong></div>
       </div>
@@ -45,7 +46,7 @@
         <th scope="row">{{fotoPerumahan.id}}</th>
         <td>{{fotoPerumahan.nama_foto}}</td>
         <td><a target="_blank" href="{{fotoPerumahan.path_foto}}"><img
-          src="{{fotoPerumahan.path_foto}}" style="width: 150px"></a></td>
+            src="{{fotoPerumahan.path_foto}}" style="width: 150px"></a></td>
       </tr>
       </tbody>
     </table>
@@ -67,15 +68,19 @@
       </thead>
       <tbody>
       <tr *ngFor="let dataSarana of this.state.dataPerumahan.saranas let i = index">
-        <th scope="row">{{i+1}}</th>
+        <th scope="row">{{i + 1}}</th>
         <td>{{dataSarana.nama_sarana}}</td>
         <td>{{dataSarana.luas_sarana}}</td>
         <td>
+          <div *ngIf="dataSarana.foto_sarana===null">
+            <img src="assets/images/no-image.jpg" class="no-image">
+          </div>
           <div *ngIf="dataSarana.foto_sarana!==null">
-          <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana.split(',')" target="_blank"
-             href="{{dataFotoSarana}}">
-          <img src="{{dataFotoSarana}}" style="width:150px">
-          </a></div></td>
+            <a *ngFor="let dataFotoSarana of dataSarana.foto_sarana.split(',')" target="_blank"
+               href="{{dataFotoSarana}}">
+              <img src="{{dataFotoSarana}}" style="width:150px">
+            </a></div>
+        </td>
         <td>{{dataSarana.kondisi_sarana}}</td>
         <td *ngFor="let dataLongitude of dataSarana['koordinat']">
           {{dataLongitude.longitude}}</td>
@@ -105,11 +110,19 @@
         <th scope="row">{{dataJalanSaluran.id}}</th>
         <td>{{dataJalanSaluran.nama_jalan_saluran}}</td>
         <td>{{dataJalanSaluran.luas_jalan_saluran}}</td>
-        <td *ngIf="dataJalanSaluran.foto_jalan_saluran!==null"><a *ngFor="let dataFotoJalanSaluran
-         of dataJalanSaluran.foto_jalan_saluran.split(',')" target="_blank"
-                                                                   href="{{dataFotoJalanSaluran}}">
-        <img src="{{dataFotoJalanSaluran}}" style="width:150px">
-      </a></td>
+        <td>
+
+          <div *ngIf="dataJalanSaluran.foto_jalan_saluran===null">
+            <img src="assets/images/no-image.jpg" class="no-image">
+          </div>
+
+          <div *ngIf="dataJalanSaluran.foto_jalan_saluran!==null">
+            <a *ngFor="let dataFotoJalanSaluran
+         of dataJalanSaluran.foto_jalan_saluran.split(',')"
+               target="_blank" href="{{dataFotoJalanSaluran}}">
+              <img src="{{dataFotoJalanSaluran}}" style="width:150px">
+            </a></div>
+        </td>
         <td>{{dataJalanSaluran.kondisi}}</td>
         <td *ngFor="let dataLatitude of dataJalanSaluran['koordinatjalansalurans']">
           {{dataLatitude.longitude}}</td>
@@ -140,11 +153,16 @@
         <th scope="row">{{dataTaman.id}}</th>
         <td>{{dataTaman.nama_taman}}</td>
         <td>{{dataTaman.luas_taman}}</td>
-        <td *ngIf="dataTaman.foto_taman!==null"><a *ngFor="let dataFotoTaman of
-        dataTaman.foto_taman.split(',')"
-               target="_blank" href="{{dataFotoTaman}}">
+        <td>
+          <div *ngIf="dataTaman.foto_taman===null">
+            <img src="assets/images/no-image.jpg" class="no-image">
+          </div>
+          <div *ngIf="dataTaman.foto_taman!==null">
+          <a *ngFor="let dataFotoTaman of
+             dataTaman.foto_taman.split(',')"
+             target="_blank" href="{{dataFotoTaman}}">
           <img src="{{dataFotoTaman}}" style="width:150px"></a>
-        </td>
+          </div></td>
         <td>{{dataTaman.kondisi}}</td>
         <td *ngFor="let dataLongitude of dataTaman['koordinattamans']">
           {{dataLongitude.longitude}}</td>
@@ -183,10 +201,101 @@
         <td>{{dataCCTV.nama_cctv}}</td>
         <td>{{dataCCTV.ip_cctv}}</td>
         <td>
-          <a target="_blank" href="{{dataCCTV.video}}"><img src="{{dataCCTV.video}}" style="width:150px"></a></td>
+          <a target="_blank" href="{{dataCCTV.video}}"><img src="{{dataCCTV.video}}"
+                                                            style="width:150px"></a></td>
       </tr>
       </tbody>
     </table>
+
+
+
+
+    <nb-card size="giant">
+      <nb-card-header>
+        Security Cameras
+
+        <button class="single-view-button"
+                nbButton
+                size="small"
+                [appearance]="isSingleView ? 'filled' : 'outline'"
+                (click)="isSingleView = true">
+          <i class="nb-square"></i>
+        </button>
+        <button class="grid-view-button"
+                nbButton
+                size="small"
+                [appearance]="isSingleView ? 'outline' : 'filled'"
+                (click)="isSingleView = false">
+          <nb-icon icon="grid" pack="eva"></nb-icon>
+        </button>
+      </nb-card-header>
+
+      <div class="grid-container">
+
+        <div class="single-view" *ngIf="isSingleView">
+          <div class="camera" [style.background-image]="'url(' + selectedCamera.source + ')'">
+            <span class="camera-name">{{ selectedCamera.title }}</span>
+            <span class="camera-ip-name">IP Camera CCTV : {{ selectedCamera.ip_camera }}</span>
+          </div>
+        </div>
+
+        <div class="grid-view" *ngIf="!isSingleView">
+          <div class="camera"
+               *ngFor="let camera of cameras"
+               [style.background-image]="'url(' + camera.source + ')'"
+               (click)="selectCamera(camera)">
+            <span class="camera-name">{{ camera.title }}</span>
+            <span class="camera-ip-name">IP Camera CCTV : {{ camera.ip_camera }}</span>
+          </div>
+        </div>
+
+
+<!--        <div class="grid-view" *ngIf="!isSingleView">-->
+<!--          <div class="camera">-->
+<!--            <h2>Hai Mana CCTV</h2>-->
+<!--            <canvas #streaming  width="1920" height="1080"-->
+<!--                    style="display: block; width: 40%;"></canvas>-->
+<!--            <span class="camera-name">Camera 1</span>-->
+
+<!--          </div>-->
+<!--        </div>-->
+      </div>
+      <nb-card-footer>
+        <nb-actions [size]="actionSize" fullWidth>
+          <nb-action>
+            <nb-icon icon="pause-circle-outline" pack="eva"></nb-icon>
+            Pause
+          </nb-action>
+          <nb-action>
+            <nb-icon icon="list-outline" pack="eva"></nb-icon>
+            Logs
+          </nb-action>
+          <nb-action>
+            <nb-icon icon="search-outline" pack="eva"></nb-icon>
+            Search
+          </nb-action>
+          <nb-action>
+            <nb-icon icon="settings-2-outline" pack="eva"></nb-icon>
+            Setup
+          </nb-action>
+        </nb-actions>
+      </nb-card-footer>
+    </nb-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="row show-grid">
       <div class="col-2 col-sm-2">
         <div><label>Keterangan</label></div>
@@ -198,11 +307,18 @@
     <br>
 
 
-    <a routerLink="../../../pages/psu-kawasan-perumahan/kelola-data-perumahan" class="btn btn-primary">
-      Kembali</a>
-    <a routerLink="" class="btn btn-success">Cetak</a>
+    <a routerLink="../../../pages/psu-kawasan-perumahan/kelola-data-perumahan" nbButton
+        status="primary" class="btn btn-primary">Kembali</a>
+    <a routerLink="" nbButton status="success" class="btn btn-success">Cetak</a>
 
   </nb-card-body>
 </nb-card>
 
+
+<script type="text/javascript">
+  //var ws = new WebSocket('ws://localhost:9999');
+  player = new JSMpeg.Player('ws://localhost:9999', {
+    canvas: document.getElementById('canvas'), autoplay: true, audio: false, loop: true
+  })
+</script>
 
