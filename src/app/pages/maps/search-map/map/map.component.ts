@@ -19,7 +19,7 @@ export class MapComponent implements OnInit {
   public set searchedLocation(searchedLocation: Location) {
     this.latitude = searchedLocation.latitude;
     this.longitude = searchedLocation.longitude;
-    this.zoom = 12;
+    this.zoom = 15;
   }
 
   ngOnInit(): void {
@@ -58,6 +58,9 @@ export class MapComponent implements OnInit {
   }
   paths: Array<any> = [
     { lat: -6.1818, lng: 106.8223 },
+    { lat: -6.121435, lng: 106.774124 },
+    { lat: -6.261493, lng: 106.810600 },
+    { lat: -6.225014, lng: 106.900447 },
     { lat: -6.121435, lng: 106.774124 },
     { lat: -6.261493, lng: 106.810600 },
     { lat: -6.225014, lng: 106.900447 },
