@@ -4,7 +4,10 @@
          [zoom]="zoom">
 <!--  <agm-marker *ngFor="let marker of coordinate" [latitude]="marker.lat"-->
 <!--              [longitude]="marker.lng"></agm-marker>-->
-  <agm-polygon  [fillOpacity]="0.5" [paths]="paths"
-                [strokeOpacity]="0.6" [strokeWeight]="2"
-                [visible]="true" [zIndex]="1"></agm-polygon>
+  <div>
+    <agm-polygon  [fillOpacity]="0.5" [paths]="paths"
+                  [strokeOpacity]="0.6" [strokeWeight]="2"
+                  [visible]="true" [zIndex]="1"></agm-polygon>
+  </div>
+
 </agm-map>
