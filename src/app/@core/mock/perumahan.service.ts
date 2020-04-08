@@ -7,7 +7,7 @@ import {HttpClient} from '@angular/common/http';
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-const baseUrl = 'http://localhost:7777/perumahans';
+const baseUrl = 'https://si-psu-api.herokuapp.com/perumahans';
 
 @Injectable({
   providedIn: 'root',
@@ -53,7 +53,7 @@ export class PerumahanService extends TableDataPerumahan {
   }
 
   async postImage(formData) {
-    await this.http.post('http://localhost:7777/fotos/mutipleFiles', formData).toPromise().then(res => {
+    await this.http.post('https://si-psu-api.herokuapp.com/fotos/mutipleFiles', formData).toPromise().then(res => {
       console.log("respon image", res);
     });
   }
