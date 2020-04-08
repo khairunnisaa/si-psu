@@ -30,7 +30,6 @@ import { UserComponent } from './user/user.component';
   declarations: [
     ...routedComponents,
     PsuComponent,
-    UserComponent,
     /*
         yang modul hanya punya submenu tidak usah dideklarasikan
      */

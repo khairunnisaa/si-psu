@@ -124,7 +124,7 @@
 
             <div formArrayName="petugas">
               <div *ngFor="let dataPetugas of
-              formPertamanan.controls.formDataPertamanan.controls['petugas'].controls;
+              formPertamanan.controls.formDataPertamanan['controls']['petugas'].controls;
               let i = index" [formGroupName]="i">
                 <h3>Data Ke-{{i + 1}}</h3>
 
@@ -250,7 +250,7 @@
 
             <div formArrayName="fotos">
               <div *ngFor="let dataFotoTaman of
-               formPertamanan.controls.formDataPertamanan.controls['fotos'].controls;
+               formPertamanan.controls.formDataPertamanan['controls']['fotos'].controls;
                         let e = index" [formGroupName]="e">
                 <h3>Data Ke-{{e + 1}}</h3>
 
@@ -306,7 +306,7 @@
 
 
             <div formArrayName="peralatanpemeliharans">
-              <div *ngFor="let dataPeralatan of formPertamanan.controls.formDataPertamanan.controls['peralatanpemeliharans'].controls;
+              <div *ngFor="let dataPeralatan of formPertamanan.controls.formDataPertamanan['controls']['peralatanpemeliharans'].controls;
                         let k = index" [formGroupName]="k">
                 <h3>Data Ke-{{k + 1}}</h3>
 
@@ -456,7 +456,7 @@
             </div>
 
             <div formArrayName="softscapes">
-              <div *ngFor="let dataSoftscape of formPertamanan.controls.formDataPertamanan.controls['softscapes'].controls;
+              <div *ngFor="let dataSoftscape of formPertamanan.controls.formDataPertamanan['controls']['softscapes'].controls;
                         let s = index" [formGroupName]="s">
                 <h3>Data Ke-{{s + 1}}</h3>
 
@@ -613,7 +613,7 @@
             </div>
 
             <div formArrayName="hardscapes">
-              <div *ngFor="let dataHardscape of formPertamanan.controls.formDataPertamanan.controls['hardscapes'].controls;
+              <div *ngFor="let dataHardscape of formPertamanan.controls.formDataPertamanan['controls']['hardscapes'].controls;
                         let h = index" [formGroupName]="h">
                 <h3>Data Ke-{{h + 1}}</h3>
 
@@ -773,7 +773,7 @@
 
             <div formArrayName="cctvs">
               <div *ngFor="let dataCCTV of
-              formPertamanan.controls.formDataPertamanan.controls['cctvs'].controls;
+              formPertamanan.controls.formDataPertamanan['controls']['cctvs'].controls;
                         let p = index" [formGroupName]="p">
                 <h3>Data Ke-{{p + 1}}</h3>
 
@@ -839,7 +839,7 @@
 
             <div formArrayName="koordinats">
               <div *ngFor="let dataKoordinat of
-              formPertamanan.controls.formDataPertamanan.controls['koordinats'].controls;
+              formPertamanan.controls.formDataPertamanan['controls']['koordinats'].controls;
                         let u = index" [formGroupName]="u">
                 <h3>Data Ke-{{u + 1}}</h3>
 
