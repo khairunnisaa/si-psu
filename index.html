@@ -5,11 +5,10 @@
   <title>SI PSU</title>
 
   <base href="https://khairunnisaa.github.io/si-psu/">
-
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="stylesheet" href="styles.f73dabd922c330ae123e.css"></head>
+<link rel="stylesheet" href="styles.79f8e90aca6059834e50.css"></head>
 <body>
 <ngx-app>Loading...</ngx-app>
 
@@ -23,6 +22,13 @@
   <div class="blob blob-5"></div>
 </div>
 
-
-<script src="runtime-es2015.a33e0bf47aa115eacab4.js" type="module"></script><script src="polyfills-es2015.a0fde343a7a7556e310b.js" type="module"></script><script src="runtime-es5.144904fa8ceb1d5f7389.js" nomodule></script><script src="polyfills-es5.b7ad31b54d7c406cfba1.js" nomodule></script><script src="scripts.4d7a279be8eadc070bce.js"></script><script src="main-es2015.8abae74c260cc6a1cd33.js" type="module"></script><script src="main-es5.0a64ec08180b37b419c7.js" nomodule></script></body>
+<script type="text/javascript" src="assets/js/jsmpeg.min.js"></script>
+<script type="text/javascript">
+  //var ws = new WebSocket('ws://localhost:9999');
+  player = new JSMpeg.Player('ws://localhost:9999', {
+    canvas: document.getElementById('canvas'), autoplay: true, audio: false, loop: true
+  })
+</script>
+<script src="runtime-es2015.9eea4130a8a1fb441adc.js" type="module"></script><script src="polyfills-es2015.a0fde343a7a7556e310b.js" type="module"></script><script src="runtime-es5.e324b3c4c4b88c535d34.js" nomodule></script><script src="polyfills-es5.b7ad31b54d7c406cfba1.js" nomodule></script><script src="scripts.bcef6382c04d680b60ae.js"></script><script src="main-es2015.28481feff5b5bc9f49b3.js" type="module"></script><script src="main-es5.6d422e52502053b2bae6.js" nomodule></script></body>
 </html>
+
