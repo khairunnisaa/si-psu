@@ -4,28 +4,53 @@
 
 .container {
   position: relative;
-  max-width: 300px;
-  margin: 20px;
+  max-width: 500px;
+  margin: 0;
 }
 
-.container img {vertical-align: middle;}
+.container img {
+  vertical-align: middle;
+}
 
 .container .content {
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   background: #666666; /* Fallback color */
   background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
   color: #f1f1f1;
   width: 100%;
-  padding:5px;
+  padding: 5px;
 }
+
 h5 {
   color: #8f9bb3;
 }
+
 .tombol-camera {
   float: right;
   background: transparent;
   border: none;
   color: #206ea1;
+}
+
+.informasi {
+  margin-left: 10px;
+
+  h5 {
+    border-bottom: 2px solid blue;
+    width: 200px;
+  }
+}
+
+.filter-informasi {
+  padding: 10px;
+  margin: 10px;
+  .select-informasi {
+    margin-right: 10px;
+  }
+  h5 {
+    border-bottom: 2px blue solid;
+    width: 100px;
+  }
 }
 
