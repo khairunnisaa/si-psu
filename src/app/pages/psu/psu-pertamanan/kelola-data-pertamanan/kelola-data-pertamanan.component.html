@@ -8,12 +8,13 @@
       <nb-select-label>Pilih Filter</nb-select-label>
       <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
                  id="kecamatan" (selectedChange)="changeKecamatan($event)">
-        <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+        <nb-option *ngFor="let dataKecamatan of kecamatan"
+                   value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}</nb-option>
       </nb-select>&nbsp;&nbsp;
       <nb-select placeholder="kelurahan" class="select-kelurahan" name="kelurahan"
                  (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
         <nb-option *ngFor="let dataKelurahan of kelurahan"
-                   value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
+                   value="{{dataKelurahan['id']}}">{{dataKelurahan['namaKelurahan']}}</nb-option>
       </nb-select>&nbsp;&nbsp;
 
       <nb-select placeholder="Tahun Dibangun" class="select-tahun">
@@ -44,9 +45,10 @@
         </button>
       </form>
     </div>
+
     <div class="col-md-12" style="overflow-x: scroll;">
       <div class="smart-table-container" style="width: 1500px;">
-    <ng2-smart-table [settings]="settings" [source]="source" (deleteConfirm)="onDeleteConfirm($event)">
+    <ng2-smart-table [settings]="settings" [source]="source">
     </ng2-smart-table>
       </div>
     </div>

@@ -39,7 +39,7 @@ export class PertamananService extends TableDataPertamanan {
       peralatanpemeliharans: pertamanan.peralatanpemeliharans,
       koordinats: pertamanan.koordinats,
     };
-    console.log("Pertamanan data to post ", pertamananData);
+    // console.log("Pertamanan data to post ", pertamananData);
     return await this.http.post(baseUrl, pertamananData).toPromise();
   }
 }
