@@ -87,6 +87,7 @@ export class KelolaDataPertamananComponent implements OnInit {
         },
      },
   };
+
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
   kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
@@ -133,4 +134,6 @@ export class KelolaDataPertamananComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+
 }

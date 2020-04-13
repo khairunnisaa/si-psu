@@ -52,9 +52,16 @@
 
     <div class="col-md-12" style="overflow-x: scroll;">
       <div class="smart-table-container" style="width: 1500px;">
-        <ng2-smart-table [settings]="settings" [source]="source" ></ng2-smart-table>
+        <ng2-smart-table #table [settings]="settings" [source]="source"
+                         (deleteConfirm)="dialogHapusData($event, dialog)"
+                         class="solved">
+        </ng2-smart-table>
       </div>
     </div>
+    <div class="row col-6" >
+      <h5>Total Data : {{this.totalData}} </h5>
+    </div>
+
     <div class="row col-6" >
       <a (click)="goBack()" nbButton
          status="primary" nbButton size="small">
@@ -62,3 +69,20 @@
     </div>
   </nb-card-body>
 </nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Perhatian</nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+      <button (click)="onDeleteConfirm($event, ref)"
+              status="danger" class="btn btn-outline-danger">
+        <i class="fa fa-check-square fa-2x"></i>
+      </button>
+      <button (click)="ref.close()"
+              status="success" class="btn btn-outline-success btn-cancel-hapus">
+        <i class="far fa-window-close fa-2x"></i>
+      </button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

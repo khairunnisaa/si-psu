@@ -1,30 +1,62 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Location} from '@angular/common';
-import JSMpeg from '@cycjimmy/jsmpeg-player';
 
 import {TableDataPerumahan} from '../../../../@core/data/perumahan';
 import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link-perumahan.component";
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
+import {
+  NbComponentStatus,
+  NbDialogService,
+  NbGlobalPhysicalPosition,
+  NbToastrService,
+} from "@nebular/theme";
+import {Ng2SmartTableComponent} from "ng2-smart-table/ng2-smart-table.component";
 
 @Component({
   selector: 'ngx-entry-data-perumahan',
   templateUrl: './kelola-data-perumahan.html',
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
-export class KelolaDataPerumahanComponent implements OnInit {
+export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
   data_rumah_json = '';
+  statustoast: NbComponentStatus = 'primary';
   years: any[];
+  totalData: Promise<any>;
+  idData: any;
+  @ViewChild('table', {static: false})
+  smartTable: Ng2SmartTableComponent;
   source: LocalDataSource;
   settings = {
-    actions: false,
-    add: false,
-    edit: false,
-    delete: false,
+    edit: {
+      editButtonContent: '<i class="btn btn-outline-warning btn-lg fa fa-edit"></i>',
+      saveButtonContent: '<i class="nb-checkmark"></i>',
+      cancelButtonContent: '<i class="nb-close"></i>',
+    },
+    delete: {
+      deleteButtonContent: '<i class="btn btn-outline-danger btn-lg fa fa-trash"></i>',
+      confirmDelete: true,
+    },
+    mode: 'external',
+    actions: {
+      position: 'right',
+      columnTitle: 'Navigasi',
+      add: false,
+      filter: false,
+    },
 
     columns: {
-      id: {
+      no: {
         title: 'No.',
+        type: 'number',
+        filter: false,
+        valuePrepareFunction(value, row, cell) {
+          return cell.row.index + 1;
+          },
+      },
+
+      id: {
+        title: 'ID',
         type: 'number',
         filter: false,
       },
@@ -34,7 +66,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'custom',
         filter: false,
         valuePrepareFunction: (cell, row) => {
-          console.log("row rumah == ", cell);
           return cell;
         },
         renderComponent: RouterLinkPerumahanComponent,
@@ -69,30 +100,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      // name: {
-      //   title: 'Full Name',
-      //   filter: {
-      //     type: 'list',
-      //     config: {
-      //       selectText: 'Select...',
-      //       list: [
-      //         {value: 'Glenna Reichert', title: 'Glenna Reichert'},
-      //         {value: 'Kurtis Weissnat', title: 'Kurtis Weissnat'},
-      //         {value: 'Chelsey Dietrich', title: 'Chelsey Dietrich'},
-      //       ],
-      //     },
-      //   },
-      // },
-      navigasi:
-        {
-          title: 'Navigasi',
-          type: 'html',
-          valuePrepareFunction: (cell, row) => {
-            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/edit-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
-                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/hapus-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
-          },
-          filter: false,
-        },
     },
   };
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
@@ -105,14 +112,18 @@ export class KelolaDataPerumahanComponent implements OnInit {
 
   status = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   @ViewChild('streaming', {static: false}) streamingcanvas: ElementRef;
+
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan,
-              private location: Location) {
+              private location: Location,
+              private toastrService: NbToastrService,
+              private dialogService: NbDialogService) {
     this.source = new LocalDataSource();
-    const data = this.service.getData().then((datas) => {
-      console.log("dataperumahan", datas);
+    this.totalData = this.service.getData().then((datas) => {
       this.source.load(datas);
+      this.totalData = datas.length;
     });
+    // this.lengthData = this.totalData.length;
     this.kecamatan = this.getKecamatanService.getData();
 
     this.disableKelurahan = true;
@@ -122,6 +133,15 @@ export class KelolaDataPerumahanComponent implements OnInit {
     }
   }
 
+  ngAfterViewInit(): void {
+    console.log('Values on ngAfterViewInit():');
+    this.smartTable.edit.subscribe( (dataObject: any) => {
+      console.log('Edit dong');
+      console.log(dataObject);
+    });
+    this.smartTable.delete.subscribe( (dataObject: any) => {
+    });
+  }
   changeKecamatan(kecamatan) {
     this.source.setFilter([
       // fields we want to include in the search
@@ -130,10 +150,8 @@ export class KelolaDataPerumahanComponent implements OnInit {
         search: kecamatan,
       },
     ], true);
-    console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
     this.kelurahan = this.getKecamatanService.getData().find(lokasi => lokasi.kecamatan === kecamatan).kelurahan;
-    console.log("kelurahan", this.kelurahan);
   }
 
   changeKelurahan(kelurahan, kecamatan) {
@@ -178,11 +196,37 @@ export class KelolaDataPerumahanComponent implements OnInit {
     this.location.back();
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
+  onDeleteConfirm(event, ref): void {
+    console.log("event delete:", ref);
+      this.service.deleteData(this.idData.data.id);
+      this.idData.confirm.resolve();
+      ref.close(this.idData.data.id);
+      this.showToast(this.statustoast, this.idData.data.id);
+  }
+
+  private showToast(type: NbComponentStatus, data) {
+    const config = {
+      status: type,
+      destroyByClick: true,
+      duration: 2000,
+      hasIcon: true,
+      position: NbGlobalPhysicalPosition.TOP_RIGHT,
+      preventDuplicates: false,
+    };
+    this.toastrService.show(
+        "Berhasil menghapus data",
+        `Data perumahan ${data}`,
+        config);
+  }
+
+  dialogHapusData(event, dialog: TemplateRef<any>) {
+    console.log('dialog', event);
+    this.idData = event;
+    this.dialogService.open(
+        dialog,
+        {
+          context: `Apakah Anda Akan Menghapus Data ID Ini ${this.idData.data.id} ?` ,
+          closeOnBackdropClick: false,
+        });
   }
 }
