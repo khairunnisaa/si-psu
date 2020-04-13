@@ -125,7 +125,7 @@
 
             <div formArrayName="pengelolas">
               <div
-                  *ngFor="let dataPengelola of formPermukiman.controls.formDataPermukiman.controls['pengelolas'].controls;let j = index"
+                  *ngFor="let dataPengelola of formPermukiman.controls.formDataPermukiman['controls']['pengelolas'].controls;let j = index"
                   [formGroupName]="j">
                 <h3>Data Ke-{{j + 1}}</h3>
 
@@ -250,7 +250,7 @@
 
             <div formArrayName="fotos">
               <div *ngFor="let dataFotoTPU of
-                formPermukiman.controls.formDataPermukiman.controls['fotos'].controls;
+                formPermukiman.controls.formDataPermukiman['controls']['fotos'].controls;
               let k = index" [formGroupName]="k">
                 <h3>Data Ke-{{k + 1}}</h3>
 
@@ -304,7 +304,7 @@
 
 
             <div formArrayName="inventarisalats">
-              <div *ngFor="let dataInventaris of formPermukiman.controls.formDataPermukiman.controls['inventarisalats'].controls;
+              <div *ngFor="let dataInventaris of formPermukiman.controls.formDataPermukiman['controls']['inventarisalats'].controls;
               let m = index" [formGroupName]="m">
                 <h3>Data Ke-{{m + 1}}</h3>
 
@@ -397,7 +397,7 @@
 
             <div formArrayName="status">
               <div *ngFor="let dataStatus of
-              formPermukiman.controls.formDataPermukiman.controls['status'].controls;
+              formPermukiman.controls.formDataPermukiman['controls']['status'].controls;
               let m = index" [formGroupName]="m">
                 <div class="form-group row">
                   <label for="status" class="label col-sm-3 col-form-label">Status</label>
@@ -488,7 +488,7 @@
             <div class="form-group row" formArrayName="koordinats">
               <label class="label col-sm-3 col-form-label">Koordinat TPU</label>
               <div class="col-sm-9" *ngFor="let dataKoordinat of
-              formPermukiman.controls.formDataPermukiman.controls['koordinats'].controls;
+              formPermukiman.controls.formDataPermukiman['controls']['koordinats'].controls;
               let m = index" [formGroupName]="m">
                 <input type="text" nbInput placeholder="Longitude"
                        id="longitudeTPU" name="longitude" formControlName="longitude"
@@ -524,7 +524,7 @@
 
             <div formArrayName="cctvs">
               <div *ngFor="let dataCCTV of
-                formPermukiman.controls.formDataPermukiman.controls['cctvs'].controls;
+                formPermukiman.controls.formDataPermukiman['controls']['cctvs'].controls;
               let p = index" [formGroupName]="p">
                 <h3>Data Ke-{{p + 1}}</h3>
 

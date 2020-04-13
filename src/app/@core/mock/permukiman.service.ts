@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {TableDataPermukiman} from '../data/permukiman';
 import {HttpClient} from '@angular/common/http';
 
-const baseUrl = 'http://localhost:7777/permukimans';
+const baseUrl = 'https://si-psu-api.herokuapp.com/permukimans';
 @Injectable({
   providedIn: 'root',
 })

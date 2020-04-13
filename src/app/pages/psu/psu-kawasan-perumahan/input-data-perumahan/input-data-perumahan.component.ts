@@ -108,7 +108,7 @@ export class InputDataPerumahanComponent implements OnInit {
   }
 
   inputDataPerumahans() {
-    console.log("form value perumahan", this.formPerumahan);
+    console.log("form value perumahan", this.formPerumahan.value);
     // if (this.formPerumahan.invalid) {
     //   return;
     // } else {
