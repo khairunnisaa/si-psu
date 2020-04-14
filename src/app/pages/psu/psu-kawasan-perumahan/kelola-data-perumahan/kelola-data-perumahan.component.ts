@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, TemplateRef, ViewChild} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Location} from '@angular/common';
+import JSMpeg from '@cycjimmy/jsmpeg-player';
 
 import {TableDataPerumahan} from '../../../../@core/data/perumahan';
 import {RouterLinkPerumahanComponent} from "../router-link-perumahan/router-link-perumahan.component";
@@ -112,7 +113,6 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
 
   status = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   @ViewChild('streaming', {static: false}) streamingcanvas: ElementRef;
-
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan,
               private location: Location,

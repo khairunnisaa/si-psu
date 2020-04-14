@@ -2,8 +2,10 @@ import {Injectable} from '@angular/core';
 import {TableDataPertamanan} from '../data/pertamanan';
 import {HttpClient} from "@angular/common/http";
 
-// const baseUrl = 'https://si-psu-api.herokuapp.com/pertamanans';
-const baseUrl = 'http://localhost:7777/pertamanans';
+
+const baseUrl = 'https://si-psu-api.herokuapp.com/pertamanans';
+// const baseUrl = 'http://localhost:7777/pertamanans';
+
 // @ts-ignore
 @Injectable({
   providedIn: 'root',
