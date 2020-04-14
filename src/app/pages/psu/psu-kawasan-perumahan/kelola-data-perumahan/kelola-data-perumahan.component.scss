@@ -13,10 +13,12 @@
 .form-inline {
   margin: 0 5px 5px 0;
 }
+
 .select-kecamatan {
   width: 10em;
   margin-left: 10px;
 }
+
 .select-kelurahan {
   width: 12em;
 }
@@ -42,15 +44,46 @@
 .btn-import {
   margin-left: 10px;
 }
+
 .label-import {
   margin-right: 10px;
 }
+
 @include nb-install-component() {
   nb-card {
     transform: translate3d(0, 0, 0);
   }
 }
+
 .select-status {
   width: 10rem;
+}
+
+.btn-cancel-hapus {
+  float: right;
+}
+
+:host /deep/ ng2-smart-table thead > tr > th {
+  background-color:#3498db;
+  a {
+    font-weight: bold;
+  }
+  font-weight: bold;
+  border: black 1px solid;
+}
+
+:host /deep/ ng2-smart-table tbody > tr > td {
+  background-color: #b1b1b1;
+  border: black 1px solid;
+}
+
+:host /deep/ ng2-smart-table tbody > tr:hover > td {
+  cursor: pointer;
+  color: #2d8ac7;
+  font-weight: bold;
+}
+
+:host /deep/ ng2-smart-table tbody > tr:nth-child(even) > td {
+  background-color: #cacaca;
 }
 

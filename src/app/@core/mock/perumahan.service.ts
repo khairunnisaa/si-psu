@@ -8,6 +8,7 @@ import {HttpClient} from '@angular/common/http';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 const baseUrl = 'https://si-psu-api.herokuapp.com/perumahans';
+// const baseUrl = 'http://localhost:7777/perumahans';
 
 @Injectable({
   providedIn: 'root',
@@ -21,6 +22,12 @@ export class PerumahanService extends TableDataPerumahan {
   // emulating request to the server
   async getData() {
     const data = await this.http.get(baseUrl).toPromise();
+    // console.log("Data: " + JSON.stringify(data['data']));
+    return data['data'];
+  }
+
+  async deleteData(id) {
+    const data = await this.http.delete(baseUrl + "/" + id).toPromise();
     // console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
   }
