@@ -34,3 +34,41 @@
     transform: translate3d(0, 0, 0);
   }
 }
+
+:host /deep/ ng2-smart-table thead > tr > th {
+  background-color:#3498db;
+  a {
+    font-weight: bold;
+  }
+  font-weight: bold;
+  border: black 1px solid;
+}
+
+:host /deep/ ng2-smart-table tbody > tr > td {
+  background-color: #b1b1b1;
+  border: black 1px solid;
+  font-size: 12px;
+}
+
+:host /deep/ ng2-smart-table tbody > tr:hover > td {
+  cursor: pointer;
+  color: #2d8ac7;
+  font-weight: bold;
+}
+
+:host /deep/ ng2-smart-table tbody > tr:nth-child(even) > td {
+  background-color: #cacaca;
+}
+
+@import '../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  button {
+    margin: 1rem;
+  }
+
+  ::ng-deep nb-spinner {
+    z-index: 999;
+  }
+}
+
