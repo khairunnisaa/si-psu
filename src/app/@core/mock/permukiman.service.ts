@@ -20,6 +20,12 @@ export class PermukimanService extends TableDataPermukiman {
     return data['data'];
   }
 
+  async deleteData(id) {
+    const data = await this.http.delete(baseUrl + "/" + id).toPromise();
+    // console.log("Data: " + JSON.stringify(data['data']));
+    return data['data'];
+  }
+
 
   async postData(permukiman) {
     const permukimanData = {

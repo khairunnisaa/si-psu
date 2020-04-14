@@ -7,12 +7,12 @@
       <nb-select-label>Pilih Filter</nb-select-label>
       <nb-select placeholder="Kecamatan" class="select-kecamatan" name="kecamatan"
                   id="kecamatan" (selectedChange)="changeKecamatan($event)">
-      <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan.kecamatan}}">{{dataKecamatan.kecamatan}}</nb-option>
+      <nb-option *ngFor="let dataKecamatan of kecamatan" value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}</nb-option>
     </nb-select>&nbsp;&nbsp;
       <nb-select placeholder="Kabupaten" class="select-kecamatan" name="kabupaten"
                  (change)="changeKelurahan($event)" [disabled]="disableKelurahan">
         <nb-option *ngFor="let dataKelurahan of kelurahan"
-                   value="{{dataKelurahan.id}}">{{dataKelurahan.namaKelurahan}}</nb-option>
+                   value="{{dataKelurahan['id']}}">{{dataKelurahan['namaKelurahan']}}</nb-option>
       </nb-select>&nbsp;&nbsp;
 
       <nb-select placeholder="Status" class="select-status" name="status" id="status">
@@ -43,12 +43,19 @@
       </form>
     </div>
     <div class="col-md-12" style="overflow-x: scroll;">
-      <div class="smart-table-container" style="width: 1500px;">
+      <div class="smart-table-container" style="width: 1500px;"
+           [nbSpinner]="loading"
+           nbSpinnerStatus="primary" nbSpinnerSize="giant">
         <ng2-smart-table [settings]="settings" [source]="source"
-                         (deleteConfirm)="onDeleteConfirm($event)">
+                         (deleteConfirm)="dialogHapusData($event, dialog)">
         </ng2-smart-table>
       </div>
     </div>
+
+    <div class="row col-6">
+      <h5>Total Data : {{this.totalData}} </h5>
+    </div>
+
     <div class="row col-6" >
       <a (click)="goBack()" nbButton
          status="primary" nbButton size="small">
@@ -56,3 +63,22 @@
     </div>
   </nb-card-body>
 </nb-card>
+
+<ng-template #dialog let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header>Perhatian</nb-card-header>
+    <nb-card-body>{{ data }}</nb-card-body>
+    <nb-card-footer>
+      <button (click)="onDeleteConfirm($event, ref)"
+              status="danger" type="reset" class="btn btn-danger btn-ya-hapus">
+        <i class="fa fa-check-square fa-2x"></i>
+      </button>
+
+      <button (click)="ref.close()"
+              status="success" class="btn btn-success btn-cancel-hapus">
+        <i class="far fa-window-close fa-2x"></i>
+      </button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>
+

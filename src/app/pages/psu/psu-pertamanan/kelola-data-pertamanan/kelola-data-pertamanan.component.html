@@ -50,7 +50,8 @@
       <div class="smart-table-container" style="width: 1500px;"
            [nbSpinner]="loading"
            nbSpinnerStatus="primary" nbSpinnerSize="giant">
-    <ng2-smart-table [settings]="settings" [source]="source">
+    <ng2-smart-table [settings]="settings" [source]="source"
+                     (deleteConfirm)="dialogHapusData($event, dialog)">
     </ng2-smart-table>
       </div>
     </div>

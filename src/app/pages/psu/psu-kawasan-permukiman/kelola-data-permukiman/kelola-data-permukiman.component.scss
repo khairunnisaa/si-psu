@@ -34,6 +34,15 @@
   }
 }
 
+.btn-ya-hapus {
+  border: none;
+}
+
+.btn-cancel-hapus {
+  float: right;
+}
+
+
 :host /deep/ ng2-smart-table thead > tr > th {
   background-color:#3498db;
   a {

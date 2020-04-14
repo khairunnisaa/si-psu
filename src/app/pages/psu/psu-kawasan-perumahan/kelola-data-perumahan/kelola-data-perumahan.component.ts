@@ -104,7 +104,6 @@ export class KelolaDataPerumahanComponent implements OnInit {
     },
   };
 
-  loadingLargeGroup = false;
   loading = false;
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];

@@ -1,10 +1,16 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 
 import {TableDataPertamanan} from '../../../../@core/data/pertamanan';
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 import {RouterlinkDataPertamananComponent} from "../routerlink-data-pertamanan/routerlink-data-pertamanan.component";
 import {Location} from '@angular/common';
+import {
+  NbComponentStatus,
+  NbDialogService,
+  NbGlobalPhysicalPosition,
+  NbToastrService,
+} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-kelola-data-pertamanan',
@@ -12,27 +18,52 @@ import {Location} from '@angular/common';
   styleUrls: ['./kelola-data-pertamanan.component.scss'],
 })
 export class KelolaDataPertamananComponent implements OnInit {
+
+  /**
+   * Variabel Disini................................
+   */
+  statustoast: NbComponentStatus = 'primary';
+  totalData: Promise<any>;
+  loading = false;
+  idData: any;
+
+  /**
+   * Batas Variabel................................
+   */
+
+
   source: LocalDataSource;
   years: any[];
   settings = {
-    actions: false,
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
+      editButtonContent: '<i class="btn btn-outline-warning btn-lg fa fa-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
     },
     delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
+      deleteButtonContent: '<i class="btn btn-outline-danger btn-lg fa fa-trash"></i>',
       confirmDelete: true,
     },
+    actions: {
+      position: 'right',
+      columnTitle: 'Navigasi',
+      add: false,
+      filter: false,
+    },
+
     columns: {
-      id: {
+      no: {
         title: 'No.',
+        type: 'html',
+        filter: false,
+        width: 10,
+        valuePrepareFunction(value, row, cell) {
+          return cell.row.index + 1;
+        },
+      },
+
+      id: {
+        title: 'ID',
         type: 'number',
         filter: false,
       },
@@ -75,31 +106,30 @@ export class KelolaDataPertamananComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      navigasi:
-        {
-          title: 'Navigasi',
-          type: 'html',
-          valuePrepareFunction: (cell, row) => {
-            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
-                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
-          },
-          filter: false,
-        },
-     },
+    },
   };
 
+
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
-  kecamatan: string[];  /**  Variabel Array Select Data Kecamatan **/
-  kelurahan: string[];  /**  Variabel Array Select Data Kelurahan **/
-  disableKelurahan: boolean;  /** Disable Slect Kelurahan **/
+  kecamatan: string[];
+  /**  Variabel Array Select Data Kecamatan **/
+  kelurahan: string[];
+  /**  Variabel Array Select Data Kelurahan **/
+  disableKelurahan: boolean;
+
+  /** Disable Slect Kelurahan **/
 
   constructor(private service: TableDataPertamanan,
               private getKecamatanService: TableDataKecamatan,
-              private location: Location) {
+              private location: Location,
+              private toastrService: NbToastrService,
+              private dialogService: NbDialogService) {
+
     this.source = new LocalDataSource();
     const data = this.service.getData().then((datas) => {
-      console.log("datapertamanan", datas);
+      // console.log("datapertamanan", datas);
       this.source.load(datas);
+      this.totalData = datas.length;
     });
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
@@ -108,6 +138,7 @@ export class KelolaDataPertamananComponent implements OnInit {
       this.years.push(2010 + i);
     }
   }
+
   changeKecamatan(kecamatan) {
     console.log("kecamatan --", kecamatan);
     this.disableKelurahan = false;
@@ -121,18 +152,55 @@ export class KelolaDataPertamananComponent implements OnInit {
     console.log("kelurahan ini", kelurahan)
   }
 
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
-  }
   ngOnInit() {
     this.disableKelurahan = true;
   }
+
   goBack() {
     this.location.back();
+  }
+
+  onDeleteConfirm(event, ref): void {
+    // console.log("event delete:", ref);
+    this.service.deleteData(this.idData.data.id);
+    this.showToast(this.statustoast, this.idData.data.id);
+    ref.close(this.idData.data.id);
+    this.idData.confirm.resolve();
+
+    this.loading = true;
+    setTimeout(() => this.loading = false, 3000);
+
+    this.totalData = this.service.getData().then((datas) => {
+      this.source.load(datas);
+      this.totalData = datas.length;
+    });
+  }
+
+  private showToast(type: NbComponentStatus, data) {
+    const config = {
+      status: type,
+      destroyByClick: true,
+      duration: 3000,
+      hasIcon: true,
+      position: NbGlobalPhysicalPosition.TOP_RIGHT,
+      preventDuplicates: false,
+    };
+
+    this.toastrService.show(
+        "Berhasil menghapus data",
+        `Data perumahan ${data}`,
+        config);
+  }
+
+  dialogHapusData(event, dialog: TemplateRef<any>) {
+    console.log('dialog', event);
+    this.idData = event;
+    this.dialogService.open(
+        dialog,
+        {
+          context: `Apakah Anda Akan Menghapus Data ID ${this.idData.data.id} Nama Taman ${this.idData.data.nama_taman} ?`,
+          closeOnBackdropClick: false,
+        });
   }
 
 

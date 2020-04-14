@@ -1,10 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, TemplateRef} from '@angular/core';
 import {LocalDataSource} from 'ng2-smart-table';
 import {Location} from '@angular/common';
 import {TableDataPermukiman} from '../../../../@core/data/permukiman';
 import {TableDataKecamatan} from "../../../../@core/data/kecamatan";
 
 import {RouterlinkKawasanPermukimanComponent} from "../routerlink-kawasan-permukiman/routerlink-kawasan-permukiman.component";
+import {
+  NbComponentStatus,
+  NbDialogService,
+  NbGlobalPhysicalPosition,
+  NbToastrService,
+} from "@nebular/theme";
 
 @Component({
   selector: 'ngx-kelola-data-permukiman',
@@ -13,23 +19,37 @@ import {RouterlinkKawasanPermukimanComponent} from "../routerlink-kawasan-permuk
 })
 export class KelolaDataPermukimanComponent implements OnInit {
 
+  /**
+   * Variabel Disiini ..................................
+   */
+
+  totalData: Promise<any>;
+  idData: any;
+  statustoast: NbComponentStatus = 'primary';
+  loading = false;
+
+  /**
+   * Variabel disini ......................................
+   */
+
   source: LocalDataSource;
   settings = {
-    actions: false,
-    add: {
-      addButtonContent: '<i class="nb-plus"></i>',
-      createButtonContent: '<i class="nb-checkmark"></i>',
-      cancelButtonContent: '<i class="nb-close"></i>',
-    },
     edit: {
-      editButtonContent: '<i class="nb-edit"></i>',
+      editButtonContent: '<i class="btn btn-outline-warning btn-lg fa fa-edit"></i>',
       saveButtonContent: '<i class="nb-checkmark"></i>',
       cancelButtonContent: '<i class="nb-close"></i>',
     },
     delete: {
-      deleteButtonContent: '<i class="nb-trash"></i>',
+      deleteButtonContent: '<i class="btn btn-outline-danger btn-lg fa fa-trash"></i>',
       confirmDelete: true,
     },
+    actions: {
+      position: 'right',
+      columnTitle: 'Navigasi',
+      add: false,
+      filter: false,
+    },
+
     columns: {
       id: {
         title: 'No.',
@@ -75,17 +95,7 @@ export class KelolaDataPermukimanComponent implements OnInit {
         type: 'string',
         filter: false,
       },
-      navigasi:
-        {
-          title: 'Navigasi',
-          type: 'html',
-          valuePrepareFunction: (cell, row) => {
-            return `<a title="Edit" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-warning btn-lg"> <i class="fa fa-edit"></i></a>
-                    <a title="Hapus" href="./../../pages/psu-kawasan-perumahan/input-data-perumahan/${row.id}" class="btn btn-outline-danger btn-lg"> <i class="fa fa-trash"></i></a>`
-          },
-          filter: false,
-        },
-      },
+    },
   };
   statusSelect = ['Sudah Operasional', 'Belum Operasional'];
   kecamatan: string[];
@@ -99,23 +109,18 @@ export class KelolaDataPermukimanComponent implements OnInit {
     private service: TableDataPermukiman,
     private getKecamatanService: TableDataKecamatan,
     private location: Location,
+    private toastrService: NbToastrService,
+    private dialogService: NbDialogService,
   ) {
     // const data = this.service.getData();
     this.source = new LocalDataSource();
     const data = this.service.getData().then((datas) => {
       console.log("datapermukiman", datas);
       this.source.load(datas);
+      this.totalData = datas.length;
     });
     this.kecamatan = this.getKecamatanService.getData();
     this.disableKelurahan = true;
-  }
-
-  onDeleteConfirm(event): void {
-    if (window.confirm('Are you sure you want to delete?')) {
-      event.confirm.resolve();
-    } else {
-      event.confirm.reject();
-    }
   }
 
   changeKecamatan(kecamatan) {
@@ -138,5 +143,48 @@ export class KelolaDataPermukimanComponent implements OnInit {
   goBack() {
     this.location.back();
   }
+
+  onDeleteConfirm(event, ref): void {
+    // console.log("event delete:", ref);
+    this.service.deleteData(this.idData.data.id);
+    this.showToast(this.statustoast, this.idData.data.id);
+    ref.close(this.idData.data.id);
+    this.idData.confirm.resolve();
+
+    this.loading = true;
+    setTimeout(() => this.loading = false, 3000);
+
+    this.totalData = this.service.getData().then((datas) => {
+      this.source.load(datas);
+      this.totalData = datas.length;
+    });
+  }
+
+  private showToast(type: NbComponentStatus, data) {
+    const config = {
+      status: type,
+      destroyByClick: true,
+      duration: 3000,
+      hasIcon: true,
+      position: NbGlobalPhysicalPosition.TOP_RIGHT,
+      preventDuplicates: false,
+    };
+    this.toastrService.show(
+        "Berhasil menghapus data",
+        `Data perumahan ${data}`,
+        config);
+  }
+
+  dialogHapusData(event, dialog: TemplateRef<any>) {
+    console.log('dialog', event);
+    this.idData = event;
+    this.dialogService.open(
+        dialog,
+        {
+          context: `Apakah Anda Akan Menghapus Data ID ${this.idData.data.id} Nama Permukiman ${this.idData.data.nama_tpu} ?` ,
+          closeOnBackdropClick: false,
+        });
+  }
+
 
 }

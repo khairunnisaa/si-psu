@@ -5,6 +5,7 @@ import {
   NbIconModule, NbDialogModule,
   NbInputModule, NbRadioModule, NbSelectModule,
   NbTreeGridModule, NbUserModule, NbWindowModule, NbTabsetModule,
+  NbSpinnerModule,
 } from '@nebular/theme';
 import { Ng2SmartTableModule} from 'ng2-smart-table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -69,6 +70,7 @@ import {WebcamModule} from 'ngx-webcam';
     NbTabsetModule,
     AgmCoreModule,
     MapsModule,
+    NbSpinnerModule,
     WebcamModule,
   ],
   entryComponents: [
