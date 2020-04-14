@@ -58,6 +58,9 @@
 .select-status {
   width: 10rem;
 }
+.btn-ya-hapus {
+ border: none;
+}
 
 .btn-cancel-hapus {
   float: right;
@@ -75,6 +78,7 @@
 :host /deep/ ng2-smart-table tbody > tr > td {
   background-color: #b1b1b1;
   border: black 1px solid;
+  font-size: 12px;
 }
 
 :host /deep/ ng2-smart-table tbody > tr:hover > td {
@@ -87,3 +91,14 @@
   background-color: #cacaca;
 }
 
+@import '../../../../@theme/styles/themes';
+
+@include nb-install-component() {
+  button {
+    margin: 1rem;
+  }
+
+  ::ng-deep nb-spinner {
+    z-index: 999;
+  }
+}

@@ -1,5 +1,9 @@
 .detail-rata-kanan {
   float: right;
+  color: red;
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
 }
 @import '~bootstrap/scss/mixins/breakpoints';
 @import '~@nebular/theme/styles/global/breakpoints';

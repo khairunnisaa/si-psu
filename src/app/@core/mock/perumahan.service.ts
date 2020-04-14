@@ -7,8 +7,8 @@ import {HttpClient} from '@angular/common/http';
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
-const baseUrl = 'https://si-psu-api.herokuapp.com/perumahans';
-// const baseUrl = 'http://localhost:7777/perumahans';
+// const baseUrl = 'https://si-psu-api.herokuapp.com/perumahans';
+const baseUrl = 'http://localhost:7777/perumahans';
 
 @Injectable({
   providedIn: 'root',

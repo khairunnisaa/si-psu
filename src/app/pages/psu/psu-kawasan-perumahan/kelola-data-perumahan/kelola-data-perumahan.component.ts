@@ -19,7 +19,7 @@ import {Ng2SmartTableComponent} from "ng2-smart-table/ng2-smart-table.component"
   templateUrl: './kelola-data-perumahan.html',
   styleUrls: ['./kelola-data-perumahan.component.scss'],
 })
-export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
+export class KelolaDataPerumahanComponent implements OnInit {
   data_rumah_json = '';
   statustoast: NbComponentStatus = 'primary';
   years: any[];
@@ -38,7 +38,6 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
       deleteButtonContent: '<i class="btn btn-outline-danger btn-lg fa fa-trash"></i>',
       confirmDelete: true,
     },
-    mode: 'external',
     actions: {
       position: 'right',
       columnTitle: 'Navigasi',
@@ -49,8 +48,9 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
     columns: {
       no: {
         title: 'No.',
-        type: 'number',
+        type: 'html',
         filter: false,
+        width: 10,
         valuePrepareFunction(value, row, cell) {
           return cell.row.index + 1;
           },
@@ -103,6 +103,9 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
       },
     },
   };
+
+  loadingLargeGroup = false;
+  loading = false;
   statusSelect = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
   kecamatan: string[];
   /**  Variabel Array Select Data Kecamatan **/
@@ -112,14 +115,14 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
   /** Disable Slect Kelurahan **/
 
   status = ['Sudah Serah Terima', 'Belum Serah Terima', 'Terlantar'];
-  @ViewChild('streaming', {static: false}) streamingcanvas: ElementRef;
+
   constructor(private service: TableDataPerumahan,
               private getKecamatanService: TableDataKecamatan,
               private location: Location,
               private toastrService: NbToastrService,
               private dialogService: NbDialogService) {
-    this.source = new LocalDataSource();
-    this.totalData = this.service.getData().then((datas) => {
+      this.source = new LocalDataSource();
+      this.totalData = this.service.getData().then((datas) => {
       this.source.load(datas);
       this.totalData = datas.length;
     });
@@ -133,15 +136,6 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngAfterViewInit(): void {
-    console.log('Values on ngAfterViewInit():');
-    this.smartTable.edit.subscribe( (dataObject: any) => {
-      console.log('Edit dong');
-      console.log(dataObject);
-    });
-    this.smartTable.delete.subscribe( (dataObject: any) => {
-    });
-  }
   changeKecamatan(kecamatan) {
     this.source.setFilter([
       // fields we want to include in the search
@@ -178,8 +172,6 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.disableKelurahan = true;
-    // let player = new JSMpeg.Player('ws://localhost:9999',
-    //     { canvas: this.streamingcanvas.nativeElement, autoplay: true, audio: false, loop: true })
   }
 
   statusChange(status) {
@@ -197,18 +189,26 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
   }
 
   onDeleteConfirm(event, ref): void {
-    console.log("event delete:", ref);
+    // console.log("event delete:", ref);
       this.service.deleteData(this.idData.data.id);
-      this.idData.confirm.resolve();
-      ref.close(this.idData.data.id);
       this.showToast(this.statustoast, this.idData.data.id);
+      ref.close(this.idData.data.id);
+      this.idData.confirm.resolve();
+
+      this.loading = true;
+      setTimeout(() => this.loading = false, 3000);
+
+      this.totalData = this.service.getData().then((datas) => {
+      this.source.load(datas);
+      this.totalData = datas.length;
+    });
   }
 
   private showToast(type: NbComponentStatus, data) {
     const config = {
       status: type,
       destroyByClick: true,
-      duration: 2000,
+      duration: 3000,
       hasIcon: true,
       position: NbGlobalPhysicalPosition.TOP_RIGHT,
       preventDuplicates: false,
@@ -225,8 +225,12 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
     this.dialogService.open(
         dialog,
         {
-          context: `Apakah Anda Akan Menghapus Data ID Ini ${this.idData.data.id} ?` ,
+          context: `Apakah Anda Akan Menghapus Data ID ${this.idData.data.id} Nama Perumahan ${this.idData.data.nama_perumahan} ?` ,
           closeOnBackdropClick: false,
         });
   }
+
+
+
+
 }
