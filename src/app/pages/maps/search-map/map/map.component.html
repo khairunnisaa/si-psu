@@ -1,9 +1,10 @@
 <agm-map [latitude]="latitude"
          [longitude]="longitude"
          [scrollwheel]="true"
-         [zoom]="zoom">
-<!--  <agm-marker *ngFor="let marker of coordinate" [latitude]="marker.lat"-->
-<!--              [longitude]="marker.lng"></agm-marker>-->
+         [zoom]="zoom"
+         [styles]= "styles">
+  <agm-marker *ngFor="let marker of paths" [latitude]="marker.lat"
+              [longitude]="marker.lng"></agm-marker>
   <div>
     <agm-polygon  [fillOpacity]="0.5" [paths]="paths"
                   [strokeOpacity]="0.6" [strokeWeight]="2"

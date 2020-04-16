@@ -38,7 +38,7 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
       deleteButtonContent: '<i class="btn btn-outline-danger btn-lg fa fa-trash"></i>',
       confirmDelete: true,
     },
-    mode: 'external',
+    // mode: 'external',
     actions: {
       position: 'right',
       columnTitle: 'Navigasi',
@@ -120,6 +120,7 @@ export class KelolaDataPerumahanComponent implements OnInit, AfterViewInit {
               private dialogService: NbDialogService) {
     this.source = new LocalDataSource();
     this.totalData = this.service.getData().then((datas) => {
+      console.log("data rumah", datas);
       this.source.load(datas);
       this.totalData = datas.length;
     });
