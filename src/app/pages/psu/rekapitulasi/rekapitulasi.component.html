@@ -5,30 +5,44 @@
         <nb-tab tabTitle="Bagan">
           <div class="row">
             <div class="col-6">
+
+
             <nb-card>
               <nb-card-header>PSU Perumahan</nb-card-header>
               <nb-card-body>
                 <ngx-psu-bar-perumahan></ngx-psu-bar-perumahan>
               </nb-card-body>
             </nb-card>
+
+
           </div>
             <div class="col-6">
+
+
               <nb-card>
                 <nb-card-header>PSU Kawasan Permukiman</nb-card-header>
                 <nb-card-body>
                   <ngx-psu-bar-permukiman></ngx-psu-bar-permukiman>
                 </nb-card-body>
               </nb-card>
+
+
             </div>
             <div class="col-6">
+
+
               <nb-card>
                 <nb-card-header>PSU Pertamanan</nb-card-header>
                 <nb-card-body>
                   <ngx-psu-bar-pertamanan></ngx-psu-bar-pertamanan>
                 </nb-card-body>
               </nb-card>
+
+
             </div>
             <div class="col-6">
+
+
               <nb-card>
                 <nb-card-header>Kegiatan Fisik</nb-card-header>
                 <nb-card-body>
@@ -50,9 +64,13 @@
                   </ngx-charts-bar-vertical>
                 </nb-card-body>
               </nb-card>
+
+
             </div>
           </div>
         </nb-tab>
+
+
         <nb-tab tabTitle="Peta">
           <ngx-search (positionChanged)="updateLocation($event)"></ngx-search>
           <ngx-map [searchedLocation]="searchedLocation"></ngx-map>
@@ -61,6 +79,8 @@
           <ng2-smart-table [settings]="settings" [source]="source">
           </ng2-smart-table>
         </nb-tab>
+
+
       </nb-tabset>
     </nb-card-body>
   </nb-card>
