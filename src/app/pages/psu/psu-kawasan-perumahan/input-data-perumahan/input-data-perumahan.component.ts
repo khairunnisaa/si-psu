@@ -109,23 +109,16 @@ export class InputDataPerumahanComponent implements OnInit {
 
   inputDataPerumahans() {
     console.log("form value perumahan", this.formPerumahan.value);
-    // if (this.formPerumahan.invalid) {
-    //   return;
-    // } else {
-
     this.service.postData(this.formPerumahan.value.formDataPerumahan).then(res => {
       if (res.status === 'OK') {
         this.submitted = true;
       }
-      // });
     });
     const formData = new FormData();
-    console.log(this.images);
-    if (this.images.length > 0) {
     for (const img of this.images) {
       formData.append('files', img);
     }
-  }
+    console.log("form data", formData);
     this.service.postImage(formData)
   }
   ngOnInit() {
@@ -351,6 +344,7 @@ export class InputDataPerumahanComponent implements OnInit {
     // this.urls = [];
     if (event.target.files.length > 0) {
       this.images = event.target.files;
+      console.log("images", this.images);
       for (const file of this.images) {
             const reader = new FileReader();
             reader.onload = (e: any) => {

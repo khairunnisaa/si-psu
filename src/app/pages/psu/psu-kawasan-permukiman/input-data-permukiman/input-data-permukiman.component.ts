@@ -14,6 +14,7 @@ export class InputDataPermukimanComponent implements OnInit {
   public dataFotoTPUForm: FormGroup;
   public dataInventarisForm: FormGroup;
   public dataCCTVForm: FormGroup;
+  public dataKoordinatForm: FormGroup;
   formPermukiman: FormGroup;
   statusSudahOperasional: boolean;
   statusBelumOperasional: boolean;
@@ -101,6 +102,11 @@ export class InputDataPermukimanComponent implements OnInit {
     dataCCTV.push(this.createDataCCTVFormGroup())
   }
 
+  public addDataKoordinat() {
+    const dataKoordinat = this.formPermukiman.controls.formDataPermukiman.get('koordinats') as FormArray;
+    dataKoordinat.push(this.createDataKoordinatFormGroup())
+  }
+
   public removeDataPengelolah(j: number) {
     const dataPengelola = this.formPermukiman.controls.formDataPermukiman.get('pengelolas') as FormArray;
     if (dataPengelola.length > 1) {
@@ -134,6 +140,15 @@ export class InputDataPermukimanComponent implements OnInit {
       dataCCTV.removeAt(p)
     } else {
       dataCCTV.reset()
+    }
+  }
+
+  public removeDataKoordinat(m: number) {
+    const dataKoordinat = this.formPermukiman.controls.formDataPermukiman.get('koordinats') as FormArray;
+    if (dataKoordinat.length > 1) {
+      dataKoordinat.removeAt(m)
+    } else {
+      dataKoordinat.reset()
     }
   }
 

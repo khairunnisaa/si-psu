@@ -83,7 +83,7 @@ export class RekapitulasiComponent implements OnInit {
     const data = this.service.getData();
     this.source = new LocalDataSource(data);
     Object.assign(this, this.single)
-    console.log("datasourcee", this.source);
+    console.log("datasourcee", data);
   }
 
   onSelect(event) {
