@@ -29,7 +29,7 @@
     "heroku-postbuild": "ng build --prod"
   },
   "engines": {
-    "node": "10.09.0",
+    "node": "10.9.0",
     "npm": "3.10.10"
   },
   "dependencies": {
