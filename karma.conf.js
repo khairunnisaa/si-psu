@@ -19,7 +19,6 @@ module.exports = function (config) {
       dir: require('path').join(__dirname, 'coverage'), reports: [ 'html', 'lcovonly' ],
       fixWebpackSourcePaths: true
     },
-    resolve: { extensions: ['.ts', '.tsx', '.js', '.json'], plugins: [new TsConfigPathsPlugin()] },
     angularCli: {
       environment: 'dev'
     },
