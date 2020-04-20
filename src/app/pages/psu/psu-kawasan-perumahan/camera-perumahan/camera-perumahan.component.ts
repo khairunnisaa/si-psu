@@ -1,26 +1,12 @@
-// import {Component, Input, OnInit} from '@angular/core';
-// import { ViewCell } from 'ng2-smart-table';
-//
-// @Component({
-//   selector: 'ngx-detail-perumahan',
-//   templateUrl: './camera-perumahan.component.html',
-//   styleUrls: ['./camera-perumahan.component.scss'],
-// })
-// export class CameraPerumahanComponent implements OnInit, ViewCell {
-//   renderValue: string;
-//   @Input() value: string | number;
-//   @Input() rowData: any;
-//   url: string;
-//
-//   constructor() {
-//   }
-//
-//   ngOnInit() {
-//
-//   }
-// }
-
-import {Component, OnInit, Output, EventEmitter, OnDestroy} from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Output,
+  EventEmitter,
+  OnDestroy,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {Observable} from 'rxjs/Observable';
 import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
@@ -28,6 +14,7 @@ import {NbMediaBreakpointsService, NbThemeService} from "@nebular/theme";
 import { NbComponentSize } from '@nebular/theme';
 import {Camera, SecurityCamerasData} from "../../../../@core/data/security-cameras";
 import {map, takeUntil} from "rxjs/operators";
+import JSMpeg from '@cycjimmy/jsmpeg-player';
 
 @Component({
   selector: 'ngx-app-camera-perumahan',
@@ -42,7 +29,7 @@ export class CameraPerumahanComponent implements OnInit, OnDestroy {
   selectedCamera: Camera;
   isSingleView = false;
   actionSize: NbComponentSize = 'medium';
-
+  @ViewChild('streaming', {static: false}) streamingcanvas: ElementRef;
   constructor(
       private themeService: NbThemeService,
       private breakpointService: NbMediaBreakpointsService,
@@ -79,6 +66,10 @@ export class CameraPerumahanComponent implements OnInit, OnDestroy {
   private nextWebcam: Subject<boolean|string> = new Subject<boolean|string>();
 
   public ngOnInit(): void {
+    const streamingcanvas = document.getElementById("canvas");
+    let player = new JSMpeg.Player('ws://localhost:9999', {
+      canvas: streamingcanvas, autoplay: true, audio: false, loop: true,
+    })
     WebcamUtil.getAvailableVideoInputs()
     .then((mediaDevices: MediaDeviceInfo[]) => {
       this.multipleWebcamsAvailable = mediaDevices && mediaDevices.length > 1;
