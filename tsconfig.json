@@ -1,5 +1,10 @@
 {
   "compileOnSave": true,
+  "resolve": {
+    "plugins": [
+      "new DirectoryNamedWebpackPlugin()"
+    ]
+  },
   "compilerOptions": {
     "importHelpers": true,
     "module": "esnext",
