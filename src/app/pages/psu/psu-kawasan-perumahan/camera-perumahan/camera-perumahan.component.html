@@ -17,10 +17,14 @@
 <div class="row">
   <div class="col-6">
     <div class="container">
-    <webcam [height]="500" [width]="500" [trigger]="triggerObservable"
-            (imageCapture)="handleImage($event)" *ngIf="showWebcam"
-            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
-            (initError)="handleInitError($event)"></webcam>
+      <canvas #streaming id="canvas"  width="1920" height="1080" style="display: block;
+      width: 100%;"></canvas>
+
+
+<!--    <webcam [height]="500" [width]="500" [trigger]="triggerObservable"-->
+<!--            (imageCapture)="handleImage($event)" *ngIf="showWebcam"-->
+<!--            [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"-->
+<!--            (initError)="handleInitError($event)"></webcam>-->
     <div class="content">
       <h5>Camera 1
         <button

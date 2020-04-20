@@ -79,6 +79,7 @@
     "ionicons": "2.0.1",
     "jasmine-core": "2.6.4",
     "jasmine-spec-reporter": "4.1.1",
+    "jquery": "^3.5.0",
     "jsmpeg-player": "^3.0.3",
     "karma": "1.7.1",
     "karma-chrome-launcher": "2.1.1",
