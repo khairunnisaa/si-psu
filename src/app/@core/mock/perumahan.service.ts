@@ -8,7 +8,7 @@ import {HttpClient} from '@angular/common/http';
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
 // const baseUrl = 'https://si-psu-api.herokuapp.com/perumahans';
-const baseUrl = 'http://localhost:7777';
+const baseUrl = 'http://localhost:7777/perumahans';
 
 @Injectable({
   providedIn: 'root',
@@ -21,13 +21,13 @@ export class PerumahanService extends TableDataPerumahan {
 
   // emulating request to the server
   async getData() {
-    const data = await this.http.get(baseUrl + "/perumahans").toPromise();
+    const data = await this.http.get(baseUrl).toPromise();
     // console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
   }
 
   async deleteData(id) {
-    const data = await this.http.delete(baseUrl + "/perumahans/" + id).toPromise();
+    const data = await this.http.delete(baseUrl + "/" + id).toPromise();
     // console.log("Data: " + JSON.stringify(data['data']));
     return data['data'];
   }
@@ -56,11 +56,11 @@ export class PerumahanService extends TableDataPerumahan {
       koordinats: perumahan.koordinats,
     };
     console.log("perumahan data to post ", perumahanData);
-    return await this.http.post(baseUrl + "/perumahans", perumahanData).toPromise();
+    return await this.http.post(baseUrl, perumahanData).toPromise();
   }
 
   async postImage(formData) {
-    await this.http.post(baseUrl + '/fotos/mutipleFiles', formData).toPromise().then(res => {
+    await this.http.post('https://si-psu-api.herokuapp.com/fotos/mutipleFiles', formData).toPromise().then(res => {
       console.log("respon image", res);
     });
   }

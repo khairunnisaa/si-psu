@@ -1,0 +1,11 @@
+<nb-card [size]="breakpoint.width >= breakpoints.md ? 'medium' : 'giant'">
+  <nb-card-header>Peta Perumahan Kab.Bogor</nb-card-header>
+  <nb-card-body>
+    <ngx-peta-kab-bogor-perumahan (select)="selectCountryById($event)" countryId="IDN">
+    </ngx-peta-kab-bogor-perumahan>
+    <ngx-grafik-peta-perumahan [countryName]="countryName"
+                               [data]="countryData"
+                               [labels]="countriesCategories" maxValue="20">
+    </ngx-grafik-peta-perumahan>
+  </nb-card-body>
+</nb-card>

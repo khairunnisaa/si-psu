@@ -38,6 +38,11 @@ import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from '../../maps/maps.module';
 import {WebcamModule} from 'ngx-webcam';
 import {CameraPerumahanComponent} from './camera-perumahan/camera-perumahan.component';
+import {PetaPerumahanComponent} from "./rekapitulasi-perumahan/peta-perumahan/peta-perumahan.component";
+import {GrafikPetaPerumahanComponent} from "./rekapitulasi-perumahan/grafik-peta-perumahan/grafik-peta-perumahan.component";
+import {PetaKabBogorPerumahanComponent} from "./rekapitulasi-perumahan/peta-kab-bogor-perumahan/peta-kab-bogor-perumahan.component";
+import {PetaKabBogorService} from "./rekapitulasi-perumahan/peta-kab-bogor-perumahan/peta-kab-bogor.service";
+import {LeafletModule} from "@asymmetrik/ngx-leaflet";
 
 @NgModule({
   declarations: [
@@ -51,6 +56,9 @@ import {CameraPerumahanComponent} from './camera-perumahan/camera-perumahan.comp
     MonitoringPerumahanComponent,
     PopupDataPerumahanComponent,
     CameraPerumahanComponent,
+    PetaPerumahanComponent,
+    GrafikPetaPerumahanComponent,
+    PetaKabBogorPerumahanComponent,
     ],
   imports: [
     PsuKawasanPerumahanRoutingModule,
@@ -81,10 +89,14 @@ import {CameraPerumahanComponent} from './camera-perumahan/camera-perumahan.comp
     WebcamModule,
     NbSpinnerModule,
     NbAlertModule,
+    LeafletModule,
   ],
   entryComponents: [
     RouterLinkPerumahanComponent,
     PopupDataPerumahanComponent,
+  ],
+  providers: [
+    PetaKabBogorService,
   ],
 })
 export class PsuKawasanPerumahanModule { }

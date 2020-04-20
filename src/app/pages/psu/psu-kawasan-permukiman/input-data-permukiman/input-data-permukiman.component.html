@@ -62,35 +62,6 @@
               </div>
             </div>
 
-<!--            <div class="form-group row">-->
-<!--              <label class="label col-sm-3 col-form-label">Lokasi</label>-->
-<!--              <div class="col-sm-9">-->
-<!--                <nb-select placeholder="Kecamatan" name="kecamatan"-->
-<!--                           (selectedChange)="changeKecamatan($event)" formControlName="kecamatan"-->
-<!--                           class="select-kecamatan">-->
-<!--                  <nb-option *ngFor="let dataKecamatan of kecamatan"-->
-<!--                             value="{{dataKecamatan['kecamatan']}}">{{dataKecamatan['kecamatan']}}-->
-<!--                  </nb-option>-->
-<!--                </nb-select>-->
-
-
-<!--                <nb-select placeholder="Kelurahan" name="kelurahan"-->
-<!--                           (change)="changeKelurahan($event)" [disabled]="disableKelurahan"-->
-<!--                           formControlName="kelurahan" class="select-kecamata">-->
-<!--                  <nb-option *ngFor="let dataKelurahan of kelurahan"-->
-<!--                             value="{{dataKelurahan.namaKelurahan}}">{{dataKelurahan.namaKelurahan}}</nb-option>-->
-<!--                </nb-select>&nbsp;&nbsp;-->
-
-<!--                <input type="text" nbInput placeholder="RT" name="rt"-->
-<!--                       formControlName="RT" formControlName="RT" class="select-rt-rw">-->
-<!--                &nbsp;&nbsp;-->
-
-<!--                <input type="text" nbInput placeholder="RW" name="rw"-->
-<!--                       formControlName="RW" formControlName="RW" class="select-rt-rw">-->
-
-<!--              </div>-->
-<!--            </div>-->
-
             <div class="form-group row">
               <label class="label col-sm-3 col-form-label">Lokasi</label>
               <div class="col-sm-9">
@@ -226,13 +197,13 @@
                 <div class="form-group row">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
-                            (click)="addDataPengelola()" (click)="disableTombolTambah($event)">
+                            (click)="addDataPengelola()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataPengelolah(j)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
@@ -281,13 +252,13 @@
                 <div class="form-group row">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
                             (click)="addFotos()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataFotoTPU(k)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
@@ -369,13 +340,13 @@
                 <div class="form-group row">
                   <label for="" class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
-                            (click)="addDataInventaris()" (click)="disableTombolTambah($event)">
+                            (click)="addDataInventaris()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataInventaris(m)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data
@@ -485,37 +456,52 @@
               </div>
             </div>
 
-            <div class="form-group row" formArrayName="koordinats">
+
+            <div class="form-group row">
               <label class="label col-sm-3 col-form-label">Koordinat TPU</label>
-              <div class="col-sm-9" *ngFor="let dataKoordinat of
-              formPermukiman.controls.formDataPermukiman['controls']['koordinats'].controls;
-              let m = index" [formGroupName]="m">
-                <input type="text" nbInput placeholder="Longitude"
-                       id="longitudeTPU" name="longitude" formControlName="longitude"
-                       [ngClass]="{ 'is-invalid': submitted &&
+              <div class="col-sm-9" formArrayName="koordinats">
+                <div *ngFor="let dataKoordinat of
+                     formPermukiman.controls.formDataPermukiman['controls']['koordinats'].controls;
+                     let m = index" [formGroupName]="m">
+                  <input type="text" nbInput placeholder="Longitude"
+                         id="longitudeTPU" name="longitude" formControlName="longitude"
+                         [ngClass]="{ 'is-invalid': submitted &&
                        dataKoordinat['controls'].longitude.errors }" class="form-control">,
-                <div *ngIf="submitted && dataKoordinat['controls'].longitude.errors"
-                     class="invalid-feedback">
-                  <div
-                      *ngIf="dataKoordinat['controls'].longitude.errors.required">
-                    Masukan Koordinat Longitude
+                  <div *ngIf="submitted && dataKoordinat['controls'].longitude.errors"
+                       class="invalid-feedback">
+                    <div
+                        *ngIf="dataKoordinat['controls'].longitude.errors.required">
+                      Masukan Koordinat Longitude
+                    </div>
                   </div>
-                </div>
 
 
-                <input type="text" nbInput placeholder="Latitude"
-                       id="latitudeTPU" name="latitude" formControlName="latitude"
-                       [ngClass]="{ 'is-invalid': submitted &&
+                  <input type="text" nbInput placeholder="Latitude"
+                         id="latitudeTPU" name="latitude" formControlName="latitude"
+                         [ngClass]="{ 'is-invalid': submitted &&
                        dataKoordinat['controls'].longitude.errors }" class="form-control">
-                <div *ngIf="submitted && dataKoordinat['controls'].latitude.errors"
-                     class="invalid-feedback">
-                  <div
-                      *ngIf="dataKoordinat['controls'].latitude.errors.required">
-                    Masukan Koordinat Latitude
+
+                  <div *ngIf="submitted && dataKoordinat['controls'].latitude.errors"
+                       class="invalid-feedback">
+                    <div
+                        *ngIf="dataKoordinat['controls'].latitude.errors.required">
+                      Masukan Koordinat Latitude
+                    </div>
                   </div>
+
+                  <button type="button" nbButton status="success" nbButton size="tiny"
+                          class="btn-hapus"
+                          (click)="addDataKoordinat()">
+                    <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
+                  </button>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <button type="button" nbButton status="danger" nbButton size="tiny"
+                          class="btn-hapus" (click)="removeDataKoordinat(m)">
+                    <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
+                  </button>
                 </div>
               </div>
             </div>
+
 
             <div class="form-group row">
               <label class="label col-sm-12 col-form-label label-border">Data CCTV</label>
@@ -565,13 +551,13 @@
                 <div class="form-group row">
                   <label class="label col-sm-3 col-form-label"></label>
                   <div class="col-sm-9">
-                    <button type="submit" nbButton status="success" nbButton size="tiny"
+                    <button type="button" nbButton status="success" nbButton size="tiny"
                             class="btn-hapus"
-                            (click)="addDataCCTV()" (click)="disableTombolTambah($event)">
+                            (click)="addDataCCTV()">
                       <nb-icon icon="plus-circle-outline" pack="eva"></nb-icon>
                       Tambah Data
                     </button>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <button type="submit" nbButton status="danger" nbButton size="tiny"
+                    <button type="button" nbButton status="danger" nbButton size="tiny"
                             class="btn-hapus" (click)="removeDataCCTV(p)">
                       <nb-icon icon="close-circle-outline" pack="eva"></nb-icon>
                       Hapus Data

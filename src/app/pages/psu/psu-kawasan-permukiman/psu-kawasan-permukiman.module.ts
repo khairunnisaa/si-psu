@@ -4,7 +4,7 @@ import {
   NbCardModule,
   NbDialogModule,
   NbIconModule,
-  NbInputModule, NbTabsetModule,
+  NbInputModule, NbSpinnerModule, NbTabsetModule,
   NbTreeGridModule,
   NbWindowModule,
 } from '@nebular/theme';
@@ -80,7 +80,7 @@ import {CameraPermukimanComponent} from './camera-permukiman/camera-permukiman.c
     AgmCoreModule,
     MapsModule,
     WebcamModule,
-
+    NbSpinnerModule,
   ],
   entryComponents: [
     RouterlinkKawasanPermukimanComponent,
