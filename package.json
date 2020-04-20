@@ -13,8 +13,6 @@
     "ng": "ng",
     "conventional-changelog": "conventional-changelog",
     "start": "node server.js",
-    "build": "ng build",
-    "build:prod": "npm run build -- --prod --aot",
     "test": "ng test",
     "test:coverage": "rimraf coverage && npm run test -- --code-coverage",
     "lint": "ng lint",
@@ -26,7 +24,6 @@
     "docs": "compodoc -p src/tsconfig.app.json -d docs",
     "docs:serve": "compodoc -p src/tsconfig.app.json -d docs -s",
     "release:changelog": "npm run conventional-changelog -- -p angular -i CHANGELOG.md -s",
-    "heroku-postbuild": "ng build --prod"
   },
   "engines": {
     "node": "10.9.0",
