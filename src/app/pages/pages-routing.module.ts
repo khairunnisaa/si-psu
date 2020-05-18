@@ -5,9 +5,8 @@ import { PagesComponent } from './pages.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
 import { BerandaComponent} from './beranda/beranda.component';
 import { RekapitulasiComponent } from "./psu/rekapitulasi/rekapitulasi.component";
-import { LoginComponent } from "./login/login.component";
 
-
+const admin: boolean = true;
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
@@ -29,6 +28,7 @@ const routes: Routes = [{
       path : 'psu-kawasan-perumahan',
       loadChildren: () => import('./psu/psu-kawasan-perumahan/psu-kawasan-perumahan.module')
       .then(m => m.PsuKawasanPerumahanModule),
+
     },
     {
       path: 'psu-kawasan-permukiman',

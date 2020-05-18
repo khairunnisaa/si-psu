@@ -33,7 +33,6 @@ import {AgmCoreModule} from '@agm/core';
 import {MapsModule} from './maps/maps.module';
 import {RekapitulasiBarPertamananComponent} from './psu/rekapitulasi/rekapitulasi-bar-pertamanan.component';
 import {RekapitulasiBarPerumahanComponent} from './psu/rekapitulasi/rekapitulasi-bar-perumahan.component';
-import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -72,7 +71,6 @@ import { LoginComponent } from './login/login.component';
     RekapitulasiBarPermukimanComponent,
     RekapitulasiBarPertamananComponent,
     RekapitulasiBarPerumahanComponent,
-    LoginComponent,
   ],
   entryComponents: [
     DetailBerandaComponent,

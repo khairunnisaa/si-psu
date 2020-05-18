@@ -60,7 +60,7 @@ export class PerumahanService extends TableDataPerumahan {
   }
 
   async postImage(formData) {
-    await this.http.post('https://si-psu-api.herokuapp.com/fotos/mutipleFiles', formData).toPromise().then(res => {
+    await this.http.post(baseUrl + '/fotos/mutipleFiles', formData).toPromise().then(res => {
       console.log("respon image", res);
     });
   }

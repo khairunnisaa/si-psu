@@ -49,7 +49,7 @@
     "@compodoc/compodoc": "1.0.1",
     "@cycjimmy/jsmpeg-player": "^5.0.0",
     "@fortawesome/fontawesome-free": "^5.2.0",
-    "@nebular/auth": "4.4.0",
+    "@nebular/auth": "^4.4.0",
     "@nebular/eva-icons": "4.4.0",
     "@nebular/security": "4.4.0",
     "@nebular/theme": "4.4.0",

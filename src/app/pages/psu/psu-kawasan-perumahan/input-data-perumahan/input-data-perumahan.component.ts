@@ -3,6 +3,7 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
 import {TableDataKecamatan} from '../../../../@core/data/kecamatan';
 import {LocalDataSource} from 'ng2-smart-table';
 import {TableDataPerumahan} from '../../../../@core/data/perumahan';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'ngx-input-data-perumahan',
@@ -32,6 +33,7 @@ export class InputDataPerumahanComponent implements OnInit {
     private getKecamatanService: TableDataKecamatan,
     private fb: FormBuilder,
     private service: TableDataPerumahan,
+    private _location: Location,
     ) {
     const data = this.getKecamatanService.getData();
     this.source = new LocalDataSource(data);
@@ -49,11 +51,11 @@ export class InputDataPerumahanComponent implements OnInit {
         RT : ['', Validators.required],
         RW : ['', Validators.required],
         status : ['', Validators.required],
-        tgl_serah_terima : ['', Validators.required],
-        jumlah_psu: ['', Validators.required],
-        no_bast : ['', Validators.required],
-        sph : ['', Validators.required],
-        keterangan : ['', Validators.required],
+        tgl_serah_terima : [''],
+        jumlah_psu: [''],
+        no_bast : [''],
+        sph : [''],
+        keterangan : [''],
         fotos: this.fb.array([]),
         saranas: this.fb.array([this.createDataSaranaFormGroup()]),
         jalansalurans: this.fb.array([this.createDataJalanSaluranFormGroup()]),
@@ -114,12 +116,14 @@ export class InputDataPerumahanComponent implements OnInit {
         this.submitted = true;
       }
     });
-    const formData = new FormData();
-    for (const img of this.images) {
-      formData.append('files', img);
-    }
-    console.log("form data", formData);
-    this.service.postImage(formData)
+    this._location.back();
+    // const formData = new FormData();
+    // for (const img of this.images) {
+    //   formData.append('files', img);
+    // }
+    // console.log("form data", formData);
+    // this.service.postImage(formData)
+
   }
   ngOnInit() {
     this.statusSerahTerima = false;
@@ -275,45 +279,45 @@ export class InputDataPerumahanComponent implements OnInit {
 
   private createDataSaranaFormGroup(): FormGroup {
     return this.fb.group({
-      nama_sarana: ['', Validators.required],
-      luas_sarana: ['', Validators.required],
+      nama_sarana: [''],
+      luas_sarana: [''],
       foto_sarana: new FormControl(),
-      kondisi_sarana: ['', Validators.required],
+      kondisi_sarana: [''],
       koordinat: this.fb.array([this.createKoordinat()]),
     })
   }
   private createKoordinat(): FormGroup {
     return this.fb.group({
-      longitude: ['', Validators.required],
-      latitude: ['', Validators.required],
+      longitude: [''],
+      latitude: [''],
     })
   }
 
   private createDataJalanSaluranFormGroup(): FormGroup {
     return this.fb.group({
-      nama_jalan_saluran: ['', Validators.required],
-      luas_jalan_saluran: ['', Validators.required],
+      nama_jalan_saluran: [''],
+      luas_jalan_saluran: [''],
       foto_jalan_saluran: new FormControl(),
-      kondisi: ['', Validators.required],
+      kondisi: [''],
       koordinatjalansalurans: this.fb.array([this.createKoordinat()]),
     })
   }
 
   private createDataTamanFormGroup(): FormGroup {
     return this.fb.group({
-      nama_taman: ['', Validators.required],
-      luas_taman: ['', Validators.required],
+      nama_taman: [''],
+      luas_taman: [''],
       foto_taman: new FormControl(),
-      kondisi: ['', Validators.required],
+      kondisi: [''],
       koordinattamans: this.fb.array([this.createKoordinat()]),
     })
   }
 
   private createDataCCTVFormGroup(): FormGroup {
     return this.fb.group({
-      nama_cctv: ['', Validators.required],
-      ip_cctv: ['', Validators.required],
-      video: ['', Validators.required],
+      nama_cctv: [''],
+      ip_cctv: [''],
+      video: [''],
     })
   }
 

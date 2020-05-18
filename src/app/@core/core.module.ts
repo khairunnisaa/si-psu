@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy} from '@nebular/auth';
+import {NbAuthJWTToken, NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy} from '@nebular/auth';
 import { NbSecurityModule, NbRoleProvider } from '@nebular/security';
 import { of as observableOf } from 'rxjs';
 
@@ -67,23 +67,9 @@ import {TableDataKelurahan} from "./data/kelurahan";
 import {KelurahanService} from "./mock/kelurahan.service";
 import {TableDataUser} from "./data/data-user";
 import {DataUserService} from "./mock/data-user.service";
+import {TableAuth} from './data/auth';
 
 const socialLinks = [
-  {
-    url: 'https://github.com/akveo/nebular',
-    target: '_blank',
-    icon: 'github',
-  },
-  {
-    url: 'https://www.facebook.com/akveo/',
-    target: '_blank',
-    icon: 'facebook',
-  },
-  {
-    url: 'https://twitter.com/akveo_inc',
-    target: '_blank',
-    icon: 'twitter',
-  },
 ];
 
 const DATA_SERVICES = [
@@ -132,9 +118,23 @@ export const NB_CORE_PROVIDERS = [
       //   delay: 3000,
       // }),
       NbPasswordAuthStrategy.setup({
-        name: 'email',
+        name: 'nik',
+        token: {
+          class: NbAuthJWTToken,
+        },
+        baseEndpoint: 'http://localhost:7777/api/auth',
         login: {
           redirect: {
+            endpoint: '/signin',
+            method: 'post',
+            success: '/pages/',
+            failure: 'false', // stay on the same page
+          },
+        },
+        register: {
+          redirect: {
+            endpoint: '/signup',
+            method: 'post',
             success: '/pages/',
             failure: 'false', // stay on the same page
           },
