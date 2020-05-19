@@ -518,16 +518,7 @@
                   <label for="namaCCTV" class="label col-sm-3 col-form-label">Nama CCTV</label>
                   <div class="col-sm-9">
                     <input type="text" nbInput fullWidth placeholder="Nama CCTV"
-                           id="namaCCTV" name="namaCCTV" formControlName="nama_cctv"
-                           [ngClass]="{ 'is-invalid': submitted &&
-                           dataCCTV['controls'].nama_cctv.errors }" class="form-control">
-                    <div *ngIf="submitted && dataCCTV['controls'].nama_cctv.errors"
-                         class="invalid-feedback">
-                      <div
-                          *ngIf="dataCCTV['controls'].nama_cctv.errors.required">
-                        Masukan Nama CCTV
-                      </div>
-                    </div>
+                           id="namaCCTV" name="namaCCTV" formControlName="nama_cctv" class="form-control">
                   </div>
                 </div>
 
