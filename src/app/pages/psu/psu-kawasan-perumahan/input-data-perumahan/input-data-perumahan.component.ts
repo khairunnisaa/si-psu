@@ -112,11 +112,9 @@ export class InputDataPerumahanComponent implements OnInit {
   inputDataPerumahans() {
     console.log("form value perumahan", this.formPerumahan.value);
     this.service.postData(this.formPerumahan.value.formDataPerumahan).then(res => {
-      if (res.status === 'OK') {
-        this.submitted = true;
-      }
+      this._location.back();
     });
-    this._location.back();
+
     // const formData = new FormData();
     // for (const img of this.images) {
     //   formData.append('files', img);
